@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bifbr4i10wrbs"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Scenes/Combat/Menu/button_template.tscn" id="1_r8o4t"]
+[ext_resource type="Script" path="res://Scenes/Combat/Menu/magic_button.gd" id="2_nku1r"]
+
+[node name="MagicButton" instance=ExtResource("1_r8o4t")]
+script = ExtResource("2_nku1r")
+
+[node name="Label" parent="." index="1"]
+text = "Magic"

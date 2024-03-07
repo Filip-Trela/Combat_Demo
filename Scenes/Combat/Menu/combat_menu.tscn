@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://r8u1ygf0n8lf"]
+
+[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/whiteTile.png" id="1_ghai5"]
+[ext_resource type="PackedScene" uid="uid://oa87hgbsh3yx" path="res://Scenes/Combat/Menu/button_handler.tscn" id="2_6gfeu"]
+
+[node name="CombatMenu" type="CanvasLayer"]
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(1194, 383)
+rotation = 0.122173
+scale = Vector2(6.97907, 13.103)
+texture = ExtResource("1_ghai5")
+
+[node name="Background2" type="Sprite2D" parent="."]
+modulate = Color(0.286275, 0.286275, 0.286275, 1)
+position = Vector2(1211, 392)
+rotation = 0.122173
+scale = Vector2(6.97907, 13.103)
+texture = ExtResource("1_ghai5")
+
+[node name="ButtonHandler" parent="." instance=ExtResource("2_6gfeu")]
+position = Vector2(1116, 570)
