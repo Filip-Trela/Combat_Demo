@@ -1,24 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=4 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://cvvsxy1jir8j6" path="res://Scenes/Combat/Player/player.tscn" id="1_c3ntl"]
 [ext_resource type="PackedScene" uid="uid://r8u1ygf0n8lf" path="res://Scenes/Combat/Menu/combat_menu.tscn" id="2_wkfnp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmq3k"]
 
 [node name="Game" type="Node"]
 
 [node name="CombatWorld" type="Node3D" parent="."]
 
-[node name="World" type="CSGBox3D" parent="CombatWorld"]
+[node name="World" type="StaticBody3D" parent="CombatWorld"]
+
+[node name="World" type="CSGBox3D" parent="CombatWorld/World"]
 size = Vector3(50, 0.1, 50)
 
-[node name="Player" parent="CombatWorld" instance=ExtResource("1_c3ntl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53391, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CombatWorld/World"]
+transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("BoxShape3D_qmq3k")
 
-[node name="Camera3D" type="Camera3D" parent="CombatWorld"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.98731, -4.9971)
-current = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="CombatWorld"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.33284, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="CombatWorld/World"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.9263, 0)
 light_energy = 10.374
+spot_range = 50.0
+
+[node name="Player" parent="CombatWorld" instance=ExtResource("1_c3ntl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37817, 0)
 
 [node name="CombatMenu" parent="CombatWorld" instance=ExtResource("2_wkfnp")]

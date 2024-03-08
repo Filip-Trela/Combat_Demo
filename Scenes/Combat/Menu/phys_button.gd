@@ -17,7 +17,7 @@ func _process(delta):
 
 func activate(): 
 	get_parent().get_parent().slav_options = opt_nr
-	print("physical")
+
 	
 func selection(nr):
 	slav_butts.get_child(0).get_node("Label").text = options[nr -1 ]

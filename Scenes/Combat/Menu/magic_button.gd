@@ -18,7 +18,7 @@ func _process(delta):
 
 func activate(): 
 	get_parent().get_parent().slav_options = opt_nr
-	print("magical")
+
 	
 
 func selection(nr):

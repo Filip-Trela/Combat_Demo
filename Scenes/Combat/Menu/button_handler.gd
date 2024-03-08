@@ -23,39 +23,36 @@ var choose_s = 0
 
 
 
-
-
 func _ready():
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)
 	get_node("SlaveButtons").visible = false
 	
 	slav_nr = get_node("SlaveButtons").get_child_count() -1
-	
 
 
 func _process(delta):
 	pass
-
+	
 func _input(event):
 	#state machine
 	match state:
 		"master_butt": 
-			if Input.is_action_just_pressed("w"): 
+			if Input.is_action_just_pressed("i"): 
 				choose_m -=1
 				if choose_m < 0:
 					choose_m = mas_nr
 				mas_node = get_node("MasterButtons").get_child(choose_m)
 				choose_s = 0 #resets slave choose when changed type
 				
-			elif Input.is_action_just_pressed("s"):
+			elif Input.is_action_just_pressed("k"):
 				choose_m +=1
 				if choose_m > mas_nr:
 					choose_m = 0
 				mas_node = get_node("MasterButtons").get_child(choose_m)
 				choose_s = 0
 			
-			elif Input.is_action_just_pressed("space"):
+			elif Input.is_action_just_pressed("l"):
 				mas_node.activate()
 				get_node("MasterButtons").visible = false
 				get_node("SlaveButtons").visible = true
@@ -65,13 +62,13 @@ func _input(event):
 			
 			
 		"slave_butt": 
-			if Input.is_action_just_pressed("w"): 
+			if Input.is_action_just_pressed("i"): 
 				choose_s -=1
 				if choose_s < 0:
 					choose_s = slav_options
 				mas_node.selection(choose_s)
 				
-			elif Input.is_action_just_pressed("s"):
+			elif Input.is_action_just_pressed("k"):
 				choose_s +=1
 				if choose_s > slav_options:
 					choose_s = 0

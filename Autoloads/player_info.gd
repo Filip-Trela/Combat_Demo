@@ -2,7 +2,6 @@ extends Node
 
 
 var phys_skills = [
-	"move",
 	"dodge",
 	"punch",
 	"kick",
@@ -15,3 +14,5 @@ var mag_skills= [
 	"heal",
 	"explosion"
 ]
+
+var is_moving = false

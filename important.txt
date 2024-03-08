@@ -1,0 +1,2 @@
+PLACEHOLDER:
+	in player script is get tree quit
