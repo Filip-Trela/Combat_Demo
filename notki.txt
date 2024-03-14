@@ -1,16 +1,42 @@
 CLOSE TODOS:
-	######-zaczac od smooth movement camery, zwiazanej z move toward
+	REWORK CALEGO 3D, POSTAC W PELNI 2D, MA PRZYPOMINAC OCTO TRAVELER, MOZE TROCHE IZOMETRYCZNY
+
+	wybranie akcji powoduje pojawienie sie znacznika (area ktora uderzy), jesli jest potrzebna
+	znacznik w playerze
+	znacznik mozna obracac (a d) lub przemieszczac (wasd)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	GLOWNIE ANIMACJE
+	- placeholder wizualny dla buttonow
+	- animacje dla buttonow, wszystkich
+	- animacje przechodzenia z master do slave buttonow
+
+	- naprawienie in c menu
+
+	-wizualna czesc wskazujaca gdzie bedzie atak
+	-shadery do wizualne ataki, do menu
+	-animacje playera
 	
 
-	-kiedy postac sie rusza nie ma menu, jesli sie nie rusza to mozna kliknac q i
-	otworzyc menu akcji
-	-zapewne w combat world dac timer, przy ktorym na poczatku patrzy czy postac sie rusza
-	gdy jest ruch to timer liczy
-	-zrobic mozliwosc stworzenia fireballa, gdzie podczas animacji  czas plynie, a po zakonczeniu juz nie
-	-wizualnie dac zycie, do hudu
 	
-	
-	timer only advances during movement or action
+
+
+
 
 
 
@@ -19,14 +45,16 @@ CLOSE TODOS:
 
 
 LATER TODOS:
-	mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
+	-mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
+	-special niczym w theurgy z p3r, tylko dla specjalnych broni, w dodatku potrzeba odpowiednich statystyk
+	-bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly smooth do powrotu do granic
 
 
 
 
 
-
-IDEAS?:
+NOTKI:
+	modele musza patrzec w -y axis aby pozniej nimi nie obracac
 
 
 
@@ -34,7 +62,14 @@ IDEAS?:
 DONE:
 	CLOSE:
 		-ruch postaci wzgledem camery, czyli obracany mov vector
-		-print kiedy postac sie nie rusza, vector 000
+		-zapewne w combat world dac timer, przy ktorym na poczatku patrzy czy postac sie rusza
+	gdy jest ruch to timer liczy
+		-kiedy postac sie rusza nie ma menu, jesli sie nie rusza to mozna kliknac q i
+		otworzyc menu akcji
+		-animacje menu i camera'y
+		
+		
+		
 	LATER:
 
 

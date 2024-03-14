@@ -20,6 +20,13 @@ var slav_options =0
 var choose_s = 0
 
 
+var act_type:String
+var action:String
+
+
+
+
+
 
 
 
@@ -36,23 +43,28 @@ func _process(delta):
 	
 func _input(event):
 	#state machine
+	if PlayerInfo.combat_state == "in menu":
+		state_machine()
+		
+		
+func state_machine():
 	match state:
 		"master_butt": 
-			if Input.is_action_just_pressed("i"): 
+			if Input.is_action_just_pressed("w"): 
 				choose_m -=1
 				if choose_m < 0:
 					choose_m = mas_nr
 				mas_node = get_node("MasterButtons").get_child(choose_m)
 				choose_s = 0 #resets slave choose when changed type
 				
-			elif Input.is_action_just_pressed("k"):
+			elif Input.is_action_just_pressed("s"):
 				choose_m +=1
 				if choose_m > mas_nr:
 					choose_m = 0
 				mas_node = get_node("MasterButtons").get_child(choose_m)
 				choose_s = 0
 			
-			elif Input.is_action_just_pressed("l"):
+			elif Input.is_action_just_pressed("space"):
 				mas_node.activate()
 				get_node("MasterButtons").visible = false
 				get_node("SlaveButtons").visible = true
@@ -62,26 +74,35 @@ func _input(event):
 			
 			
 		"slave_butt": 
-			if Input.is_action_just_pressed("i"): 
+			if Input.is_action_just_pressed("w"): 
 				choose_s -=1
 				if choose_s < 0:
 					choose_s = slav_options
 				mas_node.selection(choose_s)
 				
-			elif Input.is_action_just_pressed("k"):
+			elif Input.is_action_just_pressed("s"):
 				choose_s +=1
 				if choose_s > slav_options:
 					choose_s = 0
 				mas_node.selection(choose_s)
 
-			elif Input.is_action_just_pressed("space"):
-				pass
 				
 			elif Input.is_action_just_pressed("q"):
 				get_node("MasterButtons").visible = true
 				get_node("SlaveButtons").visible = false
 				state = "master_butt"
 				
+			elif Input.is_action_just_pressed("space"):
+				act_type = get_node("MasterButtons").get_child(choose_m).name
+				action = get_node("SlaveButtons/Button2/Label").text
+				print(act_type)
 				
-		"in_player": pass
+				
+				state = "in_player"
+				
+				
+				
+		"in_player":
+			if Input.is_action_just_pressed("q"):
+				state ="slave_butt"
 		

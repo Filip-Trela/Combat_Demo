@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=6 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://cvvsxy1jir8j6" path="res://Scenes/Combat/Player/player.tscn" id="1_c3ntl"]
+[ext_resource type="Texture2D" uid="uid://cue6fp4t1pjpl" path="res://icon.svg" id="1_c5c5l"]
 [ext_resource type="PackedScene" uid="uid://r8u1ygf0n8lf" path="res://Scenes/Combat/Menu/combat_menu.tscn" id="2_wkfnp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qmq3k"]
+
+[sub_resource type="Environment" id="Environment_2arkm"]
+background_mode = 1
+background_color = Color(0.643137, 0.690196, 0.890196, 1)
 
 [node name="Game" type="Node"]
 
@@ -12,7 +17,7 @@
 [node name="World" type="StaticBody3D" parent="CombatWorld"]
 
 [node name="World" type="CSGBox3D" parent="CombatWorld/World"]
-size = Vector3(50, 0.1, 50)
+size = Vector3(50, 0.1, 20)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CombatWorld/World"]
 transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0)
@@ -23,7 +28,18 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.
 light_energy = 10.374
 spot_range = 50.0
 
+[node name="Sprite3D" type="Sprite3D" parent="CombatWorld/World"]
+transform = Transform3D(8.21, 0, 0, 0, 8.21, 0, 0, 0, 8.21, -11.6943, -3.98905, -10.0942)
+texture = ExtResource("1_c5c5l")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CombatWorld/World"]
+transform = Transform3D(10.905, 0, 0, 0, 10.905, 0, 0, 0, 10.905, 11.4693, -3.98905, -10.0942)
+texture = ExtResource("1_c5c5l")
+
 [node name="Player" parent="CombatWorld" instance=ExtResource("1_c3ntl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37817, 0)
 
 [node name="CombatMenu" parent="CombatWorld" instance=ExtResource("2_wkfnp")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2arkm")
