@@ -4,6 +4,7 @@ extends Node2D
 var options = PlayerInfo.phys_skills
 var opt_nr = len(options) - 1
 
+
 var slav_butts
 
 
@@ -20,6 +21,6 @@ func activate():
 
 	
 func selection(nr):
-	slav_butts.get_child(0).get_node("Label").text = options[nr -1 ]
-	slav_butts.get_child(1).get_node("Label").text = options[nr]
-	slav_butts.get_child(2).get_node("Label").text = options[nr - opt_nr]
+	slav_butts.get_child(0).get_node("Label").text = options[nr -1 ].name
+	slav_butts.get_child(1).get_node("Label").text = options[nr].name
+	slav_butts.get_child(2).get_node("Label").text = options[nr - opt_nr].name

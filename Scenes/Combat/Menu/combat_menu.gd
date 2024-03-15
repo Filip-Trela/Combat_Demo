@@ -29,11 +29,14 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("tab") and not PlayerInfo.is_moving:
 		if not anims.is_playing():
-			get_node("ButtonHandler").state = "master_butt"
+			#get_node("ButtonHandler").state = "master_butt"
 			
-			if PlayerInfo.combat_state == "in menu":
+			if PlayerInfo.combat_state == "in menu" and get_node("ButtonHandler").state =="master_butt":
 				#player.get_node("AnimationCamera").play("hideMenu")
+				get_node("ButtonHandler").choose_s = 0
+				get_node("ButtonHandler").choose_m = 0
 				anims.play("hideMenu")
+				
 			elif  PlayerInfo.combat_state == "moving":
 				#player.get_node("AnimationCamera").play("showMenu")
 				anims.play("showMenu")

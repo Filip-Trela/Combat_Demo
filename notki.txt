@@ -1,17 +1,15 @@
 CLOSE TODOS:
 	REWORK CALEGO 3D, POSTAC W PELNI 2D, MA PRZYPOMINAC OCTO TRAVELER, MOZE TROCHE IZOMETRYCZNY
-
-	wybranie akcji powoduje pojawienie sie znacznika (area ktora uderzy), jesli jest potrzebna
-	znacznik w playerze
-	znacznik mozna obracac (a d) lub przemieszczac (wasd)
-
-
-
-
-
-
-
-
+	
+	max distance dla move markerow
+	
+	
+	- dwa typy efektow, animation oraz particle, ze skryptem, timerem opozniajacym i area3d hitboxem
+	- efekty beda mialy swoj folder jako resource/asset
+	- efekty beda mialy swoja biblioteke w autoload, i beda wczytane jako preload w dictionary
+ 	- autoload actions bedzie miec nazwe efektu do uzycia oraz opoznienie, bedzie to wykorzystywane do setupu
+	efektu. w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
+	- obrocenie efektu bedzie oznaczalo tylko przeskalowanie go na minusowe osie
 
 
 
@@ -19,6 +17,9 @@ CLOSE TODOS:
 
 
 
+
+NAH. MA MIEC OS Y, ALE BEZ PLATFORM
+	GRA MA BYC NA DWOCH OSIACH WCIAZ, BEZ Y
 	
 	
 	GLOWNIE ANIMACJE
@@ -44,17 +45,17 @@ CLOSE TODOS:
 
 
 
-LATER TODOS:
-	-mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
-	-special niczym w theurgy z p3r, tylko dla specjalnych broni, w dodatku potrzeba odpowiednich statystyk
-	-bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly smooth do powrotu do granic
+POLISH:
+	- mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
+	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly smooth do powrotu do granic
+	- sprawic aby byla mozliwosc posiadania nawet tylko jednej umiejetnosci bez crashowania
 
 
 
 
 
 NOTKI:
-	modele musza patrzec w -y axis aby pozniej nimi nie obracac
+	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
 
 
 

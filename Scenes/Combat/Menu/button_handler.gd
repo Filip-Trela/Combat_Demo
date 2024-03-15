@@ -1,5 +1,8 @@
 extends Node2D
 
+var player
+
+
 
 #states
 var states = [
@@ -20,17 +23,23 @@ var slav_options =0
 var choose_s = 0
 
 
+
 var act_type:String
-var action:String
+var action_name:String
+var action = null
 
 
-
+var marker
+var rot_marker = preload("res://Scenes/Combat/Markers/rotate_marker.tscn")
+var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
 
 
 
 func _ready():
+	player = get_parent().get_parent().get_node("Player")
+	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)
 	get_node("SlaveButtons").visible = false
@@ -38,9 +47,7 @@ func _ready():
 	slav_nr = get_node("SlaveButtons").get_child_count() -1
 
 
-func _process(delta):
-	pass
-	
+
 func _input(event):
 	#state machine
 	if PlayerInfo.combat_state == "in menu":
@@ -92,11 +99,11 @@ func state_machine():
 				get_node("SlaveButtons").visible = false
 				state = "master_butt"
 				
-			elif Input.is_action_just_pressed("space"):
-				act_type = get_node("MasterButtons").get_child(choose_m).name
-				action = get_node("SlaveButtons/Button2/Label").text
-				print(act_type)
 				
+				
+				
+			elif Input.is_action_just_pressed("space"):
+				set_ability()
 				
 				state = "in_player"
 				
@@ -104,5 +111,86 @@ func state_machine():
 				
 		"in_player":
 			if Input.is_action_just_pressed("q"):
+				if get_parent().get_parent().get_node("Markers").get_child_count() != 0:
+					if action.marker_type ==  "move":
+						marker.delete_self()
+
+					get_parent().get_parent().get_node("Markers").get_child(0).queue_free()
 				state ="slave_butt"
+				
+				
+				
+				
+				
+				
+			elif Input.is_action_just_pressed("space"): 
+				match action["marker_type"]:
+					#functions in them
+					"rotate": use_ability_rot()
+					"move": use_ability_mov()
+					null:use_ability_null()
+
+
+
+
+
+
+
+
+
+
+
+
+
+#in slave buttons when pressed space
+func set_ability(): 
+	act_type = get_node("MasterButtons").get_child(choose_m).name
+	action_name = get_node("SlaveButtons/Button2/Label").text
+	
+	if act_type == "PhysButton": 
+		action = PlayerInfo.phys_skills[choose_s]
+				
+	elif act_type == "MagicButton":
+		action = PlayerInfo.mag_skills[choose_s]
 		
+		
+		#setting marker
+	match action["marker_type"]:
+		"rotate": 
+			marker = rot_marker.instantiate()
+			
+			#setting all parameters
+			marker.global_position = player.global_position
+			marker.rotation.y = player.direction
+			marker.get_child(0).scale = action.marker_size
+			marker.get_child(0).position = action.marker_position
+
+
+			#adding to tree
+			get_parent().get_parent().get_node("Markers").add_child(marker)
+			
+		"move":
+			marker = mov_marker.instantiate()
+			
+			#setting all parameters
+			marker.global_position = player.global_position
+			marker.get_child(0).scale = action.marker_size
+			marker.get_child(1).scale = action.marker_size
+			marker.get_child(1).scale.y = 1
+			
+			marker.get_node("CameraY/CameraX/Camera3D").current = true
+			marker.get_node("CameraY").rotation.y = player.mouse_joint_y.rotation.y
+			marker.get_node("CameraY/CameraX").rotation.x = player.mouse_joint_x.rotation.x
+			
+			#adding to tree
+			get_parent().get_parent().get_node("Markers").add_child(marker)
+			
+			
+		null:pass
+		
+		
+func use_ability_rot():print("rotate")
+
+func use_ability_mov():print("move")
+
+func use_ability_null():print("null")

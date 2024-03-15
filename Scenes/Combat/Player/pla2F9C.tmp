@@ -10,7 +10,6 @@
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irdwl"]
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 0
 script = ExtResource("1_jqj52")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -20,9 +19,9 @@ shape = SubResource("CylinderShape3D_0pi6x")
 [node name="Model" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Flip_H" type="Node3D" parent="Model"]
+[node name="HoldPoint" type="Node3D" parent="Model"]
 
-[node name="Sprite3D" type="Sprite3D" parent="Model/Flip_H"]
+[node name="Sprite3D" type="Sprite3D" parent="Model/HoldPoint"]
 transform = Transform3D(1, 0, 0, 0, 1.56558, 0, 0, 0, 1, 0, 0, 0)
 texture = ExtResource("2_1hm45")
 
@@ -30,11 +29,8 @@ texture = ExtResource("2_1hm45")
 
 [node name="CameraX" type="Node3D" parent="CameraY"]
 
-[node name="Camera_pos" type="Node3D" parent="CameraY/CameraX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -15)
-
-[node name="Camera3D" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="CameraY/CameraX"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, -15)
 current = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

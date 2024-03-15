@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2qml642hjklp"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/Markers/rotate_marker.gd" id="1_32eka"]
+[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/whiteTile.png" id="2_4mrbd"]
+
+[node name="RotateMarker" type="Node3D"]
+script = ExtResource("1_32eka")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.6)
+modulate = Color(0.203922, 0.576471, 1, 1)
+axis = 1
+texture = ExtResource("2_4mrbd")
