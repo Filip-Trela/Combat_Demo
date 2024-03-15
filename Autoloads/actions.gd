@@ -14,12 +14,6 @@ var placeH = {
 }
 
 
-var dodge = {
-	"name": "Dodge",
-	"marker_type": null,
-
-}
-
 var punch = {
 	"name": "Punch",
 	"marker_type": "rotate",
@@ -31,6 +25,7 @@ var arrow_rain = {
 	"name": "ArrowRain",
 	"marker_type": "move",
 	"marker_size": Vector3(3,3,3),
+	"max_distance":8,
 }
 
 var wait = {
@@ -41,12 +36,6 @@ var wait = {
 
 
 #magic
-
-var fireball = {
-	"name": "Fireball",
-	"marker_type": null,
-	"marker_size": null,
-}
 
 var blood_shoot = {
 	"name": "BloodShoot",
@@ -64,6 +53,7 @@ var heal = {
 var explosion = {
 	"name": "Explosion",
 	"marker_type": "move",
-	"marker_size": Vector3(5,5,5),
+	"marker_size": Vector3(7,7,7),
+	"max_distance":13,
 
 }

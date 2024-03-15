@@ -155,12 +155,14 @@ func set_ability():
 		
 		
 		#setting marker
+	
+	
 	match action["marker_type"]:
 		"rotate": 
 			marker = rot_marker.instantiate()
 			
 			#setting all parameters
-			marker.global_position = player.global_position
+			marker.position = player.position
 			marker.rotation.y = player.direction
 			marker.get_child(0).scale = action.marker_size
 			marker.get_child(0).position = action.marker_position
@@ -173,10 +175,11 @@ func set_ability():
 			marker = mov_marker.instantiate()
 			
 			#setting all parameters
-			marker.global_position = player.global_position
+			marker.position = player.position
 			marker.get_child(0).scale = action.marker_size
 			marker.get_child(1).scale = action.marker_size
 			marker.get_child(1).scale.y = 1
+			marker.max_dis = action.max_distance
 			
 			marker.get_node("CameraY/CameraX/Camera3D").current = true
 			marker.get_node("CameraY").rotation.y = player.mouse_joint_y.rotation.y

@@ -28,8 +28,18 @@ func _ready():
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
 func _process(delta):
-	$CameraY/CameraX/Camera3D.position.y = player.get_node("CameraY/CameraX/Camera_pos").position.y
-	$CameraY/CameraX/Camera3D.position.z = player.get_node("CameraY/CameraX/Camera_pos").position.z
+	if self.global_position.distance_to(player.global_position) >= max_dis:
+		var player_xz = Vector2(player.global_position.x ,player.global_position.z)
+		var mark_xz = Vector2(self.global_position.x ,self.global_position.z)
+		
+		mark_xz = player_xz - mark_xz
+		mark_xz = mark_xz.normalized() * max_dis
+		
+		self.position.x = -mark_xz.x
+		self.position.z = -mark_xz.y
+
+	
+
 
 
 func _physics_process(delta):
@@ -59,7 +69,7 @@ func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
 	mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)
 	mouse_joint_x.rotation.x += mouse_y * mouse_sens
-	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.2 , 0.4)
+	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.05 , 0.4)
 
 	mouse_x = 0
 	mouse_y = 0

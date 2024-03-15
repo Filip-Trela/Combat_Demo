@@ -41,6 +41,7 @@ func _ready():
 
 func _process(delta):
 	model.rotation.y = mouse_joint_y.rotation.y
+
 	
 	
 

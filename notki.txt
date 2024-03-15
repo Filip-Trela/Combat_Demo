@@ -1,15 +1,16 @@
 CLOSE TODOS:
 	REWORK CALEGO 3D, POSTAC W PELNI 2D, MA PRZYPOMINAC OCTO TRAVELER, MOZE TROCHE IZOMETRYCZNY
 	
-	max distance dla move markerow
 	
-	
-	- dwa typy efektow, animation oraz particle, ze skryptem, timerem opozniajacym i area3d hitboxem
+	- dwa typy efektow, ANIMATION ORAZ PROJECTILE, ze skryptem, timerem opozniajacym, timerem trwania
+	jesli to projectile i area3d hitboxem
+	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
 	- efekty beda mialy swoj folder jako resource/asset
 	- efekty beda mialy swoja biblioteke w autoload, i beda wczytane jako preload w dictionary
  	- autoload actions bedzie miec nazwe efektu do uzycia oraz opoznienie, bedzie to wykorzystywane do setupu
 	efektu. w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
 	- obrocenie efektu bedzie oznaczalo tylko przeskalowanie go na minusowe osie
+	- do efektow nie uzywaj tween aby sprawdzic czy tween sie skonczylo, uzyj timerow
 
 
 
@@ -29,9 +30,9 @@ NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 
 	- naprawienie in c menu
 
-	-wizualna czesc wskazujaca gdzie bedzie atak
-	-shadery do wizualne ataki, do menu
-	-animacje playera
+	- wizualna czesc wskazujaca gdzie bedzie atak
+	- shadery do wizualne ataki, do menu
+	- animacje playera
 	
 
 	
@@ -48,7 +49,6 @@ NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 POLISH:
 	- mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
 	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly smooth do powrotu do granic
-	- sprawic aby byla mozliwosc posiadania nawet tylko jednej umiejetnosci bez crashowania
 
 
 
@@ -56,22 +56,12 @@ POLISH:
 
 NOTKI:
 	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
+	
+	combat world musi byc przesuniety, bo jesli player position --> x = 0 and z = 0, to jest
+	problem z katem dla niego i markera
 
 
 
-
-DONE:
-	CLOSE:
-		-ruch postaci wzgledem camery, czyli obracany mov vector
-		-zapewne w combat world dac timer, przy ktorym na poczatku patrzy czy postac sie rusza
-	gdy jest ruch to timer liczy
-		-kiedy postac sie rusza nie ma menu, jesli sie nie rusza to mozna kliknac q i
-		otworzyc menu akcji
-		-animacje menu i camera'y
-		
-		
-		
-	LATER:
 
 
 
