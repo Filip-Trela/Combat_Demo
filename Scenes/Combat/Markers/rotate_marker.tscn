@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2qml642hjklp"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Markers/rotate_marker.gd" id="1_32eka"]
-[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/whiteTile.png" id="2_4mrbd"]
+[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/textures/whiteTile.png" id="2_4mrbd"]
 
 [node name="RotateMarker" type="Node3D"]
 script = ExtResource("1_32eka")

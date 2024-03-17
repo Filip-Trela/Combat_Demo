@@ -26,7 +26,7 @@ var mouse_sens = 0.005
 
 
 @onready var model = $Model
-
+@onready var sprites = $Model/Flip_H
 
 
 
@@ -34,13 +34,19 @@ var mouse_sens = 0.005
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	
 	mouse_joint_y = get_node("CameraY")
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
+	
+	sprites = sprites.get_children()
+
+	
 
 func _process(delta):
 	model.rotation.y = mouse_joint_y.rotation.y
+	
+	for sprite in sprites:
+		sprite.sort_z()
 
 	
 	
@@ -97,7 +103,7 @@ func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
 	mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)
 	mouse_joint_x.rotation.x += mouse_y * mouse_sens
-	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.05 , 0.4)
+	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.05 , 0.3)
 
 	mouse_x = 0
 	mouse_y = 0

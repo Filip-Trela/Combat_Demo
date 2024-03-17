@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3jqqjcue4n7k"]
+
+[ext_resource type="Script" path="res://Utility/sprite_fix_static.gd" id="1_u2skn"]
+
+[node name="SpriteFixStatic" type="Sprite3D"]
+centered = false
+texture_filter = 0
+script = ExtResource("1_u2skn")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true

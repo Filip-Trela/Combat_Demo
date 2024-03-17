@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgfmps7qoorv7"
-path.s3tc="res://.godot/imported/whiteTile.png-69faa047ef657efd4d8c6df12ceee7df.s3tc.ctex"
+uid="uid://dyapjoae42l6x"
+path.s3tc="res://.godot/imported/lowerleg.png-14c31f1595cd963865f314b5eae563f5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/whiteTile.png"
-dest_files=["res://.godot/imported/whiteTile.png-69faa047ef657efd4d8c6df12ceee7df.s3tc.ctex"]
+source_file="res://Assets/textures/player/lowerleg.png"
+dest_files=["res://.godot/imported/lowerleg.png-14c31f1595cd963865f314b5eae563f5.s3tc.ctex"]
 
 [params]
 

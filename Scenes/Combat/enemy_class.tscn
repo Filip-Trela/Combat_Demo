@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://fyc63t5s0u57"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/enemy_class.gd" id="1_vlruw"]
+[ext_resource type="PackedScene" uid="uid://c3jqqjcue4n7k" path="res://Utility/sprite_fix_static.tscn" id="2_s3hde"]
+[ext_resource type="Texture2D" uid="uid://cue6fp4t1pjpl" path="res://icon.svg" id="3_6jfmu"]
+
+[node name="EnemyClass" type="CharacterBody3D"]
+script = ExtResource("1_vlruw")
+
+[node name="FlipH" type="Node3D" parent="."]
+
+[node name="SpriteFixStatic" parent="FlipH" instance=ExtResource("2_s3hde")]
+modulate = Color(1, 0.45098, 0.392157, 1)
+texture = ExtResource("3_6jfmu")

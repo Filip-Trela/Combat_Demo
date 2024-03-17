@@ -1,7 +1,7 @@
 extends Node2D
 
 var player
-
+var markers_group
 
 
 #states
@@ -38,7 +38,8 @@ var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
 func _ready():
-	player = get_parent().get_parent().get_node("Player")
+	player = get_parent().get_parent().get_node("World/Player")
+	markers_group = get_parent().get_parent().get_node("World/Markers")
 	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)
@@ -111,11 +112,11 @@ func state_machine():
 				
 		"in_player":
 			if Input.is_action_just_pressed("q"):
-				if get_parent().get_parent().get_node("Markers").get_child_count() != 0:
+				if markers_group.get_child_count() != 0:
 					if action.marker_type ==  "move":
 						marker.delete_self()
 
-					get_parent().get_parent().get_node("Markers").get_child(0).queue_free()
+					markers_group.get_child(0).queue_free()
 				state ="slave_butt"
 				
 				
@@ -169,7 +170,7 @@ func set_ability():
 
 
 			#adding to tree
-			get_parent().get_parent().get_node("Markers").add_child(marker)
+			markers_group.add_child(marker)
 			
 		"move":
 			marker = mov_marker.instantiate()
@@ -186,7 +187,7 @@ func set_ability():
 			marker.get_node("CameraY/CameraX").rotation.x = player.mouse_joint_x.rotation.x
 			
 			#adding to tree
-			get_parent().get_parent().get_node("Markers").add_child(marker)
+			markers_group.add_child(marker)
 			
 			
 		null:pass

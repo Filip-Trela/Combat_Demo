@@ -1,6 +1,9 @@
 CLOSE TODOS:
 	REWORK CALEGO 3D, POSTAC W PELNI 2D, MA PRZYPOMINAC OCTO TRAVELER, MOZE TROCHE IZOMETRYCZNY
 	
+	- enemy class na poczatku, pozniej byle jaki enemy ze spritem
+	
+	
 	
 	- dwa typy efektow, ANIMATION ORAZ PROJECTILE, ze skryptem, timerem opozniajacym, timerem trwania
 	jesli to projectile i area3d hitboxem
@@ -38,7 +41,7 @@ NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 	
 
 
-
+	sorting of 3d sprites, bazowany na camerze a nie z depth
 
 
 
@@ -60,11 +63,17 @@ NOTKI:
 	combat world musi byc przesuniety, bo jesli player position --> x = 0 and z = 0, to jest
 	problem z katem dla niego i markera
 
+	sortowanie sprite'ow 3d przez visualinstance3d sorting z position * 10 probably
 
+	w playerze nalezy dodac do skryptu w process aby wszystkie sprity offset sorting byly update'owane
+	na bazie pozycji playera
+	
+	class name aby stworzyc classe, a pozniej new inherited scene dla oob
 
-
-
-
+	32x32 px sprites base
+	
+	Spritefixstatic dla background
+	Spritefixstatic z anim sprites 2d dla postaci, elementow animowanych
 
 
 

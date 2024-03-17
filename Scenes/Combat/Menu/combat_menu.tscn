@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/combat_menu.gd" id="1_5vbti"]
 [ext_resource type="PackedScene" uid="uid://oa87hgbsh3yx" path="res://Scenes/Combat/Menu/button_handler.tscn" id="2_6gfeu"]
-[ext_resource type="Texture2D" uid="uid://ch21jyg5g0nxn" path="res://Assets/for_menu.png" id="2_ji42c"]
+[ext_resource type="Texture2D" uid="uid://ch21jyg5g0nxn" path="res://Assets/textures/for_menu.png" id="2_ji42c"]
 
 [sub_resource type="Animation" id="Animation_x8sy5"]
 length = 0.001
