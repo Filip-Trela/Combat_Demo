@@ -1,5 +1,15 @@
 CLOSE TODOS:
 	
+	przed animacja dac chyba jeszcze skeleton2d
+	
+	Do klasy animation fix sprite 2d dac bazowy animated sprite bez filtrowania
+	zabawa z camerami playera i move marker
+	
+	
+	Chyba wszystko naprawic jesli chodzi o axis, camera jest + z,
+	odwrocone sprite'y przez to
+	
+	
 	NAPRAWA SCROLL CAMERY
 	-scroll w kamerze move, aby "dziedziczyl" scroll z playera, albo daj scrolla do autoload
 	aby i playera i move camera pasowala

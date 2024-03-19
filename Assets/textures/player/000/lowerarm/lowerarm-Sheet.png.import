@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bneqo0lfddlvy"
-path.s3tc="res://.godot/imported/head.png-c6539af865e2ce4b70bdfad9a74ab834.s3tc.ctex"
+uid="uid://bce5eekqr8ivl"
+path="res://.godot/imported/lowerarm-Sheet.png-5ff4af1b5db11307147473dfcafd32ea.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/player/head.png"
-dest_files=["res://.godot/imported/head.png-c6539af865e2ce4b70bdfad9a74ab834.s3tc.ctex"]
+source_file="res://Assets/textures/player/000/lowerarm/lowerarm-Sheet.png"
+dest_files=["res://.godot/imported/lowerarm-Sheet.png-5ff4af1b5db11307147473dfcafd32ea.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

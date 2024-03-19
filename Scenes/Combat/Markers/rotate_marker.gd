@@ -9,4 +9,5 @@ func _process(_delta):
 	
 func _input(_event):
 	rot_dir = int(Input.get_action_raw_strength("a") - Input.get_action_raw_strength("d"))
+
 	

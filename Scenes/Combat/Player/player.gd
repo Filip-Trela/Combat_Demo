@@ -31,7 +31,6 @@ var mouse_sens = 0.005
 
 
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -39,7 +38,7 @@ func _ready():
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
 	sprites = sprites.get_children()
-
+	
 	
 
 func _process(_delta):
@@ -123,16 +122,16 @@ func _unhandled_input(event):
 		
 		
 		#scroll
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			#$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
-			#$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
-		#elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			#$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
-			#$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
+			$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
+			$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
 			
-		#$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y,2.5,5)
-		#$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z,-15,-7.5)
+		$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y,2.5,5)
+		$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z,-15,-7.5)
 		
 
 
@@ -141,3 +140,6 @@ func tween_camera():
 	var tween_c = get_tree().create_tween()
 	tween_c.tween_property($CameraY/CameraX/Camera_pos/PlayerCamera,\
 	 "global_position", $CameraY/CameraX/Camera_pos.global_position, 0.2)
+
+
+

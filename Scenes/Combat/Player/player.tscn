@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Player/player.gd" id="1_jqj52"]
-[ext_resource type="PackedScene" uid="uid://c3jqqjcue4n7k" path="res://Utility/sprite_fix_static.tscn" id="2_7ss1m"]
+[ext_resource type="Script" path="res://Utility/sprite_fix_static.gd" id="2_or058"]
 [ext_resource type="PackedScene" uid="uid://c77fpy3guqpiu" path="res://Assets/animations/player/player_animation.tscn" id="3_xaoy1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0pi6x"]
@@ -22,12 +22,17 @@ shape = SubResource("CylinderShape3D_0pi6x")
 
 [node name="Flip_H" type="Node3D" parent="Model"]
 
-[node name="SpriteFixStatic" parent="Model/Flip_H" instance=ExtResource("2_7ss1m")]
+[node name="SpriteFixStatic" type="Sprite3D" parent="Model/Flip_H"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+centered = false
+texture_filter = 0
+script = ExtResource("2_or058")
 
-[node name="SubViewport" parent="Model/Flip_H/SpriteFixStatic" index="0"]
-size = Vector2i(128, 192)
+[node name="SubViewport" type="SubViewport" parent="Model/Flip_H/SpriteFixStatic"]
+transparent_bg = true
+size = Vector2i(192, 98)
 
-[node name="PlayerAnimation" parent="Model/Flip_H/SpriteFixStatic/SubViewport" index="0" instance=ExtResource("3_xaoy1")]
+[node name="PlayerAnimation" parent="Model/Flip_H/SpriteFixStatic/SubViewport" instance=ExtResource("3_xaoy1")]
 
 [node name="CameraY" type="Node3D" parent="."]
 
@@ -53,5 +58,3 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_irdwl")
 }
-
-[editable path="Model/Flip_H/SpriteFixStatic"]

@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyapjoae42l6x"
-path.s3tc="res://.godot/imported/lowerleg.png-14c31f1595cd963865f314b5eae563f5.s3tc.ctex"
+uid="uid://bpoeh2gsdxhb5"
+path="res://.godot/imported/neck-Sheet.png-499d0f7f9ef5df6a10ce4b6746d1c73c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/player/lowerleg.png"
-dest_files=["res://.godot/imported/lowerleg.png-14c31f1595cd963865f314b5eae563f5.s3tc.ctex"]
+source_file="res://Assets/textures/player/000/neck/neck-Sheet.png"
+dest_files=["res://.godot/imported/neck-Sheet.png-499d0f7f9ef5df6a10ce4b6746d1c73c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

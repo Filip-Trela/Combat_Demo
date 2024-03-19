@@ -36,8 +36,8 @@ func _process(_delta):
 		mark_xz = player_xz - mark_xz
 		mark_xz = mark_xz.normalized() * max_dis
 		
-		self.position.x = -mark_xz.x
-		self.position.z = -mark_xz.y
+		self.global_position.x = -mark_xz.x + player_xz.x
+		self.global_position.z = -mark_xz.y + player_xz.y
 
 	
 

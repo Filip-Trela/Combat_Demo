@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xvtl6oajp5n"
-path.s3tc="res://.godot/imported/upperarm.png-80ee783a06d76f01d008d232021a8098.s3tc.ctex"
+uid="uid://bepjbtu81j8eo"
+path="res://.godot/imported/head-Sheet.png-4c304003505e2a5255d3a1dadaffcaa8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/player/upperarm.png"
-dest_files=["res://.godot/imported/upperarm.png-80ee783a06d76f01d008d232021a8098.s3tc.ctex"]
+source_file="res://Assets/textures/player/000/head/head-Sheet.png"
+dest_files=["res://.godot/imported/head-Sheet.png-4c304003505e2a5255d3a1dadaffcaa8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
