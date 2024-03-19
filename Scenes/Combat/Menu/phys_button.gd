@@ -12,7 +12,7 @@ func _ready():
 	slav_butts = get_parent().get_parent().get_node("SlaveButtons")
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 

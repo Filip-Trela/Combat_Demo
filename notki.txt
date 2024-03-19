@@ -1,23 +1,30 @@
 CLOSE TODOS:
-	REWORK CALEGO 3D, POSTAC W PELNI 2D, MA PRZYPOMINAC OCTO TRAVELER, MOZE TROCHE IZOMETRYCZNY
 	
-	- enemy class na poczatku, pozniej byle jaki enemy ze spritem
+	NAPRAWA SCROLL CAMERY
+	-scroll w kamerze move, aby "dziedziczyl" scroll z playera, albo daj scrolla do autoload
+	aby i playera i move camera pasowala
 	
 	
 	
-	- dwa typy efektow, ANIMATION ORAZ PROJECTILE, ze skryptem, timerem opozniajacym, timerem trwania
-	jesli to projectile i area3d hitboxem
+	EFEKTY
+	- dwa typy efektow, ANIMATION ORAZ PROJECTILE, ze skryptem, timerem opozniajacym, 
+	timerem trwania	jesli to projectile i area3d hitboxem
 	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
 	- efekty beda mialy swoj folder jako resource/asset
-	- efekty beda mialy swoja biblioteke w autoload, i beda wczytane jako preload w dictionary
- 	- autoload actions bedzie miec nazwe efektu do uzycia oraz opoznienie, bedzie to wykorzystywane do setupu
+	- efekty beda mialy swoja biblioteke w autoload, i beda wczytane jako preload 
+	w dictionary
+ 	- autoload actions bedzie miec nazwe efektu do uzycia oraz opoznienie, bedzie
+	 to wykorzystywane do setupu
 	efektu. w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
-	- obrocenie efektu bedzie oznaczalo tylko przeskalowanie go na minusowe osie
-	- do efektow nie uzywaj tween aby sprawdzic czy tween sie skonczylo, uzyj timerow
+	- obrocenie efektu bedzie oznaczalo tylko przeskalowanie go na minusowe osie ?????
 
 
 
-
+	ENTITIES
+	-jakis basic enemy z funkcjonalnymi hurtboxami
+	- byle jaki sprite dla playera
+	i sprawienie aby sie obracal wzgledem direction x
+	-podobnie z enemy
 
 
 
@@ -31,9 +38,7 @@ NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 	- animacje dla buttonow, wszystkich
 	- animacje przechodzenia z master do slave buttonow
 
-	- naprawienie in c menu
 
-	- wizualna czesc wskazujaca gdzie bedzie atak
 	- shadery do wizualne ataki, do menu
 	- animacje playera
 	
@@ -63,10 +68,8 @@ NOTKI:
 	combat world musi byc przesuniety, bo jesli player position --> x = 0 and z = 0, to jest
 	problem z katem dla niego i markera
 
-	sortowanie sprite'ow 3d przez visualinstance3d sorting z position * 10 probably
-
-	w playerze nalezy dodac do skryptu w process aby wszystkie sprity offset sorting byly update'owane
-	na bazie pozycji playera
+	sortowanie sprite'ow 3d przez visualinstance3d sorting z position * 100
+	DONE
 	
 	class name aby stworzyc classe, a pozniej new inherited scene dla oob
 
@@ -75,8 +78,18 @@ NOTKI:
 	Spritefixstatic dla background
 	Spritefixstatic z anim sprites 2d dla postaci, elementow animowanych
 
+	
+	podczas tworzenia wizualnych:
+		dziedziczenie animation sprite 2d fix
+		danie sprite etc
+		przemieszczenie node2d ktory jest root aby x pasowal
+		ustawienie viewport aby pasowalo
+		
 
 
+	po stworzeniu animacji i przetestowaniu nalezy usunac camere z sprite fix static bo psuje 
+	tween camery mark do playera
+	podobnie efekty
 
 
-
+	delta oraz event sa underscore aby nie pokazywalo ich w debugerze w razie czego

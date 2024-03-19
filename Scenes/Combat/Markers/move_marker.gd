@@ -23,11 +23,12 @@ var max_dis:int
 func _ready():
 	player = get_parent().get_parent().get_node("Player")
 
+
 	
 	mouse_joint_y = get_node("CameraY")
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
-func _process(delta):
+func _process(_delta):
 	if self.global_position.distance_to(player.global_position) >= max_dis:
 		var player_xz = Vector2(player.global_position.x ,player.global_position.z)
 		var mark_xz = Vector2(self.global_position.x ,self.global_position.z)
@@ -42,7 +43,7 @@ func _process(delta):
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if input_vec != Vector2(0,0):
 		mov_vec = mov_vec.move_toward(transformed_input * speed, acceleration)
 
@@ -56,7 +57,7 @@ func _physics_process(delta):
 	
 	
 	
-func _input(event):
+func _input(_event):
 	input_vec.x = Input.get_action_raw_strength("a") - Input.get_action_raw_strength("d")
 	input_vec.y = Input.get_action_raw_strength("w") - Input.get_action_raw_strength("s")
 	input_vec = input_vec.normalized()
@@ -84,7 +85,7 @@ func _unhandled_input(event):
 		camera_handler()
 
 func delete_self(): 
-	var player_cam = player.get_node("CameraY/CameraX/Camera_pos/Camera3D")
+	var player_cam = player.get_node("CameraY/CameraX/Camera_pos/PlayerCamera")
 	var marker_cam = get_node("CameraY/CameraX/Camera3D")
 	
 	player_cam.global_position = marker_cam.global_position

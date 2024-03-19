@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://2j430eymswv7"]
+
+[ext_resource type="PackedScene" uid="uid://fyc63t5s0u57" path="res://Scenes/Combat/Enemies/BaseClass/enemy_class.tscn" id="1_i2i2f"]
+[ext_resource type="PackedScene" uid="uid://hrn8vcsoc5uy" path="res://Assets/animations/enemies/placeholder/placeholder_animation.tscn" id="2_mon0t"]
+
+[node name="Placeholder_enemy" instance=ExtResource("1_i2i2f")]
+
+[node name="SubViewport" parent="FlipH/SpriteFixStatic" index="0"]
+size = Vector2i(128, 145)
+
+[node name="Placeholder" parent="FlipH/SpriteFixStatic/SubViewport" index="0" instance=ExtResource("2_mon0t")]
+root_node = NodePath("../..")
+
+[editable path="FlipH/SpriteFixStatic"]

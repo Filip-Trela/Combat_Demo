@@ -1,24 +1,3 @@
-[gd_scene load_steps=6 format=3 uid="uid://wmpck20siol6"]
-
-[ext_resource type="Shader" path="res://placeholders/testing.gdshader" id="1_bxsmv"]
-[ext_resource type="Texture2D" uid="uid://cue6fp4t1pjpl" path="res://icon.svg" id="1_o1dgd"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lw7f"]
-seed = 3
-frequency = 0.0162
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cgbe6"]
-seamless = true
-noise = SubResource("FastNoiseLite_2lw7f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytlpx"]
-shader = ExtResource("1_bxsmv")
-shader_parameter/scroll = Vector2(0.05, 0.05)
-shader_parameter/noise = SubResource("NoiseTexture2D_cgbe6")
+[gd_scene format=3 uid="uid://wmpck20siol6"]
 
 [node name="Testing" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_ytlpx")
-position = Vector2(626, 358)
-texture = ExtResource("1_o1dgd")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://hrn8vcsoc5uy"]
+
+[ext_resource type="PackedScene" uid="uid://cnswi4yot6bio" path="res://Utility/anim_sprites_2d.tscn" id="1_lyvwh"]
+[ext_resource type="Texture2D" uid="uid://djw8khwq7l567" path="res://Assets/textures/enemies/placeholder/Leg.png" id="2_pw7kg"]
+[ext_resource type="Texture2D" uid="uid://d1g67dhspvjhs" path="res://Assets/textures/enemies/placeholder/Base.png" id="2_tpfs8"]
+
+[sub_resource type="Animation" id="Animation_5vp86"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7qtv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2sd71"]
+_data = {
+"Idle": SubResource("Animation_5vp86"),
+"RESET": SubResource("Animation_7qtv5")
+}
+
+[node name="Placeholder" instance=ExtResource("1_lyvwh")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_2sd71")
+}
+autoplay = "Idle"
+
+[node name="Node2D" parent="." index="1"]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" index="0"]
+texture_filter = 1
+position = Vector2(8, 10)
+texture = ExtResource("2_pw7kg")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" index="1"]
+texture_filter = 1
+position = Vector2(-6, 10)
+texture = ExtResource("2_pw7kg")
+
+[node name="Base" type="Sprite2D" parent="Node2D" index="2"]
+texture_filter = 1
+texture = ExtResource("2_tpfs8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D" index="3"]
+texture_filter = 1
+position = Vector2(11, 10)
+texture = ExtResource("2_pw7kg")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D" index="4"]
+texture_filter = 1
+position = Vector2(-10, 10)
+texture = ExtResource("2_pw7kg")

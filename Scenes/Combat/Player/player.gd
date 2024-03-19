@@ -42,18 +42,19 @@ func _ready():
 
 	
 
-func _process(delta):
+func _process(_delta):
 	model.rotation.y = mouse_joint_y.rotation.y
 	
 	for sprite in sprites:
 		sprite.sort_z()
+
 
 	
 	
 
 		
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#xz moving
 	if input_vec != Vector2(0,0):
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
@@ -81,7 +82,7 @@ func _physics_process(delta):
 
 
 
-func _input(event):
+func _input(_event):
 	if PlayerInfo.combat_state == "moving":
 		input_vec.x = Input.get_action_raw_strength("a") - Input.get_action_raw_strength("d")
 		input_vec.y = Input.get_action_raw_strength("w") - Input.get_action_raw_strength("s")
@@ -122,20 +123,21 @@ func _unhandled_input(event):
 		
 		
 		#scroll
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			#$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
+			#$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
+		#elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			#$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
+			#$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
 			
-		$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y,2.5,5)
-		$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z,-15,-7.5)
+		#$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y,2.5,5)
+		#$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z,-15,-7.5)
 		
 
 
 
-func tween_camera():
+func tween_camera(): 
 	var tween_c = get_tree().create_tween()
-	tween_c.tween_property($CameraY/CameraX/Camera_pos/Camera3D, "global_position", $CameraY/CameraX/Camera_pos.global_position, 0.2)
+	tween_c.tween_property($CameraY/CameraX/Camera_pos/PlayerCamera,\
+	 "global_position", $CameraY/CameraX/Camera_pos.global_position, 0.2)

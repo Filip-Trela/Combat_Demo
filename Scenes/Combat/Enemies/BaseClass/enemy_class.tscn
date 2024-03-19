@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://fyc63t5s0u57"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/Enemies/BaseClass/enemy_class.gd" id="1_hto00"]
+[ext_resource type="PackedScene" uid="uid://c3jqqjcue4n7k" path="res://Utility/sprite_fix_static.tscn" id="2_js7hn"]
+
+[node name="EnemyClass" type="CharacterBody3D"]
+script = ExtResource("1_hto00")
+
+[node name="FlipH" type="Node3D" parent="."]
+
+[node name="SpriteFixStatic" parent="FlipH" instance=ExtResource("2_js7hn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
