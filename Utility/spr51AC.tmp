@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3jqqjcue4n7k"]
+[gd_scene load_steps=3 format=3 uid="uid://c3jqqjcue4n7k"]
 
 [ext_resource type="Script" path="res://Utility/sprite_fix_static.gd" id="1_u2skn"]
 [ext_resource type="Texture2D" uid="uid://cue6fp4t1pjpl" path="res://icon.svg" id="2_306hn"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_lhu8c"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_268s1"]
 
 [node name="SpriteFixStatic" type="Sprite3D"]
 sorting_use_aabb_center = false
@@ -33,14 +29,6 @@ texture = ExtResource("2_306hn")
 [node name="Sprite3D4" type="Sprite3D" parent="ForHelp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, 3.1, 0)
 texture = ExtResource("2_306hn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.145928, -0.989295, 0, 0.989295, -0.145928, 0, 0, 0)
-mesh = SubResource("PlaneMesh_lhu8c")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.908868, -2.58459)
-mesh = SubResource("PlaneMesh_268s1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.12868)

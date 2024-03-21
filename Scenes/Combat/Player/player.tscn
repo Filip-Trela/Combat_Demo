@@ -24,13 +24,14 @@ shape = SubResource("CylinderShape3D_0pi6x")
 
 [node name="SpriteFixStatic" type="Sprite3D" parent="Model/Flip_H"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+sorting_use_aabb_center = false
 centered = false
 texture_filter = 0
 script = ExtResource("2_or058")
 
 [node name="SubViewport" type="SubViewport" parent="Model/Flip_H/SpriteFixStatic"]
 transparent_bg = true
-size = Vector2i(192, 98)
+size = Vector2i(100, 64)
 
 [node name="PlayerAnimation" parent="Model/Flip_H/SpriteFixStatic/SubViewport" instance=ExtResource("3_xaoy1")]
 

@@ -26,3 +26,11 @@ position = Vector2(0, -70)
 
 [node name="Button3" parent="SlaveButtons" instance=ExtResource("4_o4gpw")]
 position = Vector2(0, 70)
+
+[node name="Aiming" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Aiming"]
+offset_left = -103.0
+offset_top = -91.0
+offset_right = 104.0
+offset_bottom = 109.0

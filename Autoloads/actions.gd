@@ -8,9 +8,11 @@ extends Node
 #physical
 var placeH = {
 	"name": "PlaceHolder",
-	"marker_type": "rotate",
-	"marker_size": Vector3(1,1,5),
-	"marker_position":Vector3(0,0,2),
+	"marker_type": "move",
+	"marker_size": Vector3(3,3,3),
+	"max_distance":8,
+	"effect_animation": preload("res://Assets/effects/PlaceHolder/BoomP.tscn"),
+	"description": "A placeholder action with 25 damage",
 }
 
 
@@ -19,6 +21,7 @@ var punch = {
 	"marker_type": "rotate",
 	"marker_size": Vector3(1,1,5),
 	"marker_position":Vector3(0,0,2),
+	"effect_animation": preload("res://Assets/effects/PlaceHolder/BoomP.tscn"),
 }
 
 var arrow_rain = {

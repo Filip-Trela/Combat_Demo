@@ -7,10 +7,7 @@ var action_list = Actions
 
 
 var phys_skills = [
-	action_list.placeH,
-	action_list.punch,
-	action_list.arrow_rain,
-	action_list.wait
+	action_list.placeH
 ]
 
 var mag_skills= [

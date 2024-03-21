@@ -3,12 +3,13 @@ extends Node2D
 var player
 var markers_group
 
+var world 
 
 #states
 var states = [
 	"master_butt",
 	"slave_butt",
-	"in_player"
+	"aiming"
 	]
 
 var state = "master_butt"
@@ -27,6 +28,7 @@ var choose_s = 0
 var act_type:String
 var action_name:String
 var action = null
+var effect_anim
 
 
 var marker
@@ -38,6 +40,8 @@ var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
 func _ready():
+	world = get_parent().get_parent().get_node("World")
+	
 	player = get_parent().get_parent().get_node("World/Player")
 	markers_group = get_parent().get_parent().get_node("World/Markers")
 	
@@ -106,17 +110,23 @@ func state_machine():
 			elif Input.is_action_just_pressed("space"):
 				set_ability()
 				
-				state = "in_player"
+				get_node("Aiming").visible = true
+				state = "aiming"
 				
 				
 				
-		"in_player":
+		"aiming":
+			get_node("SlaveButtons").visible = false
+			get_node("MasterButtons").visible = false
+			
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
 					if action.marker_type ==  "move":
 						marker.delete_self()
 
 					markers_group.get_child(0).queue_free()
+				get_node("SlaveButtons").visible = true
+				get_node("Aiming").visible = false
 				state ="slave_butt"
 				
 				
@@ -125,6 +135,8 @@ func state_machine():
 				
 				
 			elif Input.is_action_just_pressed("space"): 
+				get_node("SlaveButtons").visible = true
+				get_node("Aiming").visible = false
 				match action["marker_type"]:
 					#functions in them
 					"rotate": use_ability_rot()
@@ -157,6 +169,9 @@ func set_ability():
 		
 		#setting marker
 	
+	effect_anim = action.effect_animation
+	get_node("Aiming/Label").text = action.description
+
 	
 	match action["marker_type"]:
 		"rotate": 
@@ -177,14 +192,20 @@ func set_ability():
 			
 			#setting all parameters
 			marker.position = player.position
-			marker.get_child(0).scale = action.marker_size
-			marker.get_child(1).scale = action.marker_size
-			marker.get_child(1).scale.y = 1
+			marker.get_child(0).scale.x = action.marker_size.x
+			marker.get_child(0).scale.z = action.marker_size.z
+			marker.get_child(1).scale.x = action.marker_size.x
+			marker.get_child(1).scale.y = action.marker_size.y
+			marker.get_child(1).scale.z = action.marker_size.z
+			#marker.get_child(1).scale.y = 0.4
 			marker.max_dis = action.max_distance
 			
 			marker.get_node("CameraY/CameraX/Camera3D").current = true
 			marker.get_node("CameraY").rotation.y = player.mouse_joint_y.rotation.y
 			marker.get_node("CameraY/CameraX").rotation.x = player.mouse_joint_x.rotation.x
+			
+			
+			
 			
 			#adding to tree
 			markers_group.add_child(marker)
@@ -195,6 +216,14 @@ func set_ability():
 		
 func use_ability_rot():print("rotate")
 
-func use_ability_mov():print("move")
+func use_ability_mov():
+	effect_anim = effect_anim.instantiate()
+	effect_anim.position = marker.position
+	
+	world.add_child(effect_anim)
+	
+	marker.delete_self()
+	markers_group.get_child(0).queue_free()
+	state = "slave_butt"
 
 func use_ability_null():print("null")

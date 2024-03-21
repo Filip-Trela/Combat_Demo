@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://2j430eymswv7"]
+[gd_scene load_steps=4 format=3 uid="uid://2j430eymswv7"]
 
 [ext_resource type="PackedScene" uid="uid://fyc63t5s0u57" path="res://Scenes/Combat/Enemies/BaseClass/enemy_class.tscn" id="1_i2i2f"]
 [ext_resource type="PackedScene" uid="uid://hrn8vcsoc5uy" path="res://Assets/animations/enemies/placeholder/placeholder_animation.tscn" id="2_mon0t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xugf"]
 
 [node name="Placeholder_enemy" instance=ExtResource("1_i2i2f")]
 
@@ -10,5 +12,13 @@ size = Vector2i(128, 145)
 
 [node name="Placeholder" parent="FlipH/SpriteFixStatic/SubViewport" index="0" instance=ExtResource("2_mon0t")]
 root_node = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CapsuleShape3D_4xugf")
 
 [editable path="FlipH/SpriteFixStatic"]

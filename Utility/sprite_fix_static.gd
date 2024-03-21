@@ -13,6 +13,9 @@ func _ready():
 	texture_to_3d()
 	self.offset.x = - texture.get_size().x * 0.5
 	sort_z()
+	print(0)
+	
+	
 
 
 

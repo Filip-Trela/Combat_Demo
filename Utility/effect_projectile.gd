@@ -2,11 +2,11 @@ extends Node3D
 
 class_name EffectProjectile
 
+@onready var anims = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	anims.play("start")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func end():
+	self.queue_free()

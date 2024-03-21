@@ -1,6 +1,26 @@
-CLOSE TODOS:
+GRUPY
+	1 Player
+	2 Enemies
+
+
+
+TODAY: 
+	PLACEHOLDERS
+	player sprite skladajacy sie z core, head, hands i broni x2
+	efekt z shaderem
+	wizualne zycie gracza
 	
-	przed animacja dac chyba jeszcze skeleton2d
+	
+	LATER:
+		follow up attack added
+
+
+
+
+TODOS:
+	
+MOZE JESZCZE BARDZIEJ UPROSZCZE I BEDA JEDNAK RYSOWANE SPRITE'Y???
+CHYBA TAK BEDZIE NAJLEPIEJ, COS W STYLU LITTLE FIGHTERS 2 A OCTOPATH TRAVELER
 	
 	Do klasy animation fix sprite 2d dac bazowy animated sprite bez filtrowania
 	zabawa z camerami playera i move marker
@@ -39,7 +59,7 @@ CLOSE TODOS:
 
 
 
-NAH. MA MIEC OS Y, ALE BEZ PLATFORM
+	NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 	GRA MA BYC NA DWOCH OSIACH WCIAZ, BEZ Y
 	
 	
@@ -66,10 +86,13 @@ NAH. MA MIEC OS Y, ALE BEZ PLATFORM
 
 POLISH:
 	- mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
-	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly smooth do powrotu do granic
+	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly
+	 smooth do powrotu do granic
 
 
-
+IDEAS:
+	- follow attack tylko przy combat skills(Physskills now), przy mag skills nie ma
+	dodatkowo czesto blokuja ruch na maly interwal czasu, ale to bedzie w animacji
 
 
 NOTKI:

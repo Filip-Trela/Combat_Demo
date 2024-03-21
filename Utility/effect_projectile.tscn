@@ -5,8 +5,6 @@
 [node name="EffectProjectile" type="Node3D"]
 script = ExtResource("1_gxdv3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
