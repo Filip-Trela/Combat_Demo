@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=27 format=3 uid="uid://q84oey3hv820"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_e3l03"]
-default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0.5)]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.4, 0.5)]
 op_type = 0
 operator = 2
 
@@ -146,7 +146,7 @@ void fragment() {
 
 
 // VectorOp:11
-	vec2 n_in11p1 = vec2(0.00000, 0.50000);
+	vec2 n_in11p1 = vec2(0.40000, 0.50000);
 	vec2 n_out11p0 = vec2(n_out2p0) * n_in11p1;
 
 
@@ -179,6 +179,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-305.623, -270.854)
 modes/cull = 2
 flags/unshaded = true
 varyings/Position = "0,4"

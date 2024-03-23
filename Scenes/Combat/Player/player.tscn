@@ -1,17 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvvsxy1jir8j6"]
+[gd_scene load_steps=9 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Player/player.gd" id="1_jqj52"]
-[ext_resource type="Script" path="res://Utility/sprite_fix_static.gd" id="2_or058"]
-[ext_resource type="PackedScene" uid="uid://c77fpy3guqpiu" path="res://Assets/animations/player/player_animation.tscn" id="3_xaoy1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0pi6x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_clnvs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l2j1"]
+albedo_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uvwy7"]
+material = SubResource("StandardMaterial3D_4l2j1")
+size = Vector3(0.695, 0.43, 0.515)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pwag8"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irdwl"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ypgmd"]
+
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 0
+collision_mask = 7
 script = ExtResource("1_jqj52")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -20,30 +29,22 @@ shape = SubResource("CylinderShape3D_0pi6x")
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="Flip_H" type="Node3D" parent="Model"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_clnvs")
 
-[node name="SpriteFixStatic" type="Sprite3D" parent="Model/Flip_H"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-sorting_use_aabb_center = false
-centered = false
-texture_filter = 0
-script = ExtResource("2_or058")
-
-[node name="SubViewport" type="SubViewport" parent="Model/Flip_H/SpriteFixStatic"]
-transparent_bg = true
-size = Vector2i(100, 64)
-
-[node name="PlayerAnimation" parent="Model/Flip_H/SpriteFixStatic/SubViewport" instance=ExtResource("3_xaoy1")]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35763, -0.61921)
+mesh = SubResource("BoxMesh_uvwy7")
 
 [node name="CameraY" type="Node3D" parent="."]
 
 [node name="CameraX" type="Node3D" parent="CameraY"]
 
 [node name="Camera_pos" type="Node3D" parent="CameraY/CameraX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 current = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -59,3 +60,9 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_irdwl")
 }
+
+[node name="Hurtbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ypgmd")

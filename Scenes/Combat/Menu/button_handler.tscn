@@ -34,3 +34,4 @@ offset_left = -103.0
 offset_top = -91.0
 offset_right = 104.0
 offset_bottom = 109.0
+autowrap_mode = 1

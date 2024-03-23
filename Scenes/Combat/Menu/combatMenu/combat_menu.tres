@@ -1,0 +1,52 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://qt06bujqitkg"]
+
+[ext_resource type="Texture2D" uid="uid://cdy2sqxmaa70f" path="res://Assets/2D/menu/first_ring.png" id="1_puhwm"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_phg7b"]
+texture = ExtResource("1_puhwm")
+
+[sub_resource type="Gradient" id="Gradient_wqdtu"]
+colors = PackedColorArray(0.0440612, 0.572476, 0.815464, 1, 0, 0.913725, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5m170"]
+gradient = SubResource("Gradient_wqdtu")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 0.3)
+metadata/_snap_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_yprqx"]
+texture = SubResource("GradientTexture2D_5m170")
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out3p0.xyz);
+	COLOR.a = n_out2p0.x;
+
+
+}
+"
+graph_offset = Vector2(-657.405, -174.893)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_phg7b")
+nodes/fragment/2/position = Vector2(-200, 260)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_yprqx")
+nodes/fragment/3/position = Vector2(-160, -20)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 1, 3, 0, 0, 0)

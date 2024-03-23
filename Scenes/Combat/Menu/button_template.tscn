@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://baw7l33adb1gk"]
 
-[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/textures/whiteTile.png" id="1_k2eti"]
+[ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="1_t628r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pygfw"]
 font_size = 30
@@ -10,7 +10,7 @@ font_size = 30
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.356863, 0.635294, 0.654902, 1)
 scale = Vector2(3, 1)
-texture = ExtResource("1_k2eti")
+texture = ExtResource("1_t628r")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -96.0

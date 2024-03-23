@@ -51,8 +51,6 @@ func _ready():
 	
 	slav_nr = get_node("SlaveButtons").get_child_count() -1
 
-
-
 func _input(_event):
 	#state machine
 	if PlayerInfo.combat_state == "in menu":
@@ -66,14 +64,14 @@ func state_machine():
 				choose_m -=1
 				if choose_m < 0:
 					choose_m = mas_nr
-				mas_node = get_node("MasterButtons").get_child(choose_m)
+				master_butt_change()
 				choose_s = 0 #resets slave choose when changed type
 				
 			elif Input.is_action_just_pressed("s"):
 				choose_m +=1
 				if choose_m > mas_nr:
 					choose_m = 0
-				mas_node = get_node("MasterButtons").get_child(choose_m)
+				master_butt_change()
 				choose_s = 0
 			
 			elif Input.is_action_just_pressed("space"):
@@ -121,10 +119,8 @@ func state_machine():
 			
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
-					if action.marker_type ==  "move":
-						marker.delete_self()
-
 					markers_group.get_child(0).queue_free()
+					
 				get_node("SlaveButtons").visible = true
 				get_node("Aiming").visible = false
 				state ="slave_butt"
@@ -197,7 +193,7 @@ func set_ability():
 			marker.get_child(1).scale.x = action.marker_size.x
 			marker.get_child(1).scale.y = action.marker_size.y
 			marker.get_child(1).scale.z = action.marker_size.z
-			#marker.get_child(1).scale.y = 0.4
+
 			marker.max_dis = action.max_distance
 			
 			marker.get_node("CameraY/CameraX/Camera3D").current = true
@@ -210,20 +206,50 @@ func set_ability():
 			#adding to tree
 			markers_group.add_child(marker)
 			
-			
 		null:pass
 		
 		
-func use_ability_rot():print("rotate")
+func use_ability_rot():
+	effect_anim = effect_anim.instantiate()
+	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
+
+	effect_anim.position = player.position + rotated
+	effect_anim.damage_base = action.damage
+	effect_anim.rotation.y = marker.rotation.y
+	
+	world.add_child(effect_anim)
+	
+	player.direction = marker.rotation.y	
+	
+	marker.delete_self()
+	state = "slave_butt"
+
+
 
 func use_ability_mov():
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = marker.position
+	effect_anim.damage_base = action.damage
 	
 	world.add_child(effect_anim)
 	
 	marker.delete_self()
-	markers_group.get_child(0).queue_free()
 	state = "slave_butt"
 
-func use_ability_null():print("null")
+
+
+func use_ability_null():
+	effect_anim = effect_anim.instantiate()
+	effect_anim.position = player.position
+	
+	world.add_child(effect_anim)
+	
+	state = "slave_butt"
+
+
+
+
+
+
+func master_butt_change():
+	mas_node = get_node("MasterButtons").get_child(choose_m)

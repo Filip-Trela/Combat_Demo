@@ -1,10 +1,10 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=3 uid="uid://dkgfteepm75w5"]
 
-[ext_resource type="Shader" uid="uid://q84oey3hv820" path="res://Scenes/Combat/Markers/move_shader.tres" id="1_2s67x"]
+[ext_resource type="Shader" uid="uid://q84oey3hv820" path="res://Scenes/Combat/Markers/move_shader.tres" id="1_fwtsh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_762n2"]
 render_priority = 0
-shader = ExtResource("1_2s67x")
+shader = ExtResource("1_fwtsh")
 
 [resource]
 _surfaces = [{

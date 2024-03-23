@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2qml642hjklp"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Markers/rotate_marker.gd" id="1_32eka"]
-[ext_resource type="Texture2D" uid="uid://dgfmps7qoorv7" path="res://Assets/textures/whiteTile.png" id="2_4mrbd"]
+[ext_resource type="ArrayMesh" uid="uid://ba34pmo56ggo0" path="res://Assets/3D/markers/rotate_marker.tres" id="3_oah3l"]
 
 [node name="RotateMarker" type="Node3D"]
 script = ExtResource("1_32eka")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.6)
-modulate = Color(0.203922, 0.576471, 1, 1)
-axis = 1
-texture = ExtResource("2_4mrbd")
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 0, 0.6, 2)
+mesh = ExtResource("3_oah3l")
+skeleton = NodePath("")

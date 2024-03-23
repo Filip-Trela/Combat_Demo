@@ -1,60 +1,30 @@
-GRUPY
-	1 Player
-	2 Enemies
-
-
-
-TODAY: 
-	PLACEHOLDERS
-	player sprite skladajacy sie z core, head, hands i broni x2
-	efekt z shaderem
-	wizualne zycie gracza
+TODAY: 		
+	
+	tab zamyka tez okno niewazne w ktorym stanie
+	TO PRZY ANIMACJACH SIE ZROBI
+	
 	
 	
 	LATER:
-		follow up attack added
+		
+		gdy enemy is attacked, jest odsuniecie przeciwnika, bazowo w actions, ale var decyduje jak
+		daleko sa odsunieci (0-x), bazowany na rotacji i positions, im dalej od efektu center tym
+		slabiej odsuwany
 
 
 
 
 TODOS:
+	animacje ale na bazie tych fasol aby szybciej skonczyc
 	
-MOZE JESZCZE BARDZIEJ UPROSZCZE I BEDA JEDNAK RYSOWANE SPRITE'Y???
-CHYBA TAK BEDZIE NAJLEPIEJ, COS W STYLU LITTLE FIGHTERS 2 A OCTOPATH TRAVELER
-	
-	Do klasy animation fix sprite 2d dac bazowy animated sprite bez filtrowania
-	zabawa z camerami playera i move marker
-	
-	
-	Chyba wszystko naprawic jesli chodzi o axis, camera jest + z,
-	odwrocone sprite'y przez to
-	
-	
-	NAPRAWA SCROLL CAMERY
-	-scroll w kamerze move, aby "dziedziczyl" scroll z playera, albo daj scrolla do autoload
-	aby i playera i move camera pasowala
-	
+	menu bedzie get texture from 3d scene jesli chodzi o wizualia i wtedy shadery do niego
 	
 	
 	EFEKTY
-	- dwa typy efektow, ANIMATION ORAZ PROJECTILE, ze skryptem, timerem opozniajacym, 
-	timerem trwania	jesli to projectile i area3d hitboxem
 	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
-	- efekty beda mialy swoj folder jako resource/asset
-	- efekty beda mialy swoja biblioteke w autoload, i beda wczytane jako preload 
-	w dictionary
- 	- autoload actions bedzie miec nazwe efektu do uzycia oraz opoznienie, bedzie
-	 to wykorzystywane do setupu
-	efektu. w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
-	- obrocenie efektu bedzie oznaczalo tylko przeskalowanie go na minusowe osie ?????
+	w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
 
-
-
-	ENTITIES
-	-jakis basic enemy z funkcjonalnymi hurtboxami
-	- byle jaki sprite dla playera
-	i sprawienie aby sie obracal wzgledem direction x
-	-podobnie z enemy
+	shader a po tym do particle efekty i animationplayer
 
 
 
@@ -73,10 +43,6 @@ CHYBA TAK BEDZIE NAJLEPIEJ, COS W STYLU LITTLE FIGHTERS 2 A OCTOPATH TRAVELER
 	- animacje playera
 	
 
-	
-
-
-	sorting of 3d sprites, bazowany na camerze a nie z depth
 
 
 
@@ -88,6 +54,7 @@ POLISH:
 	- mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na spring arm
 	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly
 	 smooth do powrotu do granic
+	(jesli kamera od srodka jakas odleglosc, move toward, zbyt mocny i daleki ruch blokuje clamp)
 
 
 IDEAS:
@@ -100,29 +67,9 @@ NOTKI:
 	
 	combat world musi byc przesuniety, bo jesli player position --> x = 0 and z = 0, to jest
 	problem z katem dla niego i markera
-
-	sortowanie sprite'ow 3d przez visualinstance3d sorting z position * 100
-	DONE
 	
 	class name aby stworzyc classe, a pozniej new inherited scene dla oob
 
-	32x32 px sprites base
-	
-	Spritefixstatic dla background
-	Spritefixstatic z anim sprites 2d dla postaci, elementow animowanych
-
-	
-	podczas tworzenia wizualnych:
-		dziedziczenie animation sprite 2d fix
-		danie sprite etc
-		przemieszczenie node2d ktory jest root aby x pasowal
-		ustawienie viewport aby pasowalo
-		
-
-
-	po stworzeniu animacji i przetestowaniu nalezy usunac camere z sprite fix static bo psuje 
-	tween camery mark do playera
-	podobnie efekty
-
-
 	delta oraz event sa underscore aby nie pokazywalo ich w debugerze w razie czego
+
+	bezier curve zoom = ctrl alt scroll

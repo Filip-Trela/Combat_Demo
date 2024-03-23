@@ -7,18 +7,17 @@ var action_list = Actions
 
 
 var phys_skills = [
-	action_list.placeH
+	action_list.slash,
 ]
 
 var mag_skills= [
-	action_list.blood_shoot,
+	action_list.placeH,
 	action_list.heal,
-	action_list.explosion
 ]
 
 #PLAYER STATS
-var max_hp:int
-var current_hp:int
+var max_hp:int = 100
+var current_hp:int = max_hp
 
 var max_mp:int
 var current_mp:int
@@ -28,8 +27,10 @@ var current_mp:int
 #MORE OF A GLOBAL AUTOLOAD
 var is_moving = false
 
-# "moving" , "in menu" , "button selected"
+# "moving" , "in menu" , "during action"
 var combat_state = "moving"
 
+var follows = 0
+var follows_max = 3
 
 

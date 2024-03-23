@@ -1,13 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://fyc63t5s0u57"]
+[gd_scene load_steps=5 format=3 uid="uid://fyc63t5s0u57"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Enemies/BaseClass/enemy_class.gd" id="1_hto00"]
-[ext_resource type="PackedScene" uid="uid://c3jqqjcue4n7k" path="res://Utility/sprite_fix_static.tscn" id="2_js7hn"]
+
+[sub_resource type="Animation" id="Animation_g2x33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.75, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_165lg"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.75, 0), Vector3(0, 1, 0), Vector3(0, 0.75, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rkxch"]
+_data = {
+"RESET": SubResource("Animation_g2x33"),
+"idle": SubResource("Animation_165lg")
+}
 
 [node name="EnemyClass" type="CharacterBody3D"]
+collision_mask = 7
 script = ExtResource("1_hto00")
 
-[node name="FlipH" type="Node3D" parent="."]
-
-[node name="SpriteFixStatic" parent="FlipH" instance=ExtResource("2_js7hn")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rkxch")
+}
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
