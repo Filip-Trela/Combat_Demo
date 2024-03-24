@@ -216,6 +216,8 @@ func use_ability_rot():
 	effect_anim.position = player.position + rotated
 	effect_anim.damage_base = action.damage
 	effect_anim.rotation.y = marker.rotation.y
+	effect_anim.follow_allowed = action.follow_allowed
+
 	
 	world.add_child(effect_anim)
 	
@@ -230,6 +232,8 @@ func use_ability_mov():
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = marker.position
 	effect_anim.damage_base = action.damage
+	effect_anim.follow_allowed = action.follow_allowed
+
 	
 	world.add_child(effect_anim)
 	
@@ -241,6 +245,8 @@ func use_ability_mov():
 func use_ability_null():
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = player.position
+	effect_anim.follow_allowed = action.follow_allowed
+
 	
 	world.add_child(effect_anim)
 	

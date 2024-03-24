@@ -59,7 +59,6 @@ func _process(_delta):
 		
 
 func _physics_process(_delta):
-
 	#xz moving
 	if input_vec != Vector2(0,0):
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)

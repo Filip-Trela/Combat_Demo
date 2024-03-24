@@ -45,6 +45,7 @@ mesh = SubResource("BoxMesh_uvwy7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
+cull_mask = 1
 current = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

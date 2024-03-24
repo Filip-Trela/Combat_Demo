@@ -33,4 +33,6 @@ var combat_state = "moving"
 var follows = 0
 var follows_max = 3
 
+var during_follows = false
+
 

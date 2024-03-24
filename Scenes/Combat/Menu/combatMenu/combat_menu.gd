@@ -21,14 +21,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#print(PlayerInfo.follows)
 	if PlayerInfo.is_moving:
 		timer.set_paused(false)
 	else:
 		timer.set_paused(true)
 		
-	label.text = str(snappedf(timer_time - timer.time_left, 1))
+	label.text = str(snappedf(timer_time - timer.time_left, 0.1))
 	
 	player_hp.value = PlayerInfo.current_hp
+	
+	$Background.texture = $SubViewport.get_texture()
 
 
 
@@ -36,6 +39,7 @@ func _process(_delta):
 func _input(_event):
 	if Input.is_action_just_pressed("tab") and not PlayerInfo.is_moving:
 		if not anims.is_playing():
+			PlayerInfo.during_follows = false
 
 			
 			if PlayerInfo.combat_state == "in menu" and get_node("ButtonHandler").state =="master_butt":

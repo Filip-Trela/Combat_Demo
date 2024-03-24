@@ -1,16 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://r8u1ygf0n8lf"]
+[gd_scene load_steps=11 format=3 uid="uid://r8u1ygf0n8lf"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.gd" id="1_5vbti"]
 [ext_resource type="PackedScene" uid="uid://oa87hgbsh3yx" path="res://Scenes/Combat/Menu/button_handler.tscn" id="2_6gfeu"]
 [ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="3_evpx7"]
-[ext_resource type="Texture2D" uid="uid://cdy2sqxmaa70f" path="res://Assets/2D/menu/first_ring.png" id="4_rikyp"]
-[ext_resource type="Shader" uid="uid://qt06bujqitkg" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.tres" id="4_w8jda"]
+[ext_resource type="PackedScene" uid="uid://od7u8hgwrgyk" path="res://Scenes/Combat/Menu/combatMenu/combat_background.tscn" id="6_jm2eq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hgi6n"]
 load_path = "res://.godot/imported/for_menu.png-dd0ed0b675cb1d40b57e2a352d7a7b16.s3tc.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7giit"]
-shader = ExtResource("4_w8jda")
 
 [sub_resource type="Animation" id="Animation_x8sy5"]
 length = 0.001
@@ -102,16 +98,65 @@ tracks/7/keys = {
 "points": PackedFloat32Array(660, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/8/type = "bezier"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("FirstRing:rotation")
+tracks/8/path = NodePath("SubViewport/CombatBackground/FirstRing:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.215, 0, -2.625)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewport/CombatBackground/FirstRing:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SubViewport/CombatBackground/FirstRing/FirstRing2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.85, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SubViewport/CombatBackground/FirstRing/FirstRing2:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SubViewport/CombatBackground/Ring1/MeshInstance3D:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_540ts"]
@@ -205,16 +250,65 @@ tracks/7/keys = {
 "points": PackedFloat32Array(1305.56, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/8/type = "bezier"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("FirstRing:rotation")
+tracks/8/path = NodePath("SubViewport/CombatBackground/FirstRing:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(4.67748, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.215, 0, -2.625)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewport/CombatBackground/FirstRing:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SubViewport/CombatBackground/FirstRing/FirstRing2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.85, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SubViewport/CombatBackground/FirstRing/FirstRing2:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.79253, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SubViewport/CombatBackground/Ring1/MeshInstance3D:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qm7jt"]
@@ -322,16 +416,17 @@ tracks/8/keys = {
 "method": &"_c_menu_not"
 }]
 }
-tracks/9/type = "bezier"
+tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("FirstRing:rotation")
+tracks/9/path = NodePath("SubViewport/CombatBackground/Ring1/MeshInstance3D:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-4.9515, -0.25, 0, 0.25, 0, -7.87143, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8sc0t"]
@@ -439,16 +534,17 @@ tracks/8/keys = {
 "method": &"_c_menu_is"
 }]
 }
-tracks/9/type = "bezier"
+tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("FirstRing:rotation")
+tracks/9/path = NodePath("SubViewport/CombatBackground/Ring1/MeshInstance3D:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-1.58825, -0.25, 0, 0.25, 0, -4.9515, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yq1c1"]
@@ -477,18 +573,14 @@ scale = Vector2(1.1, 1.1)
 texture = SubResource("CompressedTexture2D_hgi6n")
 
 [node name="Background2" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0, 0.87451, 0.517647, 1)
 position = Vector2(644, 310)
 rotation = -0.523598
 scale = Vector2(1.1, 1.1)
 texture = SubResource("CompressedTexture2D_hgi6n")
 
-[node name="FirstRing" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_7giit")
-position = Vector2(350, 368)
-scale = Vector2(3.8, 3.8)
-texture = ExtResource("4_rikyp")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
 
 [node name="ButtonHandler" parent="." instance=ExtResource("2_6gfeu")]
 position = Vector2(1051, 557)
@@ -525,3 +617,14 @@ offset_bottom = 353.0
 rotation = -1.81372
 scale = Vector2(2.1463, 1.44154)
 show_percentage = false
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="CombatBackground" parent="SubViewport" instance=ExtResource("6_jm2eq")]
+
+[node name="MeshInstance3D" parent="SubViewport/CombatBackground/Ring1" index="0"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.04, -0.98, 1.305)
+
+[editable path="SubViewport/CombatBackground"]

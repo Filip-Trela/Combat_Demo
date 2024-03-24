@@ -1,7 +1,19 @@
 extends Node
 
 
+#base dict for all actions
 
+var base = {
+	"name": "base",
+	"marker_type": null,
+	"marker_size": Vector3(1,1,1),
+	"marker_position": Vector3(0,0,0),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": preload("res://Scenes/Combat/effects/SlashP/slash.tscn"),
+	"follow_allowed": false,
+	"damage": 0,
+	"description": "base dictionary for actions",
+}
 
 
 #PLACEHOLDERS
@@ -10,10 +22,11 @@ var slash = {
 	"name": "Slash",
 	"marker_type": "rotate",
 	"marker_size": Vector3(1,1,1),
-	"damage": 10,
 	"marker_position": Vector3(0,0,0),
 	"effect_position": Vector3(0,0,2.5),
 	"effect_animation": preload("res://Scenes/Combat/effects/SlashP/slash.tscn"),
+	"follow_allowed": true,
+	"damage": 1,
 	"description": "A placeholder action with rotateable marker and x damage",
 }
 
@@ -31,6 +44,7 @@ var placeH = {
 	"max_distance":8,
 	"damage": 40,
 	"effect_animation": preload("res://Scenes/Combat/effects/PlaceHolder/BoomP.tscn"),
+	"follow_allowed": false,
 	"description": "A placeholder action with 25 damage",
 }
 
@@ -40,6 +54,7 @@ var heal = {
 	"marker_type": null,
 	"marker_size": null,
 	"effect_animation": preload("res://Scenes/Combat/effects/PlaceHolder/BoomP.tscn"),
+	"follow_allowed": false,
 	"description": "A placeholder action with null marker",
 }
 

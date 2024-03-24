@@ -1,7 +1,13 @@
 TODAY: 		
+	dac var "czy follow" do action i sprawdzania
+	stagger ale to moze pozniej
 	
 	tab zamyka tez okno niewazne w ktorym stanie
 	TO PRZY ANIMACJACH SIE ZROBI
+	
+	background do combat menu jest 3d, node jest przygotowany
+	poprawic meshe i inne do combat
+
 	
 	
 	
@@ -60,7 +66,13 @@ POLISH:
 IDEAS:
 	- follow attack tylko przy combat skills(Physskills now), przy mag skills nie ma
 	dodatkowo czesto blokuja ruch na maly interwal czasu, ale to bedzie w animacji
-
+	
+	- system magii niczym w two world2, typ(marker), modyfikator i rodzaj. modyfikatory
+	 zalezne od typu
+	typy:
+		rotate(straight line, projectile)
+		move(moveable marker so pos that player wants)
+		null(self, mogic on self or own position)
 
 NOTKI:
 	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC

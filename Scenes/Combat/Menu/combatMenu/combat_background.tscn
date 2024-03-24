@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://od7u8hgwrgyk"]
+
+[ext_resource type="ArrayMesh" uid="uid://dysprmfnw5ona" path="res://Assets/3D/combatMenu/firstRing.tres" id="1_tde6s"]
+
+[node name="CombatBackground" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+cull_mask = 2
+
+[node name="Ring1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.06, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ring1"]
+transform = Transform3D(-4, 6.81196e-08, 6.9282, 1.36239e-07, 8, 0, -6.9282, 1.17987e-07, -4, -3.04, -0.98, 1.305)
+layers = 2
+mesh = ExtResource("1_tde6s")
+skeleton = NodePath("../..")
