@@ -12,7 +12,7 @@ var phys_skills = [
 
 var mag_skills= [
 	action_list.placeH,
-	action_list.heal,
+	action_list.push,
 ]
 
 #PLAYER STATS
@@ -26,7 +26,6 @@ var current_mp:int
 
 #MORE OF A GLOBAL AUTOLOAD
 var is_moving = false
-
 # "moving" , "in menu" , "during action"
 var combat_state = "moving"
 

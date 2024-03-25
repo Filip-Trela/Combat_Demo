@@ -141,16 +141,6 @@ func state_machine():
 
 
 
-
-
-
-
-
-
-
-
-
-
 #in slave buttons when pressed space
 func set_ability(): 
 	act_type = get_node("MasterButtons").get_child(choose_m).name
@@ -214,9 +204,9 @@ func use_ability_rot():
 	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
 
 	effect_anim.position = player.position + rotated
-	effect_anim.damage_base = action.damage
 	effect_anim.rotation.y = marker.rotation.y
-	effect_anim.follow_allowed = action.follow_allowed
+	effect_anim.action = action
+
 
 	
 	world.add_child(effect_anim)
@@ -231,8 +221,7 @@ func use_ability_rot():
 func use_ability_mov():
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = marker.position
-	effect_anim.damage_base = action.damage
-	effect_anim.follow_allowed = action.follow_allowed
+	effect_anim.action = action
 
 	
 	world.add_child(effect_anim)
@@ -245,15 +234,12 @@ func use_ability_mov():
 func use_ability_null():
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = player.position
-	effect_anim.follow_allowed = action.follow_allowed
+	effect_anim.action = action
 
 	
 	world.add_child(effect_anim)
 	
 	state = "slave_butt"
-
-
-
 
 
 

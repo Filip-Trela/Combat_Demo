@@ -16,8 +16,10 @@ var max_speed = 7
 
 
 var y_vec = 0
-var jump_str = 10
+var jump_str = 40
+var jump_is:bool = false
 var gravity = 1
+var max_fall = -50
 
 
 var mouse_x
@@ -54,7 +56,6 @@ func _process(_delta):
 		model.rotation.y = model_rotation
 	
 	
-	
 
 		
 
@@ -65,6 +66,13 @@ func _physics_process(_delta):
 		direction = transformed_input.angle_to(Vector2(0,1))
 	else:
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
+	
+	if PlayerInfo.is_moving:
+		if is_on_floor():
+			y_vec = clamp(y_vec, 0, 1000)
+		else:
+			y_vec -= gravity
+			y_vec = clamp(y_vec, max_fall, 1000)
 		
 	
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
@@ -74,13 +82,14 @@ func _physics_process(_delta):
 	
 	#for timer information
 	if PlayerInfo.combat_state != "during action":
-		if velocity != Vector3(0,0,0) or press_wait:
+		if xz_vec != Vector2(0,0) or press_wait:
 			PlayerInfo.is_moving = true
 		else:
 			PlayerInfo.is_moving = false
 		
-		
-	move_and_slide()
+	if PlayerInfo.is_moving:
+		move_and_slide()
+	
 
 
 
@@ -98,7 +107,13 @@ func _input(_event):
 
 	press_wait = Input.get_action_raw_strength("e")
 
-	
+	if PlayerInfo.combat_state == "moving":
+		jump_is = Input.get_action_raw_strength("space")
+	else:
+		pass
+	if jump_is and is_on_floor():
+		y_vec = jump_str
+		jump_is = false
 
 	#placeholder
 	if Input.is_action_just_pressed("end"): get_tree().quit()

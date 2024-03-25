@@ -21,13 +21,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#print(PlayerInfo.follows)
 	if PlayerInfo.is_moving:
 		timer.set_paused(false)
 	else:
 		timer.set_paused(true)
 		
-	label.text = str(snappedf(timer_time - timer.time_left, 0.1))
+	label.text = str(snappedf(timer_time - timer.time_left, 0.01))
 	
 	player_hp.value = PlayerInfo.current_hp
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqrn15qfo5gk6"]
+[gd_scene load_steps=13 format=3 uid="uid://bqrn15qfo5gk6"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Enemies/BaseClass/enemy_class.gd" id="1_a4ngv"]
 [ext_resource type="ArrayMesh" uid="uid://dkgfteepm75w5" path="res://Assets/3D/markers/move_marker.tres" id="2_i2ssp"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2b85p"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vfmfc"]
+radius = 0.7
 height = 1.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0qrj5"]
@@ -12,6 +13,15 @@ radius = 0.6
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_724fi"]
 height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhgmx"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r2alo"]
+material = SubResource("StandardMaterial3D_qhgmx")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.5
 
 [sub_resource type="Animation" id="Animation_g2x33"]
 length = 0.001
@@ -254,7 +264,7 @@ script = ExtResource("1_a4ngv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("CylinderShape3D_2b85p")
+shape = SubResource("CapsuleShape3D_vfmfc")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 2
@@ -267,6 +277,11 @@ shape = SubResource("CylinderShape3D_0qrj5")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("CylinderMesh_724fi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37904, 0.370995, 0.00110245)
+mesh = SubResource("CylinderMesh_r2alo")
+skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

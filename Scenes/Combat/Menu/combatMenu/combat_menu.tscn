@@ -573,6 +573,7 @@ scale = Vector2(1.1, 1.1)
 texture = SubResource("CompressedTexture2D_hgi6n")
 
 [node name="Background2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0.87451, 0.517647, 1)
 position = Vector2(644, 310)
 rotation = -0.523598
@@ -588,11 +589,17 @@ position = Vector2(1051, 557)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 500.0
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.509804, 0.509804, 0.509804, 1)
+position = Vector2(656, 46)
+scale = Vector2(3.69903, 1.02075)
+texture = ExtResource("3_evpx7")
+
 [node name="Label" type="Label" parent="."]
-offset_left = 504.0
-offset_top = 12.0
-offset_right = 729.0
-offset_bottom = 67.0
+offset_left = 542.0
+offset_top = 19.0
+offset_right = 767.0
+offset_bottom = 74.0
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=8 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://cvvsxy1jir8j6" path="res://Scenes/Combat/Player/player.tscn" id="1_c3ntl"]
 [ext_resource type="PackedScene" uid="uid://bqrn15qfo5gk6" path="res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn" id="2_aircb"]
@@ -9,6 +9,12 @@ background_mode = 1
 background_color = Color(0.8, 0.862745, 0.94902, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuc66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpi7x"]
+albedo_color = Color(0.607843, 0.415686, 0.282353, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jodhs"]
+material = SubResource("StandardMaterial3D_gpi7x")
 
 [node name="Game" type="Node"]
 
@@ -25,21 +31,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 [node name="SpotLight3D" type="SpotLight3D" parent="CombatScene/ShiftPivot/World"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.9263, 0)
 light_energy = 10.374
-spot_range = 50.0
+spot_range = 60.28
+spot_angle = 73.3
 
 [node name="Markers" type="Node3D" parent="CombatScene/ShiftPivot/World"]
 
 [node name="Player" parent="CombatScene/ShiftPivot/World" instance=ExtResource("1_c3ntl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.624, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CombatScene/ShiftPivot/World"]
 transform = Transform3D(50, 0, 0, 0, 0.15, 0, 0, 0, 20, 0, -0.0842434, 0)
-collision_layer = 4
+collision_layer = 5
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CombatScene/ShiftPivot/World/StaticBody3D"]
 shape = SubResource("BoxShape3D_kuc66")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CombatScene/ShiftPivot/World/StaticBody3D"]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CombatScene/ShiftPivot/World/StaticBody3D"]
 transform = Transform3D(1.0214, 0, 0, 0, 51.0667, 0, 0, 0, 0.05, 0, 0, 0.522497)
@@ -58,7 +64,32 @@ transform = Transform3D(-4.46468e-08, 0, 0.05, 0, 51.0668, 0, -1.0214, 0, -2.185
 shape = SubResource("BoxShape3D_kuc66")
 
 [node name="EnemyClass" parent="CombatScene/ShiftPivot/World" instance=ExtResource("2_aircb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84031, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8693, 0, 0)
 collision_mask = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CombatScene/ShiftPivot/World"]
+transform = Transform3D(50, 0, 0, 0, 0.15, 0, 0, 0, 20, 0, -0.0842434, 0)
+mesh = SubResource("BoxMesh_jodhs")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CombatScene/ShiftPivot/World"]
+transform = Transform3D(50, 0, 0, 0, -6.55671e-09, -20, 0, 0.15, -8.74228e-07, 0, -0.084, -10)
+mesh = SubResource("BoxMesh_jodhs")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="CombatScene/ShiftPivot/World"]
+transform = Transform3D(-2.18557e-06, 0.15, -8.74228e-07, 0, -6.55671e-09, -20, -50, -6.55671e-09, 3.82137e-14, 25, -0.084, -14.5858)
+mesh = SubResource("BoxMesh_jodhs")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="CombatScene/ShiftPivot/World"]
+transform = Transform3D(50, 0, 0, 0, -6.55671e-09, -20, 0, 0.15, -8.74228e-07, 0, -10.1574, 10)
+mesh = SubResource("BoxMesh_jodhs")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="CombatScene/ShiftPivot/World"]
+transform = Transform3D(-2.18557e-06, 0.15, -8.74228e-07, 0, -6.55671e-09, -20, -50, -6.55671e-09, 3.82137e-14, -25, -0.084, -14.586)
+mesh = SubResource("BoxMesh_jodhs")
+skeleton = NodePath("")
 
 [node name="CombatMenu" parent="CombatScene/ShiftPivot" instance=ExtResource("2_wkfnp")]

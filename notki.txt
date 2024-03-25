@@ -1,5 +1,17 @@
 TODAY: 		
-	dac var "czy follow" do action i sprawdzania
+	oslabic ataki wyrzucajace w gore
+	animacje fasol tymczasowe, gdzie player ma miecz czy cos
+	efekty juz "slash" moga byc shaderami. moze byc jeden model i shader, beda modyfikowane
+	ilosci, pozycje, wielkosc i rotation
+	byle jaka scena background dla world
+	
+	na ten moment nawet nie ruszaj wiecej w aerial bo nwm nawet czy bedzie,
+	moze nalezy dodac poczatkowa animacje ("wejscie" czy cos) aby zasetowalo isonfloor
+	bez mov and slide nie setuje. mozliwe ze trzeba bedzie wyjebac y toss,
+	nie widze zbytnio aby enemy mialo wtedy szanse, ewentualnie dac im tossable zmienna
+	
+	
+	
 	stagger ale to moze pozniej
 	
 	tab zamyka tez okno niewazne w ktorym stanie
@@ -12,16 +24,23 @@ TODAY:
 	
 	
 	LATER:
+		aerial combat albo calkowicie wyjebany albo o wiele pozniej do zrobienia,
+		aktualnie nie chce mi sie bawic z rewrite'm skryptu playera i tych wszystkich stanow
 		
-		gdy enemy is attacked, jest odsuniecie przeciwnika, bazowo w actions, ale var decyduje jak
-		daleko sa odsunieci (0-x), bazowany na rotacji i positions, im dalej od efektu center tym
-		slabiej odsuwany
+		po ataku, damage i stagger jest modyfikowany przez stagger points, action type(if the enemy
+		if weak on fire for example), a jego toss jest modyfikowany przez zmienna w przeciwniku 'weight'
+		oraz odleglosc od srodka
+		
+		kolizje swiata importowane z blendera modela combat worlda, na poczatku bazowy model
+		ktory mowi o strefie gdzie sa kolizje i na bazie niego stworzyc reszte mapki
+		na dole dac area ktory gdy wykryje gracza wyrzuca go na node3d.pos.z aby wrocil na mapke
+		
+		czasami cos blokuje kamere i nie wraca poprawnie
 
 
 
 
 TODOS:
-	animacje ale na bazie tych fasol aby szybciej skonczyc
 	
 	menu bedzie get texture from 3d scene jesli chodzi o wizualia i wtedy shadery do niego
 	
@@ -67,6 +86,28 @@ IDEAS:
 	- follow attack tylko przy combat skills(Physskills now), przy mag skills nie ma
 	dodatkowo czesto blokuja ruch na maly interwal czasu, ale to bedzie w animacji
 	
+	- typy magii aby byly zwiazane z animacjami:
+		null:
+			lata kolo playera (troche taka tarcza)
+			"wybucha" od playera
+			"wchlaniane" przez playera
+		rotate:
+			wall (troche taka tarcza)
+			projectile
+		move:
+			"wybuch" w miejscu markera
+			powstanie klatki
+			struktura w miejscu markera (troche taka tarcza)
+			
+		jezeli bedzie cos takiego, to nalezy uwzglednic dla wrogow navigacje lub kolizje czy cos
+		aby glupio nie wchodzi w to
+		zarazem klatki z materii stalej blokuja projectile czy cos
+		oczywiscie cala ta magia i rodzaje to modyfikatory:
+			"kamien" stala materia, atak bazowy (not elemental)
+			"light/fire/lod" wszystko moze przechodzic lecz dostaje obrazenia i moze jest spowolniane
+			(light moze dzialac za obrazenia wrogow i leczenie siebie)
+			"debuff" cos co sprawia ze przeciwnicy nagle nie walcza, sa slepi lub slabi
+	
 	- system magii niczym w two world2, typ(marker), modyfikator i rodzaj. modyfikatory
 	 zalezne od typu
 	typy:
@@ -85,3 +126,8 @@ NOTKI:
 	delta oraz event sa underscore aby nie pokazywalo ich w debugerze w razie czego
 
 	bezier curve zoom = ctrl alt scroll
+	
+	robiac efekty, nalezy pamietac o dobrych layers. jesli oba efekty maja marker null, ale jeden 
+	dziala na wrogow a drugi tylko na playera, to nalezy bawic sie z layers
+	
+	damage indicator sorting -1
