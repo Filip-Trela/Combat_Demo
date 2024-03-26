@@ -50,6 +50,7 @@ func _ready():
 
 func _process(_delta):
 	#kurwa mac
+	print(PlayerInfo.follows)
 	if PlayerInfo.combat_state == "moving":
 		self.set_collision_mask(6) #enemy and world
 	else:
@@ -112,13 +113,6 @@ func _input(_event):
 
 	press_wait = Input.get_action_raw_strength("e")
 
-	if PlayerInfo.combat_state == "moving":
-		jump_is = Input.get_action_raw_strength("space")
-	else:
-		pass
-	if jump_is and is_on_floor():
-		y_vec = jump_str
-		jump_is = false
 
 	#placeholder
 	if Input.is_action_just_pressed("end"): get_tree().quit()

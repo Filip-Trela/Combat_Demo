@@ -5,6 +5,7 @@ class_name EffectAnimation
 var player
 
 @onready var anims = $AnimationPlayer
+
 @export var damage_base = 25
 
 var action
@@ -112,4 +113,5 @@ func _on_animation_player_animation_finished(anim_name):
 	else:
 		PlayerInfo.is_moving = false
 		PlayerInfo.combat_state = "in menu"
+		PlayerInfo.follows = 0
 	self.queue_free()

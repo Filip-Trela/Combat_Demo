@@ -1,13 +1,12 @@
 TODAY: 		
-	kolzije atakow jako jeden obiekt a nie kilka
+	kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
+	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
+	czy cos
 	
-
-	animacje fasol tymczasowe, gdzie player ma miecz czy cos
+	main menu mozna zrobic
 	
 	efekty juz "slash" moga byc shaderami. moze byc jeden model i shader, beda modyfikowane
 	ilosci, pozycje, wielkosc i rotation
-	
-	byle jaka scena background dla world
 	
 	na ten moment nawet nie ruszaj wiecej w aerial bo nwm nawet czy bedzie,
 	moze nalezy dodac poczatkowa animacje ("wejscie" czy cos) aby zasetowalo isonfloor
@@ -16,18 +15,33 @@ TODAY:
 	
 	
 	
-	stagger ale to moze pozniej
 	
-	tab zamyka tez okno niewazne w ktorym stanie
-	TO PRZY ANIMACJACH SIE ZROBI
 	
-	background do combat menu jest 3d, node jest przygotowany
-	poprawic meshe i inne do combat
+
+	
+	
 
 	
 	
 	
 	LATER:
+		
+		animacje dla enemy i postaci z jedna bronia, dwa meshe postaci, male female, ogarniecie
+		animacji meshow playera w menu
+		bedzie trzeba ogarnac kamere, bo jesli y nie takie same i
+		z move wychodzi kamera to cos zle wychodzi na koniec
+		
+		stagger do ogarniecia, te wszystkie punkty etc
+		
+		xz i v tossy czy tez offsety mozna pozniej wrzucic do export vars podczas animacji
+		kolizje atakow jako jeden obiekt a nie kilka
+		
+		tab zamyka tez okno niewazne w ktorym stanie
+		TO PRZY ANIMACJACH SIE ZROBI
+		
+		background do combat menu jest 3d, node jest przygotowany
+		poprawic meshe i inne do combat
+	
 		aerial combat albo calkowicie wyjebany albo o wiele pozniej do zrobienia,
 		aktualnie nie chce mi sie bawic z rewrite'm skryptu playera i tych wszystkich stanow
 		przy aerialu zarazem inny marker
