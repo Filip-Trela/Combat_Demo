@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r8u1ygf0n8lf"]
+[gd_scene load_steps=12 format=3 uid="uid://r8u1ygf0n8lf"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.gd" id="1_5vbti"]
 [ext_resource type="PackedScene" uid="uid://oa87hgbsh3yx" path="res://Scenes/Combat/Menu/button_handler.tscn" id="2_6gfeu"]
@@ -555,6 +555,9 @@ _data = {
 "showMenu": SubResource("Animation_8sc0t")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_iwa10"]
+font_size = 20
+
 [node name="CombatMenu" type="CanvasLayer"]
 script = ExtResource("1_5vbti")
 
@@ -633,5 +636,15 @@ size = Vector2i(1280, 720)
 
 [node name="MeshInstance3D" parent="SubViewport/CombatBackground/Ring1" index="0"]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.04, -0.98, 1.305)
+
+[node name="Instruction" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 610.0
+offset_right = 254.0
+offset_bottom = 712.0
+text = "Press \"e\" to wait
+Press \"tab\" to open menu
+Move to let time flow"
+label_settings = SubResource("LabelSettings_iwa10")
 
 [editable path="SubViewport/CombatBackground"]

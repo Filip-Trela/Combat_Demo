@@ -1,8 +1,12 @@
 TODAY: 		
-	oslabic ataki wyrzucajace w gore
+	kolzije atakow jako jeden obiekt a nie kilka
+	
+
 	animacje fasol tymczasowe, gdzie player ma miecz czy cos
+	
 	efekty juz "slash" moga byc shaderami. moze byc jeden model i shader, beda modyfikowane
 	ilosci, pozycje, wielkosc i rotation
+	
 	byle jaka scena background dla world
 	
 	na ten moment nawet nie ruszaj wiecej w aerial bo nwm nawet czy bedzie,
@@ -26,6 +30,7 @@ TODAY:
 	LATER:
 		aerial combat albo calkowicie wyjebany albo o wiele pozniej do zrobienia,
 		aktualnie nie chce mi sie bawic z rewrite'm skryptu playera i tych wszystkich stanow
+		przy aerialu zarazem inny marker
 		
 		po ataku, damage i stagger jest modyfikowany przez stagger points, action type(if the enemy
 		if weak on fire for example), a jego toss jest modyfikowany przez zmienna w przeciwniku 'weight'
@@ -131,3 +136,6 @@ NOTKI:
 	dziala na wrogow a drugi tylko na playera, to nalezy bawic sie z layers
 	
 	damage indicator sorting -1
+
+@
+indiedev, gamadev, godot

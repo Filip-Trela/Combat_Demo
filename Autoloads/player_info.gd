@@ -8,6 +8,7 @@ var action_list = Actions
 
 var phys_skills = [
 	action_list.slash,
+	action_list.vertical_slash
 ]
 
 var mag_skills= [

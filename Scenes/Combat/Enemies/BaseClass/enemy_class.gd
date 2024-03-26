@@ -11,9 +11,7 @@ class_name Enemy_Class
 
 
 
-#from 5 to 20, the more the more he weights
-#5 easy push, 20 almost no push
-@export_range(5, 20) var weight:int = 5
+#maybe also xz tossable
 @export var y_tossable = true
 
 var max_hp = 100
@@ -34,7 +32,6 @@ var max_fall = -50
 
 
 func _ready():
-	weight = clamp(weight, 5, 20)
 	anim_played = anim.current_animation
 
 

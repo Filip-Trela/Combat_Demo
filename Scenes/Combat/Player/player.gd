@@ -16,7 +16,7 @@ var max_speed = 7
 
 
 var y_vec = 0
-var jump_str = 40
+var jump_str = 20
 var jump_is:bool = false
 var gravity = 1
 var max_fall = -50
@@ -42,7 +42,7 @@ var press_wait = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	#self.set_collision_mask()
 	mouse_joint_y = get_node("CameraY")
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
@@ -50,6 +50,11 @@ func _ready():
 
 func _process(_delta):
 	#kurwa mac
+	if PlayerInfo.combat_state == "moving":
+		self.set_collision_mask(6) #enemy and world
+	else:
+		self.set_collision_mask(4) #world only
+	
 	model_rotation = Vector2(mov_vec.x, mov_vec.z).normalized()
 	if model_rotation != Vector2(0,0):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))

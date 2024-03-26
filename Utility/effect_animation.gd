@@ -2,8 +2,9 @@ extends Node3D
 
 class_name EffectAnimation
 
-@onready var anims = $AnimationPlayer
+var player
 
+@onready var anims = $AnimationPlayer
 @export var damage_base = 25
 
 var action
@@ -16,15 +17,20 @@ var follow_allowed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player= get_parent().get_node("Player")
 	damage_base = action.damage
 	follow_allowed = action.follow_allowed
 	self.scale = action.effect_size
+	
+	player.xz_vec += action.player_xz_toss.rotated(-self.rotation.y)
+	
 	anim_plays()
 	anims.play("start")
 	
 	
 func _process(delta):
-	pass
+	if action.hold_in_player:
+		self.position = player.position
 
 
 func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
@@ -32,11 +38,16 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	hitted = true
 	
 	var distance = self.position.distance_to(enemy.position)
-	distance = clamp(distance, 0.8, 1.8)
+	distance = clamp(distance, 0.5, 1.2)
 
 	#toss
 	if action.marker_type == "rotate":
-		enemy.xz_vec += action.xz_toss.rotated(-self.rotation.y) / enemy.weight *5
+		enemy.xz_vec += action.xz_toss.rotated(-self.rotation.y)
+		if enemy.y_tossable:
+			enemy.y_vec += action.y_toss
+		
+			
+		
 		#the five is for counter in enemy weight, its only for not dividing by a flaot
 		#number, then the system breaks
 		
@@ -45,10 +56,10 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		var rotat = xz_vec.direction_to(Vector2(enemy.position.x, enemy.position.z))
 		rotat = rotat.angle_to(Vector2(0,1))
 		
-		enemy.xz_vec += action.xz_toss.rotated(-rotat) * distance / enemy.weight *5
+		enemy.xz_vec += action.xz_toss.rotated(-rotat) * distance
 		if enemy.y_tossable:
-			enemy.y_vec += action.y_toss / distance / enemy.weight *5
-
+			enemy.y_vec += action.y_toss
+			
 	
 	
 	
@@ -95,6 +106,7 @@ func _on_animation_player_animation_finished(anim_name):
 		elif last_follow:
 			PlayerInfo.is_moving = false
 			PlayerInfo.combat_state = "in menu"
+			PlayerInfo.follows = 0
 	
 	#when follows not allowed
 	else:
