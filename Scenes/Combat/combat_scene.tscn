@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://xon228o2qdjl"]
+
+[ext_resource type="PackedScene" uid="uid://cvvsxy1jir8j6" path="res://Scenes/Combat/Player/player.tscn" id="1_nkopf"]
+[ext_resource type="PackedScene" uid="uid://cq183vv4yva6l" path="res://Scenes/Combat/worlds/placeholder_world.tscn" id="2_ruqem"]
+[ext_resource type="PackedScene" uid="uid://bqrn15qfo5gk6" path="res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn" id="3_mkjmc"]
+[ext_resource type="PackedScene" uid="uid://r8u1ygf0n8lf" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.tscn" id="4_epfmx"]
+
+[sub_resource type="Environment" id="Environment_2arkm"]
+background_mode = 1
+background_color = Color(0.784314, 0.866667, 0.964706, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsi81"]
+size = Vector3(50, 20, 1)
+
+[node name="CombatScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2arkm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
+shadow_enabled = true
+
+[node name="ShiftPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="World" type="Node3D" parent="ShiftPivot"]
+
+[node name="Markers" type="Node3D" parent="ShiftPivot/World"]
+
+[node name="Player" parent="ShiftPivot/World" instance=ExtResource("1_nkopf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20081, 0, 0)
+
+[node name="placeholder_world" parent="ShiftPivot/World" instance=ExtResource("2_ruqem")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="EnemyClass" parent="ShiftPivot/World" instance=ExtResource("3_mkjmc")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ShiftPivot/World"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4936, -4.77645)
+shape = SubResource("BoxShape3D_wsi81")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4936, 4.8238)
+shape = SubResource("BoxShape3D_wsi81")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7631, 6.4936, 4.8238)
+shape = SubResource("BoxShape3D_wsi81")
+
+[node name="EnemyClass2" parent="ShiftPivot/World" instance=ExtResource("3_mkjmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19107, 0, 0)
+
+[node name="EnemyClass3" parent="ShiftPivot/World" instance=ExtResource("3_mkjmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44077, 0, -1.76366)
+
+[node name="EnemyClass4" parent="ShiftPivot/World" instance=ExtResource("3_mkjmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15128, 0, 1.80842)
+
+[node name="CombatMenu" parent="ShiftPivot" instance=ExtResource("4_epfmx")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dc48juv108u5r"]
 
 [ext_resource type="Script" path="res://Utility/effect_animation.gd" id="1_vlc5n"]
-[ext_resource type="ArrayMesh" uid="uid://c1fdfwbwvwol0" path="res://Assets/3D/effects/slash.tres" id="2_yyek1"]
+[ext_resource type="ArrayMesh" uid="uid://c1imuown83a0p" path="res://Assets/3D/effects/slash.tres" id="2_yyek1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k8bj"]
 
@@ -140,7 +140,7 @@ shape = SubResource("CapsuleShape3D_6k8bj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ShiftJoint"]
-transform = Transform3D(6.55671e-08, -1.5, 1.31134e-07, -1.5, -6.55671e-08, 0, 5.73206e-15, -1.31134e-07, -1.5, 0, 0.7, 1)
+transform = Transform3D(1.24577e-08, -0.285, 4.30338e-08, -0.285, -1.24577e-08, -1.89603e-21, 1.88107e-15, -4.30338e-08, -0.285, 0, 0.478329, 2.11428)
 visible = false
 mesh = ExtResource("2_yyek1")
 

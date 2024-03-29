@@ -1,5 +1,35 @@
-TODAY: 		
-	kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
+PLANS:
+	kolo zdecydowalo: KATANA
+	
+	explore zostawic na ten moment
+	
+	zajac sie naprzemiennie aby sie nie meczyc: visualiami, modelami i animacjami
+	menu scene oraz explore world
+	
+	zrobic aby na bazie jakiejs zmiennej decydowalo o meshu postaci,
+	ale przy tym dac animacje byle jaka aby sprawdzic czy moge zmieniac mesze
+	
+	dac enemy do explore i ogarniac aby przerzucalo z explore do combat
+	
+	identyfikator dla najblizszego wroga w explore
+
+TODAY: 
+	skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	LATER:
+		kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
 	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
 	czy cos
 	
@@ -14,17 +44,9 @@ TODAY:
 	nie widze zbytnio aby enemy mialo wtedy szanse, ewentualnie dac im tossable zmienna
 	
 	
-	
-	
-	
-
-	
-	
-
-	
-	
-	
-	LATER:
+		enivroment things in combat. like bagno spowalnia kazdego czy cos
+		
+		oczy beda miec shadera dla pozycji oka, powiek etc
 		
 		animacje dla enemy i postaci z jedna bronia, dwa meshe postaci, male female, ogarniecie
 		animacji meshow playera w menu

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://evg6bq71w2o6" path="res://Scenes/Combat/Menu/phys_button.tscn" id="1_aaipb"]
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/button_handler.gd" id="1_hcfbd"]
 [ext_resource type="PackedScene" uid="uid://bifbr4i10wrbs" path="res://Scenes/Combat/Menu/magic_button.tscn" id="2_0jsju"]
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Scenes/Combat/Menu/button_template.tscn" id="4_o4gpw"]
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="4_o4gpw"]
 
 [node name="ButtonHandler" type="Node2D"]
 script = ExtResource("1_hcfbd")

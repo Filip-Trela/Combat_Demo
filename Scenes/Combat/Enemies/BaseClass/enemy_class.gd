@@ -13,6 +13,8 @@ class_name Enemy_Class
 
 #maybe also xz tossable
 @export var y_tossable = true
+#from 5 to 15
+var weight = 5
 
 var max_hp = 100
 var current_hp = max_hp
@@ -27,7 +29,7 @@ var xz_vec:Vector2= Vector2(0,0)
 var friction = 1
 var y_vec = 0
 var gravity = 1
-var max_fall = -50
+var max_fall = -80
 
 
 

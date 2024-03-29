@@ -64,12 +64,24 @@ _data = {
 [node name="DamageIndicator" type="Node2D"]
 script = ExtResource("1_mjto7")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Node2D")
+libraries = {
+"": SubResource("AnimationLibrary_yirqs")
+}
+
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -1
 scale = Vector2(0.7, 0.7)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 0.74902, 0, 1)
+position = Vector2(-5.71429, 7.14286)
+scale = Vector2(2.36, 1.24)
+texture = ExtResource("2_1rbwd")
+
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-modulate = Color(0.341176, 0.0313726, 0.00784314, 1)
+modulate = Color(0, 0.87451, 0.517647, 1)
 scale = Vector2(2.36, 1.24)
 texture = ExtResource("2_1rbwd")
 
@@ -82,9 +94,4 @@ text = "sadfdsaf"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
-libraries = {
-"": SubResource("AnimationLibrary_yirqs")
-}
-
-[connection signal="animation_finished" from="Node2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

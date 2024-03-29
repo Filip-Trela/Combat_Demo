@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var label:Label = $Node2D/Label
-@onready var anim:AnimationPlayer = $Node2D/AnimationPlayer
+@onready var anim:AnimationPlayer = $AnimationPlayer
 
 var texture: ViewportTexture
 

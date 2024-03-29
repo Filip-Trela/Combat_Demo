@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://evg6bq71w2o6"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Scenes/Combat/Menu/button_template.tscn" id="1_tuhuy"]
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_tuhuy"]
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/phys_button.gd" id="2_8veg6"]
 
 [node name="PhysButton" instance=ExtResource("1_tuhuy")]
