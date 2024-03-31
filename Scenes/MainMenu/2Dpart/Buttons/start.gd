@@ -1,20 +1,24 @@
 extends Node2D
 
-@onready var pload_world = preload("res://Scenes/Combat/combat_scene.tscn")
-var world
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+var menu
+var main_butt
+var start_butt
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready(): 
+	menu = get_parent().get_parent()
+	main_butt = get_parent()
+	start_butt =get_parent().get_parent().get_node("StartButtons")
 
-func activate(): 
-	world = pload_world.instantiate()
 	
-	get_parent().get_parent().get_parent().get_parent().add_child(world)
-	get_parent().get_parent().get_parent().queue_free()
+func activate(): 
+	#invisible main buttons
+	menu.start_butt_change(0)
+	menu.slave_nr = start_butt.get_child_count() -1
+	main_butt.visible = false
+	start_butt.visible = true
+	
+	menu.state = "start_butt"
+	

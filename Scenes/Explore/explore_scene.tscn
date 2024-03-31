@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://be676xeaee8y4"]
+[gd_scene load_steps=8 format=3 uid="uid://be676xeaee8y4"]
 
 [ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="1_084xt"]
 [ext_resource type="PackedScene" uid="uid://c5cqs18w0x7nt" path="res://Scenes/Explore/Player/player_explore.tscn" id="1_bpbhh"]
+[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_xxcia"]
+[ext_resource type="PackedScene" uid="uid://c4bhaxxg08m6i" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="3_jrsdq"]
 
 [sub_resource type="Environment" id="Environment_cqofv"]
 background_mode = 1
@@ -14,6 +16,7 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [node name="ExploreScene" type="Node3D"]
+script = ExtResource("1_xxcia")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cqofv")
@@ -51,4 +54,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, -6.58027)
 [node name="EnemyBaseExplore3" parent="ShiftPivot/World" instance=ExtResource("1_084xt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36072, 0, -6.58027)
 
-[node name="2d part placeholder" type="CanvasLayer" parent="."]
+[node name="2d_explore" parent="." instance=ExtResource("3_jrsdq")]

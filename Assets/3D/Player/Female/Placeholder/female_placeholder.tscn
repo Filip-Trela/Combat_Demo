@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cybagxnhmobcc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mthoi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfy8w"]
+albedo_color = Color(0.635294, 0.247059, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8t45"]
+material = SubResource("StandardMaterial3D_jfy8w")
+size = Vector3(0.66, 0.25, 0.57)
+
+[node name="Female_PLaceholder" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_mthoi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401414, -0.458565)
+mesh = SubResource("BoxMesh_e8t45")
+skeleton = NodePath("")

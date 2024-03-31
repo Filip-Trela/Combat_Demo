@@ -8,14 +8,38 @@ PLANS:
 	
 	zrobic aby na bazie jakiejs zmiennej decydowalo o meshu postaci,
 	ale przy tym dac animacje byle jaka aby sprawdzic czy moge zmieniac mesze
-	
-	dac enemy do explore i ogarniac aby przerzucalo z explore do combat
-	
-	identyfikator dla najblizszego wroga w explore
 
 TODAY: 
-	skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
+	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany
 	
+	zapis stanu explore world jakis, nie wiem czy zapisanie pod zmienna zadziala
+	
+	
+	
+	
+	kontrola animacji moze byc chyba za pomoca skryptu w animation player,
+	trzeba tylko ogarnac czy to bedzie state machine czy blend tree
+	
+	do node w grupach dac jakis maly mesh aby bylo widac gdzie sie je kladzie, moze byc klasa w sumie jakas
+	
+	katana bedzie cylindrem
+	
+	dac animacje do combat i explore, atakow tez poza magia
+	
+	stworzyc animacje dla menu combat i main menu
+	
+	stworzyc drugi combat swiat
+	
+	stworzyc drugi plane explore world i dac im area 3d ktore koliduja z playerem
+	w autoload zapisuje ktory explore world, na bazie nich wybiera ktory world do
+	combat
+	
+	stworzyc jakies bazowe animacje 3d aby byly przejsciem miedzy main menu explore combat
+	
+	explore jest zapisywany podczas wejscia w combat
+	
+	gdy wrogowie wszyscy zgineli, co wykrywa wrog, player wraca do explore i enemy znika
+	gdy player zginie, co wykrywa player, resetuje explore world
 	
 	
 	
@@ -29,6 +53,8 @@ TODAY:
 	
 	
 	LATER:
+		skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
+		
 		kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
 	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
 	czy cos

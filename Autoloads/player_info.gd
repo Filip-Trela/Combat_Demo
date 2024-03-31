@@ -8,7 +8,8 @@ var action_list = Actions
 
 var phys_skills = [
 	action_list.slash,
-	action_list.vertical_slash
+	action_list.vertical_slash,
+	action_list.dodge
 ]
 
 var mag_skills= [
@@ -22,6 +23,9 @@ var current_hp:int = max_hp
 
 var max_mp:int
 var current_mp:int
+
+#male, female
+var sex:String
 
 
 

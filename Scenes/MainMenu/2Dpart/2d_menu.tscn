@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj3qpeskoc4b0"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu/2Dpart/2d_menu.gd" id="1_2uw11"]
+[ext_resource type="PackedScene" uid="uid://dqrfaeqp18yvp" path="res://Scenes/MainMenu/2Dpart/Buttons/start.tscn" id="2_vslhp"]
+[ext_resource type="PackedScene" uid="uid://dg72ge22588uc" path="res://Scenes/MainMenu/2Dpart/Buttons/end.tscn" id="3_4uv8u"]
+[ext_resource type="PackedScene" uid="uid://2j0elw4orwdw" path="res://Scenes/MainMenu/2Dpart/Buttons/start_part/male_start.tscn" id="4_1iuh6"]
+[ext_resource type="PackedScene" uid="uid://bxd7dqws7pn03" path="res://Scenes/MainMenu/2Dpart/Buttons/start_part/female_start.tscn" id="5_bvat5"]
+
+[node name="2D_menu" type="CanvasLayer"]
+script = ExtResource("1_2uw11")
+
+[node name="MainButtons" type="Node2D" parent="."]
+position = Vector2(126, 595)
+
+[node name="Start" parent="MainButtons" instance=ExtResource("2_vslhp")]
+position = Vector2(0, -46)
+
+[node name="End" parent="MainButtons" instance=ExtResource("3_4uv8u")]
+position = Vector2(0, 54)
+
+[node name="StartButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="MaleStart" parent="StartButtons" instance=ExtResource("4_1iuh6")]
+position = Vector2(406, 594)
+
+[node name="Female_start" parent="StartButtons" instance=ExtResource("5_bvat5")]
+position = Vector2(834, 596)

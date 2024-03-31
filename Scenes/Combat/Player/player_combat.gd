@@ -37,7 +37,9 @@ var press_wait = false
 
 @onready var model = $Model
 
+@onready var camera = $CameraY/CameraX/Camera_pos/PlayerCamera
 
+@onready var anim_tree = $AnimTreePlayerCombat
 
 
 func _ready():
@@ -60,8 +62,9 @@ func _process(_delta):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))
 		model.rotation.y = model_rotation
 	
-	
-
+	if PlayerInfo.current_hp <= 0:
+		get_tree().quit()
+		
 		
 
 func _physics_process(_delta):
@@ -111,11 +114,9 @@ func _input(_event):
 
 
 	press_wait = Input.get_action_raw_strength("e")
-
-
-	#placeholder
-	if Input.is_action_just_pressed("end"): get_tree().quit()
 	
+	if Input.is_action_just_pressed("end"):
+		get_tree().quit()
 	
 func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens

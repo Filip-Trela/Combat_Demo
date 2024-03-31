@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqrxtdkdvlup6"]
+[gd_scene load_steps=5 format=3 uid="uid://bqrxtdkdvlup6"]
 
-[ext_resource type="PackedScene" uid="uid://bj3qpeskoc4b0" path="res://Scenes/MainMenu/2Dpart/2d.tscn" id="1_3ot6u"]
+[ext_resource type="PackedScene" uid="uid://cybagxnhmobcc" path="res://Assets/3D/Player/Female/Placeholder/female_placeholder.tscn" id="1_0ew7q"]
+[ext_resource type="PackedScene" uid="uid://bj3qpeskoc4b0" path="res://Scenes/MainMenu/2Dpart/2d_menu.tscn" id="1_3ot6u"]
+[ext_resource type="PackedScene" uid="uid://cxnbmjh2jqc5n" path="res://Assets/3D/Player/Male/Placeholder/male_placeholder.tscn" id="3_54uqk"]
+
+[sub_resource type="Environment" id="Environment_pwwki"]
+background_mode = 1
+background_color = Color(0.784314, 0.866667, 0.964706, 1)
 
 [node name="MainMenu" type="Node3D"]
 
 [node name="2D" parent="." instance=ExtResource("1_3ot6u")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48343, 0)
+
+[node name="Male_placeholder" parent="." instance=ExtResource("3_54uqk")]
+transform = Transform3D(-0.967687, 0, 0.252154, 0, 1, 0, -0.252154, 0, -0.967687, -1.61288, 1, -3.01819)
+
+[node name="Female_PLaceholder" parent="." instance=ExtResource("1_0ew7q")]
+transform = Transform3D(-0.998728, 0, -0.0504186, 0, 1, 0, 0.0504186, 0, -0.998728, 1.1129, 1, -3.01819)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pwwki")
+
+[editable path="2D"]

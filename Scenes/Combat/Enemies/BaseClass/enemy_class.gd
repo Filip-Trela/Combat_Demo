@@ -4,7 +4,7 @@ class_name Enemy_Class
 
 @onready var indicator_p = preload("res://Scenes/Combat/effects/DamageIndicator/damage_indicator.tscn")
 @onready var world = get_parent()
-@onready var combat_menu = get_parent().get_parent().get_node("CombatMenu")
+@onready var combat_menu = get_parent().get_parent().get_parent().get_node("CombatMenu")
 @onready var anim:AnimationPlayer = $AnimationPlayer
 
 #export values for enemy: weight, y_tossable, health max, weaknesses, damages dealt

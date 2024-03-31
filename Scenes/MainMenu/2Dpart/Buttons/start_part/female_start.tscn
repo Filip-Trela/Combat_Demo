@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxd7dqws7pn03"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_6wbfm"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/2Dpart/Buttons/start_part/female_start.gd" id="2_t4p55"]
+
+[node name="Female_start" instance=ExtResource("1_6wbfm")]
+script = ExtResource("2_t4p55")
+
+[node name="Label" parent="." index="1"]
+text = "Female"

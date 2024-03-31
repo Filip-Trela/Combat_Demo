@@ -56,6 +56,23 @@ var vertical_slash = {
 	"description": "vertical slash placeholder",
 }
 
+var dodge = {
+	"name": "Dodge",
+	"marker_type": "rotate",
+	"marker_size": Vector3(1,1,5),
+	"marker_position": Vector3(0,0,0),
+	"effect_size": Vector3(1,1,1),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": preload("res://Scenes/Combat/effects/dodge/dodge_effect.tscn"),
+	"follow_allowed": false,
+	"xz_toss": Vector2(0,0), #odrzut
+	"y_toss": 0,
+	"player_xz_toss": Vector2(0,40), #odrzut
+	"hold_in_player":false,
+	"damage": 0,
+	"description": "dodge action",
+}
+
 
 
 

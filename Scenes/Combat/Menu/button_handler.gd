@@ -42,7 +42,6 @@ var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 func _ready():
 	world = get_parent().get_parent().get_node("World")
 	
-	player = get_parent().get_parent().get_node("World/Player")
 	markers_group = get_parent().get_parent().get_node("World/Markers")
 	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
@@ -200,6 +199,7 @@ func set_ability():
 		
 		
 func use_ability_rot():
+	
 	effect_anim = effect_anim.instantiate()
 	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
 

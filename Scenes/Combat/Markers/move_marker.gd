@@ -23,7 +23,7 @@ var player_camera
 
 
 func _ready():
-	player = get_parent().get_parent().get_node("Player")
+	player = get_parent().get_parent().get_node("Player_combat")
 	player_camera = player.get_node("CameraY/CameraX/Camera_pos")
 	
 	mouse_joint_y = get_node("CameraY")

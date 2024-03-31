@@ -13,7 +13,9 @@ var model_rotation
 
 var acceleration = 0.7
 var deceleration = 1
-var max_speed = 7
+var run_speed = 7
+var sprint_speed = 14
+var max_speed
 
 
 var y_vec = 0
@@ -35,7 +37,10 @@ var mouse_sens = 0.005
 @onready var model = $Model
 
 var enemies_in_range:Array = []
+var closest_enemy
 
+#placeholder
+var com_world = preload("res://Scenes/Combat/combat_scene.tscn")
 
 
 
@@ -56,6 +61,14 @@ func _process(_delta):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))
 		model.rotation.y = model_rotation
 	
+	for enemy in enemies_in_range:
+		if closest_enemy:
+			if closest_enemy.position.distance_to(self.position) > enemy.position.distance_to(self.position):
+				closest_enemy = enemy
+		else:
+			closest_enemy = enemy
+
+		
 
 		
 
@@ -104,7 +117,22 @@ func _input(_event):
 		
 	#for switching to combat
 	#placeholder
-	if Input.is_action_just_pressed("end"): get_tree().quit()
+	if Input.is_action_just_pressed("q") and closest_enemy: 
+		var exp_world = get_parent().get_parent().get_parent()
+		com_world = com_world.instantiate()
+		com_world.start_enemy = closest_enemy
+		
+		
+		
+		exp_world.get_parent().add_child(com_world)
+		exp_world.queue_free()
+	
+	if Input.is_action_pressed("shift"):
+		max_speed = sprint_speed
+	else:
+		max_speed = run_speed
+	
+	
 	
 	
 func camera_handler():
@@ -151,4 +179,6 @@ func _on_enemy_detector_body_exited(body):
 	var enemy_nr  = enemies_in_range.find(body)
 	if enemy_nr != -1:
 		enemies_in_range.remove_at(enemy_nr)
+		if closest_enemy == body:
+			closest_enemy = null
 

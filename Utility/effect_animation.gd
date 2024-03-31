@@ -18,7 +18,8 @@ var follow_allowed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player= get_parent().get_node("Player")
+	print()
+	player= get_parent().get_node("Player_combat")
 	damage_base = action.damage
 	follow_allowed = action.follow_allowed
 	self.scale = action.effect_size
@@ -95,6 +96,7 @@ func follow_up_set():
 
 func _on_animation_player_animation_finished(anim_name):
 	#when follows
+
 	if follow_allowed:
 		#this pi,follows can be taken and put in one place
 		if PlayerInfo.combat_state == "moving":
