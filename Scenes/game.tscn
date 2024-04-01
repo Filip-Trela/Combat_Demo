@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=3 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://bqrxtdkdvlup6" path="res://Scenes/MainMenu/main_menu.tscn" id="1_cjxkj"]
+[ext_resource type="PackedScene" uid="uid://bdymqel7djxs6" path="res://Scenes/transition.tscn" id="1_d8h0u"]
 
 [node name="Game" type="Node"]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_cjxkj")]
+
+[node name="Transition" parent="." instance=ExtResource("1_d8h0u")]
+process_mode = 3

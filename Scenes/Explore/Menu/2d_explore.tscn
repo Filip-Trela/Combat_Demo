@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4bhaxxg08m6i"]
+[gd_scene load_steps=3 format=3 uid="uid://c4bhaxxg08m6i"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="1_g5dyb"]
+[ext_resource type="PackedScene" uid="uid://26oewwgnu62n" path="res://Scenes/Explore/Menu/menu_explore.tscn" id="2_6koey"]
 
 [node name="2d_explore" type="CanvasLayer"]
 script = ExtResource("1_g5dyb")
 
 [node name="Enemy_indicator" type="Node2D" parent="."]
+
+[node name="Menu" parent="." instance=ExtResource("2_6koey")]

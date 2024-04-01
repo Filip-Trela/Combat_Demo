@@ -40,7 +40,7 @@ var enemies_in_range:Array = []
 var closest_enemy
 
 #placeholder
-var com_world = preload("res://Scenes/Combat/combat_scene.tscn")
+
 
 
 
@@ -106,33 +106,34 @@ func _physics_process(_delta):
 
 
 func _input(_event):
-	input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
-	input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
-	input_vec = input_vec.normalized()
-	
-	transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
-	
-	if is_on_floor() and Input.is_action_just_pressed("space"):
-		y_vec += jump_str
+	if PlayerInfo.explore_state == "moving":
+		input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
+		input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
+		input_vec = input_vec.normalized()
 		
-	#for switching to combat
-	#placeholder
-	if Input.is_action_just_pressed("q") and closest_enemy: 
-		var exp_world = get_parent().get_parent().get_parent()
-		com_world = com_world.instantiate()
-		com_world.start_enemy = closest_enemy
+		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
 		
+		if is_on_floor() and Input.is_action_just_pressed("space"):
+			y_vec += jump_str
+			
+		#for switching to combat
+		#placeholder
+		if Input.is_action_just_pressed("q") and closest_enemy: 
+			PlayerInfo.transition.start_enemy = closest_enemy
+			PlayerInfo.transition.play("explore_to_combat")
+			
+			
+			
 		
-		
-		exp_world.get_parent().add_child(com_world)
-		exp_world.queue_free()
-	
-	if Input.is_action_pressed("shift"):
-		max_speed = sprint_speed
+		if Input.is_action_pressed("shift"):
+			max_speed = sprint_speed
+		else:
+			max_speed = run_speed
+			
 	else:
-		max_speed = run_speed
-	
-	
+		input_vec = Vector2(0,0)
+		
+		
 	
 	
 func camera_handler():

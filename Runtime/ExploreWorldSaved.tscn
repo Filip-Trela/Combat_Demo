@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_tobbd"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_oe563"]
+[ext_resource type="Script" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.gd" id="3_p8qbg"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="4_s34sd"]
+[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="5_mcdxt"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="6_i8mqp"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="7_2t0g4"]
+
+[sub_resource type="Environment" id="Environment_cqofv"]
+background_mode = 1
+background_color = Color(0.784314, 0.866667, 0.964706, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dgs5"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ahaa"]
+size = Vector3(50, 1, 50)
+
+[node name="ExploreScene" type="Node3D"]
+script = ExtResource("1_tobbd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cqofv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
+shadow_enabled = true
+
+[node name="ShiftPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="World" type="Node3D" parent="ShiftPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+
+[node name="EnemyBaseExplore" type="CharacterBody3D" parent="ShiftPivot/World" instance=ExtResource("2_oe563")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.891584, -6.58027)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("3_p8qbg")
+combat_self = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend1 = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend2 = ""
+friend3 = ""
+friend4 = ""
+friend5 = ""
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ShiftPivot/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
+shape = SubResource("BoxShape3D_6dgs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShiftPivot/World/StaticBody3D"]
+mesh = SubResource("BoxMesh_2ahaa")
+skeleton = NodePath("../../..")
+
+[node name="Player" type="CharacterBody3D" parent="ShiftPivot/World" instance=ExtResource("4_s34sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850111, 0, -4.32722)
+collision_mask = 6
+velocity = Vector3(-7, 0, 0)
+script = ExtResource("5_mcdxt")
+
+[node name="EnemyBaseExplore2" type="CharacterBody3D" parent="ShiftPivot/World" instance=ExtResource("2_oe563")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, -6.58027)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("3_p8qbg")
+combat_self = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend1 = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend2 = ""
+friend3 = ""
+friend4 = ""
+friend5 = ""
+
+[node name="EnemyBaseExplore3" type="CharacterBody3D" parent="ShiftPivot/World" instance=ExtResource("2_oe563")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36072, 0, -6.58027)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("3_p8qbg")
+combat_self = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend1 = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+friend2 = ""
+friend3 = ""
+friend4 = ""
+friend5 = ""
+
+[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("6_i8mqp")]
+script = ExtResource("7_2t0g4")

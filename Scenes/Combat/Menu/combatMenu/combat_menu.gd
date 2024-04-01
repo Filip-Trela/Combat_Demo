@@ -33,8 +33,6 @@ func _process(_delta):
 	$Background.texture = $SubViewport.get_texture()
 
 
-
-
 func _input(_event):
 	if Input.is_action_just_pressed("tab") and not PlayerInfo.is_moving:
 		if not anims.is_playing():

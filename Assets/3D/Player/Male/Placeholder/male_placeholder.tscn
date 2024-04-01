@@ -3,7 +3,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pn1o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ynog"]
-albedo_color = Color(0, 0.752941, 0.890196, 1)
+albedo_color = Color(0, 0.87451, 0.517647, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7pkd2"]
 material = SubResource("StandardMaterial3D_7ynog")

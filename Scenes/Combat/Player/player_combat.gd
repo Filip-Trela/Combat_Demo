@@ -61,9 +61,6 @@ func _process(_delta):
 	if model_rotation != Vector2(0,0):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))
 		model.rotation.y = model_rotation
-	
-	if PlayerInfo.current_hp <= 0:
-		get_tree().quit()
 		
 		
 

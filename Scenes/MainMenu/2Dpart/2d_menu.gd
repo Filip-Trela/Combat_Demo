@@ -24,6 +24,9 @@ var choose_s = 0
 
 
 func _ready(): 
+	PlayerInfo.transition =get_parent().get_parent().get_node("Transition")
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mas_nr = $MainButtons.get_child_count() - 1
 	main_butt_change()
 	
@@ -31,6 +34,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	#for a moment only
 	for button in $StartButtons.get_children():
 		button.scale = Vector2(1,1)

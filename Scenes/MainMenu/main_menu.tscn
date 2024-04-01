@@ -14,6 +14,7 @@ background_color = Color(0.784314, 0.866667, 0.964706, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48343, 0)
+current = true
 
 [node name="Male_placeholder" parent="." instance=ExtResource("3_54uqk")]
 transform = Transform3D(-0.967687, 0, 0.252154, 0, 1, 0, -0.252154, 0, -0.967687, -1.61288, 1, -3.01819)

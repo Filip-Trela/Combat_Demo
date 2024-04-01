@@ -8,8 +8,5 @@ var world
 	
 func activate():
 	PlayerInfo.sex = "female"
-	world = pload_world.instantiate()
-	
-	
-	get_parent().get_parent().get_parent().get_parent().add_child(world)
-	get_parent().get_parent().get_parent().queue_free()
+	PlayerInfo.color_sex = PlayerInfo.female_color
+	PlayerInfo.transition.play("menu_to_explore")

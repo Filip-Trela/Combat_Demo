@@ -24,4 +24,21 @@ func _process(delta):
 		enemy_ind.add_child(indicator)
 	#usuniecie indykatora
 	elif not player.closest_enemy and enemy_ind.get_child_count() != 0:
-		enemy_ind.get_child(0).queue_free()
+		enemy_ind.get_child(0).end()
+
+func _input(event):
+	if Input.is_action_just_pressed("tab"):
+		if PlayerInfo.explore_state == "menu":
+			$Menu.state = "main_butt"
+			$Menu.choose_m = 0
+			$Menu.main_butt_change()
+			$Menu.visible = false
+			
+			PlayerInfo.explore_state = "moving"
+		elif PlayerInfo.explore_state == "moving":
+			$Menu.state = "main_butt"
+			$Menu.choose_m = 0
+			$Menu.main_butt_change()
+			$Menu.visible = true
+			
+			PlayerInfo.explore_state = "menu"

@@ -89,7 +89,7 @@ var placeH = {
 	"y_toss": 15,
 	"player_xz_toss": Vector2(0,0),
 	"hold_in_player":false,
-	"damage": 1,
+	"damage": 100,
 	"effect_animation": preload("res://Scenes/Combat/effects/PlaceHolder/BoomP.tscn"),
 	"follow_allowed": false,
 	"description": "A placeholder action with 25 damage",

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmk748ykegwkw"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_cgrwh"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/End_explore.gd" id="2_ngw6a"]
+
+[node name="End" instance=ExtResource("1_cgrwh")]
+script = ExtResource("2_ngw6a")
+
+[node name="Label" parent="." index="1"]
+text = "End
+"

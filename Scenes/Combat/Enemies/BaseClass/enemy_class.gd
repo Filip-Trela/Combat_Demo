@@ -6,8 +6,12 @@ class_name Enemy_Class
 @onready var world = get_parent()
 @onready var combat_menu = get_parent().get_parent().get_parent().get_node("CombatMenu")
 @onready var anim:AnimationPlayer = $AnimationPlayer
-
+@onready var combat_world = get_parent().get_parent().get_parent().get_parent()
 #export values for enemy: weight, y_tossable, health max, weaknesses, damages dealt
+
+
+
+
 
 
 
@@ -19,7 +23,7 @@ var weight = 5
 var max_hp = 100
 var current_hp = max_hp
 
-var damage_dealt = 20
+@export var damage_dealt = 20
 
 var anim_played:String
 
@@ -86,7 +90,8 @@ func take_damage(damage_nr):
 	combat_menu.add_child(indicator)
 	
 	if current_hp <=0:
-		queue_free()
+		die()
+
 
 
 
@@ -98,3 +103,6 @@ func start_vulnerable():
 
 func end_vulnerable():
 	vulnerable = false
+
+func die():
+	queue_free()

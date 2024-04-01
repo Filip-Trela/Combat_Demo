@@ -3,9 +3,11 @@ extends Node3D
 @onready var world = $ShiftPivot/World
 
 
+@onready var enemy_group = $ShiftPivot/World/Enemies
 
 
 
+var explore_world
 var start_enemy
 var enemy_list
 var enemy_size
@@ -72,4 +74,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+
+	#dac pozniej dwie opcje wlasnie, gdzie gdy player zginie odradza sie w jakims miejscu i pomija czas
+	if enemy_group.get_child_count() ==0 or PlayerInfo.current_hp <= 0:
+		
+		explore_world = load("res://Runtime/ExploreWorldSaved.tscn")
+		explore_world = explore_world.instantiate()
+	
+		PlayerInfo.current_hp = PlayerInfo.max_hp
+		PlayerInfo.combat_state = "moving"
+		
+		get_parent().add_child(explore_world)
+		queue_free()
+
+

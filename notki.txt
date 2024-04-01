@@ -10,12 +10,7 @@ PLANS:
 	ale przy tym dac animacje byle jaka aby sprawdzic czy moge zmieniac mesze
 
 TODAY: 
-	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany
-	
-	zapis stanu explore world jakis, nie wiem czy zapisanie pod zmienna zadziala
-	
-	
-	
+	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany ~
 	
 	kontrola animacji moze byc chyba za pomoca skryptu w animation player,
 	trzeba tylko ogarnac czy to bedzie state machine czy blend tree
@@ -36,8 +31,6 @@ TODAY:
 	
 	stworzyc jakies bazowe animacje 3d aby byly przejsciem miedzy main menu explore combat
 	
-	explore jest zapisywany podczas wejscia w combat
-	
 	gdy wrogowie wszyscy zgineli, co wykrywa wrog, player wraca do explore i enemy znika
 	gdy player zginie, co wykrywa player, resetuje explore world
 	
@@ -53,6 +46,8 @@ TODAY:
 	
 	
 	LATER:
+		przemiana z combat na explore o wiele pozniej, bo cos bedzie wyskakiwalo jak exp czy cos
+		
 		skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
 		
 		kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
@@ -147,6 +142,7 @@ POLISH:
 	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby zmuszaly
 	 smooth do powrotu do granic
 	(jesli kamera od srodka jakas odleglosc, move toward, zbyt mocny i daleki ruch blokuje clamp)
+	- zrobic smooth przejscia w healthbar w combat
 
 
 IDEAS:
@@ -198,6 +194,10 @@ NOTKI:
 	dziala na wrogow a drugi tylko na playera, to nalezy bawic sie z layers
 	
 	damage indicator sorting -1
+	
+	purple: female d969e2
+	green: male 00df84
+	xxx : between xxx
 
 @
 indiedev, gamadev, godot

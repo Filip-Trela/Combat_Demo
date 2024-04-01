@@ -1,5 +1,8 @@
 extends Node
 
+var transition
+
+
 
 #combat variables
 var action_list = Actions
@@ -26,6 +29,10 @@ var current_mp:int
 
 #male, female
 var sex:String
+var color_sex
+
+var female_color = Color(0.851, 0.412, 0.886, 1.0) 
+var male_color = Color(0.0, 0.875, 0.518, 1.0)
 
 
 
@@ -38,5 +45,8 @@ var follows = 0
 var follows_max = 3
 
 var during_follows = false
+
+#moving, menu
+var explore_state = "moving"
 
 

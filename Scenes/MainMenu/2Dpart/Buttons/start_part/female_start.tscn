@@ -6,5 +6,8 @@
 [node name="Female_start" instance=ExtResource("1_6wbfm")]
 script = ExtResource("2_t4p55")
 
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.85098, 0.411765, 0.886275, 1)
+
 [node name="Label" parent="." index="1"]
 text = "Female"
