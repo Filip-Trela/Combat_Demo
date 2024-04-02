@@ -152,10 +152,20 @@ func _unhandled_input(event):
 
 
 
+func damage_take(damage):
+	PlayerInfo.current_hp -= damage
+	if PlayerInfo.current_hp <= 0:
+		input_vec = Vector2(0,0)
+		PlayerInfo.combat_state = "dead"
+		anim_tree["parameters/Transition/transition_request"] = "Die"
+
 func tween_camera(): 
 	var tween_c = get_tree().create_tween()
 	tween_c.tween_property($CameraY/CameraX/Camera_pos/PlayerCamera,\
 	 "global_position", $CameraY/CameraX/Camera_pos.global_position, 0.2)
+
+
+	
 
 
 

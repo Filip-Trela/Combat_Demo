@@ -38,7 +38,7 @@ var male_color = Color(0.0, 0.875, 0.518, 1.0)
 
 #MORE OF A GLOBAL AUTOLOAD
 var is_moving = false
-# "moving" , "in menu" , "during action"
+# "moving" , "in menu" , "during action", "dead
 var combat_state = "moving"
 
 var follows = 0

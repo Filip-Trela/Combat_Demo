@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://gpxhhuqc47vv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irjfy"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4u8ye"]
+size = Vector3(50, 1, 50)
+
+[node name="CombatBaseWorld" type="Node3D"]
+
+[node name="Markers" type="Node3D" parent="."]
+
+[node name="Start_positions" type="Node3D" parent="."]
+
+[node name="Group1" type="Node3D" parent="Start_positions"]
+
+[node name="Player" type="Node3D" parent="Start_positions/Group1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4048, 0, 0)
+
+[node name="Enemies" type="Node3D" parent="Start_positions/Group1"]
+
+[node name="Node3D" type="Node3D" parent="Start_positions/Group1/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8063, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="Start_positions/Group1/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1342, 0, -2.65188)
+
+[node name="Node3D3" type="Node3D" parent="Start_positions/Group1/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4003, 0, 2.7921)
+
+[node name="Node3D4" type="Node3D" parent="Start_positions/Group1/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03316, 0, 0)
+
+[node name="Group2" type="Node3D" parent="Start_positions"]
+
+[node name="Player" type="Node3D" parent="Start_positions/Group2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3951, 0, 0)
+
+[node name="Enemies" type="Node3D" parent="Start_positions/Group2"]
+
+[node name="Node3D" type="Node3D" parent="Start_positions/Group2/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.86581)
+
+[node name="Node3D2" type="Node3D" parent="Start_positions/Group2/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.36412)
+
+[node name="Node3D3" type="Node3D" parent="Start_positions/Group2/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48769, 0, -1.54467)
+
+[node name="Node3D4" type="Node3D" parent="Start_positions/Group2/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5337, 0, 0)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_irjfy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_4u8ye")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -0.023804, -0.999717, 0, 0.999717, -0.023804, 0, 0, -34.1969)
+mesh = SubResource("BoxMesh_4u8ye")

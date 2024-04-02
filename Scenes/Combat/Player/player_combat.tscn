@@ -1,10 +1,47 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvvsxy1jir8j6"]
+[gd_scene load_steps=19 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Player/player_combat.gd" id="1_30osm"]
 [ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="2_xl5nl"]
 [ext_resource type="Script" path="res://Scenes/Combat/Player/AnimTreePlayerCombat.gd" id="3_in0ba"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0pi6x"]
+
+[sub_resource type="Animation" id="Animation_jibg1"]
+resource_name = "Die"
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.32161, -0.15, -0.749631, 0.15, 0.664446, 0.485855, -0.45, -0.569805, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.361235, 0.00975374, -0.501524, -0.288765, 0.502759, 0.211235, -0.297984, -1.00305, -0.238765, 0.459096, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.588812, -0.0243206, 1.5708, -0.231568, 0.295999, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
 
 [sub_resource type="Animation" id="Animation_dj0jg"]
 resource_name = "Idle"
@@ -194,11 +231,15 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yjvx6"]
 _data = {
+"Die": SubResource("Animation_jibg1"),
 "Idle": SubResource("Animation_dj0jg"),
 "RESET": SubResource("Animation_ksikq"),
 "Run": SubResource("Animation_np13i"),
 "Sprint": SubResource("Animation_xldkl")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yflsm"]
+animation = &"Die"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
 animation = &"Idle"
@@ -214,13 +255,24 @@ blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ux1yn"]
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_36nmm"]
+input_0/name = "Movement"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "Die"
+input_1/auto_advance = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
-graph_offset = Vector2(-534.207, -26.1223)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
+nodes/Animation/position = Vector2(-280, 300)
 nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_cebib")
-nodes/Movement/position = Vector2(-300, 140)
+nodes/Movement/position = Vector2(-280, 100)
 nodes/Stop/node = SubResource("AnimationNodeTimeScale_ux1yn")
-nodes/Stop/position = Vector2(140, 160)
-node_connections = [&"Stop", 0, &"Movement", &"output", 0, &"Stop"]
+nodes/Stop/position = Vector2(-80, 120)
+nodes/Transition/node = SubResource("AnimationNodeTransition_36nmm")
+nodes/Transition/position = Vector2(120, 140)
+node_connections = [&"Stop", 0, &"Movement", &"Transition", 0, &"Stop", &"Transition", 1, &"Animation", &"output", 0, &"Transition"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ypgmd"]
 
@@ -257,6 +309,9 @@ advance_expression_base_node = NodePath("")
 anim_player = NodePath("../Model/Base/AnimationPlayer")
 parameters/Movement/blend_position = 0.0
 parameters/Stop/scale = 1.0
+parameters/Transition/current_state = "Movement"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
 script = ExtResource("3_in0ba")
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -264,5 +319,7 @@ script = ExtResource("3_in0ba")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ypgmd")
+
+[connection signal="animation_finished" from="AnimTreePlayerCombat" to="AnimTreePlayerCombat" method="_on_animation_finished"]
 
 [editable path="Model/Base"]

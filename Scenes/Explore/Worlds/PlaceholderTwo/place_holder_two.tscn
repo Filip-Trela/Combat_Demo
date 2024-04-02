@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c28hxax2t2ml6"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_nmcw7"]
+[ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_wg6yo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2h2o"]
+size = Vector3(40, 10, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dgs5"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ahaa"]
+size = Vector3(50, 1, 50)
+
+[node name="PlaceHolder_two" type="Node3D"]
+script = ExtResource("1_nmcw7")
+combat_world = "res://Scenes/Combat/worlds/Base/combat_base_world.tscn"
+
+[node name="WorldArea" type="Area3D" parent="."]
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04006, 0)
+shape = SubResource("BoxShape3D_j2h2o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6dgs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_2ahaa")
+skeleton = NodePath("")
+
+[node name="EnemyBaseExplore2" parent="." instance=ExtResource("2_wg6yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 18.4344)
+
+[node name="EnemyBaseExplore3" parent="." instance=ExtResource("2_wg6yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.249, 0.370719, -6.58027)
+
+[node name="EnemyBaseExplore4" parent="." instance=ExtResource("2_wg6yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 6.94316)
+
+[connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

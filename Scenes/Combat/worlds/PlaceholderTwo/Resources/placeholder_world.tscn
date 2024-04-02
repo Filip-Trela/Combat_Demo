@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://cq183vv4yva6l"]
 
-[ext_resource type="ArrayMesh" uid="uid://emblv6inss42" path="res://Scenes/Combat/worlds/hole.tres" id="1_6iysb"]
+[ext_resource type="ArrayMesh" uid="uid://emblv6inss42" path="res://Scenes/Combat/worlds/PlaceholderTwo/Resources/hole.tres" id="1_6iysb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hdcr"]
 

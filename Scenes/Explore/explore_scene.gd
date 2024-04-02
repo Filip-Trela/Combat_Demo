@@ -8,7 +8,7 @@ var player_base
 var player_mesh
 
 func _ready():
-	player = get_node("ShiftPivot/World/Player")
+	player = get_node("Player")
 	player_base = player.get_node("Model/Base")
 	player_mesh = player_base.get_node("Mesh")
 	

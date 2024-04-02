@@ -3,21 +3,17 @@ extends Node2D
 @onready var game = get_parent()
 @onready var anim = $AnimationPlayer
 
+@onready var combat_scene_load = preload("res://Scenes/Combat/combat_scene.tscn")
+var combat_scene
 var start_enemy
 
 
 #for now this preload, later determined by explore world
-var pl_com_world = preload("res://Scenes/Combat/combat_scene.tscn")
-var com_world
+var load_com_world
 
-
-func _process(delta):
-	if anim.is_playing():
-		get_tree().paused = true
-	else:
-		get_tree().paused = false
 
 func play(string):
+	get_tree().paused = true
 	anim.play(string)
 	
 	
@@ -27,6 +23,8 @@ func manu_to_explore():
 	var world = load_world.instantiate()
 	game.get_node("MainMenu").queue_free()
 	game.add_child(world)
+
+
 
 func explore_to_menu():
 	var exp_world = get_parent().get_node("ExploreScene")
@@ -43,16 +41,39 @@ func explore_to_menu():
 
 
 func explore_to_combat():
-	var exp_world = get_parent().get_node("ExploreScene")
-	com_world = pl_com_world.instantiate()
-	com_world.start_enemy = start_enemy
+	combat_scene = combat_scene_load.instantiate()
+	combat_scene.start_enemy = start_enemy
+	combat_scene.load_com_world = load_com_world
 	
+	var exp_world = get_parent().get_node("ExploreScene")
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(exp_world)
 	ResourceSaver.save(packed_scene , "res://Runtime/ExploreWorldSaved.tscn")
 	
-	game.add_child(com_world)
+	game.add_child(combat_scene)
 	exp_world.queue_free()
 
 	
+func combat_to_explore_playerdies():
+		var exp_world = load("res://Runtime/ExploreWorldSaved.tscn")
+		exp_world = exp_world.instantiate()
+	
+		PlayerInfo.current_hp = PlayerInfo.max_hp
+		PlayerInfo.combat_state = "moving"
+		
+		get_parent().add_child(exp_world)
+		get_parent().get_node("CombatScene").queue_free()
 
+
+func combat_to_explore_playerwins():
+		var exp_world = load("res://Runtime/ExploreWorldSaved.tscn")
+		exp_world = exp_world.instantiate()
+	
+
+		PlayerInfo.combat_state = "moving"
+		
+		get_parent().add_child(exp_world)
+		get_parent().get_node("CombatScene").queue_free()
+
+func _on_animation_player_animation_finished(anim_name):
+	get_tree().paused = false

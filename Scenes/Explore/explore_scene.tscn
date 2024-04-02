@@ -1,19 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://be676xeaee8y4"]
+[gd_scene load_steps=7 format=3 uid="uid://be676xeaee8y4"]
 
-[ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="1_084xt"]
 [ext_resource type="PackedScene" uid="uid://c5cqs18w0x7nt" path="res://Scenes/Explore/Player/player_explore.tscn" id="1_bpbhh"]
 [ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_xxcia"]
 [ext_resource type="PackedScene" uid="uid://c4bhaxxg08m6i" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="3_jrsdq"]
+[ext_resource type="PackedScene" uid="uid://cyp51u10h1q6n" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="3_whvig"]
+[ext_resource type="PackedScene" uid="uid://c28hxax2t2ml6" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="4_l14yl"]
 
 [sub_resource type="Environment" id="Environment_cqofv"]
 background_mode = 1
 background_color = Color(0.784314, 0.866667, 0.964706, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6dgs5"]
-size = Vector3(50, 1, 50)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2ahaa"]
-size = Vector3(50, 1, 50)
 
 [node name="ExploreScene" type="Node3D"]
 script = ExtResource("1_xxcia")
@@ -25,33 +20,14 @@ environment = SubResource("Environment_cqofv")
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
 shadow_enabled = true
 
-[node name="ShiftPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
-
-[node name="World" type="Node3D" parent="ShiftPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
-
-[node name="EnemyBaseExplore" parent="ShiftPivot/World" instance=ExtResource("1_084xt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.891584, -6.58027)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="ShiftPivot/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
-shape = SubResource("BoxShape3D_6dgs5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ShiftPivot/World/StaticBody3D"]
-mesh = SubResource("BoxMesh_2ahaa")
-skeleton = NodePath("../../..")
-
-[node name="Player" parent="ShiftPivot/World" instance=ExtResource("1_bpbhh")]
-
-[node name="EnemyBaseExplore2" parent="ShiftPivot/World" instance=ExtResource("1_084xt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, -6.58027)
-
-[node name="EnemyBaseExplore3" parent="ShiftPivot/World" instance=ExtResource("1_084xt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36072, 0, -6.58027)
-
 [node name="2d_explore" parent="." instance=ExtResource("3_jrsdq")]
+
+[node name="Worlds" type="Node3D" parent="."]
+
+[node name="PlaceholderOne" parent="Worlds" instance=ExtResource("3_whvig")]
+combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
+
+[node name="PlaceHolder_two" parent="Worlds" instance=ExtResource("4_l14yl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.9887)
+
+[node name="Player" parent="." instance=ExtResource("1_bpbhh")]

@@ -39,10 +39,10 @@ var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
 
-func _ready():
+func ready_custom():
 	world = get_parent().get_parent().get_node("World")
 	
-	markers_group = get_parent().get_parent().get_node("World/Markers")
+	markers_group = get_parent().get_parent().get_node("World").get_child(0).get_node("Markers")
 	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)

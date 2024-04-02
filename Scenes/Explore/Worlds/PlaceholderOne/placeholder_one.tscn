@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyp51u10h1q6n"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_3dftn"]
+[ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_od78g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqpdr"]
+size = Vector3(40, 9.94, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dgs5"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wk6w"]
+albedo_color = Color(0.478431, 0.313726, 0.168627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_org2v"]
+material = SubResource("StandardMaterial3D_1wk6w")
+size = Vector3(50, 1, 50)
+
+[node name="PlaceholderOne" type="Node3D"]
+script = ExtResource("1_3dftn")
+
+[node name="WorldArea" type="Area3D" parent="."]
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04006, 0)
+shape = SubResource("BoxShape3D_lqpdr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6dgs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_org2v")
+skeleton = NodePath("")
+
+[node name="EnemyBaseExplore2" parent="." instance=ExtResource("2_od78g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, -6.58027)
+
+[node name="EnemyBaseExplore3" parent="." instance=ExtResource("2_od78g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 5.35615)
+
+[node name="EnemyBaseExplore4" parent="." instance=ExtResource("2_od78g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45367, 0.370719, -2.67822)
+
+[connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

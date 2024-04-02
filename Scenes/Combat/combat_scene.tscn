@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://xon228o2qdjl"]
+[gd_scene load_steps=4 format=3 uid="uid://xon228o2qdjl"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/combat_scene.gd" id="1_4cmfd"]
-[ext_resource type="PackedScene" uid="uid://cq183vv4yva6l" path="res://Scenes/Combat/worlds/placeholder_world.tscn" id="2_ruqem"]
 [ext_resource type="PackedScene" uid="uid://r8u1ygf0n8lf" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.tscn" id="4_epfmx"]
 
 [sub_resource type="Environment" id="Environment_2arkm"]
 background_mode = 1
 background_color = Color(0.784314, 0.866667, 0.964706, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wsi81"]
-size = Vector3(50, 20, 1)
 
 [node name="CombatScene" type="Node3D"]
 script = ExtResource("1_4cmfd")
@@ -25,68 +21,5 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="World" type="Node3D" parent="ShiftPivot"]
-
-[node name="Markers" type="Node3D" parent="ShiftPivot/World"]
-
-[node name="Start_positions" type="Node3D" parent="ShiftPivot/World"]
-
-[node name="Group1" type="Node3D" parent="ShiftPivot/World/Start_positions"]
-
-[node name="Player" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4048, 0, 0)
-
-[node name="Enemies" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1"]
-
-[node name="Node3D" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8063, 0, 0)
-
-[node name="Node3D2" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1342, 0, -2.65188)
-
-[node name="Node3D3" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4003, 0, 2.7921)
-
-[node name="Node3D4" type="Node3D" parent="ShiftPivot/World/Start_positions/Group1/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03316, 0, 0)
-
-[node name="Group2" type="Node3D" parent="ShiftPivot/World/Start_positions"]
-
-[node name="Player" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3951, 0, 0)
-
-[node name="Enemies" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2"]
-
-[node name="Node3D" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.86581)
-
-[node name="Node3D2" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.36412)
-
-[node name="Node3D3" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48769, 0, -1.54467)
-
-[node name="Node3D4" type="Node3D" parent="ShiftPivot/World/Start_positions/Group2/Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5337, 0, 0)
-
-[node name="placeholder_world" parent="ShiftPivot/World" instance=ExtResource("2_ruqem")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="ShiftPivot/World"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4936, -4.77645)
-shape = SubResource("BoxShape3D_wsi81")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4936, 4.8238)
-shape = SubResource("BoxShape3D_wsi81")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="ShiftPivot/World/StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7631, 6.4936, 4.8238)
-shape = SubResource("BoxShape3D_wsi81")
-
-[node name="Enemies" type="Node3D" parent="ShiftPivot/World"]
 
 [node name="CombatMenu" parent="ShiftPivot" instance=ExtResource("4_epfmx")]

@@ -13,6 +13,7 @@ func _ready():
 	player = get_parent()
 	anim = get_parent().get_node("AnimTreePlayerCombat")
 	tween_stop = get_tree().create_tween()
+	anim["parameters/Transition/transition_request"] = "state_2"
 
 func _process(delta):
 	state_machine()
@@ -27,3 +28,8 @@ func state_machine():
 		
 	#movement
 	anim["parameters/Movement/blend_position"] = Vector2(player.xz_vec).length() / player.max_speed
+
+
+func _on_animation_finished(anim_name):
+	if anim_name == "Die":
+		PlayerInfo.transition.play("combat_to_explore_playerdies")

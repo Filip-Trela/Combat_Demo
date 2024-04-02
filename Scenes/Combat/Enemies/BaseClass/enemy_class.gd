@@ -4,9 +4,9 @@ class_name Enemy_Class
 
 @onready var indicator_p = preload("res://Scenes/Combat/effects/DamageIndicator/damage_indicator.tscn")
 @onready var world = get_parent()
-@onready var combat_menu = get_parent().get_parent().get_parent().get_node("CombatMenu")
+@onready var combat_menu = get_parent().get_parent().get_parent().get_parent().get_node("CombatMenu")
 @onready var anim:AnimationPlayer = $AnimationPlayer
-@onready var combat_world = get_parent().get_parent().get_parent().get_parent()
+@onready var combat_world = get_parent().get_parent().get_parent().get_parent().get_parent()
 #export values for enemy: weight, y_tossable, health max, weaknesses, damages dealt
 
 
@@ -96,7 +96,7 @@ func take_damage(damage_nr):
 
 
 func _on_hitbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):	
-	PlayerInfo.current_hp -= damage_dealt
+	area.get_parent().damage_take(damage_dealt)
 
 func start_vulnerable():
 	vulnerable = true
