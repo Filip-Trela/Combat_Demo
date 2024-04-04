@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyp51u10h1q6n"]
+[gd_scene load_steps=8 format=3 uid="uid://cyp51u10h1q6n"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_3dftn"]
 [ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_od78g"]
+[ext_resource type="PackedScene" uid="uid://baregkpo201ux" path="res://Scenes/Explore/Interactable/ItemExplore/ItemExplore.tscn" id="3_m2ve7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqpdr"]
 size = Vector3(40, 9.94, 40)
@@ -40,13 +41,30 @@ shape = SubResource("BoxShape3D_6dgs5")
 mesh = SubResource("BoxMesh_org2v")
 skeleton = NodePath("")
 
-[node name="EnemyBaseExplore2" parent="." instance=ExtResource("2_od78g")]
+[node name="Activs" type="Node3D" parent="."]
+
+[node name="EnemyBaseExplore2" parent="Activs" instance=ExtResource("2_od78g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, -6.58027)
 
-[node name="EnemyBaseExplore3" parent="." instance=ExtResource("2_od78g")]
+[node name="EnemyBaseExplore3" parent="Activs" instance=ExtResource("2_od78g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 5.35615)
 
-[node name="EnemyBaseExplore4" parent="." instance=ExtResource("2_od78g")]
+[node name="EnemyBaseExplore4" parent="Activs" instance=ExtResource("2_od78g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45367, 0.370719, -2.67822)
+
+[node name="ItemExplore" parent="Activs" instance=ExtResource("3_m2ve7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12518, 0.498825, 14.7161)
+type = 1
+id = 2
+
+[node name="ItemExplore2" parent="Activs" instance=ExtResource("3_m2ve7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7181, 0.498825, 11.0011)
+type = 1
+id = 1
+
+[node name="ItemExplore3" parent="Activs" instance=ExtResource("3_m2ve7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62987, 0.498825, 3.02105)
+type = 1
+id = 2
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

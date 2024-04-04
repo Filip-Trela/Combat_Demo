@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://26oewwgnu62n"]
+[gd_scene load_steps=13 format=3 uid="uid://26oewwgnu62n"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/menu_explore.gd" id="1_8eg3o"]
 [ext_resource type="Texture2D" uid="uid://qlcw6oog2jt4" path="res://Assets/2D/whiteCircle.png" id="2_3e7wt"]
-[ext_resource type="PackedScene" uid="uid://cmk748ykegwkw" path="res://Scenes/Explore/Menu/Buttons/End_explore.tscn" id="3_oomdv"]
+[ext_resource type="PackedScene" uid="uid://15iio2s7afdh" path="res://Scenes/Explore/Menu/Buttons/pawn_inventory.tscn" id="3_eftp0"]
+[ext_resource type="PackedScene" uid="uid://2hyhy7r4tcrk" path="res://Scenes/Explore/Menu/Buttons/magic.tscn" id="4_qxcb8"]
+[ext_resource type="PackedScene" uid="uid://cmk748ykegwkw" path="res://Scenes/Explore/Menu/Buttons/System.tscn" id="5_c8gfh"]
+[ext_resource type="PackedScene" uid="uid://cbn147c82jqvo" path="res://Scenes/Explore/Menu/Buttons/exit_explore.tscn" id="6_j8pnk"]
+[ext_resource type="PackedScene" uid="uid://c32njhhoq2n25" path="res://Scenes/Explore/Menu/Buttons/pawn_figure.tscn" id="6_jfo3r"]
+[ext_resource type="PackedScene" uid="uid://bpkd7goqtsuds" path="res://Scenes/Explore/Menu/Buttons/pawn_weapon.tscn" id="7_ht12o"]
+[ext_resource type="PackedScene" uid="uid://cogka2prtpbx3" path="res://Scenes/Explore/Menu/Buttons/settings.tscn" id="8_2ahds"]
+[ext_resource type="PackedScene" uid="uid://pdcljgojr8ym" path="res://Scenes/Explore/Menu/Buttons/pawn_items.tscn" id="8_honka"]
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="11_8h5tm"]
+[ext_resource type="PackedScene" uid="uid://hjmybrwhclll" path="res://Scenes/Explore/Menu/Buttons/items_button.tscn" id="11_a3snv"]
 
 [node name="Menu" type="Node2D"]
-visible = false
 script = ExtResource("1_8eg3o")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -16,6 +24,70 @@ texture = ExtResource("2_3e7wt")
 
 [node name="MainButtons" type="Node2D" parent="."]
 
-[node name="End" parent="MainButtons" instance=ExtResource("3_oomdv")]
+[node name="PawnInventory" parent="MainButtons" instance=ExtResource("3_eftp0")]
+position = Vector2(277, 79)
+rotation = 0.181564
+
+[node name="Magic" parent="MainButtons" instance=ExtResource("4_qxcb8")]
+position = Vector2(232, 232)
+rotation = 0.549349
+
+[node name="System" parent="MainButtons" instance=ExtResource("5_c8gfh")]
 position = Vector2(128, 339)
 rotation = 0.705399
+
+[node name="InventoryButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="PawnFigure" parent="InventoryButtons" instance=ExtResource("6_jfo3r")]
+position = Vector2(303, 157)
+rotation = 0.229139
+
+[node name="PawnWeapon" parent="InventoryButtons" instance=ExtResource("7_ht12o")]
+position = Vector2(239, 297)
+rotation = 0.569829
+
+[node name="PawnItems" parent="InventoryButtons" instance=ExtResource("8_honka")]
+position = Vector2(116, 394)
+rotation = 0.624938
+
+[node name="SystemButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="Settings" parent="SystemButtons" instance=ExtResource("8_2ahds")]
+position = Vector2(281, 117)
+rotation = 0.235323
+
+[node name="ExitExplore" parent="SystemButtons" instance=ExtResource("6_j8pnk")]
+position = Vector2(187, 290)
+rotation = 0.51895
+
+[node name="InventorySubButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="ButtonTemplate" parent="InventorySubButtons" instance=ExtResource("11_8h5tm")]
+position = Vector2(309, 97)
+rotation = 0.247714
+
+[node name="ButtonTemplate2" parent="InventorySubButtons" instance=ExtResource("11_8h5tm")]
+position = Vector2(271, 208)
+rotation = 0.508312
+
+[node name="ButtonTemplate3" parent="InventorySubButtons" instance=ExtResource("11_8h5tm")]
+position = Vector2(191, 288)
+rotation = 0.792418
+
+[node name="ItemsButtons" type="Node2D" parent="."]
+visible = false
+
+[node name="ItemsButton" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+position = Vector2(311, 111)
+rotation = 0.316834
+
+[node name="ItemsButton2" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+position = Vector2(256, 225)
+rotation = 0.445456
+
+[node name="ItemsButton3" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+position = Vector2(186, 346)
+rotation = 0.661518

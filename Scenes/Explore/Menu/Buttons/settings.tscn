@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cogka2prtpbx3"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_d3vbk"]
+
+[node name="Settings" instance=ExtResource("1_d3vbk")]
+
+[node name="Label" parent="." index="1"]
+text = "Settings"

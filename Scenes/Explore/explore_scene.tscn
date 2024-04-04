@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be676xeaee8y4"]
+[gd_scene load_steps=6 format=3 uid="uid://be676xeaee8y4"]
 
 [ext_resource type="PackedScene" uid="uid://c5cqs18w0x7nt" path="res://Scenes/Explore/Player/player_explore.tscn" id="1_bpbhh"]
 [ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_xxcia"]
@@ -6,15 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cyp51u10h1q6n" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="3_whvig"]
 [ext_resource type="PackedScene" uid="uid://c28hxax2t2ml6" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="4_l14yl"]
 
-[sub_resource type="Environment" id="Environment_cqofv"]
-background_mode = 1
-background_color = Color(0.784314, 0.866667, 0.964706, 1)
-
 [node name="ExploreScene" type="Node3D"]
 script = ExtResource("1_xxcia")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cqofv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)

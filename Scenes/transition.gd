@@ -11,6 +11,10 @@ var start_enemy
 #for now this preload, later determined by explore world
 var load_com_world
 
+func _input(event):
+	if Input.is_action_just_pressed("end"):
+		get_tree().quit()
+
 
 func play(string):
 	get_tree().paused = true

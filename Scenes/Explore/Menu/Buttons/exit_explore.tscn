@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbn147c82jqvo"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_di61q"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/exit_explore.gd" id="2_pqd8d"]
+
+[node name="ExitExplore" instance=ExtResource("1_di61q")]
+script = ExtResource("2_pqd8d")
+
+[node name="Label" parent="." index="1"]
+text = "Leave"

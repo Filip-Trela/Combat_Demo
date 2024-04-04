@@ -12,8 +12,12 @@ extends CanvasLayer
 var timer_time = 500
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Background1["modulate"] = PlayerInfo.color_sex
+
 	timer.wait_time = timer_time
 	timer.start()
 	player_hp.max_value = PlayerInfo.max_hp
@@ -30,7 +34,7 @@ func _process(_delta):
 	
 	player_hp.value = PlayerInfo.current_hp
 	
-	$Background.texture = $SubViewport.get_texture()
+	$Background.texture = $SubViewport.get_texture()	
 
 
 func _input(_event):

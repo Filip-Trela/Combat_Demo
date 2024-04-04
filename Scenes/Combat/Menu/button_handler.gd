@@ -54,6 +54,7 @@ func _input(_event):
 	#state machine
 	if PlayerInfo.combat_state == "in menu":
 		state_machine()
+
 		
 		
 func state_machine():

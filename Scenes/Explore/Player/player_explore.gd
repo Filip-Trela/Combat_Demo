@@ -39,7 +39,9 @@ var mouse_sens = 0.005
 var enemies_in_range:Array = []
 var closest_enemy
 
-#placeholder
+var interact_in_range: Array = []
+var closest_interact
+
 
 
 
@@ -68,7 +70,12 @@ func _process(_delta):
 		else:
 			closest_enemy = enemy
 
-		
+	for interact in interact_in_range:
+		if closest_interact:
+			if closest_interact.position.distance_to(self.position) > interact.position.distance_to(self.position):
+				closest_interact = interact
+		else:
+			closest_interact = interact
 
 		
 
@@ -122,6 +129,9 @@ func _input(_event):
 			PlayerInfo.transition.start_enemy = closest_enemy
 			PlayerInfo.transition.play("explore_to_combat")
 			
+		elif Input.is_action_just_pressed("e") and closest_interact: 
+			closest_interact.interact()
+			
 			
 			
 		
@@ -139,7 +149,7 @@ func _input(_event):
 func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
 	mouse_joint_x.rotation.x -= mouse_y * mouse_sens
-	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.4 , 0.05)
+	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.8 , 0.2)
 
 	mouse_x = 0
 	mouse_y = 0
@@ -183,3 +193,16 @@ func _on_enemy_detector_body_exited(body):
 		if closest_enemy == body:
 			closest_enemy = null
 
+
+
+func _on_interact_detector_body_entered(body):
+	if body not in interact_in_range:
+		interact_in_range.append(body)
+
+
+func _on_interact_detector_body_exited(body):
+	var interact_nr = interact_in_range.find(body)
+	if interact_nr != -1:
+		interact_in_range.remove_at(interact_nr)
+		if closest_interact == body:
+			closest_interact = null

@@ -9,3 +9,5 @@ script = ExtResource("1_g5dyb")
 [node name="Enemy_indicator" type="Node2D" parent="."]
 
 [node name="Menu" parent="." instance=ExtResource("2_6koey")]
+
+[node name="Interact_indicator" type="Node2D" parent="."]

@@ -1,40 +1,19 @@
-PLANS:
-	kolo zdecydowalo: KATANA
-	
-	explore zostawic na ten moment
-	
-	zajac sie naprzemiennie aby sie nie meczyc: visualiami, modelami i animacjami
-	menu scene oraz explore world
-	
-	zrobic aby na bazie jakiejs zmiennej decydowalo o meshu postaci,
-	ale przy tym dac animacje byle jaka aby sprawdzic czy moge zmieniac mesze
-
 TODAY: 
-	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany ~
-	
-	kontrola animacji moze byc chyba za pomoca skryptu w animation player,
-	trzeba tylko ogarnac czy to bedzie state machine czy blend tree
-	
-	do node w grupach dac jakis maly mesh aby bylo widac gdzie sie je kladzie, moze byc klasa w sumie jakas
-	
-	katana bedzie cylindrem
-	
-	dac animacje do combat i explore, atakow tez poza magia
-	
-	stworzyc animacje dla menu combat i main menu
-	
-	stworzyc drugi combat swiat
-	
-	stworzyc drugi plane explore world i dac im area 3d ktore koliduja z playerem
-	w autoload zapisuje ktory explore world, na bazie nich wybiera ktory world do
-	combat
-	
-	stworzyc jakies bazowe animacje 3d aby byly przejsciem miedzy main menu explore combat
-	
-	gdy wrogowie wszyscy zgineli, co wykrywa wrog, player wraca do explore i enemy znika
-	gdy player zginie, co wykrywa player, resetuje explore world
+	secondary gender color (tylko wybrac i dac do Playerinfo)
 	
 	
+	
+	
+	
+	
+	
+	zaczac sie bawic z ai wrogow
+	ogarnac visual'ia
+	ogarnac animacje
+	
+	typy wrogow:
+		1. podchodzi i atakuje
+		2. strzela i na odleglosc walczy
 	
 	
 	
@@ -46,11 +25,14 @@ TODAY:
 	
 	
 	LATER:
-		przemiana z combat na explore o wiele pozniej, bo cos bedzie wyskakiwalo jak exp czy cos
+	explore enemy niech beda podzieleni na typy aby animacje mozna bylo uzywac miedzy nimi
 		
-		skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
 		
-		kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
+	przemiana z combat na explore o wiele pozniej, bo cos bedzie wyskakiwalo jak exp czy cos
+		
+	skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
+		
+	kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
 	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
 	czy cos
 	
@@ -58,11 +40,7 @@ TODAY:
 	
 	efekty juz "slash" moga byc shaderami. moze byc jeden model i shader, beda modyfikowane
 	ilosci, pozycje, wielkosc i rotation
-	
-	na ten moment nawet nie ruszaj wiecej w aerial bo nwm nawet czy bedzie,
-	moze nalezy dodac poczatkowa animacje ("wejscie" czy cos) aby zasetowalo isonfloor
-	bez mov and slide nie setuje. mozliwe ze trzeba bedzie wyjebac y toss,
-	nie widze zbytnio aby enemy mialo wtedy szanse, ewentualnie dac im tossable zmienna
+
 	
 	
 		enivroment things in combat. like bagno spowalnia kazdego czy cos
@@ -82,13 +60,6 @@ TODAY:
 		tab zamyka tez okno niewazne w ktorym stanie
 		TO PRZY ANIMACJACH SIE ZROBI
 		
-		background do combat menu jest 3d, node jest przygotowany
-		poprawic meshe i inne do combat
-	
-		aerial combat albo calkowicie wyjebany albo o wiele pozniej do zrobienia,
-		aktualnie nie chce mi sie bawic z rewrite'm skryptu playera i tych wszystkich stanow
-		przy aerialu zarazem inny marker
-		
 		po ataku, damage i stagger jest modyfikowany przez stagger points, action type(if the enemy
 		if weak on fire for example), a jego toss jest modyfikowany przez zmienna w przeciwniku 'weight'
 		oraz odleglosc od srodka
@@ -100,7 +71,26 @@ TODAY:
 		czasami cos blokuje kamere i nie wraca poprawnie
 
 
-
+PLANS:
+	kolo zdecydowalo: KATANA
+	
+	explore zostawic na ten moment
+	
+	zajac sie naprzemiennie aby sie nie meczyc: visualiami, modelami i animacjami
+	menu scene oraz explore world
+	
+	zrobic aby na bazie jakiejs zmiennej decydowalo o meshu postaci,
+	ale przy tym dac animacje byle jaka aby sprawdzic czy moge zmieniac mesze
+	
+	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany ~
+	
+	do node w grupach dac jakis maly mesh aby bylo widac gdzie sie je kladzie, moze byc klasa w sumie jakas
+	
+	katana bedzie cylindrem
+	
+	dac animacje do combat i explore, atakow tez poza magia
+	
+	stworzyc animacje dla menu combat i main menu
 
 TODOS:
 	
@@ -112,13 +102,6 @@ TODOS:
 	w button handler beda przekazywane informacje ponownie, lokalizacja, obrot
 
 	shader a po tym do particle efekty i animationplayer
-
-
-
-
-	NAH. MA MIEC OS Y, ALE BEZ PLATFORM
-	GRA MA BYC NA DWOCH OSIACH WCIAZ, BEZ Y
-	
 	
 	GLOWNIE ANIMACJE
 	- placeholder wizualny dla buttonow
@@ -176,7 +159,7 @@ IDEAS:
 	typy:
 		rotate(straight line, projectile)
 		move(moveable marker so pos that player wants)
-		null(self, mogic on self or own position)
+		null(self, magic on self or own position)
 
 NOTKI:
 	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC

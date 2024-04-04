@@ -37,13 +37,15 @@ shape = SubResource("BoxShape3D_6dgs5")
 mesh = SubResource("BoxMesh_2ahaa")
 skeleton = NodePath("")
 
-[node name="EnemyBaseExplore2" parent="." instance=ExtResource("2_wg6yo")]
+[node name="Activs" type="Node3D" parent="."]
+
+[node name="EnemyBaseExplore2" parent="Activs" instance=ExtResource("2_wg6yo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 18.4344)
 
-[node name="EnemyBaseExplore3" parent="." instance=ExtResource("2_wg6yo")]
+[node name="EnemyBaseExplore3" parent="Activs" instance=ExtResource("2_wg6yo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.249, 0.370719, -6.58027)
 
-[node name="EnemyBaseExplore4" parent="." instance=ExtResource("2_wg6yo")]
+[node name="EnemyBaseExplore4" parent="Activs" instance=ExtResource("2_wg6yo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 6.94316)
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

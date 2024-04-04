@@ -112,9 +112,6 @@ func _input(_event):
 
 	press_wait = Input.get_action_raw_strength("e")
 	
-	if Input.is_action_just_pressed("end"):
-		get_tree().quit()
-	
 func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
 	mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)

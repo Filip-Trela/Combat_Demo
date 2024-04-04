@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Actions="*res://Autoloads/actions.gd"
+InventoryInfo="*res://Autoloads/inventory.gd"
 PlayerInfo="*res://Autoloads/player_info.gd"
 
 [display]
@@ -103,3 +104,4 @@ shift={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Enemies"
 3d_physics/layer_3="World"
+3d_physics/layer_4="Interact"

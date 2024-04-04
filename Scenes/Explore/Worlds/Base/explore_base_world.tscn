@@ -35,4 +35,6 @@ shape = SubResource("BoxShape3D_6dgs5")
 mesh = SubResource("BoxMesh_2ahaa")
 skeleton = NodePath("")
 
+[node name="Activs" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]
