@@ -81,6 +81,7 @@ var dodge = {
 
 var placeH = {
 	"name": "PlaceHolder",
+	"id":000,
 	"marker_type": "move",
 	"marker_size": Vector3(5,5,5), 
 	"max_distance":20,
@@ -98,6 +99,7 @@ var placeH = {
 
 var push = {
 	"name": "Push",
+	"id":001,
 	"marker_type": null,
 	"marker_size": null,
 	"marker_position": null,
@@ -113,3 +115,9 @@ var push = {
 	"description": "A placeholder push action",
 }
 
+var all_magic = [placeH, push]
+
+func find_magic(id):
+	for magic in all_magic:
+		if magic.id == id:
+			return magic

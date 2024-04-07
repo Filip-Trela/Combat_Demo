@@ -1,9 +1,11 @@
 TODAY: 
 	secondary gender color (tylko wybrac i dac do Playerinfo)
 	
+	adding weapons i figures tez beda niczym items, czyli w playerinfo
 	
-	
-	
+	ogarnac skrypt z explore menu
+	dodac items animacje
+	kurwa myslalem ze juz zrobilem prawie wszystko
 	
 	
 	
@@ -27,14 +29,11 @@ TODAY:
 	LATER:
 	explore enemy niech beda podzieleni na typy aby animacje mozna bylo uzywac miedzy nimi
 		
-		
 	przemiana z combat na explore o wiele pozniej, bo cos bedzie wyskakiwalo jak exp czy cos
 		
 	skonczyc model i dac bazowe animacje, zobaczyc jak ten blend dziala i czy mozna zmieniac mesh'e
 		
-	kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
-	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
-	czy cos
+	
 	
 	main menu mozna zrobic
 	
@@ -68,7 +67,7 @@ TODAY:
 		ktory mowi o strefie gdzie sa kolizje i na bazie niego stworzyc reszte mapki
 		na dole dac area ktory gdy wykryje gracza wyrzuca go na node3d.pos.z aby wrocil na mapke
 		
-		czasami cos blokuje kamere i nie wraca poprawnie
+		
 
 
 PLANS:
@@ -93,6 +92,7 @@ PLANS:
 	stworzyc animacje dla menu combat i main menu
 
 TODOS:
+	
 	
 	menu bedzie get texture from 3d scene jesli chodzi o wizualia i wtedy shadery do niego
 	
@@ -126,6 +126,11 @@ POLISH:
 	 smooth do powrotu do granic
 	(jesli kamera od srodka jakas odleglosc, move toward, zbyt mocny i daleki ruch blokuje clamp)
 	- zrobic smooth przejscia w healthbar w combat
+	-przejscie w combat nie zapisuje tylko sceny, zapisuje co na niej bylo, bo sie itemy resetuja
+	-czasami cos blokuje kamere i nie wraca poprawnie
+	-kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
+	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
+	czy cos
 
 
 IDEAS:

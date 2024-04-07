@@ -1,36 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://hjmybrwhclll"]
+[gd_scene load_steps=3 format=3 uid="uid://dax2mb0siv783"]
 
-[ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="1_wd7gh"]
+[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_ijr17"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pygfw"]
 font_size = 30
 
-[sub_resource type="LabelSettings" id="LabelSettings_g6vkv"]
-font_size = 20
+[node name="ItemsButton" instance=ExtResource("1_ijr17")]
 
-[node name="ItemsButton" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.356863, 0.635294, 0.654902, 1)
-scale = Vector2(3, 1)
-texture = ExtResource("1_wd7gh")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -96.0
-offset_top = -32.0
-offset_right = 96.0
-offset_bottom = 32.0
-text = "Name"
-label_settings = SubResource("LabelSettings_pygfw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Amount" type="Label" parent="."]
-offset_left = 64.0
-offset_top = -3.0
-offset_right = 104.0
-offset_bottom = 39.0
+[node name="Amount" type="Label" parent="." index="2"]
+offset_left = -26.0
+offset_top = -11.0
+offset_right = 166.0
+offset_bottom = 53.0
 text = "0"
-label_settings = SubResource("LabelSettings_g6vkv")
+label_settings = SubResource("LabelSettings_pygfw")
 horizontal_alignment = 1
 vertical_alignment = 1

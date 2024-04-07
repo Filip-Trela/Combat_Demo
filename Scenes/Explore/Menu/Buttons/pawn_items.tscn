@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://pdcljgojr8ym"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_akchp"]
+[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_83tar"]
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/pawn_items.gd" id="2_l8dpb"]
 
-[node name="PawnItems" instance=ExtResource("1_akchp")]
+[node name="Pawn_Items" instance=ExtResource("1_83tar")]
 script = ExtResource("2_l8dpb")
 
-[node name="Label" parent="." index="1"]
+[node name="Label" parent="." index="2"]
 text = "Items"

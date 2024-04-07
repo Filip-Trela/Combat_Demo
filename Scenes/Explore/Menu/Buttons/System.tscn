@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmk748ykegwkw"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_y5ktl"]
+[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_0jdha"]
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/System.gd" id="2_dc1um"]
 
-[node name="System" instance=ExtResource("1_y5ktl")]
+[node name="System" instance=ExtResource("1_0jdha")]
 script = ExtResource("2_dc1um")
 
-[node name="Label" parent="." index="1"]
+[node name="Label" parent="." index="2"]
 text = "System
 "

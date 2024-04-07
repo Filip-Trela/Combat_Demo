@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c32njhhoq2n25"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_2jeq5"]
+[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_0a2k4"]
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/pawn_figure.gd" id="2_h1a1d"]
 
-[node name="PawnFigure" instance=ExtResource("1_2jeq5")]
+[node name="Pawn_Figure" instance=ExtResource("1_0a2k4")]
 script = ExtResource("2_h1a1d")
 
-[node name="Label" parent="." index="1"]
-text = "Figure"
+[node name="Label" parent="." index="2"]
+text = "Figures"

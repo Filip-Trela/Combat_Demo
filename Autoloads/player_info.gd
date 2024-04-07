@@ -47,11 +47,17 @@ var phys_skills = [
 	action_list.dodge
 ]
 
-var mag_skills= [
-	action_list.placeH,
-	action_list.push,
-]
 
+var mag_skills= {
+	0: action_list.placeH,
+	1: null,
+	2: null,
+	3: null
+}
+
+var inv_magic = [
+	action_list.placeH
+]
 
 var inv_figures = [
 	inv_list.basefigure,
@@ -71,16 +77,6 @@ var inv_items = [
 
 ]
 
-func add_item(item_added):
-	var is_added
-	for item in inv_items:
-		if item[0] == item_added:
-			is_added = true
-			item[1] += 1
-			break
-	if not is_added:
-		inv_items.append([item_added, 1])
-
 
 #PLAYER STATS
 var max_hp:int = 100
@@ -93,3 +89,22 @@ var current_figure
 var current_weapon
 
 
+func add_item(item_added):
+	var is_added
+	for item in inv_items:
+		if item[0] == item_added:
+			is_added = true
+			item[1] += 1
+			break
+	if not is_added:
+		inv_items.append([item_added, 1])
+
+func add_weapon(weapon_added):
+	inv_weapons.append(weapon_added)
+	
+func add_figure(figure_added):
+	inv_figures.append(figure_added)
+
+func add_magic(magic_added):
+	inv_magic.append(magic_added) 
+#TODO change later for inv and then in inventory can be added this

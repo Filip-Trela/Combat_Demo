@@ -5,6 +5,7 @@ extends Node2D
 @onready var game = exp_world.get_parent()
 @onready var menu = get_parent().get_parent()
 
+
 func activate():
 	menu.sub_inventory = PlayerInfo.inv_figures
 	menu.sub_options = len(PlayerInfo.inv_figures) -1

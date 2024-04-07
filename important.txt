@@ -1,2 +1,4 @@
 PLACEHOLDER:
-	in player script is get tree quit
+	get tree quit jest w transition
+	
+	wszystko dla playera bouba, dla enemy kiki

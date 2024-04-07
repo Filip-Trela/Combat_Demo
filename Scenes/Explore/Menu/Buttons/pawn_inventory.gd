@@ -4,9 +4,10 @@ extends Node2D
 @onready var game = exp_world.get_parent()
 @onready var menu = get_parent().get_parent()
 
+@onready var anim = get_parent().get_parent().get_node("AnimationTree")
+
 func activate():
-	menu.get_node("MainButtons").visible = false
-	menu.get_node("InventoryButtons").visible = true
+	anim.main_to_pawn()
 	
 	menu.slave_nr = menu.get_node("InventoryButtons").get_child_count() -1
 	menu.slave_node = menu.get_node("InventoryButtons").get_child(0)

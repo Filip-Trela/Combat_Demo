@@ -54,17 +54,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45367, 0.370719, -2.67822)
 
 [node name="ItemExplore" parent="Activs" instance=ExtResource("3_m2ve7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12518, 0.498825, 14.7161)
-type = 1
-id = 2
+type = 8
 
 [node name="ItemExplore2" parent="Activs" instance=ExtResource("3_m2ve7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7181, 0.498825, 11.0011)
-type = 1
+type = 8
 id = 1
 
 [node name="ItemExplore3" parent="Activs" instance=ExtResource("3_m2ve7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62987, 0.498825, 3.02105)
-type = 1
-id = 2
+type = 8
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

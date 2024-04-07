@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://2hyhy7r4tcrk"]
+[gd_scene load_steps=3 format=3 uid="uid://2hyhy7r4tcrk"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_705tr"]
+[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_w53uu"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/magic.gd" id="2_8hdvd"]
 
-[node name="Magic" instance=ExtResource("1_705tr")]
+[node name="Magic" instance=ExtResource("1_w53uu")]
+script = ExtResource("2_8hdvd")
 
-[node name="Label" parent="." index="1"]
+[node name="Label" parent="." index="2"]
 text = "Magic"
