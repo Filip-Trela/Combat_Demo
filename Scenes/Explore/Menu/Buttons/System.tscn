@@ -6,6 +6,6 @@
 [node name="System" instance=ExtResource("1_0jdha")]
 script = ExtResource("2_dc1um")
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="Node2D" index="2"]
 text = "System
 "

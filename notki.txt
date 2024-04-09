@@ -1,14 +1,4 @@
 TODAY: 
-	secondary gender color (tylko wybrac i dac do Playerinfo)
-	
-	adding weapons i figures tez beda niczym items, czyli w playerinfo
-	
-	ogarnac skrypt z explore menu
-	dodac items animacje
-	kurwa myslalem ze juz zrobilem prawie wszystko
-	
-	
-	
 	zaczac sie bawic z ai wrogow
 	ogarnac visual'ia
 	ogarnac animacje

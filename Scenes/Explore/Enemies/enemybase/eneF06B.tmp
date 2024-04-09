@@ -7,6 +7,10 @@
 [sub_resource type="BoxMesh" id="BoxMesh_hlxir"]
 size = Vector3(0.7, 0.7, 0.7)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmn04"]
+height = 5.0
+radius = 2.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nol0"]
 albedo_color = Color(1, 0.211765, 0.372549, 1)
 
@@ -15,41 +19,35 @@ material = SubResource("StandardMaterial3D_4nol0")
 radius = 0.25
 height = 0.5
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmn04"]
-height = 5.0
-radius = 2.0
-
 [node name="EnemyBaseExplore" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_00185")
+combat_self = null
+friend1 = null
+friend2 = null
+friend3 = null
+friend4 = null
+friend5 = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_e6xb7")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-
-[node name="Model" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 mesh = SubResource("BoxMesh_hlxir")
-skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314404, 1.52334, 0.0361593)
-mesh = SubResource("SphereMesh_3m3xm")
-skeleton = NodePath("../..")
-
-[node name="RotArea" type="Node3D" parent="Model"]
-
-[node name="Area3D" type="Area3D" parent="Model/RotArea"]
+[node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/RotArea/Area3D"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.5, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2.5)
 shape = SubResource("CylinderShape3D_bmn04")
 
-[connection signal="body_entered" from="Model/RotArea/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Model/RotArea/Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52334, -0.3368)
+mesh = SubResource("SphereMesh_3m3xm")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -37,7 +37,8 @@ var magic_slot = 0
 
 
 func _ready():
-	#self.visible = false
+	
+	set_colors()
 	mas_nr = $MainButtons.get_child_count() -1
 	main_butt_change()
 	#setting colors
@@ -66,6 +67,8 @@ func state_machine():
 				main_butt_change() 
 				
 			elif Input.is_action_just_pressed("space"): 
+				system_set()
+				inv_butt_change()
 				mas_node.activate()
 		
 		"inventory_butt": 
@@ -83,7 +86,6 @@ func state_machine():
 				inv_butt_change()
 			
 			elif Input.is_action_just_pressed("space"): 
-				anim.pawn_to_pawnsub()
 				sub_nr = $InventorySubButtons.get_child_count() -1
 				slave_node.activate()
 			
@@ -138,6 +140,7 @@ func state_machine():
 				pass
 			
 			elif Input.is_action_just_pressed("q"):
+				anim.pawnsub_to_pawn()
 				sub_nr = 0
 				sub_node = null
 				choose_sub = 0
@@ -149,13 +152,15 @@ func state_machine():
 				choose_s  -=1
 				if choose_s < 0:
 					choose_s = slave_nr
-				slave_node = $SystemButtons.get_child(choose_s)
+				system_set()
+				
 				
 			elif Input.is_action_just_pressed("s"):
 				choose_s  +=1
 				if choose_s > slave_nr:
 					choose_s =0 
-				slave_node = $SystemButtons.get_child(choose_s)
+				system_set()
+				
 			
 			elif Input.is_action_just_pressed("space"): 
 				slave_node.activate()
@@ -210,6 +215,7 @@ func state_machine():
 				magic_list_set(choose_sub)
 			
 			elif Input.is_action_just_pressed("space"): 
+				anim.magicsub_to_magic()
 				magic_option_set(choose_sub)
 				
 				sub_nr = 0
@@ -228,41 +234,49 @@ func state_machine():
 
 
 func main_butt_change():
-	#$MainButtons.get_child(choose_m - 1).scale(Vector2(1,1))
-	#$MainButtons.get_child(choose_m).scale(Vector2(1.2,1.2))
-	#$MainButtons.get_child(choose_m -3).scale(Vector2(1,1))
+	$MainButtons.get_child(choose_m - 1).get_node("Node2D").scale = Vector2(1,1)
+	$MainButtons.get_child(choose_m).get_node("Node2D").scale = Vector2(1.2,1.2)
+	$MainButtons.get_child(choose_m - 2).get_node("Node2D").scale = Vector2(1,1)
 	mas_node = $MainButtons.get_child(choose_m)
 
 func inv_butt_change():
-	#$InventoryButtons.get_child(choose_s - 1).scale(Vector2(1,1))
-	#$InventoryButtons.get_child(choose_s).scale(Vector2(1.2,1.2))
-	#$InventoryButtons.get_child(choose_s -3).scale(Vector2(1,1))
+	$InventoryButtons.get_child(choose_s - 1).get_node("Node2D").scale = Vector2(1,1)
+	$InventoryButtons.get_child(choose_s).get_node("Node2D").scale = Vector2(1.2,1.2)
+	$InventoryButtons.get_child(choose_s -2).get_node("Node2D").scale = Vector2(1,1)
 	
 	slave_node = $InventoryButtons.get_child(choose_s)
 
 func sub_inventory_set(nr):
-	#$InventorySubButtons.get_child(1).scale(Vector2(1.2,1.2))
+
+	$InventorySubButtons.get_child(1).get_node("Node2D").scale = Vector2(1.2,1.2)
+
+	
+	$Description/Label.text = sub_inventory[nr].description
 		
-	$InventorySubButtons.get_child(0).get_node("Label").text = sub_inventory[nr-1].name
-	$InventorySubButtons.get_child(1).get_node("Label").text = sub_inventory[nr].name
-	$InventorySubButtons.get_child(2).get_node("Label").text = sub_inventory[nr-sub_options].name
+	$InventorySubButtons.get_child(0).get_node("Node2D/Label").text = sub_inventory[nr-1].name
+	$InventorySubButtons.get_child(1).get_node("Node2D/Label").text = sub_inventory[nr].name
+	$InventorySubButtons.get_child(2).get_node("Node2D/Label").text = sub_inventory[nr-sub_options].name
 
 
 func item_set(nr):
+	$ItemsButtons.get_child(1).get_node("Node2D").scale = Vector2(1.2,1.2)
+	
+	$Description/Label.text = sub_inventory[nr][0].description
 	
 	#setting names for buttons
-	$ItemsButtons.get_child(0).get_node("Label").text = sub_inventory[nr-1][0].name
-	$ItemsButtons.get_child(1).get_node("Label").text = sub_inventory[nr][0].name
-	$ItemsButtons.get_child(2).get_node("Label").text = sub_inventory[nr-sub_options][0].name
+	$ItemsButtons.get_child(0).get_node("Node2D/Label").text = sub_inventory[nr-1][0].name
+	$ItemsButtons.get_child(1).get_node("Node2D/Label").text = sub_inventory[nr][0].name
+	$ItemsButtons.get_child(2).get_node("Node2D/Label").text = sub_inventory[nr-sub_options][0].name
 	
 	#setting number of items
-	$ItemsButtons.get_child(0).get_node("Amount").text = str(sub_inventory[nr-1][1])
-	$ItemsButtons.get_child(1).get_node("Amount").text = str(sub_inventory[nr][1])
-	$ItemsButtons.get_child(2).get_node("Amount").text = str(sub_inventory[nr-sub_options][1])
+	$ItemsButtons.get_child(0).get_node("Node2D/Amount").text = str(sub_inventory[nr-1][1])
+	$ItemsButtons.get_child(1).get_node("Node2D/Amount").text = str(sub_inventory[nr][1])
+	$ItemsButtons.get_child(2).get_node("Node2D/Amount").text = str(sub_inventory[nr-sub_options][1])
 
 func magic_slot_set(nr):
-	#TODO change later
-	pass#rint($MagicButtons.get_child(nr).get_node("Label").text)
+	$MagicButtons.get_child(choose_s - 1).get_node("Node2D").scale = Vector2(1,1)
+	$MagicButtons.get_child(choose_s).get_node("Node2D").scale = Vector2(1.2,1.2)
+	$MagicButtons.get_child(choose_s -2).get_node("Node2D").scale = Vector2(1,1)
 	
 func magic_list_set(nr):
 	var list = []
@@ -273,9 +287,13 @@ func magic_list_set(nr):
 			list.append(invMag)
 	var list_len = len(list) -1
 	if list != []:
-		$MagicSubButtons.get_child(0).get_node("Label").text = list[nr-1].name
-		$MagicSubButtons.get_child(1).get_node("Label").text = list[nr].name
-		$MagicSubButtons.get_child(2).get_node("Label").text = list[nr-list_len].name
+		$MagicSubButtons.get_child(1).get_node("Node2D").scale = Vector2(1.2,1.2)
+	
+		$Description/Label.text = list[nr].description
+		
+		$MagicSubButtons.get_child(0).get_node("Node2D/Label").text = list[nr-1].name
+		$MagicSubButtons.get_child(1).get_node("Node2D/Label").text = list[nr].name
+		$MagicSubButtons.get_child(2).get_node("Node2D/Label").text = list[nr-list_len].name
 	return list
 
 func magic_option_set(nr):
@@ -287,3 +305,19 @@ func magic_option_set(nr):
 			list.append(invMag)
 	var list_len = len(list) -1
 	PlayerInfo.mag_skills[magic_slot] = list[nr]
+
+func system_set():
+	$SystemButtons.get_child(choose_s -1).get_node("Node2D").scale = Vector2(1,1)
+	$SystemButtons.get_child(choose_s).get_node("Node2D").scale = Vector2(1.2,1.2)
+	slave_node = $SystemButtons.get_child(choose_s)
+
+func set_colors():
+#FOR ALL SPRITES
+	$CircleMain["modulate"] = PlayerInfo.color_sex
+	$CircleSub["modulate"] = PlayerInfo.color_sex_sec
+	$CircleSub2["modulate"] = PlayerInfo.color_sex_sec
+	$PartPart["modulate"] = PlayerInfo.color_sex
+	$PartPart2["modulate"] = PlayerInfo.color_sex_sec
+	$Line/Line["modulate"] = PlayerInfo.color_sex
+	$PartCircle["modulate"] = PlayerInfo.color_sex
+

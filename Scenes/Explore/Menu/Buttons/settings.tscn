@@ -4,5 +4,5 @@
 
 [node name="Settings" instance=ExtResource("1_fyshx")]
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="Node2D" index="2"]
 text = "Settings"

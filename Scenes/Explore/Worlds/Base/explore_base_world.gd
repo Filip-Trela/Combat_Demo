@@ -3,6 +3,8 @@ extends Node3D
 #maybe array of world
 @export var combat_world:String
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$WorldArea.set_deferred("monitoring", true)

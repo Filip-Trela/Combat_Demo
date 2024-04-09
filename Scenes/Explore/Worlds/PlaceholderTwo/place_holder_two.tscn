@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c28hxax2t2ml6"]
+[gd_scene load_steps=5 format=3 uid="uid://c28hxax2t2ml6"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_nmcw7"]
-[ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_wg6yo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j2h2o"]
 size = Vector3(40, 10, 40)
@@ -38,14 +37,5 @@ mesh = SubResource("BoxMesh_2ahaa")
 skeleton = NodePath("")
 
 [node name="Activs" type="Node3D" parent="."]
-
-[node name="EnemyBaseExplore2" parent="Activs" instance=ExtResource("2_wg6yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 18.4344)
-
-[node name="EnemyBaseExplore3" parent="Activs" instance=ExtResource("2_wg6yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.249, 0.370719, -6.58027)
-
-[node name="EnemyBaseExplore4" parent="Activs" instance=ExtResource("2_wg6yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85027, 0.370719, 6.94316)
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

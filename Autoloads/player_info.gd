@@ -15,12 +15,16 @@ var inv_list = InventoryInfo
 var sex:String
 var color_sex
 var color_sex_sec
+var color_sex_trd
+var neutral_color = Color(0.0, 0.0, 0.0, 0.0) #?????
 
 #change secondary colors later
 var female_color = Color(0.851, 0.412, 0.886, 1.0) 
-var female_color_sec = Color(0.851, 0.412, 0.886, 1.0) 
+var female_color_sec = Color(0.777, 0.271, 0.882, 1.0) 
+var female_color_trd = Color(0.969, 0.435, 0.592, 1.0)
 var male_color = Color(0.0, 0.875, 0.518, 1.0)
-var male_color_sec = Color(0.0, 0.875, 0.518, 1.0)
+var male_color_sec = Color(0.0, 0.776, 0.533, 1.0)
+var male_color_trd = Color(0.263, 0.776, 0.718, 1.0)
 
 
 

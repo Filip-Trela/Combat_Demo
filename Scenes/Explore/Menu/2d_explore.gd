@@ -52,6 +52,10 @@ func _input(event):
 	if Input.is_action_just_pressed("tab"):
 		if PlayerInfo.explore_state == "menu":
 			anim.hide()
+			
+			$Menu.slave_nr = 0
+			$Menu.slave_node = null
+			$Menu.choose_s = 0
 
 			$Menu.state = "main_butt"
 			$Menu.choose_m = 0
@@ -61,6 +65,11 @@ func _input(event):
 			PlayerInfo.explore_state = "moving"
 		elif PlayerInfo.explore_state == "moving":
 			anim.none_to_main()
+			
+			$Menu.slave_nr = 0
+			$Menu.slave_node = null
+			$Menu.choose_s = 0
+			
 			$Menu.state = "main_butt"
 			$Menu.choose_m = 0
 			$Menu.main_butt_change()

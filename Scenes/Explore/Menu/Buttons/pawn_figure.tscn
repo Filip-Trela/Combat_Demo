@@ -6,5 +6,5 @@
 [node name="Pawn_Figure" instance=ExtResource("1_0a2k4")]
 script = ExtResource("2_h1a1d")
 
-[node name="Label" parent="." index="2"]
-text = "Figures"
+[node name="Label" parent="Node2D" index="2"]
+text = "Figure"

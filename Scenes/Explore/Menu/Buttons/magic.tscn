@@ -6,5 +6,5 @@
 [node name="Magic" instance=ExtResource("1_w53uu")]
 script = ExtResource("2_8hdvd")
 
-[node name="Label" parent="." index="2"]
+[node name="Label" parent="Node2D" index="2"]
 text = "Magic"

@@ -14,8 +14,10 @@ func _ready():
 	
 	player_mesh.queue_free()
 	if PlayerInfo.sex == "male":
-		player_base.add_child(male_mesh.instantiate())
+		player_base.call_deferred("add_child",male_mesh.instantiate())
+		#player_base.add_child(male_mesh.instantiate())
 	else:
-		player_base.add_child(female_mesh.instantiate())
+		player_base.call_deferred("add_child",female_mesh.instantiate())
+		#player_base.add_child(female_mesh.instantiate())
 		
 

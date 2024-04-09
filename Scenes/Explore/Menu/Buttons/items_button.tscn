@@ -1,18 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://dax2mb0siv783"]
+[gd_scene load_steps=5 format=3 uid="uid://dax2mb0siv783"]
 
-[ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_ijr17"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.gd" id="1_qofir"]
+[ext_resource type="Texture2D" uid="uid://bxq5ltu6wgees" path="res://Assets/2D/MenuExplore/RoundSquareMenu.png" id="2_yr17r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pygfw"]
 font_size = 30
 
-[node name="ItemsButton" instance=ExtResource("1_ijr17")]
+[sub_resource type="LabelSettings" id="LabelSettings_5axxv"]
+font_size = 30
 
-[node name="Amount" type="Label" parent="." index="2"]
+[node name="ItemsButton" type="Node2D"]
+script = ExtResource("1_qofir")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.898039, 0.670588, 0, 1)
+position = Vector2(-9, 11)
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("2_yr17r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.427451, 0.552941, 0.960784, 1)
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("2_yr17r")
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -97.0
+offset_top = -39.0
+offset_right = 95.0
+offset_bottom = 25.0
+text = "Text"
+label_settings = SubResource("LabelSettings_pygfw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Amount" type="Label" parent="Node2D"]
 offset_left = -26.0
 offset_top = -11.0
 offset_right = 166.0
 offset_bottom = 53.0
 text = "0"
-label_settings = SubResource("LabelSettings_pygfw")
+label_settings = SubResource("LabelSettings_5axxv")
 horizontal_alignment = 1
 vertical_alignment = 1

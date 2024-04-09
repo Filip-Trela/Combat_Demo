@@ -1,36 +1,37 @@
 [gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_g1r5t"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_bifeu"]
-[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_lj26v"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="4_li2m3"]
-[ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="5_pwqa2"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="6_5be0r"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="7_imim0"]
-[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="8_24vvv"]
+[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_q743p"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_8e3dg"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_ck530"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="4_in7yh"]
+[ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="5_0cx1n"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="6_5mgaf"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="7_tt275"]
+[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="8_r202s"]
 
 [node name="ExploreScene" type="Node3D"]
-script = ExtResource("1_g1r5t")
+script = ExtResource("1_q743p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
 shadow_enabled = true
 
-[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("2_bifeu")]
-script = ExtResource("3_lj26v")
+[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("2_8e3dg")]
+script = ExtResource("3_ck530")
 
 [node name="Worlds" type="Node3D" parent="."]
 
-[node name="PlaceholderOne" type="Node3D" parent="Worlds" instance=ExtResource("4_li2m3")]
-script = ExtResource("5_pwqa2")
+[node name="PlaceholderOne" type="Node3D" parent="Worlds" instance=ExtResource("4_in7yh")]
+script = ExtResource("5_0cx1n")
 combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
 
-[node name="PlaceHolder_two" type="Node3D" parent="Worlds" instance=ExtResource("6_5be0r")]
+[node name="PlaceHolder_two" type="Node3D" parent="Worlds" instance=ExtResource("6_5mgaf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.9887)
-script = ExtResource("5_pwqa2")
+script = ExtResource("5_0cx1n")
 combat_world = "res://Scenes/Combat/worlds/Base/combat_base_world.tscn"
 
-[node name="Player" type="CharacterBody3D" parent="." instance=ExtResource("7_imim0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0159, 0.000943928, 43.3113)
+[node name="Player" type="CharacterBody3D" parent="." instance=ExtResource("7_tt275")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31808, 0, -0.453501)
 collision_mask = 6
-script = ExtResource("8_24vvv")
+velocity = Vector3(-0.967615, 0, -1.75035)
+script = ExtResource("8_r202s")

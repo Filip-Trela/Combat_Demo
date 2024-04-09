@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://26oewwgnu62n"]
+[gd_scene load_steps=110 format=3 uid="uid://26oewwgnu62n"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/menu_explore.gd" id="1_8eg3o"]
 [ext_resource type="Texture2D" uid="uid://gxbo4wwrl2t0" path="res://Assets/2D/MenuExplore/CircleMenu.png" id="2_qvfxl"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://pdcljgojr8ym" path="res://Scenes/Explore/Menu/Buttons/pawn_items.tscn" id="8_honka"]
 [ext_resource type="PackedScene" uid="uid://dax2mb0siv783" path="res://Scenes/Explore/Menu/Buttons/items_button.tscn" id="11_a3snv"]
 [ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="16_xyt42"]
+[ext_resource type="Texture2D" uid="uid://bxq5ltu6wgees" path="res://Assets/2D/MenuExplore/RoundSquareMenu.png" id="17_ob0hw"]
 
 [sub_resource type="Animation" id="Animation_xaoyg"]
 resource_name = "RESET"
@@ -1271,6 +1272,28 @@ tracks/111/keys = {
 "update": 0,
 "values": [Vector2(-134, 3)]
 }
+tracks/112/type = "bezier"
+tracks/112/imported = false
+tracks/112/enabled = true
+tracks/112/path = NodePath("Description:position:x")
+tracks/112/interp = 1
+tracks/112/loop_wrap = true
+tracks/112/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(103, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/113/type = "bezier"
+tracks/113/imported = false
+tracks/113/enabled = true
+tracks/113/path = NodePath("Description:position:y")
+tracks/113/interp = 1
+tracks/113/loop_wrap = true
+tracks/113/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-140, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_mkjba"]
 resource_name = "magic_hide"
@@ -2069,6 +2092,28 @@ tracks/26/keys = {
 "points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Description:position:x")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(103, -0.25, 0, 0.25, 0, 121, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Description:position:y")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-140, -0.25, 0, 0.5, 10.5746, 127, -0.4, 16.9946, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
 
 [sub_resource type="Animation" id="Animation_2vm5w"]
 resource_name = "magicsub_hide"
@@ -2387,6 +2432,28 @@ tracks/27/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.8, 0.0277121, 1.40582, -0.1, 1.21058, 0.25, 0),
 "times": PackedFloat32Array(0, 0.8)
 }
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Description:position:x")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(121, -0.25, 0, 0.6, 182.49, -195, -0.3, -587.595, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Description:position:y")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(127, -0.25, 0, 0.6, 146.11, -159, -0.3, -566.633, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
 
 [sub_resource type="Animation" id="Animation_7h6bk"]
 resource_name = "magicsub_idle"
@@ -2684,6 +2751,28 @@ tracks/25/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.8, 0.8)]
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Description:position:x")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(121, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Description:position:y")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(127, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_tscl5"]
@@ -3556,6 +3645,30 @@ tracks/30/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [-2]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("InventoryButtons/Pawn_Weapon:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("InventoryButtons/Pawn_Items:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_81vuv"]
@@ -4654,6 +4767,518 @@ tracks/29/keys = {
 "times": PackedFloat32Array(0, 5)
 }
 
+[sub_resource type="Animation" id="Animation_mh461"]
+resource_name = "pawn_to_pawnitems"
+length = 1.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleMain:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CircleMain:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1687, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CircleMain:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-575, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CircleSub:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1515, -0.6, 488.012, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CircleSub:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-30, -0.589343, -794.823, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CircleSub:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CircleSub:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, 0.0157831, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CircleSub:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, -0.0120344, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MainButtons:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MainButtons:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2207, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MainButtons:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-795, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PartPart:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(673.968, -0.7, 116.757, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PartPart:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(322, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PartPart:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.98055, -0.6, -0.114796, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PartPart2:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(646.968, -0.7, 143.757, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PartPart2:position:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(330, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PartPart2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.11508, -0.7, 0.182655, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Line:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("InventoryButtons:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-42, -0.8, 114.46, 0.25, 0, -42, -0.25, 0, 0.25, 0, -42, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.65, 1.3)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("InventoryButtons:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(29, -0.7, 240.928, 0.25, 0, 29, -0.25, 0, 0.25, 0, 29, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.65, 1.3)
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("PartPart2:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("PartPart:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("InventoryButtons:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Line/Line:z_index")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "bezier"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Line:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.607256, -0.589343, 0.240473, 0.258481, -0.032995, -1.96226, -0.2, -0.196182, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2)
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Line:position:x")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.506529, 2321.23, 1714.87, -0.393471, -596.018, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Line:position:y")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(780, -0.25, 0, 0.25, 0, 780, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Line:scale:x")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.45, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Line:scale:y")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("InventoryButtons:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.65)
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("InventoryButtons/Pawn_Figure:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.73, 0.74),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/31/type = "bezier"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("InventoryButtons/Pawn_Weapon:z_index")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/32/type = "bezier"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("InventoryButtons/Pawn_Items:z_index")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("InventoryButtons/Pawn_Figure:z_index")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("InventoryButtons/Pawn_Weapon:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 0.76, 0.77),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("InventoryButtons/Pawn_Items:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 0.79, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("InventorySubButtons/ButtonMenuExplore:z_index")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/37/type = "bezier"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("InventorySubButtons/ButtonMenuExplore2:z_index")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/38/type = "bezier"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("InventorySubButtons/ButtonMenuExplore3:z_index")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("InventorySubButtons:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("ItemsButtons:position:x")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-616, -0.25, 0, 0.84, 12.9324, -82, -0.31, 141.516, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/41/type = "bezier"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("ItemsButtons:position:y")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-440, -0.25, 0, 0.67, -19.2328, -88, -0.3, 149.874, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("ItemsButtons:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Description:position:x")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(226, -0.25, 0, 0.25, 0, 196, -0.501361, -82.3854, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/44/type = "bezier"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Description:position:y")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-106, -0.25, 0, 0.278171, -125.958, 101, -0.971829, 96.1595, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+
 [sub_resource type="Animation" id="Animation_8mygy"]
 resource_name = "pawn_to_pawnsub"
 length = 1.3
@@ -5002,10 +5627,10 @@ tracks/30/path = NodePath("InventoryButtons/Pawn_Figure:visible")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0, 0.73),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.72, 0.73),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true, false]
 }
 tracks/31/type = "bezier"
 tracks/31/imported = false
@@ -5047,10 +5672,10 @@ tracks/34/path = NodePath("InventoryButtons/Pawn_Weapon:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
-"times": PackedFloat32Array(0, 0.76),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.75, 0.76),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true, false]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
@@ -5059,10 +5684,10 @@ tracks/35/path = NodePath("InventoryButtons/Pawn_Items:visible")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 0.79),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.78, 0.79),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true, false]
 }
 tracks/36/type = "bezier"
 tracks/36/imported = false
@@ -5130,6 +5755,1028 @@ tracks/41/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/42/type = "bezier"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Description:position:x")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(258, -0.25, 0, 0.25, 0, 196, -0.65, -55.8029, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Description:position:y")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-119, -0.25, 0, 0.34, -116.755, 101, -0.74, 61.982, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+
+[sub_resource type="Animation" id="Animation_am4bj"]
+resource_name = "pawnitems_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleMain:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CircleMain:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1687, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CircleMain:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-575, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CircleSub:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1515, -0.6, 488.012, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CircleSub:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-30, -0.589343, -794.823, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CircleSub:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CircleSub:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, 0.0157831, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CircleSub:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, -0.0120344, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MainButtons:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MainButtons:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2207, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MainButtons:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-795, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PartPart:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(673.968, -0.7, 116.757, 0.4, -2.65808, 805, -0.4, 95.415, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PartPart:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(322, -0.25, 0, 0.4, 252.019, -59.0001, -0.6, -324.201, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PartPart:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2.98055, -0.6, -0.114796, 0.4, 0.0997424, -2.19636, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PartPart2:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(646.968, -0.7, 143.757, 0.6, 116.776, 384, -0.2, -972.163, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PartPart2:position:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(330, -0.25, 0, 0.3, -6.76477, 614, -0.5, 13.0345, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PartPart2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-3.11508, -0.7, 0.182655, 0.3, 0.574417, -4.75717, -0.5, 0.266342, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Line:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("InventoryButtons:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-42, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("InventoryButtons:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(29, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("PartPart2:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("PartPart:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("InventoryButtons:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Line/Line:z_index")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "bezier"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Line:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.96226, -0.2, -0.196182, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Line:position:x")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1714.87, -0.393471, -596.018, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Line:position:y")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(780, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Line:scale:x")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.45, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Line:scale:y")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("InventoryButtons:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("InventoryButtons/Pawn_Figure:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "bezier"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("InventoryButtons/Pawn_Weapon:z_index")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/32/type = "bezier"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("InventoryButtons/Pawn_Items:z_index")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("InventoryButtons/Pawn_Figure:z_index")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("InventoryButtons/Pawn_Weapon:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("InventoryButtons/Pawn_Items:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("InventorySubButtons/ButtonMenuExplore:z_index")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/37/type = "bezier"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("InventorySubButtons/ButtonMenuExplore2:z_index")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/38/type = "bezier"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("InventorySubButtons/ButtonMenuExplore3:z_index")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("InventorySubButtons:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("ItemsButtons:position:x")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-82, -0.25, 0, 0.3, 237.248, -687, -0.16323, -511.685, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/41/type = "bezier"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("ItemsButtons:position:y")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-93, -0.25, 0, 0.2, 307.905, -544, -0.16323, -576.873, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("ItemsButtons:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Description:position:x")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.5, 122.68, -191, -0.3, -394.125, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/44/type = "bezier"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Description:position:y")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(101, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_xo3fm"]
+resource_name = "pawnitems_idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CircleMain:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CircleMain:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1687, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CircleMain:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-575, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CircleSub:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1515, -0.6, 488.012, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CircleSub:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-30, -0.589343, -794.823, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CircleSub:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CircleSub:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, 0.0157831, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CircleSub:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0322415, -0.5, -0.0120344, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MainButtons:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MainButtons:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2207, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MainButtons:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-795, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PartPart:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(673.968, -0.7, 116.757, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PartPart:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(322, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PartPart:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2.98055, -0.6, -0.114796, 1.1, 0.0591483, -2.98055, -3, -0.159417, 0.25, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PartPart2:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(646.968, -0.7, 143.757, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PartPart2:position:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(330, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PartPart2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.11508, -0.7, 0.182655, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Line:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PartPart2:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PartPart:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("InventoryButtons:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Line/Line:z_index")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Line:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.96226, -0.2, -0.196182, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Line:position:x")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1714.87, -0.393471, -596.018, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "bezier"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Line:position:y")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(780, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Line:scale:x")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.45, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Line:scale:y")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("InventoryButtons/Pawn_Figure:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("InventoryButtons/Pawn_Weapon:z_index")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("InventoryButtons/Pawn_Items:z_index")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/30/type = "bezier"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("InventoryButtons/Pawn_Figure:z_index")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("InventoryButtons/Pawn_Weapon:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("InventoryButtons/Pawn_Items:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("InventorySubButtons:position:y")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-95, -0.295647, 83.1372, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/34/type = "bezier"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("InventorySubButtons/ButtonMenuExplore:z_index")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/35/type = "bezier"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("InventorySubButtons/ButtonMenuExplore2:z_index")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("InventorySubButtons/ButtonMenuExplore3:z_index")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("InventorySubButtons:visible")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("ItemsButtons:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/39/type = "bezier"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("ItemsButtons:position:x")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("ItemsButtons:position:y")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-90, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/41/type = "bezier"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Description:position:x")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/42/type = "bezier"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Description:position:y")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(101, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_lbmyi"]
@@ -5606,6 +7253,28 @@ tracks/41/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/42/type = "bezier"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Description:position:x")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.6, 73.312, -231, -0.4, -612.355, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Description:position:y")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(101, -0.25, 0, 0.25, 0, 101, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="Animation" id="Animation_wdl73"]
@@ -6084,6 +7753,28 @@ tracks/41/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/42/type = "bezier"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Description:position:x")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Description:position:y")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(101, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_tagoh"]
@@ -6696,7 +8387,10 @@ _data = {
 "none_to_main": SubResource("Animation_3yduk"),
 "pawn_hide": SubResource("Animation_busss"),
 "pawn_idle": SubResource("Animation_lmkeg"),
+"pawn_to_pawnitems": SubResource("Animation_mh461"),
 "pawn_to_pawnsub": SubResource("Animation_8mygy"),
+"pawnitems_hide": SubResource("Animation_am4bj"),
+"pawnitems_idle": SubResource("Animation_xo3fm"),
 "pawnsub_hide": SubResource("Animation_lbmyi"),
 "pawnsub_idle": SubResource("Animation_wdl73"),
 "system_hide": SubResource("Animation_tagoh"),
@@ -6742,6 +8436,10 @@ play_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_75rf2"]
 animation = &"main_to_pawn"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyacs"]
+animation = &"main_to_system"
+play_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnabq"]
 animation = &"main_to_system"
 
@@ -6754,12 +8452,25 @@ animation = &"pawn_hide"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npdeh"]
 animation = &"pawn_idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_so1pm"]
+animation = &"pawn_to_pawnitems"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2ovx"]
+animation = &"pawn_to_pawnitems"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8c5p0"]
 animation = &"pawn_to_pawnsub"
 play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e26su"]
 animation = &"pawn_to_pawnsub"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_833bn"]
+animation = &"pawnitems_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xu25d"]
+animation = &"pawnitems_idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6of4o"]
 animation = &"pawnsub_hide"
@@ -6810,6 +8521,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fuwym"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v750n"]
+xfade_time = 0.4
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n5hxa"]
 switch_mode = 2
@@ -6865,10 +8577,39 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8w0h"]
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6d6cu"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yoib3"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_caaj1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2lski"]
+xfade_time = 0.4
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r153g"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x56tf"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j1ktu"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixo0p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fi6an"]
+xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4qb1g"]
 states/End/position = Vector2(1167, 96)
@@ -6898,27 +8639,39 @@ states/main_to_pawn/position = Vector2(182, 180)
 "states/main_to_pawn 2/node" = SubResource("AnimationNodeAnimation_wp2fd")
 "states/main_to_pawn 2/position" = Vector2(195, 262)
 states/main_to_system/node = SubResource("AnimationNodeAnimation_mnabq")
-states/main_to_system/position = Vector2(223, 423)
+states/main_to_system/position = Vector2(89, 737)
+"states/main_to_system 2/node" = SubResource("AnimationNodeAnimation_yyacs")
+"states/main_to_system 2/position" = Vector2(159, 616)
 states/none_to_main/node = SubResource("AnimationNodeAnimation_8ueqc")
 states/none_to_main/position = Vector2(-210, 87)
 states/pawn_hide/node = SubResource("AnimationNodeAnimation_cr2q8")
 states/pawn_hide/position = Vector2(538, 151)
 states/pawn_idle/node = SubResource("AnimationNodeAnimation_npdeh")
 states/pawn_idle/position = Vector2(331, 180)
+states/pawn_to_pawnitems/node = SubResource("AnimationNodeAnimation_s2ovx")
+states/pawn_to_pawnitems/position = Vector2(523, 339)
+"states/pawn_to_pawnitems 2/node" = SubResource("AnimationNodeAnimation_so1pm")
+"states/pawn_to_pawnitems 2/position" = Vector2(523, 405)
 states/pawn_to_pawnsub/node = SubResource("AnimationNodeAnimation_e26su")
 states/pawn_to_pawnsub/position = Vector2(523, 228)
 "states/pawn_to_pawnsub 2/node" = SubResource("AnimationNodeAnimation_8c5p0")
-"states/pawn_to_pawnsub 2/position" = Vector2(497, 290)
+"states/pawn_to_pawnsub 2/position" = Vector2(529, 277)
+states/pawnitems_hide/node = SubResource("AnimationNodeAnimation_833bn")
+states/pawnitems_hide/position = Vector2(899, 328)
+states/pawnitems_idle/node = SubResource("AnimationNodeAnimation_xu25d")
+states/pawnitems_idle/position = Vector2(708, 339)
 states/pawnsub_hide/node = SubResource("AnimationNodeAnimation_6of4o")
 states/pawnsub_hide/position = Vector2(880, 228)
 states/pawnsub_idle/node = SubResource("AnimationNodeAnimation_rxjen")
 states/pawnsub_idle/position = Vector2(708, 228)
 states/system_hide/node = SubResource("AnimationNodeAnimation_4yg0n")
-states/system_hide/position = Vector2(797, 423)
+states/system_hide/position = Vector2(782, 676)
 states/system_idle/node = SubResource("AnimationNodeAnimation_s3tc5")
-states/system_idle/position = Vector2(391, 423)
-transitions = ["Start", "none_to_main", SubResource("AnimationNodeStateMachineTransition_odghe"), "main_idle", "main_to_magic", SubResource("AnimationNodeStateMachineTransition_i42ip"), "main_idle", "main_to_pawn", SubResource("AnimationNodeStateMachineTransition_yxknl"), "main_idle", "main_hide", SubResource("AnimationNodeStateMachineTransition_70k5o"), "main_hide", "End", SubResource("AnimationNodeStateMachineTransition_ijp4u"), "pawn_hide", "End", SubResource("AnimationNodeStateMachineTransition_h6aig"), "pawnsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_4gx4t"), "magic_hide", "End", SubResource("AnimationNodeStateMachineTransition_3ygkd"), "magicsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_xf6y1"), "magic_idle", "magic_hide", SubResource("AnimationNodeStateMachineTransition_nd8v6"), "magic_idle", "magic_to_magicsub", SubResource("AnimationNodeStateMachineTransition_bxoh5"), "magicsub_idle", "magicsub_hide", SubResource("AnimationNodeStateMachineTransition_3utlt"), "pawn_idle", "pawn_hide", SubResource("AnimationNodeStateMachineTransition_fuwym"), "pawn_idle", "pawn_to_pawnsub", SubResource("AnimationNodeStateMachineTransition_v750n"), "magic_to_magicsub", "magicsub_idle", SubResource("AnimationNodeStateMachineTransition_n5hxa"), "main_to_magic", "magic_idle", SubResource("AnimationNodeStateMachineTransition_b6317"), "none_to_main", "main_idle", SubResource("AnimationNodeStateMachineTransition_yq0wf"), "main_to_pawn", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_387tx"), "main_to_system", "system_idle", SubResource("AnimationNodeStateMachineTransition_yy8vx"), "pawn_to_pawnsub", "pawnsub_idle", SubResource("AnimationNodeStateMachineTransition_3cirj"), "system_hide", "End", SubResource("AnimationNodeStateMachineTransition_v1lkm"), "system_idle", "system_hide", SubResource("AnimationNodeStateMachineTransition_v874w"), "pawnsub_idle", "pawnsub_hide", SubResource("AnimationNodeStateMachineTransition_lp526"), "main_idle", "main_to_system", SubResource("AnimationNodeStateMachineTransition_g0gs3"), "magic_idle", "main_to_magic 2", SubResource("AnimationNodeStateMachineTransition_l2gq7"), "main_to_magic 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_fifld"), "magicsub_idle", "magic_to_magicsub 2", SubResource("AnimationNodeStateMachineTransition_amscf"), "magic_to_magicsub 2", "magic_idle", SubResource("AnimationNodeStateMachineTransition_gohe6"), "pawn_idle", "main_to_pawn 2", SubResource("AnimationNodeStateMachineTransition_w0i2q"), "main_to_pawn 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_2ux34"), "pawnsub_idle", "pawn_to_pawnsub 2", SubResource("AnimationNodeStateMachineTransition_r8w0h"), "pawn_to_pawnsub 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_6d6cu")]
-graph_offset = Vector2(201, 14)
+states/system_idle/position = Vector2(328, 732)
+transitions = ["Start", "none_to_main", SubResource("AnimationNodeStateMachineTransition_odghe"), "main_idle", "main_to_magic", SubResource("AnimationNodeStateMachineTransition_i42ip"), "main_idle", "main_to_pawn", SubResource("AnimationNodeStateMachineTransition_yxknl"), "main_idle", "main_hide", SubResource("AnimationNodeStateMachineTransition_70k5o"), "main_hide", "End", SubResource("AnimationNodeStateMachineTransition_ijp4u"), "pawn_hide", "End", SubResource("AnimationNodeStateMachineTransition_h6aig"), "pawnsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_4gx4t"), "magic_hide", "End", SubResource("AnimationNodeStateMachineTransition_3ygkd"), "magicsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_xf6y1"), "magic_idle", "magic_hide", SubResource("AnimationNodeStateMachineTransition_nd8v6"), "magic_idle", "magic_to_magicsub", SubResource("AnimationNodeStateMachineTransition_bxoh5"), "magicsub_idle", "magicsub_hide", SubResource("AnimationNodeStateMachineTransition_3utlt"), "pawn_idle", "pawn_hide", SubResource("AnimationNodeStateMachineTransition_fuwym"), "pawn_idle", "pawn_to_pawnsub", SubResource("AnimationNodeStateMachineTransition_v750n"), "magic_to_magicsub", "magicsub_idle", SubResource("AnimationNodeStateMachineTransition_n5hxa"), "main_to_magic", "magic_idle", SubResource("AnimationNodeStateMachineTransition_b6317"), "none_to_main", "main_idle", SubResource("AnimationNodeStateMachineTransition_yq0wf"), "main_to_pawn", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_387tx"), "main_to_system", "system_idle", SubResource("AnimationNodeStateMachineTransition_yy8vx"), "pawn_to_pawnsub", "pawnsub_idle", SubResource("AnimationNodeStateMachineTransition_3cirj"), "system_hide", "End", SubResource("AnimationNodeStateMachineTransition_v1lkm"), "system_idle", "system_hide", SubResource("AnimationNodeStateMachineTransition_v874w"), "pawnsub_idle", "pawnsub_hide", SubResource("AnimationNodeStateMachineTransition_lp526"), "main_idle", "main_to_system", SubResource("AnimationNodeStateMachineTransition_g0gs3"), "magic_idle", "main_to_magic 2", SubResource("AnimationNodeStateMachineTransition_l2gq7"), "main_to_magic 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_fifld"), "magicsub_idle", "magic_to_magicsub 2", SubResource("AnimationNodeStateMachineTransition_amscf"), "magic_to_magicsub 2", "magic_idle", SubResource("AnimationNodeStateMachineTransition_gohe6"), "pawn_idle", "main_to_pawn 2", SubResource("AnimationNodeStateMachineTransition_w0i2q"), "main_to_pawn 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_2ux34"), "pawnsub_idle", "pawn_to_pawnsub 2", SubResource("AnimationNodeStateMachineTransition_r8w0h"), "pawn_to_pawnsub 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_6d6cu"), "system_idle", "main_to_system 2", SubResource("AnimationNodeStateMachineTransition_yoib3"), "main_to_system 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_caaj1"), "pawn_idle", "pawn_to_pawnitems", SubResource("AnimationNodeStateMachineTransition_2lski"), "pawn_to_pawnitems", "pawnitems_idle", SubResource("AnimationNodeStateMachineTransition_r153g"), "pawnitems_hide", "End", SubResource("AnimationNodeStateMachineTransition_x56tf"), "pawnitems_idle", "pawnitems_hide", SubResource("AnimationNodeStateMachineTransition_j1ktu"), "pawn_to_pawnitems 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_ixo0p"), "pawnitems_idle", "pawn_to_pawnitems 2", SubResource("AnimationNodeStateMachineTransition_fi6an")]
+graph_offset = Vector2(-9, 47)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gc1r2"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_8eg3o")
@@ -7061,10 +8814,19 @@ visible = false
 position = Vector2(-687, -352)
 
 [node name="ItemsButton" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+z_index = -2
+position = Vector2(497, 259)
+rotation = 0.764691
 
 [node name="ItemsButton2" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+z_index = -2
+position = Vector2(417, 341)
+rotation = 0.685488
 
 [node name="ItemsButton3" parent="ItemsButtons" instance=ExtResource("11_a3snv")]
+z_index = -2
+position = Vector2(348, 434)
+rotation = 0.677872
 
 [node name="MagicButtons" type="Node2D" parent="."]
 visible = false
@@ -7075,22 +8837,22 @@ scale = Vector2(0.73, 0.73)
 position = Vector2(453.425, 164.384)
 rotation = 0.333606
 
-[node name="Label" parent="MagicButtons/ButtonMenuExplore" index="2"]
-text = "1"
+[node name="Label" parent="MagicButtons/ButtonMenuExplore/Node2D" index="2"]
+text = "Slot 1"
 
 [node name="ButtonMenuExplore2" parent="MagicButtons" instance=ExtResource("16_xyt42")]
 position = Vector2(404.11, 279.452)
 rotation = 0.493908
 
-[node name="Label" parent="MagicButtons/ButtonMenuExplore2" index="2"]
-text = "2"
+[node name="Label" parent="MagicButtons/ButtonMenuExplore2/Node2D" index="2"]
+text = "Slot 2"
 
 [node name="ButtonMenuExplore3" parent="MagicButtons" instance=ExtResource("16_xyt42")]
 position = Vector2(332.877, 389.041)
 rotation = 0.650457
 
-[node name="Label" parent="MagicButtons/ButtonMenuExplore3" index="2"]
-text = "3"
+[node name="Label" parent="MagicButtons/ButtonMenuExplore3/Node2D" index="2"]
+text = "Slot 3"
 
 [node name="MagicSubButtons" type="Node2D" parent="."]
 visible = false
@@ -7115,6 +8877,22 @@ modulate = Color(0, 0.87451, 0.517647, 1)
 position = Vector2(-134, 3)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_lxrqg")
+
+[node name="Description" type="Node2D" parent="."]
+position = Vector2(103, -140)
+
+[node name="Sprite2D" type="Sprite2D" parent="Description"]
+modulate = Color(0.611765, 0.611765, 0.611765, 0.568627)
+scale = Vector2(0.544667, 0.784668)
+texture = ExtResource("17_ob0hw")
+
+[node name="Label" type="Label" parent="Description"]
+offset_left = -91.0
+offset_top = -79.0
+offset_right = 88.0
+offset_bottom = 57.0
+label_settings = SubResource("LabelSettings_gc1r2")
+autowrap_mode = 2
 
 [editable path="MagicButtons/ButtonMenuExplore"]
 [editable path="MagicButtons/ButtonMenuExplore2"]

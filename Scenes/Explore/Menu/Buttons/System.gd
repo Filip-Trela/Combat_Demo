@@ -6,7 +6,11 @@ extends Node2D
 
 @onready var anim = get_parent().get_parent().get_node("AnimationTree")
 
+func _ready():
+	$Node2D/Sprite2D["modulate"] = PlayerInfo.color_sex_trd
+
 func activate():
+
 	anim.main_to_system()
 	
 	menu.slave_nr = menu.get_node("SystemButtons").get_child_count() -1

@@ -7,7 +7,7 @@
 script = ExtResource("2_t4p55")
 
 [node name="Sprite2D" parent="." index="0"]
-modulate = Color(0.85098, 0.411765, 0.886275, 1)
+modulate = Color(0.851, 0.412, 0.886, 1)
 
 [node name="Label" parent="." index="1"]
 text = "Female"

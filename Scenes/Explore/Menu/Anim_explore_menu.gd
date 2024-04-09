@@ -35,5 +35,8 @@ func pawnsub_to_pawn():
 func system_to_main():
 	state_m.travel("main_idle")
 	
+func pawn_to_pawnitems():
+	state_m.travel("pawn_to_pawnitems")
+	
 func hide():
 	state_m.travel("End")

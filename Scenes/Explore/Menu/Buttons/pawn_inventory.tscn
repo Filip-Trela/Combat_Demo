@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="1_vfu1x"]
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/Buttons/pawn_inventory.gd" id="1_womip"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_bo3ua"]
-font_size = 20
+[sub_resource type="LabelSettings" id="LabelSettings_6rju7"]
+font_size = 22
 
 [node name="Pawn_Inventory" instance=ExtResource("1_vfu1x")]
 script = ExtResource("1_womip")
 
-[node name="Label" parent="." index="2"]
-text = "PawnInventory"
-label_settings = SubResource("LabelSettings_bo3ua")
+[node name="Label" parent="Node2D" index="2"]
+text = "PawnInv"
+label_settings = SubResource("LabelSettings_6rju7")
