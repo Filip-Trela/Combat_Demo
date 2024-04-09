@@ -1,7 +1,9 @@
 TODAY: 
-	zaczac sie bawic z ai wrogow
-	ogarnac visual'ia
-	ogarnac animacje
+	jestem w niebezpiecznym miejscu, zbyt blisko mety
+	pozostalo:
+		ai wrogow
+		animacje, meshe etc visualia
+
 	
 	typy wrogow:
 		1. podchodzi i atakuje
@@ -32,30 +34,30 @@ TODAY:
 
 	
 	
-		enivroment things in combat. like bagno spowalnia kazdego czy cos
-		
-		oczy beda miec shadera dla pozycji oka, powiek etc
-		
-		animacje dla enemy i postaci z jedna bronia, dwa meshe postaci, male female, ogarniecie
-		animacji meshow playera w menu
-		bedzie trzeba ogarnac kamere, bo jesli y nie takie same i
-		z move wychodzi kamera to cos zle wychodzi na koniec
-		
-		stagger do ogarniecia, te wszystkie punkty etc
-		
-		xz i v tossy czy tez offsety mozna pozniej wrzucic do export vars podczas animacji
-		kolizje atakow jako jeden obiekt a nie kilka
-		
-		tab zamyka tez okno niewazne w ktorym stanie
-		TO PRZY ANIMACJACH SIE ZROBI
-		
-		po ataku, damage i stagger jest modyfikowany przez stagger points, action type(if the enemy
-		if weak on fire for example), a jego toss jest modyfikowany przez zmienna w przeciwniku 'weight'
-		oraz odleglosc od srodka
-		
-		kolizje swiata importowane z blendera modela combat worlda, na poczatku bazowy model
-		ktory mowi o strefie gdzie sa kolizje i na bazie niego stworzyc reszte mapki
-		na dole dac area ktory gdy wykryje gracza wyrzuca go na node3d.pos.z aby wrocil na mapke
+	enivroment things in combat. like bagno spowalnia kazdego czy cos
+	
+	oczy beda miec shadera dla pozycji oka, powiek etc
+	
+	animacje dla enemy i postaci z jedna bronia, dwa meshe postaci, male female, ogarniecie
+	animacji meshow playera w menu
+	bedzie trzeba ogarnac kamere, bo jesli y nie takie same i
+	z move wychodzi kamera to cos zle wychodzi na koniec
+	
+	stagger do ogarniecia, te wszystkie punkty etc
+	
+	xz i v tossy czy tez offsety mozna pozniej wrzucic do export vars podczas animacji
+	kolizje atakow jako jeden obiekt a nie kilka
+	
+tab zamyka tez okno niewazne w ktorym stanie
+	TO PRZY ANIMACJACH SIE ZROBI
+	
+	po ataku, damage i stagger jest modyfikowany przez stagger points, action type(if the enemy
+	if weak on fire for example), a jego toss jest modyfikowany przez zmienna w przeciwniku 'weight'
+	oraz odleglosc od srodka
+	
+	kolizje swiata importowane z blendera modela combat worlda, na poczatku bazowy model
+	ktory mowi o strefie gdzie sa kolizje i na bazie niego stworzyc reszte mapki
+	na dole dac area ktory gdy wykryje gracza wyrzuca go na node3d.pos.z aby wrocil na mapke
 		
 		
 
@@ -73,7 +75,8 @@ PLANS:
 	
 	gdy umrze gracz lub pokona wszystkich przeciwnikow wraca do explore a enemy lezy pokonany ~
 	
-	do node w grupach dac jakis maly mesh aby bylo widac gdzie sie je kladzie, moze byc klasa w sumie jakas
+	do node w grupach dac jakis maly mesh 
+	aby bylo widac gdzie sie je kladzie, moze byc klasa w sumie jakas
 	
 	katana bedzie cylindrem
 	
@@ -82,8 +85,6 @@ PLANS:
 	stworzyc animacje dla menu combat i main menu
 
 TODOS:
-	
-	
 	menu bedzie get texture from 3d scene jesli chodzi o wizualia i wtedy shadery do niego
 	
 	
@@ -157,8 +158,6 @@ IDEAS:
 		null(self, magic on self or own position)
 
 NOTKI:
-	KOLIZJA ATAKOW MUSI UWZGLEDNIAC FAKT ZE COS MOZE BYC WYZEJ LUB NIZEJ ANIZELI POSTAC
-	
 	combat world musi byc przesuniety, bo jesli player position --> x = 0 and z = 0, to jest
 	problem z katem dla niego i markera
 	

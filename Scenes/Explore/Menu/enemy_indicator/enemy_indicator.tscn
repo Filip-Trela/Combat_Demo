@@ -163,7 +163,7 @@ _data = {
 }
 
 [node name="Enemy_Indicator" type="Node2D"]
-scale = Vector2(1, 0.01)
+scale = Vector2(1, 0.996389)
 script = ExtResource("1_lrn1v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -174,7 +174,7 @@ autoplay = "Start"
 
 [node name="Back" type="Node2D" parent="."]
 modulate = Color(1, 0.74902, 0, 1)
-position = Vector2(0, 10)
+position = Vector2(0, -62.2609)
 
 [node name="Sprite2D" type="Sprite2D" parent="Back"]
 position = Vector2(-24, -91)
@@ -248,6 +248,7 @@ texture = ExtResource("1_uyeqj")
 
 [node name="Front" type="Node2D" parent="."]
 modulate = Color(0, 0.87451, 0.517647, 1)
+position = Vector2(0, -72.2609)
 
 [node name="Sprite2D" type="Sprite2D" parent="Front"]
 position = Vector2(-24, -91)
@@ -320,6 +321,7 @@ scale = Vector2(0.213826, 0.540903)
 texture = ExtResource("1_uyeqj")
 
 [node name="Ring" type="Node2D" parent="."]
+position = Vector2(0, -72.2609)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ring"]
 position = Vector2(0, -96)

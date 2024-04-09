@@ -51,7 +51,6 @@ func _ready():
 	#self.set_collision_mask()
 	mouse_joint_y = get_node("CameraY")
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
-	var head = get_node("Model/testing/Armature/Skeleton3D/Head")
 
 
 	

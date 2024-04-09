@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyp51u10h1q6n"]
+[gd_scene load_steps=9 format=3 uid="uid://cyp51u10h1q6n"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_3dftn"]
 [ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="2_od78g"]
@@ -20,13 +20,6 @@ size = Vector3(50, 1, 50)
 [sub_resource type="NavigationMesh" id="NavigationMesh_tpjui"]
 vertices = PackedVector3Array(-24.5, 2.5, -24.5, -24.5, 2.5, 24.5, 24.5, 2.5, 24.5, 24.5, 2.5, -24.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-
-[sub_resource type="Curve3D" id="Curve3D_tw0ng"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.9, 0, 0, 12.195, 0, 0, -7.425, 0, 0, -3.53261, 0, -5.27445, 0, 0, 0, 2.605, 0, 10.78, -8.82557, 0, 6.21027, 0, 0, 11.46, 0, 0, 0, 7.9, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
 
 [node name="PlaceholderOne" type="Node3D"]
 script = ExtResource("1_3dftn")
@@ -56,6 +49,7 @@ skeleton = NodePath("")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Activs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+visible = false
 navigation_mesh = SubResource("NavigationMesh_tpjui")
 
 [node name="ItemExplore" parent="Activs" instance=ExtResource("3_m2ve7")]
@@ -71,14 +65,23 @@ id = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62987, 0.498825, 3.02105)
 type = 8
 
-[node name="Path3D" type="Path3D" parent="Activs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5488, 0, -13.1792)
-curve = SubResource("Curve3D_tw0ng")
+[node name="Spawner" type="Node3D" parent="Activs"]
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Activs/Path3D"]
-transform = Transform3D(0.418911, 0, 0.90801, 0, 1, 0, -0.90801, 0, 0.418911, 7.9, 0, 0)
+[node name="EnemyBaseExplore2" parent="Activs/Spawner" instance=ExtResource("2_od78g")]
+transform = Transform3D(0.999988, 0, 0, 0, 1, 0, 0, 0, 0.999988, 9.44452, 0, 0)
 
-[node name="EnemyBaseExplore2" parent="Activs/Path3D/PathFollow3D" instance=ExtResource("2_od78g")]
-transform = Transform3D(0.41892, 0, -0.908029, 0, 1, 0, 0.908029, 0, 0.41892, 0, 0, 0)
+[node name="Group" type="Node3D" parent="Activs/Spawner"]
+
+[node name="Node3D" type="Node3D" parent="Activs/Spawner/Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9417, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="Activs/Spawner/Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9417, 0, -7.335)
+
+[node name="Node3D3" type="Node3D" parent="Activs/Spawner/Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09809, 0, -7.85521)
+
+[node name="Node3D4" type="Node3D" parent="Activs/Spawner/Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6183, 0, 0)
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]
