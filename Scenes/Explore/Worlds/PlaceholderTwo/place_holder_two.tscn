@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c28hxax2t2ml6"]
+[gd_scene load_steps=8 format=3 uid="uid://c28hxax2t2ml6"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="1_nmcw7"]
+[ext_resource type="PackedScene" uid="uid://belsjcm0r5yvr" path="res://Scenes/Explore/Interactable/Trampoline/trampoline.tscn" id="2_bcssl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j2h2o"]
 size = Vector3(40, 10, 40)
@@ -10,6 +11,12 @@ size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ahaa"]
 size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmhet"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8li7n"]
+size = Vector3(10, 10, 10)
 
 [node name="PlaceHolder_two" type="Node3D"]
 script = ExtResource("1_nmcw7")
@@ -37,5 +44,18 @@ mesh = SubResource("BoxMesh_2ahaa")
 skeleton = NodePath("")
 
 [node name="Activs" type="Node3D" parent="."]
+
+[node name="Trampoline" parent="Activs" instance=ExtResource("2_bcssl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Activs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Activs/StaticBody3D"]
+mesh = SubResource("BoxMesh_kmhet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Activs/StaticBody3D"]
+shape = SubResource("BoxShape3D_8li7n")
 
 [connection signal="body_entered" from="WorldArea" to="." method="_on_world_area_body_entered"]

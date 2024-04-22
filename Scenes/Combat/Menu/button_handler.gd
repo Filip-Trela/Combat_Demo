@@ -1,6 +1,7 @@
 extends Node2D
 
 var player
+var anim_p
 var markers_group
 
 var world 
@@ -9,10 +10,14 @@ var world
 var states = [
 	"master_butt",
 	"slave_butt",
+	"item_butt",
+	"throw aiming",
 	"aiming"
 	]
 
 var state = "master_butt"
+
+var action_type
 
 
 var mas_nr = 0 #number of master buttons -1
@@ -30,13 +35,15 @@ var action_name:String
 var action = null
 var effect_anim
 
+var skill_type
+
 
 var marker
 var rot_marker = preload("res://Scenes/Combat/Markers/rotate_marker.tscn")
 var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
-
+var item_choosen
 
 
 func ready_custom():
@@ -49,6 +56,8 @@ func ready_custom():
 	get_node("SlaveButtons").visible = false
 	
 	slav_nr = get_node("SlaveButtons").get_child_count() -1
+	
+	anim_p = player.get_node("AnimTreePlayerCombat")
 
 func _input(_event):
 	#state machine
@@ -75,11 +84,10 @@ func state_machine():
 				choose_s = 0
 			
 			elif Input.is_action_just_pressed("space"):
-				mas_node.activate()
+				mas_node.activate(self)
 				get_node("MasterButtons").visible = false
 				get_node("SlaveButtons").visible = true
 				mas_node.selection(choose_s)
-				state = "slave_butt"
 			
 			
 			
@@ -110,6 +118,75 @@ func state_machine():
 				
 				get_node("Aiming").visible = true
 				state = "aiming"
+			
+		"item_butt": 
+			if Input.is_action_just_pressed("w"): 
+				choose_s -=1
+				if choose_s < 0:
+					choose_s = slav_options
+				mas_node.selection(choose_s)
+				
+			elif Input.is_action_just_pressed("s"):
+				choose_s +=1
+				if choose_s > slav_options:
+					choose_s = 0
+				mas_node.selection(choose_s)
+
+				
+			elif Input.is_action_just_pressed("q"):
+				get_node("MasterButtons").visible = true
+				get_node("SlaveButtons").visible = false
+				state = "master_butt"
+				
+#uzycie na sobie
+			elif Input.is_action_just_pressed("f"):
+				player.item_on_self(item_choosen.use_on_self)
+
+				
+#rzut, z celowaniem
+			elif Input.is_action_just_pressed("r"):
+				marker = rot_marker.instantiate()
+		
+				marker.position = player.position
+				marker.rotation.y = player.direction
+				marker.get_child(0).scale = Vector3(1,1,1)
+
+				markers_group.add_child(marker)
+				
+				state = "throw aiming"
+
+		
+		"throw aiming":
+			get_node("SlaveButtons").visible = false
+			get_node("MasterButtons").visible = false
+			
+			if Input.is_action_just_pressed("q"):
+				if markers_group.get_child_count() != 0:
+					markers_group.get_child(0).queue_free()
+					
+				get_node("SlaveButtons").visible = true
+				get_node("Aiming").visible = false
+				state ="item_butt"
+				
+				
+				
+			elif Input.is_action_just_pressed("space"): 
+				get_node("SlaveButtons").visible = true
+				get_node("Aiming").visible = false
+				
+				var item = load(item_choosen.throw_pl).instantiate()
+				item.item = item_choosen
+				world.add_child(item)
+				var throw_piv = player.get_node("Model/animNode/ThrowPivot")
+				item.global_position = throw_piv.global_position
+				item.mov_vec = item.mov_vec.rotated(Vector3(0,1,0), marker.rotation.y)
+				#item.rotation.y = markers_group.get_child(0).rotation.y
+				
+				if markers_group.get_child_count() != 0:
+					markers_group.get_child(0).queue_free()
+					
+				state = "item_butt"
+
 				
 				
 				
@@ -133,12 +210,13 @@ func state_machine():
 			elif Input.is_action_just_pressed("space"): 
 				get_node("SlaveButtons").visible = true
 				get_node("Aiming").visible = false
+
 				match action["marker_type"]:
 					#functions in them
 					"rotate": use_ability_rot()
 					"move": use_ability_mov()
 					null:use_ability_null()
-
+				
 
 
 #in slave buttons when pressed space
@@ -148,9 +226,11 @@ func set_ability():
 	
 	if act_type == "PhysButton": 
 		action = PlayerInfo.phys_skills[choose_s]
+		skill_type = "physical"
 				
 	elif act_type == "MagicButton":
 		action = PlayerInfo.mag_skills[choose_s]
+		skill_type = "magical"
 		
 		
 		#setting marker
@@ -185,25 +265,23 @@ func set_ability():
 			marker.get_child(1).scale.z = action.marker_size.z
 
 			marker.max_dis = action.max_distance
-			
-			marker.get_node("CameraY/CameraX/Camera3D").current = true
-			marker.get_node("CameraY").rotation.y = player.mouse_joint_y.rotation.y
-			marker.get_node("CameraY/CameraX").rotation.x = player.mouse_joint_x.rotation.x
-			
-			
-			
+
 			
 			#adding to tree
 			markers_group.add_child(marker)
 			
 		null:pass
-		
-		
+
+
+
+
+
+
+
 func use_ability_rot():
 	
 	effect_anim = effect_anim.instantiate()
 	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
-
 	effect_anim.position = player.position + rotated
 	effect_anim.rotation.y = marker.rotation.y
 	effect_anim.action = action
@@ -212,9 +290,16 @@ func use_ability_rot():
 	
 	world.add_child(effect_anim)
 	
+	
+
+	
 	player.direction = marker.rotation.y	
 	
 	marker.delete_self()
+	
+	anim_p["parameters/Transition/transition_request"] = "Attack"
+	anim_p["parameters/Attacks/playback"].start(action["player_animation"])
+	
 	state = "slave_butt"
 
 
@@ -241,6 +326,7 @@ func use_ability_null():
 	world.add_child(effect_anim)
 	
 	state = "slave_butt"
+
 
 
 

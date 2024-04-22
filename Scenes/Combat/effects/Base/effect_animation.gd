@@ -4,7 +4,7 @@ class_name EffectAnimation
 
 var player
 
-@onready var anims = $AnimationPlayer
+@onready var anims = $Node3D/AnimationPlayer
 
 @export var damage_base = 25
 
@@ -15,11 +15,13 @@ var no_follows = false
 var last_follow = false #chyba jest potrzebne
 var follow_allowed = false
 
+var index_at = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player= get_parent().get_child(0).get_node("Player_combat")
-	damage_base = action.damage
+	
 	follow_allowed = action.follow_allowed
 	self.scale = action.effect_size
 	
@@ -30,12 +32,15 @@ func _ready():
 	
 	
 func _process(delta):
+	print(self.position)
 	if action.hold_in_player:
 		self.position = player.position
 
 
 func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	var enemy = area.get_parent()
+	damage_base = action.damage[index_at]
+	
+	var enemy = area.get_parent().get_parent()
 	hitted = true
 	
 	var distance = self.position.distance_to(enemy.position)
@@ -65,7 +70,7 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	
 	
 	#later much more
-	enemy.take_damage(damage_base)
+	enemy.take_damage(damage_base, action)
 
 
 #mozliwe ze pozniej to bedzie w animacjach playera
@@ -116,3 +121,6 @@ func _on_animation_player_animation_finished(anim_name):
 		PlayerInfo.combat_state = "in menu"
 		PlayerInfo.follows = 0
 	self.queue_free()
+
+func next_index():
+	index_at += 1

@@ -20,8 +20,9 @@ func _ready():
 
 
 
-func activate(): 
+func activate(button_handler): 
 	get_parent().get_parent().slav_options = list_len
+	button_handler.state = "slave_butt"
 
 	
 

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn5u12rvrjcyp"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/effects/Base/effect_animation.gd" id="1_fvk0m"]
+
+[sub_resource type="Animation" id="Animation_cxvh1"]
+resource_name = "start"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kklti"]
+_data = {
+"start": SubResource("Animation_cxvh1")
+}
+
+[node name="EffectAnimation" type="Node3D"]
+script = ExtResource("1_fvk0m")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.68252)
+cull_mask = 1
+
+[node name="ShiftJoint" type="Node3D" parent="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_kklti")
+}
+
+[connection signal="area_shape_entered" from="Node3D/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="animation_finished" from="Node3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

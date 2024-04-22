@@ -46,11 +46,11 @@ func _ready():
 	var player = player_pl.instantiate()
 	player.position = start_group.get_node("Player").position
 	
-	player.get_node("Model/Base/Mesh").queue_free()
+	player.get_node("Model/animNode/Base/Mesh").queue_free()
 	if PlayerInfo.sex == "male":
-		player.get_node("Model/Base").add_child(male_mesh.instantiate())
+		player.get_node("Model/animNode/Base").add_child(male_mesh.instantiate())
 	else:
-		player.get_node("Model/Base").add_child(female_mesh.instantiate())
+		player.get_node("Model/animNode/Base").add_child(female_mesh.instantiate())
 	
 	
 	

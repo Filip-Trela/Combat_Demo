@@ -1,37 +1,27 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_ysey3"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_8j1t6"]
-[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_e4onc"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="4_20emw"]
-[ext_resource type="Script" path="res://Scenes/Explore/Worlds/Base/explore_base_world.gd" id="5_81w8n"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="6_h3yot"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="7_7v3gg"]
-[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="8_a3y46"]
+[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_ygg8t"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_mxqnw"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_siv7g"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="4_1vjid"]
+[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="5_upcoy"]
+[ext_resource type="PackedScene" path="res://Scenes/Explore/Wagons/train_system.tscn" id="6_jree1"]
+[ext_resource type="Script" path="res://Scenes/Explore/Wagons/TrainSystem.gd" id="7_7tvp2"]
 
 [node name="ExploreScene" type="Node3D"]
-script = ExtResource("1_ysey3")
+script = ExtResource("1_ygg8t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
 shadow_enabled = true
 
-[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("2_8j1t6")]
-script = ExtResource("3_e4onc")
+[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("2_mxqnw")]
+script = ExtResource("3_siv7g")
 
-[node name="Worlds" type="Node3D" parent="."]
-
-[node name="PlaceholderOne" type="Node3D" parent="Worlds" instance=ExtResource("4_20emw")]
-script = ExtResource("5_81w8n")
-combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
-
-[node name="PlaceHolder_two" type="Node3D" parent="Worlds" instance=ExtResource("6_h3yot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.9887)
-script = ExtResource("5_81w8n")
-combat_world = "res://Scenes/Combat/worlds/Base/combat_base_world.tscn"
-
-[node name="Player" type="CharacterBody3D" parent="." instance=ExtResource("7_7v3gg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3433, 0, 0)
+[node name="Player" type="CharacterBody3D" parent="." instance=ExtResource("4_1vjid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276266, 0, 2.25807)
 collision_mask = 6
-velocity = Vector3(3.2, 0, 0)
-script = ExtResource("8_a3y46")
+script = ExtResource("5_upcoy")
+
+[node name="TrainSystem" type="Node3D" parent="." instance=ExtResource("6_jree1")]
+script = ExtResource("7_7tvp2")

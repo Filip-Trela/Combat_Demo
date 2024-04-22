@@ -23,13 +23,16 @@ func state_machine():
 	#for stoping animation
 	if PlayerInfo.is_moving:
 		anim.set("parameters/Stop/scale", 1)
+		anim.set("parameters/Stop2/scale", 1)
 	else: 
 		anim.set("parameters/Stop/scale", 0)
+		anim.set("parameters/Stop2/scale", 0)
 		
 	#movement
 	anim["parameters/Movement/blend_position"] = Vector2(player.xz_vec).length() / player.max_speed
 
 
 func _on_animation_finished(anim_name):
+	print(anim_name)
 	if anim_name == "Die":
 		PlayerInfo.transition.play("combat_to_explore_playerdies")

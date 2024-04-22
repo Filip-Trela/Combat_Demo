@@ -30,7 +30,7 @@ shape = SubResource("CylinderShape3D_nsmtj")
 [node name="CameraX" type="Node3D" parent="CameraY"]
 
 [node name="Camera_pos" type="Node3D" parent="CameraY/CameraX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.5, 5)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
 cull_mask = 1

@@ -48,7 +48,7 @@ var explore_state = "moving"
 var phys_skills = [
 	action_list.slash,
 	action_list.vertical_slash,
-	action_list.dodge
+	action_list.multislash
 ]
 
 
@@ -70,14 +70,14 @@ var inv_figures = [
 
 
 var inv_weapons = [
-	inv_list.baseweapon,
 	inv_list.katana,
 	inv_list.canon
 ]
 
 var inv_items = [
-	[inv_list.heal_potion, 1],
+	[inv_list.heal_potion, 3],
 	[inv_list.base_item, 1],
+	[inv_list.knife, 10],
 
 ]
 
@@ -89,8 +89,8 @@ var current_hp:int = max_hp
 var max_mp:int
 var current_mp:int
 
-var current_figure
-var current_weapon
+var current_figure = inv_figures[0]
+var current_weapon = inv_weapons[0]
 
 
 func add_item(item_added):

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://be676xeaee8y4"]
+[gd_scene load_steps=5 format=3 uid="uid://be676xeaee8y4"]
 
 [ext_resource type="PackedScene" uid="uid://c5cqs18w0x7nt" path="res://Scenes/Explore/Player/player_explore.tscn" id="1_bpbhh"]
 [ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_xxcia"]
 [ext_resource type="PackedScene" uid="uid://c4bhaxxg08m6i" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="3_jrsdq"]
-[ext_resource type="PackedScene" uid="uid://cyp51u10h1q6n" path="res://Scenes/Explore/Worlds/PlaceholderOne/placeholder_one.tscn" id="3_whvig"]
-[ext_resource type="PackedScene" uid="uid://c28hxax2t2ml6" path="res://Scenes/Explore/Worlds/PlaceholderTwo/place_holder_two.tscn" id="4_l14yl"]
+[ext_resource type="PackedScene" uid="uid://bwwhyf0jrnqbf" path="res://Scenes/Explore/Wagons/train_system.tscn" id="5_jn00t"]
 
 [node name="ExploreScene" type="Node3D"]
 script = ExtResource("1_xxcia")
@@ -15,12 +14,6 @@ shadow_enabled = true
 
 [node name="2d_explore" parent="." instance=ExtResource("3_jrsdq")]
 
-[node name="Worlds" type="Node3D" parent="."]
-
-[node name="PlaceholderOne" parent="Worlds" instance=ExtResource("3_whvig")]
-combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
-
-[node name="PlaceHolder_two" parent="Worlds" instance=ExtResource("4_l14yl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.9887)
-
 [node name="Player" parent="." instance=ExtResource("1_bpbhh")]
+
+[node name="TrainSystem" parent="." instance=ExtResource("5_jn00t")]

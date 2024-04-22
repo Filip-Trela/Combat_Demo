@@ -1,0 +1,21 @@
+TO POLISH:
+	- menu, kazde
+	- wrogowie gdy sa na tobie/sobie to spadaja z tego
+	- wrogowie podczas stop w combat zapamietuja swoj rot czy cos, aby po start
+	ich rotacje sie nie resetowaly
+	- mozliwe ze w playerze trzeba bedzie zmienic node3d dotyczace camery na
+	 spring arm
+	- bardziej smooth camera, dokladniej konce aby nie byly nagle tylko aby
+	 zmuszaly
+	 smooth do powrotu do granic
+	(jesli kamera od srodka jakas odleglosc, move toward, zbyt mocny i daleki
+	 ruch blokuje clamp)
+	- zrobic smooth przejscia w healthbar w combat
+	-przejscie w combat nie zapisuje tylko sceny, zapisuje co na niej bylo,
+	 bo sie itemy resetuja
+	-czasami cos blokuje kamere i nie wraca poprawnie
+	-kolizje efektow moga zostac, po prostu niech efekt pamieta w array postac
+	i sprawdza po powrocie do kolizji obiektu, czy juz byl przez body in array
+	czy cos
+	-szybsze menu
+	-cos nie dziala gdy efekt rotate i nie trzyma sie playera

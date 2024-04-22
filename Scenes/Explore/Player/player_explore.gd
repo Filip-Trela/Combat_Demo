@@ -14,7 +14,7 @@ var model_rotation
 var acceleration = 0.7
 var deceleration = 1
 var run_speed = 7
-var sprint_speed = 14
+var sprint_speed = 16
 var max_speed
 
 
@@ -23,6 +23,10 @@ var jump_str = 20
 var jump_is:bool = false
 var gravity = 1
 var max_fall = -80
+#for double jumps
+var jumps = 1
+var jumps_now = jumps
+
 
 
 var mouse_x
@@ -91,7 +95,8 @@ func _physics_process(_delta):
 	else:
 		y_vec -= gravity
 		y_vec = clamp(y_vec, max_fall, 1000)
-		
+	
+
 	
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
@@ -118,9 +123,6 @@ func _input(_event):
 		input_vec = input_vec.normalized()
 		
 		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
-		
-		if is_on_floor() and Input.is_action_just_pressed("space"):
-			y_vec += jump_str
 			
 		#for switching to combat
 		#placeholder
@@ -167,16 +169,10 @@ func _unhandled_input(event):
 		
 		
 		#scroll
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
-			
-		$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y, 2.5, 5)
-		$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z, 7.5, 15)
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			#$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
+			#$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
 		
 
 

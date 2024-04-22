@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgjrrvmg0fn5y"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Wagons/wagon_base.gd" id="1_o8na5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_85pn7"]
+size = Vector3(10, 0.2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehwlg"]
+size = Vector3(10, 3, 0.4)
+
+[node name="WagonBase" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_o8na5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_85pn7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Start" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="End" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Activs" type="Node3D" parent="."]
+
+[node name="StartArea" type="Area3D" parent="Activs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Activs/StartArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_ehwlg")
+
+[node name="EndArea" type="Area3D" parent="Activs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Activs/EndArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_ehwlg")
+
+[connection signal="body_entered" from="Activs/StartArea" to="." method="_on_start_area_body_entered"]
+[connection signal="body_entered" from="Activs/EndArea" to="." method="_on_end_area_body_entered"]

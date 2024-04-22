@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv4wenggk41nq"]
+
+[ext_resource type="PackedScene" uid="uid://fyc63t5s0u57" path="res://Scenes/Combat/Enemies/BaseClasses/enemy_class.tscn" id="1_ftcly"]
+[ext_resource type="Script" path="res://Scenes/Combat/Enemies/BaseClasses/1Explosive/enemy_explosive.gd" id="2_5wm17"]
+
+[node name="Enemy_Explosive" instance=ExtResource("1_ftcly")]
+script = ExtResource("2_5wm17")
+
+[editable path="Model/basePlatform"]

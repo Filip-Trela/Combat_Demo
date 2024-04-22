@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh0isaph6kcct"]
+
+[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_imnb0"]
+[ext_resource type="Script" path="res://Scenes/Combat/Menu/item_button.gd" id="2_lssn7"]
+
+[node name="ItemButton" instance=ExtResource("1_imnb0")]
+script = ExtResource("2_lssn7")
+
+[node name="Label" parent="." index="1"]
+text = "Items
+"
+
+[node name="Amount" parent="." index="2"]
+offset_left = 63.0
+offset_right = 103.0

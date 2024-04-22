@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://didja5owuwuqj"]
 
-[ext_resource type="Script" path="res://Utility/effect_animation.gd" id="1_7o0vj"]
+[ext_resource type="Script" path="res://Scenes/Combat/effects/Base/effect_animation.gd" id="1_v8q7s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_007w1"]
 
@@ -12,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShiftJoint/CSGSphere3D:scale")
+tracks/0/path = NodePath("Node3D/ShiftJoint/CSGSphere3D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area3D:monitoring")
+tracks/1/path = NodePath("Node3D/Area3D:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +39,7 @@ resource_name = "start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShiftJoint/CSGSphere3D:scale")
+tracks/0/path = NodePath("Node3D/ShiftJoint/CSGSphere3D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area3D:monitoring")
+tracks/2/path = NodePath("Node3D/Area3D:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -82,27 +82,30 @@ _data = {
 }
 
 [node name="BoomP" type="Node3D"]
-script = ExtResource("1_7o0vj")
+script = ExtResource("1_v8q7s")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
 collision_layer = 0
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(2.15, 0, 0, 0, 2.15, 0, 0, 0, 2.15, 0, 0, 0)
 shape = SubResource("SphereShape3D_007w1")
 
-[node name="ShiftJoint" type="Node3D" parent="."]
+[node name="ShiftJoint" type="Node3D" parent="Node3D"]
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="ShiftJoint"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D/ShiftJoint"]
 transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0)
 material = SubResource("StandardMaterial3D_bm68r")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_drj2y")
 }
 
-[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_shape_entered" from="Node3D/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="animation_finished" from="Node3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

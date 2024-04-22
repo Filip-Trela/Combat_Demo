@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyiog1m06vnkt"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Enviroment/enviroment.gd" id="1_xq18h"]
+[ext_resource type="PackedScene" uid="uid://d0piv01ystb2j" path="res://Scenes/Explore/Enviroment/basic.tscn" id="2_su3qv"]
+
+[sub_resource type="Animation" id="Animation_71vmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 78)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basic2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("basic3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -78)]
+}
+
+[sub_resource type="Animation" id="Animation_4xlcw"]
+resource_name = "new_animation_2"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 78), Vector3(0, 0, 156)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basic2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 78)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("basic3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -78), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xidea"]
+_data = {
+"RESET": SubResource("Animation_71vmg"),
+"new_animation_2": SubResource("Animation_4xlcw")
+}
+
+[node name="Enviroment" type="Node3D"]
+script = ExtResource("1_xq18h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xidea")
+}
+autoplay = "new_animation_2"
+
+[node name="basic" parent="." instance=ExtResource("2_su3qv")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 78)
+
+[node name="SpotLight3D" parent="basic" index="1"]
+spot_range = 76.136
+
+[node name="SpotLight3D2" parent="basic" index="2"]
+spot_range = 148.548
+
+[node name="SpotLight3D3" parent="basic" index="3"]
+spot_range = 152.324
+
+[node name="basic2" parent="." instance=ExtResource("2_su3qv")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+
+[node name="SpotLight3D" parent="basic2" index="1"]
+spot_range = 76.136
+
+[node name="SpotLight3D2" parent="basic2" index="2"]
+spot_range = 148.548
+
+[node name="SpotLight3D3" parent="basic2" index="3"]
+spot_range = 152.324
+
+[node name="basic3" parent="." instance=ExtResource("2_su3qv")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, -78)
+
+[node name="SpotLight3D" parent="basic3" index="1"]
+spot_range = 76.136
+
+[node name="SpotLight3D2" parent="basic3" index="2"]
+spot_range = 148.548
+
+[node name="SpotLight3D3" parent="basic3" index="3"]
+spot_range = 152.324
+
+[editable path="basic"]
+[editable path="basic2"]
+[editable path="basic3"]

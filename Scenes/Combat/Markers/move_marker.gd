@@ -14,20 +14,13 @@ var mouse_joint_x
 var mouse_joint_y
 var mouse_rotat = 0
 
-var mouse_sens = 0.005
 
 var max_dis:int
-
-@onready var camera:Camera3D = $CameraY/CameraX/Camera3D
 var player_camera
 
 
 func _ready():
 	player = get_parent().get_parent().get_node("Player_combat")
-	player_camera = player.get_node("CameraY/CameraX/Camera_pos")
-	
-	mouse_joint_y = get_node("CameraY")
-	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
 func _process(_delta):
 	if self.global_position.distance_to(player.global_position) >= max_dis:
@@ -39,8 +32,6 @@ func _process(_delta):
 		
 		self.global_position.x = -mark_xz.x + player_xz.x
 		self.global_position.z = -mark_xz.y + player_xz.y
-
-	camera.position = player_camera.position
 
 
 
@@ -67,29 +58,5 @@ func _input(_event):
 
 
 
-func camera_handler():
-	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
-	mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)
-	mouse_joint_x.rotation.x -= mouse_y * mouse_sens
-	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.4 , 0.05)
-
-	mouse_x = 0
-	mouse_y = 0
-	
-	mouse_rotat = get_node("CameraY").rotation.y
-
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		mouse_x = event.relative.x
-		mouse_y = event.relative.y
-
-		camera_handler()
-
 func delete_self(): 
-	var player_cam = player.get_node("CameraY/CameraX/Camera_pos/PlayerCamera")
-	var marker_cam = get_node("CameraY/CameraX/Camera3D")
-	
-	player_cam.global_position = marker_cam.global_position
-	player.tween_camera()
-	
 	self.queue_free()

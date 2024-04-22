@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwhyf0jrnqbf"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Wagons/TrainSystem.gd" id="1_raki6"]
+[ext_resource type="PackedScene" uid="uid://cyiog1m06vnkt" path="res://Scenes/Explore/Enviroment/enviroment.tscn" id="2_0qd03"]
+
+[node name="TrainSystem" type="Node3D"]
+script = ExtResource("1_raki6")
+
+[node name="Enviroment" parent="." instance=ExtResource("2_0qd03")]

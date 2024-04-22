@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dc48juv108u5r"]
 
-[ext_resource type="Script" path="res://Utility/effect_animation.gd" id="1_vlc5n"]
+[ext_resource type="Script" path="res://Scenes/Combat/effects/Base/effect_animation.gd" id="1_vlc5n"]
 [ext_resource type="ArrayMesh" uid="uid://c1imuown83a0p" path="res://Assets/3D/effects/slash.tres" id="2_yyek1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k8bj"]
@@ -10,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShiftJoint/MeshInstance3D:visible")
+tracks/0/path = NodePath("Node3D/ShiftJoint/MeshInstance3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +22,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area3D:monitoring")
+tracks/1/path = NodePath("Node3D/Area3D:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +34,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ShiftJoint/MeshInstance3D:mesh:surface_0/material:shader_parameter/Panning")
+tracks/2/path = NodePath("Node3D/ShiftJoint/MeshInstance3D:mesh:surface_0/material:shader_parameter/Panning")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +50,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShiftJoint/MeshInstance3D:visible")
+tracks/0/path = NodePath("Node3D/ShiftJoint/MeshInstance3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +62,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area3D:monitoring")
+tracks/1/path = NodePath("Node3D/Area3D:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +91,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ShiftJoint/MeshInstance3D:mesh:surface_0/material:shader_parameter/Panning")
+tracks/3/path = NodePath("Node3D/ShiftJoint/MeshInstance3D:mesh:surface_0/material:shader_parameter/Panning")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -110,44 +110,47 @@ _data = {
 [node name="VerticalSlash" type="Node3D"]
 script = ExtResource("1_vlc5n")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1.91069e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.23516e-22, 4.37114e-08, 1.5, -4.37114e-08, 0, -0.604, -1.6)
 shape = SubResource("CapsuleShape3D_6k8bj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1.91069e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.23516e-22, 4.37114e-08, 1.5, -4.37114e-08, 0, 0.4, -1.6)
 shape = SubResource("CapsuleShape3D_6k8bj")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1.91069e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.23516e-22, 4.37114e-08, 1.5, -4.37114e-08, 0, 1.4, -1.6)
 shape = SubResource("CapsuleShape3D_6k8bj")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1.91069e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.23516e-22, 4.37114e-08, 1.5, -4.37114e-08, 0, -1.6, -1.6)
 shape = SubResource("CapsuleShape3D_6k8bj")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1.91069e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.23516e-22, 4.37114e-08, 1.5, -4.37114e-08, 0, -2.6, -1.6)
 shape = SubResource("CapsuleShape3D_6k8bj")
 
-[node name="ShiftJoint" type="Node3D" parent="."]
+[node name="ShiftJoint" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ShiftJoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/ShiftJoint"]
 transform = Transform3D(1.24577e-08, -0.285, 4.30338e-08, -0.285, -1.24577e-08, -1.89603e-21, 1.88107e-15, -4.30338e-08, -0.285, 0, 0.478329, 2.11428)
 visible = false
 mesh = ExtResource("2_yyek1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_g5mry")
 }
 
-[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_shape_entered" from="Node3D/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="animation_finished" from="Node3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

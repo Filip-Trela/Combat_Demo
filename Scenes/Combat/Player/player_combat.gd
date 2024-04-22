@@ -62,7 +62,6 @@ func _process(_delta):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))
 		model.rotation.y = model_rotation
 		
-		
 
 func _physics_process(_delta):
 	#xz moving
@@ -97,9 +96,6 @@ func _physics_process(_delta):
 	
 
 
-
-
-
 func _input(_event):
 	if PlayerInfo.combat_state == "moving":
 		input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
@@ -108,13 +104,18 @@ func _input(_event):
 	
 		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
 
-
+		
+		if Input.is_action_just_pressed("shift"):
+			xz_vec += transformed_input * 20
 
 	press_wait = Input.get_action_raw_strength("e")
 	
+	
+	
+	
 func camera_handler():
 	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
-	mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)
+	#mouse_joint_y.rotation.y = clamp(mouse_joint_y.rotation.y, -0.45 , 0.45)
 	mouse_joint_x.rotation.x -= mouse_y * mouse_sens
 	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.4 , 0.05)
 
@@ -122,7 +123,6 @@ func camera_handler():
 	mouse_y = 0
 	
 	mouse_rotat = get_node("CameraY").rotation.y
-
 
 
 func _unhandled_input(event):
@@ -135,18 +135,10 @@ func _unhandled_input(event):
 		
 		
 		#scroll
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			$CameraY/CameraX/Camera_pos.position.y += 1 * 0.1
-			$CameraY/CameraX/Camera_pos.position.z += 3 * 0.1
-			
-		$CameraY/CameraX/Camera_pos.position.y = clamp($CameraY/CameraX/Camera_pos.position.y, 2.5, 5)
-		$CameraY/CameraX/Camera_pos.position.z = clamp($CameraY/CameraX/Camera_pos.position.z, 7.5, 15)
-		
-
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			#$CameraY/CameraX/Camera_pos.position.y -= 1 * 0.1
+			#$CameraY/CameraX/Camera_pos.position.z -= 3 * 0.1
 
 
 func damage_take(damage):
@@ -156,13 +148,13 @@ func damage_take(damage):
 		PlayerInfo.combat_state = "dead"
 		anim_tree["parameters/Transition/transition_request"] = "Die"
 
-func tween_camera(): 
-	var tween_c = get_tree().create_tween()
-	tween_c.tween_property($CameraY/CameraX/Camera_pos/PlayerCamera,\
-	 "global_position", $CameraY/CameraX/Camera_pos.global_position, 0.2)
 
 
-	
+
+func item_on_self(effects): 
+	#rozbudowac
+	PlayerInfo.current_hp += effects[0]
+	PlayerInfo.current_mp += effects[1]
 
 
 

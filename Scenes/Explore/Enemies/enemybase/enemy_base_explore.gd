@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 
 #first one is self but combat one
-@export var combat_self:String = "res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
-@export var friend1:String ="res://Scenes/Combat/Enemies/PlaceholderEnemy/PlaceHolderEnemy.tscn"
+@export var combat_self:String ="res://Scenes/Combat/Enemies/1ExplosiveEnemies/robo_boom.tscn"
+@export var friend1:String ="res://Scenes/Combat/Enemies/1ExplosiveEnemies/robo_boom.tscn"
 @export var friend2:String 
 @export var friend3:String 
 @export var friend4:String 
@@ -53,9 +53,10 @@ var max_speed = 7
 
 
 func _ready():
-	activs = get_parent().get_parent()
+	activs = get_parent().get_parent().get_parent()
 	navi = $NavigationAgent3D
-	player = activs.get_parent().get_parent().get_parent().get_node("Player")
+	player = activs.get_parent().get_node("Player")
+
 	
 	navi.path_desired_distance = 0.5
 	navi.target_desired_distance = 0.5
@@ -73,6 +74,7 @@ func _ready():
 	
 
 func _process(delta):
+	
 	xz_vec = Vector2(mov_vec.x, mov_vec.z)
 	var model_rot = xz_vec.normalized()
 	
@@ -151,7 +153,7 @@ func _on_area_3d_body_entered(body):
 
 
 func _on_area_3d_body_exited(body):
-	print("body exited")
+	pass#print("body exited")
 
 
 func alert_anim_stop(): 

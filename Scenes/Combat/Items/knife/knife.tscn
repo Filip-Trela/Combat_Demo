@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddbsvrava7l0c"]
+
+[ext_resource type="PackedScene" uid="uid://dxdecusc1lqmh" path="res://Scenes/Combat/Items/Base/item_combat.tscn" id="1_nrc0e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t7yn5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5af7n"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4mu1o"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.4
+
+[node name="Knife" instance=ExtResource("1_nrc0e")]
+
+[node name="CollisionShape3D" parent="EnemyHitbox" index="0"]
+shape = SubResource("SphereShape3D_t7yn5")
+
+[node name="CollisionShape3D" parent="WorldHitbox" index="0"]
+shape = SubResource("SphereShape3D_5af7n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" index="0"]
+mesh = SubResource("CylinderMesh_4mu1o")
+skeleton = NodePath("../..")

@@ -1,0 +1,6 @@
+1. podczas pracy nad enemy, ich slabosciami i strengths oraz stagger i pose,
+testujac te funkcje nic mi nie dzialalo. dalem przy tworzeniu enemy
+aby byl silny na zwykle ataki co, co resetuje praktycznie zmienna od stagger,
+po czym atakowalem go tylko zwyklymi atakami
+
+2. 14.04.2023 nadszedl plan na calkowity rework

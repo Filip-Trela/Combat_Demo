@@ -32,6 +32,7 @@ func _process(_delta):
 		
 	label.text = str(snappedf(timer_time - timer.time_left, 0.01))
 	
+	PlayerInfo.current_hp = clamp(PlayerInfo.current_hp, -1, PlayerInfo.max_hp)
 	player_hp.value = PlayerInfo.current_hp
 	
 	$Background.texture = $SubViewport.get_texture()	

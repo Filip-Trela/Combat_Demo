@@ -537,6 +537,7 @@ transparent_bg = true
 size = Vector2i(1280, 720)
 
 [node name="CombatBackground" parent="SubViewport" instance=ExtResource("6_jm2eq")]
+visible = false
 
 [node name="MeshInstance3D" parent="SubViewport/CombatBackground/Ring1" index="0"]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.04, -0.98, 1.305)

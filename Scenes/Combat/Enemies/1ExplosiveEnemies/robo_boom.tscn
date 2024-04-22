@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhlg6y86qbamm"]
+
+[ext_resource type="PackedScene" uid="uid://dv4wenggk41nq" path="res://Scenes/Combat/Enemies/BaseClasses/1Explosive/enemy_explosive.tscn" id="1_nutdw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ugg1j"]
+height = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcljb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjdd5"]
+material = SubResource("ShaderMaterial_bcljb")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wmvc4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kvrm"]
+
+[node name="RoboBoom" instance=ExtResource("1_nutdw")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_ugg1j")
+
+[node name="Node3D" type="Node3D" parent="Model/basePlatform" index="1"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/basePlatform/Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.276337)
+mesh = SubResource("BoxMesh_cjdd5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model/basePlatform/Node3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38397, 0.204609)
+mesh = SubResource("SphereMesh_wmvc4")
+skeleton = NodePath("../../..")
+
+[node name="Hurtbox" parent="Model" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="Model/Hurtbox" index="0"]
+shape = SubResource("CapsuleShape3D_7kvrm")
+
+[editable path="Model/basePlatform"]

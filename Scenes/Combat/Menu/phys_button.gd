@@ -16,8 +16,9 @@ func _process(_delta):
 	pass
 
 
-func activate(): 
+func activate(button_handler): 
 	get_parent().get_parent().slav_options = opt_nr
+	button_handler.state = "slave_butt"
 
 	
 func selection(nr):

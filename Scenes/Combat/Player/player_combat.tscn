@@ -1,245 +1,38 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvvsxy1jir8j6"]
+[gd_scene load_steps=20 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Player/player_combat.gd" id="1_30osm"]
 [ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="2_xl5nl"]
 [ext_resource type="Script" path="res://Scenes/Combat/Player/AnimTreePlayerCombat.gd" id="3_in0ba"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_0pi6x"]
-
-[sub_resource type="Animation" id="Animation_jibg1"]
-resource_name = "Die"
-step = 0.05
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.32161, -0.15, -0.749631, 0.15, 0.664446, 0.485855, -0.45, -0.569805, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:z")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.361235, 0.00975374, -0.501524, -0.288765, 0.502759, 0.211235, -0.297984, -1.00305, -0.238765, 0.459096, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.588812, -0.0243206, 1.5708, -0.231568, 0.295999, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="Animation" id="Animation_dj0jg"]
-resource_name = "Idle"
-length = 2.0
-loop_mode = 1
-step = 0.05
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0.199679, -0.0198282, -0.45, 0.301822, 0.35, -0.0548768, 0, -0.3, -0.184459, 0.25, 0),
-"times": PackedFloat32Array(0, 1.25, 2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-
-[sub_resource type="Animation" id="Animation_ksikq"]
-resource_name = "RESET"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:rotation:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:rotation:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:rotation:z")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_np13i"]
-resource_name = "Run"
-length = 1.2
-loop_mode = 1
-step = 0.05
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.156567, 0.35497, -0.2, -0.172803, 0.15, 0.108802, -0.349066, -0.25, 0.499233, 0.187791, -0.345581, 0, -0.112209, -0.336241, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
-}
-
-[sub_resource type="Animation" id="Animation_xldkl"]
-resource_name = "Sprint"
-length = 0.6
-loop_mode = 1
-step = 0.05
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.187791, 0.194968, 0.35497, -0.162209, -0.211203, 0.15, 0.223508, -0.349066, -0.25, 0.499233, 0.187791, -0.345581, 0, -0.112209, -0.336241, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjvx6"]
-_data = {
-"Die": SubResource("Animation_jibg1"),
-"Idle": SubResource("Animation_dj0jg"),
-"RESET": SubResource("Animation_ksikq"),
-"Run": SubResource("Animation_np13i"),
-"Sprint": SubResource("Animation_xldkl")
-}
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4tpvp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yflsm"]
 animation = &"Die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7f04"]
+animation = &"Slash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdyr8"]
+animation = &"Vertical"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n5l4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibebb"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ee42"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_han7p"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2dh82"]
+states/Slash/node = SubResource("AnimationNodeAnimation_a7f04")
+states/Slash/position = Vector2(444, 60)
+states/Vertical/node = SubResource("AnimationNodeAnimation_gdyr8")
+states/Vertical/position = Vector2(444, 144)
+transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_4n5l4"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_ibebb"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_8ee42"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_han7p")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
 animation = &"Idle"
@@ -255,6 +48,8 @@ blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ux1yn"]
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3uic1"]
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_36nmm"]
 input_0/name = "Movement"
 input_0/auto_advance = false
@@ -262,19 +57,25 @@ input_0/reset = true
 input_1/name = "Die"
 input_1/auto_advance = false
 input_1/reset = true
+input_2/name = "Attack"
+input_2/auto_advance = false
+input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
+graph_offset = Vector2(-624.051, 107.978)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
-nodes/Animation/position = Vector2(-280, 300)
+nodes/Animation/position = Vector2(-260, 260)
+nodes/Attacks/node = SubResource("AnimationNodeStateMachine_2dh82")
+nodes/Attacks/position = Vector2(-320, 420)
 nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_cebib")
 nodes/Movement/position = Vector2(-280, 100)
 nodes/Stop/node = SubResource("AnimationNodeTimeScale_ux1yn")
 nodes/Stop/position = Vector2(-80, 120)
+nodes/Stop2/node = SubResource("AnimationNodeTimeScale_3uic1")
+nodes/Stop2/position = Vector2(-60, 300)
 nodes/Transition/node = SubResource("AnimationNodeTransition_36nmm")
 nodes/Transition/position = Vector2(120, 140)
-node_connections = [&"Stop", 0, &"Movement", &"Transition", 0, &"Stop", &"Transition", 1, &"Animation", &"output", 0, &"Transition"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ypgmd"]
+node_connections = [&"Stop", 0, &"Movement", &"Stop2", 0, &"Attacks", &"Transition", 0, &"Stop", &"Transition", 1, &"Animation", &"Transition", 2, &"Stop2", &"output", 0, &"Transition"]
 
 [node name="Player_combat" type="CharacterBody3D"]
 collision_mask = 6
@@ -282,44 +83,41 @@ script = ExtResource("1_30osm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_0pi6x")
+shape = SubResource("CapsuleShape3D_4tpvp")
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="Base" parent="Model" instance=ExtResource("2_xl5nl")]
+[node name="animNode" type="Node3D" parent="Model"]
+
+[node name="Base" parent="Model/animNode" instance=ExtResource("2_xl5nl")]
+
+[node name="ThrowPivot" type="Node3D" parent="Model/animNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852659, -0.794112)
 
 [node name="CameraY" type="Node3D" parent="."]
 
 [node name="CameraX" type="Node3D" parent="CameraY"]
 
 [node name="Camera_pos" type="Node3D" parent="CameraY/CameraX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 3)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
 cull_mask = 1
 current = true
 
 [node name="AnimTreePlayerCombat" type="AnimationTree" parent="."]
-root_node = NodePath("../Model/Base")
-libraries = {
-"": SubResource("AnimationLibrary_yjvx6")
-}
+root_node = NodePath("../Model/animNode/Base")
 tree_root = SubResource("AnimationNodeBlendTree_7bf4t")
 advance_expression_base_node = NodePath("")
-anim_player = NodePath("../Model/Base/AnimationPlayer")
+anim_player = NodePath("../Model/animNode/Base/AnimationPlayer")
 parameters/Movement/blend_position = 0.0
 parameters/Stop/scale = 1.0
+parameters/Stop2/scale = 1.0
 parameters/Transition/current_state = "Movement"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
 script = ExtResource("3_in0ba")
 
-[node name="Hurtbox" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_ypgmd")
-
 [connection signal="animation_finished" from="AnimTreePlayerCombat" to="AnimTreePlayerCombat" method="_on_animation_finished"]
 
-[editable path="Model/Base"]
+[editable path="Model/animNode/Base"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0piv01ystb2j"]
+
+[ext_resource type="PackedScene" uid="uid://bp2l82fvfw1lo" path="res://Scenes/Explore/Enviroment/basic.glb" id="1_xj6px"]
+
+[node name="basic" instance=ExtResource("1_xj6px")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -6.20299, 1.48159, 7)
+light_energy = 5.377
+spot_range = 20.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(0.979102, -0.0526356, 0.196439, 0, 0.965926, 0.258819, -0.203368, -0.25341, 0.94574, 7.49483, 1.48159, 7)
+light_energy = 9.755
+spot_range = 20.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." index="3"]
+transform = Transform3D(-0.996942, -0.0202257, 0.0754832, 0, 0.965926, 0.258819, -0.078146, 0.258028, -0.962972, 1.62825, 2.61863, -6.77328)
+light_energy = 2.165
+spot_range = 50.0
+spot_angle = 64.65
