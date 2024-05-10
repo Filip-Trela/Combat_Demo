@@ -1,19 +1,15 @@
-TODAY: 
-	naprawic menu w combat lekko
-
-		ai wrogow
-		animacje, meshe etc visualia
-
-	
-	typy wrogow:
-		1. podchodzi i atakuje
-		2. strzela i na odleglosc walczy
-
-
-
-
-
 PLANS:
+	system w wagonach, ktory czasami sprawia ze jestescie w tunelu, wiecej enemy,
+	bardziej agresywni etc etc
+	
+	pracowac jesli juz to nad wagonami
+	
+	zmienic transition
+	
+	kilka wagonow i polepszyc system
+	
+	system z bossem
+	
 	dodge bazowo poza akcjami, z animacjami
 	
 	uzywanie itemow, na sobie lub rzut(na kims)
@@ -24,6 +20,7 @@ PLANS:
 		przestaje sie obracac i ruszac
 		jesli wejdzie w enemy, to dostaje taki damage niczym player, z efektami etc
 		
+	dialogi lepiej zrobione
 		
 	wiecej rzeczy do interakcji:
 		explore
@@ -38,6 +35,8 @@ PLANS:
 	system explore enviroment poza wagonami (animacje)
 	
 	npc dodac
+	
+	
 
 
 	POLISH

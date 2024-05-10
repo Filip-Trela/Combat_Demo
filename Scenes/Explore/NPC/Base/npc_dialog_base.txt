@@ -1,0 +1,26 @@
+{
+	"start":[
+			["npc_text"  ,"Hey, man, is dialog system working?"],
+			["text-option" , "C'mon, try saying somethink", "Something", "...", 2, 8 ],
+			
+			["npc_text"  ,"Let's go"],
+			["npc_text"  ,"..."],
+			["npc_text"  ,"emm......"],
+			["npc_text"  ,"What now?"],
+			["npc_text"  ,"And why am I a grey bean?"],
+			["end"],
+			
+			["npc_text"  ,"..."],
+			["npc_text"  ,"Really?"],
+			["npc_text"  ,"First option and you choose to be silent?"],
+			["npc_text"  ,"..."],
+			["end"],
+			
+			],
+
+
+	
+	
+	
+	
+}

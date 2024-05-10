@@ -13,8 +13,8 @@ var model_rotation
 
 var acceleration = 0.7
 var deceleration = 1
-var run_speed = 7
-var sprint_speed = 16
+var run_speed = 4
+var sprint_speed = 8
 var max_speed
 
 
@@ -46,6 +46,7 @@ var closest_enemy
 var interact_in_range: Array = []
 var closest_interact
 
+@onready var anim = $AnimationTree
 
 
 
@@ -55,6 +56,8 @@ func _ready():
 	#self.set_collision_mask()
 	mouse_joint_y = get_node("CameraY")
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
+	
+
 
 
 	
@@ -68,7 +71,8 @@ func _process(_delta):
 	
 	for enemy in enemies_in_range:
 		if closest_enemy:
-			if closest_enemy.position.distance_to(self.position) > enemy.position.distance_to(self.position):
+			if closest_enemy.position.distance_to(self.position)\
+			 > enemy.position.distance_to(self.position):
 				closest_enemy = enemy
 		else:
 			closest_enemy = enemy
@@ -79,7 +83,9 @@ func _process(_delta):
 				closest_interact = interact
 		else:
 			closest_interact = interact
-
+	
+	
+	anim["parameters/Running/blend_position"] = mov_vec.length() / sprint_speed
 		
 
 func _physics_process(_delta):

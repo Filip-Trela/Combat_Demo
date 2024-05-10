@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpcr2fuud0e1b"]
+[gd_scene load_steps=8 format=3 uid="uid://dpcr2fuud0e1b"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Wagons/wagon_base.gd" id="1_1svvv"]
+[ext_resource type="PackedScene" uid="uid://c6hg0qpr5tte4" path="res://Scenes/Explore/NPC/lucy.tscn" id="2_13ht2"]
 [ext_resource type="PackedScene" uid="uid://0txlk66js7fn" path="res://Scenes/Explore/Wagons/Placeholder/test.tscn" id="2_jftws"]
 [ext_resource type="PackedScene" uid="uid://b6jy85r37v3in" path="res://Scenes/Explore/Enemies/enemybase/enemy_base_explore.tscn" id="3_cigm6"]
 
@@ -19,6 +20,9 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_1svvv")
 combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
+
+[node name="Lucy" parent="." instance=ExtResource("2_13ht2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51614, 0, 0)
 
 [node name="test" parent="." instance=ExtResource("2_jftws")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

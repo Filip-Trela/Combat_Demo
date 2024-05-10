@@ -32,7 +32,6 @@ func _ready():
 	
 	
 func _process(delta):
-	print(self.position)
 	if action.hold_in_player:
 		self.position = player.position
 

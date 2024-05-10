@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6hg0qpr5tte4"]
+
+[ext_resource type="PackedScene" uid="uid://d0efh0di3jsim" path="res://Scenes/Explore/NPC/Base/npc_base.tscn" id="1_o2ptc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5piuf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_40d5g"]
+
+[node name="Lucy" instance=ExtResource("1_o2ptc")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5piuf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_40d5g")

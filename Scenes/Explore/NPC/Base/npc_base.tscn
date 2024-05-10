@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0efh0di3jsim"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/NPC/Base/npc_base.gd" id="1_cremw"]
+
+[node name="Npc_base" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_cremw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

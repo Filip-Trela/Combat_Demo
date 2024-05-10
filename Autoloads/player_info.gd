@@ -38,9 +38,8 @@ var follows_max = 3
 
 var during_follows = false
 
-#moving, menu
+#moving, menu, talking
 var explore_state = "moving"
-
 
 
 

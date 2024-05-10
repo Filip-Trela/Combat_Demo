@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4bhaxxg08m6i"]
+[gd_scene load_steps=4 format=3 uid="uid://c4bhaxxg08m6i"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="1_g5dyb"]
 [ext_resource type="PackedScene" uid="uid://26oewwgnu62n" path="res://Scenes/Explore/Menu/menu_explore.tscn" id="2_6koey"]
+[ext_resource type="PackedScene" uid="uid://dfuvd1dj7o7op" path="res://Scenes/Explore/Menu/DialogSystem/dialog_screen.tscn" id="3_o235f"]
 
 [node name="2d_explore" type="CanvasLayer"]
 script = ExtResource("1_g5dyb")
@@ -11,3 +12,5 @@ script = ExtResource("1_g5dyb")
 [node name="Menu" parent="." instance=ExtResource("2_6koey")]
 
 [node name="Interact_indicator" type="Node2D" parent="."]
+
+[node name="DialogScreen" parent="." instance=ExtResource("3_o235f")]
