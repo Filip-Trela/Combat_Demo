@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3022kdasb0dd"]
+
+[ext_resource type="Script" path="res://Scenes/Explore/Wagons/wagon_base.gd" id="1_fx4u0"]
+[ext_resource type="PackedScene" uid="uid://0txlk66js7fn" path="res://Scenes/Explore/Wagons/Placeholder/test.tscn" id="2_326iy"]
+[ext_resource type="PackedScene" uid="uid://c6hg0qpr5tte4" path="res://Scenes/Explore/NPC/lucy.tscn" id="3_4hghc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uegcj"]
+size = Vector3(9, 0.2, 29.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehwlg"]
+size = Vector3(10, 3, 0.4)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_0bls8"]
+vertices = PackedVector3Array(-4, 0.5, -14, -4, 0.5, 14, 4, 0.5, 14, 4, 0.5, -14)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="WagonPlaceholder" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_fx4u0")
+combat_world = "res://Scenes/Combat/worlds/PlaceholderTwo/placeholder_two.tscn"
+
+[node name="test" parent="." instance=ExtResource("2_326iy")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_uegcj")
+
+[node name="Start" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.75)
+
+[node name="End" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.75)
+
+[node name="Activs" type="Node3D" parent="."]
+
+[node name="StartArea" type="Area3D" parent="Activs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Activs/StartArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_ehwlg")
+
+[node name="EndArea" type="Area3D" parent="Activs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Activs/EndArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_ehwlg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24756, 0)
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24756, 8.68294)
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24756, -8.61345)
+omni_range = 10.0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+navigation_mesh = SubResource("NavigationMesh_0bls8")
+
+[node name="Lucy" parent="." instance=ExtResource("3_4hghc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40025, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Activs/StartArea" to="." method="_on_start_area_body_entered"]
+[connection signal="body_entered" from="Activs/EndArea" to="." method="_on_end_area_body_entered"]

@@ -2,14 +2,11 @@ extends CanvasLayer
 
 
 @onready var player = get_parent().get_node("World/Player")
-@onready var timer:Timer = get_node("Timer")
-@onready var label:Label = get_node("Label")
 @onready var anims:AnimationPlayer = get_node("AnimationPlayer")
 @onready var player_hp:ProgressBar = $PlayerHealth
+@onready var player_mp:ProgressBar = $PlayerMana
 
 
-
-var timer_time = 500
 
 
 
@@ -17,25 +14,27 @@ var timer_time = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Background1["modulate"] = PlayerInfo.color_sex
-
-	timer.wait_time = timer_time
-	timer.start()
 	player_hp.max_value = PlayerInfo.max_hp
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if PlayerInfo.is_moving:
-		timer.set_paused(false)
+		Settings.current_time = move_toward(Settings.current_time,\
+		Settings.move_time, Settings.change_time)
 	else:
-		timer.set_paused(true)
-		
-	label.text = str(snappedf(timer_time - timer.time_left, 0.01))
+		Settings.current_time = move_toward(Settings.current_time,\
+		Settings.stop_time, Settings.change_time)
 	
 	PlayerInfo.current_hp = clamp(PlayerInfo.current_hp, -1, PlayerInfo.max_hp)
 	player_hp.value = PlayerInfo.current_hp
 	
+	PlayerInfo.current_mp = clamp(PlayerInfo.current_mp, -1, PlayerInfo.max_mp)
+	player_mp.value = PlayerInfo.current_mp
+	
 	$Background.texture = $SubViewport.get_texture()	
+
+
 
 
 func _input(_event):

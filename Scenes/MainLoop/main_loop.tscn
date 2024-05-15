@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://be676xeaee8y4"]
+
+[ext_resource type="Script" path="res://Scenes/MainLoop/main_loop.gd" id="1_vepg7"]
+[ext_resource type="PackedScene" uid="uid://c4bhaxxg08m6i" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_q6xgm"]
+[ext_resource type="PackedScene" uid="uid://bwwhyf0jrnqbf" path="res://Scenes/Explore/Wagons/train_system.tscn" id="4_hw6c2"]
+[ext_resource type="PackedScene" uid="uid://r8u1ygf0n8lf" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.tscn" id="5_sceec"]
+[ext_resource type="PackedScene" uid="uid://cvvsxy1jir8j6" path="res://Scenes/MainLoop/Player/Player.tscn" id="5_wb7ko"]
+
+[node name="MainLoop" type="Node3D"]
+script = ExtResource("1_vepg7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
+shadow_enabled = true
+
+[node name="ShiftPivot" type="Node3D" parent="."]
+
+[node name="2d_explore" parent="ShiftPivot" instance=ExtResource("2_q6xgm")]
+
+[node name="TrainSystem" parent="ShiftPivot" instance=ExtResource("4_hw6c2")]
+
+[node name="CombatMenu" parent="ShiftPivot" instance=ExtResource("5_sceec")]
+process_mode = 4
+visible = false
+
+[node name="Player" parent="ShiftPivot" instance=ExtResource("5_wb7ko")]
+
+[node name="Markers" type="Node3D" parent="ShiftPivot"]

@@ -7,3 +7,8 @@
 script = ExtResource("1_raki6")
 
 [node name="Enviroment" parent="." instance=ExtResource("2_0qd03")]
+
+[editable path="Enviroment"]
+[editable path="Enviroment/basic"]
+[editable path="Enviroment/basic2"]
+[editable path="Enviroment/basic3"]

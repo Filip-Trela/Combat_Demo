@@ -40,31 +40,31 @@ func find_weapon(id):
 
 
 #FIGURES
-var basefigure ={
+var basearmor ={
 	"name": "basefigure",
 	"description": "A base figure",
 	"id": 000
 }
 
-var lightfigure ={
+var lightarmor ={
 	"name": "light",
 	"description": "Figure with light armor",
 	"id": 001
 }
 
-var heavyfigure ={
+var heavyarmor ={
 	"name": "heavy",
 	"description": "Figure with heavy armor",
 	"id": 002
 }
 
 
-var all_figures = [basefigure, lightfigure, heavyfigure]
+var all_armor = [basearmor, lightarmor, heavyarmor]
 
-func find_figure(id):
-	for figure in all_figures:
-		if figure.id == id:
-			return figure
+func find_armor(id):
+	for armor in all_armor:
+		if armor.id == id:
+			return armor
 
 
 
@@ -88,7 +88,7 @@ var heal_potion ={
 	"description": "Healing potion",
 	"throw_pl": "res://Scenes/Combat/Items/knife/knife.tscn",
 	"use_on_enemy": [0,50, 5],
-	"use_on_self":[20,0],
+	"use_on_self":[20, -10],
 	"id": 001
 }
 

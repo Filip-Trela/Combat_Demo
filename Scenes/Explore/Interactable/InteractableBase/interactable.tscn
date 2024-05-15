@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dufx1sts3en6l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rjfjy"]
+
+[node name="Interactable" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rjfjy")

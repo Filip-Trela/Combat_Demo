@@ -23,7 +23,7 @@ func play(string):
 	
 func manu_to_explore():
 	#placeholder map
-	var load_world = load("res://Scenes/Explore/explore_scene.tscn")
+	var load_world = load("res://Scenes/MainLoop/main_loop.tscn")
 	var world = load_world.instantiate()
 	game.get_node("MainMenu").queue_free()
 	game.add_child(world)
@@ -31,7 +31,7 @@ func manu_to_explore():
 
 
 func explore_to_menu():
-	var exp_world = get_parent().get_node("ExploreScene")
+	var exp_world = get_parent().get_node("MainLoop")
 	var menu = load("res://Scenes/MainMenu/main_menu.tscn")
 	menu = menu.instantiate()
 	PlayerInfo.explore_state = "moving"

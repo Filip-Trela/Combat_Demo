@@ -1,6 +1,11 @@
 extends Node3D
 
-@onready var wagonpl = "res://Scenes/Explore/Wagons/Placeholder/wagon_ph.tscn"
+var wagons = ["res://Scenes/Explore/Wagons/Placeholder/wagon_empty.tscn",
+"res://Scenes/Explore/Wagons/Placeholder/wagon_enemy.tscn",
+"res://Scenes/Explore/Wagons/Placeholder/wagon_items.tscn",
+"res://Scenes/Explore/Wagons/Placeholder/wagon_npc.tscn"]
+
+@onready var wagonpl = "res://Scenes/Explore/Wagons/Placeholder/wagon_empty.tscn"
 @onready var world = get_parent()
 var player
 
@@ -8,9 +13,17 @@ var center_wagon
 var start_wagon
 var end_wagon
 
+
+var all_events = [
+	"normal",
+	"dark"
+]
+
+var current_event = "normal"
+
 func custom_ready():
 	#center
-	center_wagon = load(wagonpl).instantiate()
+	center_wagon = load(wagons[randf_range(0, len(wagons))]).instantiate()
 	add_child(center_wagon)
 	
 	center_wagon.monitor()
@@ -18,7 +31,7 @@ func custom_ready():
 	PlayerInfo.transition.load_com_world = center_wagon.combat_world
 	
 	#start
-	start_wagon = load(wagonpl).instantiate()
+	start_wagon = load(wagons[randf_range(0, len(wagons))]).instantiate()
 	add_child(start_wagon)
 	start_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("Start").position - start_wagon.get_node("End").position
@@ -27,7 +40,7 @@ func custom_ready():
 	
 
 	#end
-	end_wagon = load(wagonpl).instantiate()
+	end_wagon = load(wagons[randf_range(0, len(wagons))]).instantiate()
 	add_child(end_wagon)
 	end_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("End").position - end_wagon.get_node("Start").position
@@ -43,7 +56,7 @@ func create_start():
 	end_wagon = center_wagon
 	center_wagon = start_wagon
 	
-	start_wagon = load(wagonpl).instantiate()
+	start_wagon = load(wagons[randf_range(0, len(wagons))]).instantiate()
 	add_child(start_wagon)
 	start_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("Start").position - start_wagon.get_node("End").position
@@ -59,7 +72,7 @@ func create_end():
 	start_wagon = center_wagon
 	center_wagon = end_wagon
 	
-	end_wagon = load(wagonpl).instantiate()
+	end_wagon = load(wagons[randf_range(0, len(wagons))]).instantiate()
 	add_child(end_wagon)
 	end_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("End").position - end_wagon.get_node("Start").position

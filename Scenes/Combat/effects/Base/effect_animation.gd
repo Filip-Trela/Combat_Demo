@@ -20,7 +20,7 @@ var index_at = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player= get_parent().get_child(0).get_node("Player_combat")
+	player= get_parent().get_node("Player")
 	
 	follow_allowed = action.follow_allowed
 	self.scale = action.effect_size
@@ -40,6 +40,7 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	damage_base = action.damage[index_at]
 	
 	var enemy = area.get_parent().get_parent()
+	print(enemy)
 	hitted = true
 	
 	var distance = self.position.distance_to(enemy.position)

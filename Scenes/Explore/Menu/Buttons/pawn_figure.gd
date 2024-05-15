@@ -14,9 +14,9 @@ func activate():
 
 
 	anim.pawn_to_pawnsub()
-	menu.sub_inventory = PlayerInfo.inv_figures
-	menu.sub_options = len(PlayerInfo.inv_figures) -1
-	menu.sub_type = "figures"
+	menu.sub_inventory = PlayerInfo.inv_armor
+	menu.sub_options = len(PlayerInfo.inv_armor) -1
+	menu.sub_type = "armor"
 	
 	menu.sub_inventory_set(0)
 	menu.state = "invsub_butt"

@@ -22,6 +22,7 @@ func activate(button_handler):
 
 	
 func selection(nr):
+	
 	slav_butts.get_child(0).get_node("Label").text = options[nr -1 ][0].name
 	slav_butts.get_child(1).get_node("Label").text = options[nr][0].name
 	slav_butts.get_child(2).get_node("Label").text = options[nr - opt_nr][0].name
@@ -32,3 +33,4 @@ func selection(nr):
 
 
 	get_parent().get_parent().item_choosen = options[nr][0]
+	get_parent().get_parent().item_var = nr

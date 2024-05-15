@@ -62,8 +62,8 @@ var inv_magic = [
 	action_list.placeH
 ]
 
-var inv_figures = [
-	inv_list.basefigure,
+var inv_armor = [
+	inv_list.basearmor,
 
 ]
 
@@ -75,6 +75,7 @@ var inv_weapons = [
 
 var inv_items = [
 	[inv_list.heal_potion, 3],
+	[inv_list.magic_potion, 15],
 	[inv_list.base_item, 1],
 	[inv_list.knife, 10],
 
@@ -85,10 +86,10 @@ var inv_items = [
 var max_hp:int = 100
 var current_hp:int = max_hp
 
-var max_mp:int
-var current_mp:int
+var max_mp:int = 100
+var current_mp:int = max_mp
 
-var current_figure = inv_figures[0]
+var current_armor = inv_armor[0]
 var current_weapon = inv_weapons[0]
 
 
@@ -105,8 +106,8 @@ func add_item(item_added):
 func add_weapon(weapon_added):
 	inv_weapons.append(weapon_added)
 	
-func add_figure(figure_added):
-	inv_figures.append(figure_added)
+func add_armor(armor_added):
+	inv_armor.append(armor_added)
 
 func add_magic(magic_added):
 	inv_magic.append(magic_added) 

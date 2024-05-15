@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=3 uid="uid://cvvsxy1jir8j6"]
+
+[ext_resource type="Script" path="res://Scenes/MainLoop/Player/Player_explore.gd" id="1_j5srm"]
+[ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="2_iuvoc"]
+[ext_resource type="Script" path="res://Scenes/MainLoop/Player/AnimTreePlayer.gd" id="3_j3xxv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4tpvp"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yflsm"]
+animation = &"Die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7f04"]
+animation = &"Slash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdyr8"]
+animation = &"Vertical"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n5l4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibebb"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ee42"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_han7p"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2dh82"]
+states/Slash/node = SubResource("AnimationNodeAnimation_a7f04")
+states/Slash/position = Vector2(444, 60)
+states/Vertical/node = SubResource("AnimationNodeAnimation_gdyr8")
+states/Vertical/position = Vector2(444, 144)
+transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_4n5l4"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_ibebb"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_8ee42"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_han7p")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0os6q"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_cebib"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_aqigf")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_0os6q")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ux1yn"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3uic1"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_36nmm"]
+input_0/name = "Movement"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "Die"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "Attack"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
+graph_offset = Vector2(-609.221, 28.7218)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
+nodes/Animation/position = Vector2(-260, 260)
+nodes/Attacks/node = SubResource("AnimationNodeStateMachine_2dh82")
+nodes/Attacks/position = Vector2(-320, 420)
+nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_cebib")
+nodes/Movement/position = Vector2(-280, 100)
+nodes/Stop/node = SubResource("AnimationNodeTimeScale_ux1yn")
+nodes/Stop/position = Vector2(-80, 120)
+nodes/Stop2/node = SubResource("AnimationNodeTimeScale_3uic1")
+nodes/Stop2/position = Vector2(-60, 300)
+nodes/Transition/node = SubResource("AnimationNodeTransition_36nmm")
+nodes/Transition/position = Vector2(120, 140)
+node_connections = [&"Stop", 0, &"Movement", &"Stop2", 0, &"Attacks", &"Transition", 0, &"Stop", &"Transition", 1, &"Animation", &"Transition", 2, &"Stop2", &"output", 0, &"Transition"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ul6dl"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 6
+script = ExtResource("1_j5srm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4tpvp")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="animNode" type="Node3D" parent="Model"]
+
+[node name="Base" parent="Model/animNode" instance=ExtResource("2_iuvoc")]
+
+[node name="ThrowPivot" type="Node3D" parent="Model/animNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852659, -0.794112)
+
+[node name="CameraY" type="Node3D" parent="."]
+
+[node name="CameraX" type="Node3D" parent="CameraY"]
+
+[node name="Camera_pos" type="Node3D" parent="CameraY/CameraX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 3)
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraY/CameraX/Camera_pos"]
+cull_mask = 1
+current = true
+
+[node name="AnimTreePlayerCombat" type="AnimationTree" parent="."]
+root_node = NodePath("../Model/animNode/Base")
+tree_root = SubResource("AnimationNodeBlendTree_7bf4t")
+advance_expression_base_node = NodePath("")
+anim_player = NodePath("../Model/animNode/Base/AnimationPlayer")
+parameters/Movement/blend_position = 0.0
+parameters/Stop/scale = 1.0
+parameters/Stop2/scale = 1.0
+parameters/Transition/current_state = "Movement"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+script = ExtResource("3_j3xxv")
+
+[node name="EnemyDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_ul6dl")
+
+[node name="InteractDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_ul6dl")
+
+[connection signal="animation_finished" from="AnimTreePlayerCombat" to="AnimTreePlayerCombat" method="_on_animation_finished"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]
+[connection signal="body_entered" from="InteractDetector" to="." method="_on_interact_detector_body_entered"]
+[connection signal="body_exited" from="InteractDetector" to="." method="_on_interact_detector_body_exited"]
+
+[editable path="Model/animNode/Base"]

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Settings="*res://Autoloads/settings.gd"
 Actions="*res://Autoloads/actions.gd"
 InventoryInfo="*res://Autoloads/inventory.gd"
 PlayerInfo="*res://Autoloads/player_info.gd"
@@ -115,3 +116,4 @@ f={
 3d_physics/layer_2="Enemies"
 3d_physics/layer_3="World"
 3d_physics/layer_4="Interact"
+3d_physics/layer_5="Obstacle"

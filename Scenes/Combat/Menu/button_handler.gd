@@ -44,12 +44,14 @@ var mov_marker = preload("res://Scenes/Combat/Markers/move_marker.tscn")
 
 
 var item_choosen
+var item_var
 
 
-func ready_custom():
-	world = get_parent().get_parent().get_node("World")
+func _ready():
+	world = get_parent().get_parent()
 	
-	markers_group = get_parent().get_parent().get_node("World").get_child(0).get_node("Markers")
+	markers_group = world.get_node("Markers")
+	player = world.get_node("Player")
 	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)
@@ -141,6 +143,8 @@ func state_machine():
 #uzycie na sobie
 			elif Input.is_action_just_pressed("f"):
 				player.item_on_self(item_choosen.use_on_self)
+				PlayerInfo.inv_items[item_var][1] -= 1
+				mas_node.selection(choose_s)
 
 				
 #rzut, z celowaniem
@@ -279,6 +283,8 @@ func set_ability():
 
 
 func use_ability_rot():
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
 	
 	effect_anim = effect_anim.instantiate()
 	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
@@ -305,6 +311,10 @@ func use_ability_rot():
 
 
 func use_ability_mov():
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
+	
+	
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = marker.position
 	effect_anim.action = action
@@ -318,6 +328,9 @@ func use_ability_mov():
 
 
 func use_ability_null():
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
+	
 	effect_anim = effect_anim.instantiate()
 	effect_anim.position = player.position
 	effect_anim.action = action

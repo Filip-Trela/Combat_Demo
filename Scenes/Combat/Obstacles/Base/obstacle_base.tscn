@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://beqden8ob7eq8"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/Obstacles/Base/obstacle_base.gd" id="1_s3xke"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2o833"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qix2p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb6j6"]
+
+[node name="ObstacleBase" type="StaticBody3D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_s3xke")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_2o833")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qix2p")
+
+[node name="InObstacle" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InObstacle"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_jb6j6")
+
+[connection signal="body_entered" from="InObstacle" to="." method="_on_in_obstacle_body_entered"]
+[connection signal="body_exited" from="InObstacle" to="." method="_on_in_obstacle_body_exited"]

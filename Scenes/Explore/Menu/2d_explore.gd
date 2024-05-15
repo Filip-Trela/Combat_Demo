@@ -33,8 +33,7 @@ func _process(delta):
 	elif not player.closest_enemy and enemy_ind.get_child_count() != 0:
 		enemy_ind.get_child(0).end()
 	
-	
-	
+
 	#DLA OBIEKTOW DO INTERAKCJI
 	if player.closest_interact and interact_ind.get_child_count() != 0:
 		i_indicator.position = get_viewport().get_camera_3d().unproject_position(player.closest_interact.global_position)

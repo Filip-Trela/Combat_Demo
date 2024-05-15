@@ -20,7 +20,7 @@ var player_camera
 
 
 func _ready():
-	player = get_parent().get_parent().get_node("Player_combat")
+	player = get_parent().get_parent().get_node("Player")
 	
 func _process(_delta):
 	if self.global_position.distance_to(player.global_position) >= max_dis:

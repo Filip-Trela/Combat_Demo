@@ -11,7 +11,7 @@ func interact():
 		2:
 			PlayerInfo.add_weapon(InventoryInfo.find_weapon(id))
 		4:
-			PlayerInfo.add_figure(InventoryInfo.find_figure(id))
+			PlayerInfo.add_armor(InventoryInfo.find_armor(id))
 		8:
 			PlayerInfo.add_magic(Actions.find_magic(id))
 	queue_free()

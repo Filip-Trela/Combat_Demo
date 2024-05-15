@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var pload_world = preload("res://Scenes/Explore/explore_scene.tscn")
+@onready var pload_world = preload("res://Scenes/MainLoop/main_loop.tscn")
 var world
 
 

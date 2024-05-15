@@ -1,27 +1,30 @@
 [gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Explore/explore_scene.gd" id="1_hx7mp"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_120gf"]
-[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_so5sd"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Player/player_explore.tscn" id="4_1yohb"]
-[ext_resource type="Script" path="res://Scenes/Explore/Player/player_explore.gd" id="5_1yquq"]
-[ext_resource type="PackedScene" path="res://Scenes/Explore/Wagons/train_system.tscn" id="6_6x7as"]
-[ext_resource type="Script" path="res://Scenes/Explore/Wagons/TrainSystem.gd" id="7_a3pdk"]
+[ext_resource type="Script" path="res://Scenes/MainLoop/main_loop.gd" id="1_a4wyj"]
+[ext_resource type="PackedScene" uid="uid://c4bhaxxg08m6i" path="res://Scenes/Explore/Menu/2d_explore.tscn" id="2_kljyl"]
+[ext_resource type="Script" path="res://Scenes/Explore/Menu/2d_explore.gd" id="3_fxmjv"]
+[ext_resource type="PackedScene" uid="uid://c5cqs18w0x7nt" path="res://Scenes/Explore/Player/player_explore.tscn" id="4_pnkga"]
+[ext_resource type="Script" path="res://Scenes/MainLoop/Player/Player_explore.gd" id="5_ngmwe"]
+[ext_resource type="PackedScene" uid="uid://bwwhyf0jrnqbf" path="res://Scenes/Explore/Wagons/train_system.tscn" id="6_xbq23"]
+[ext_resource type="Script" path="res://Scenes/Explore/Wagons/TrainSystem.gd" id="7_vmym2"]
 
 [node name="ExploreScene" type="Node3D"]
-script = ExtResource("1_hx7mp")
+script = ExtResource("1_a4wyj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
 shadow_enabled = true
 
-[node name="2d_explore" type="CanvasLayer" parent="." instance=ExtResource("2_120gf")]
-script = ExtResource("3_so5sd")
+[node name="ShiftPivot" type="Node3D" parent="."]
 
-[node name="Player" type="CharacterBody3D" parent="." instance=ExtResource("4_1yohb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885926, 0.000940442, -49.1424)
+[node name="Enemies" type="Node" parent="ShiftPivot"]
+
+[node name="2d_explore" type="CanvasLayer" parent="ShiftPivot" instance=ExtResource("2_kljyl")]
+script = ExtResource("3_fxmjv")
+
+[node name="Player" type="CharacterBody3D" parent="ShiftPivot" instance=ExtResource("4_pnkga")]
 collision_mask = 6
-script = ExtResource("5_1yquq")
+script = ExtResource("5_ngmwe")
 
-[node name="TrainSystem" type="Node3D" parent="." instance=ExtResource("6_6x7as")]
-script = ExtResource("7_a3pdk")
+[node name="TrainSystem" type="Node3D" parent="ShiftPivot" instance=ExtResource("6_xbq23")]
+script = ExtResource("7_vmym2")
