@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5xhpmkrns3ji"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/StatusEffect/Base/status_effect_base.gd" id="1_bmoqg"]
+
+[node name="StatusEffectBase" type="Node"]
+script = ExtResource("1_bmoqg")

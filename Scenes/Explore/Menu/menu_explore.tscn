@@ -18,6 +18,280 @@
 [ext_resource type="PackedScene" uid="uid://dosm4yfjnkbnr" path="res://Scenes/Explore/Menu/Buttons/button_menu_explore.tscn" id="16_xyt42"]
 [ext_resource type="Texture2D" uid="uid://bxq5ltu6wgees" path="res://Assets/2D/MenuExplore/RoundSquareMenu.png" id="17_ob0hw"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn6en"]
+animation = &"magic_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m6lns"]
+animation = &"magic_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sawhr"]
+animation = &"magic_to_magicsub"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_juojp"]
+animation = &"magic_to_magicsub"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_66424"]
+animation = &"magicsub_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbjke"]
+animation = &"magicsub_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_05cjs"]
+animation = &"main_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lq3cp"]
+animation = &"main_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ijg2w"]
+animation = &"main_to_magic"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ijw2"]
+animation = &"main_to_magic"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wp2fd"]
+animation = &"main_to_pawn"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_75rf2"]
+animation = &"main_to_pawn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyacs"]
+animation = &"main_to_system"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnabq"]
+animation = &"main_to_system"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ueqc"]
+animation = &"none_to_main"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cr2q8"]
+animation = &"pawn_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npdeh"]
+animation = &"pawn_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_so1pm"]
+animation = &"pawn_to_pawnitems"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2ovx"]
+animation = &"pawn_to_pawnitems"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8c5p0"]
+animation = &"pawn_to_pawnsub"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e26su"]
+animation = &"pawn_to_pawnsub"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_833bn"]
+animation = &"pawnitems_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xu25d"]
+animation = &"pawnitems_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6of4o"]
+animation = &"pawnsub_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rxjen"]
+animation = &"pawnsub_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4yg0n"]
+animation = &"system_hide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s3tc5"]
+animation = &"system_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_odghe"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i42ip"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yxknl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_70k5o"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijp4u"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6aig"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4gx4t"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ygkd"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xf6y1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nd8v6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bxoh5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3utlt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fuwym"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v750n"]
+xfade_time = 0.4
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n5hxa"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b6317"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yq0wf"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_387tx"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yy8vx"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3cirj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v1lkm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v874w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lp526"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g0gs3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l2gq7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fifld"]
+xfade_time = 0.5
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_amscf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gohe6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w0i2q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ux34"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8w0h"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6d6cu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yoib3"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_caaj1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2lski"]
+xfade_time = 0.4
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r153g"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x56tf"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j1ktu"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixo0p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fi6an"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4qb1g"]
+states/End/position = Vector2(1167, 96)
+states/Start/position = Vector2(-348, 87)
+states/magic_hide/node = SubResource("AnimationNodeAnimation_vn6en")
+states/magic_hide/position = Vector2(494, -104)
+states/magic_idle/node = SubResource("AnimationNodeAnimation_m6lns")
+states/magic_idle/position = Vector2(321, -119)
+states/magic_to_magicsub/node = SubResource("AnimationNodeAnimation_juojp")
+states/magic_to_magicsub/position = Vector2(546, -188)
+"states/magic_to_magicsub 2/node" = SubResource("AnimationNodeAnimation_sawhr")
+"states/magic_to_magicsub 2/position" = Vector2(496, -326)
+states/magicsub_hide/node = SubResource("AnimationNodeAnimation_66424")
+states/magicsub_hide/position = Vector2(930, -136)
+states/magicsub_idle/node = SubResource("AnimationNodeAnimation_cbjke")
+states/magicsub_idle/position = Vector2(746, -188)
+states/main_hide/node = SubResource("AnimationNodeAnimation_05cjs")
+states/main_hide/position = Vector2(182, 87)
+states/main_idle/node = SubResource("AnimationNodeAnimation_lq3cp")
+states/main_idle/position = Vector2(-35, 87)
+states/main_to_magic/node = SubResource("AnimationNodeAnimation_4ijw2")
+states/main_to_magic/position = Vector2(168, -119)
+"states/main_to_magic 2/node" = SubResource("AnimationNodeAnimation_ijg2w")
+"states/main_to_magic 2/position" = Vector2(75, -227)
+states/main_to_pawn/node = SubResource("AnimationNodeAnimation_75rf2")
+states/main_to_pawn/position = Vector2(182, 180)
+"states/main_to_pawn 2/node" = SubResource("AnimationNodeAnimation_wp2fd")
+"states/main_to_pawn 2/position" = Vector2(195, 262)
+states/main_to_system/node = SubResource("AnimationNodeAnimation_mnabq")
+states/main_to_system/position = Vector2(89, 737)
+"states/main_to_system 2/node" = SubResource("AnimationNodeAnimation_yyacs")
+"states/main_to_system 2/position" = Vector2(159, 616)
+states/none_to_main/node = SubResource("AnimationNodeAnimation_8ueqc")
+states/none_to_main/position = Vector2(-210, 87)
+states/pawn_hide/node = SubResource("AnimationNodeAnimation_cr2q8")
+states/pawn_hide/position = Vector2(538, 151)
+states/pawn_idle/node = SubResource("AnimationNodeAnimation_npdeh")
+states/pawn_idle/position = Vector2(331, 180)
+states/pawn_to_pawnitems/node = SubResource("AnimationNodeAnimation_s2ovx")
+states/pawn_to_pawnitems/position = Vector2(523, 339)
+"states/pawn_to_pawnitems 2/node" = SubResource("AnimationNodeAnimation_so1pm")
+"states/pawn_to_pawnitems 2/position" = Vector2(523, 405)
+states/pawn_to_pawnsub/node = SubResource("AnimationNodeAnimation_e26su")
+states/pawn_to_pawnsub/position = Vector2(523, 228)
+"states/pawn_to_pawnsub 2/node" = SubResource("AnimationNodeAnimation_8c5p0")
+"states/pawn_to_pawnsub 2/position" = Vector2(529, 277)
+states/pawnitems_hide/node = SubResource("AnimationNodeAnimation_833bn")
+states/pawnitems_hide/position = Vector2(899, 328)
+states/pawnitems_idle/node = SubResource("AnimationNodeAnimation_xu25d")
+states/pawnitems_idle/position = Vector2(708, 339)
+states/pawnsub_hide/node = SubResource("AnimationNodeAnimation_6of4o")
+states/pawnsub_hide/position = Vector2(880, 228)
+states/pawnsub_idle/node = SubResource("AnimationNodeAnimation_rxjen")
+states/pawnsub_idle/position = Vector2(708, 228)
+states/system_hide/node = SubResource("AnimationNodeAnimation_4yg0n")
+states/system_hide/position = Vector2(782, 676)
+states/system_idle/node = SubResource("AnimationNodeAnimation_s3tc5")
+states/system_idle/position = Vector2(328, 732)
+transitions = ["Start", "none_to_main", SubResource("AnimationNodeStateMachineTransition_odghe"), "main_idle", "main_to_magic", SubResource("AnimationNodeStateMachineTransition_i42ip"), "main_idle", "main_to_pawn", SubResource("AnimationNodeStateMachineTransition_yxknl"), "main_idle", "main_hide", SubResource("AnimationNodeStateMachineTransition_70k5o"), "main_hide", "End", SubResource("AnimationNodeStateMachineTransition_ijp4u"), "pawn_hide", "End", SubResource("AnimationNodeStateMachineTransition_h6aig"), "pawnsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_4gx4t"), "magic_hide", "End", SubResource("AnimationNodeStateMachineTransition_3ygkd"), "magicsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_xf6y1"), "magic_idle", "magic_hide", SubResource("AnimationNodeStateMachineTransition_nd8v6"), "magic_idle", "magic_to_magicsub", SubResource("AnimationNodeStateMachineTransition_bxoh5"), "magicsub_idle", "magicsub_hide", SubResource("AnimationNodeStateMachineTransition_3utlt"), "pawn_idle", "pawn_hide", SubResource("AnimationNodeStateMachineTransition_fuwym"), "pawn_idle", "pawn_to_pawnsub", SubResource("AnimationNodeStateMachineTransition_v750n"), "magic_to_magicsub", "magicsub_idle", SubResource("AnimationNodeStateMachineTransition_n5hxa"), "main_to_magic", "magic_idle", SubResource("AnimationNodeStateMachineTransition_b6317"), "none_to_main", "main_idle", SubResource("AnimationNodeStateMachineTransition_yq0wf"), "main_to_pawn", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_387tx"), "main_to_system", "system_idle", SubResource("AnimationNodeStateMachineTransition_yy8vx"), "pawn_to_pawnsub", "pawnsub_idle", SubResource("AnimationNodeStateMachineTransition_3cirj"), "system_hide", "End", SubResource("AnimationNodeStateMachineTransition_v1lkm"), "system_idle", "system_hide", SubResource("AnimationNodeStateMachineTransition_v874w"), "pawnsub_idle", "pawnsub_hide", SubResource("AnimationNodeStateMachineTransition_lp526"), "main_idle", "main_to_system", SubResource("AnimationNodeStateMachineTransition_g0gs3"), "magic_idle", "main_to_magic 2", SubResource("AnimationNodeStateMachineTransition_l2gq7"), "main_to_magic 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_fifld"), "magicsub_idle", "magic_to_magicsub 2", SubResource("AnimationNodeStateMachineTransition_amscf"), "magic_to_magicsub 2", "magic_idle", SubResource("AnimationNodeStateMachineTransition_gohe6"), "pawn_idle", "main_to_pawn 2", SubResource("AnimationNodeStateMachineTransition_w0i2q"), "main_to_pawn 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_2ux34"), "pawnsub_idle", "pawn_to_pawnsub 2", SubResource("AnimationNodeStateMachineTransition_r8w0h"), "pawn_to_pawnsub 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_6d6cu"), "system_idle", "main_to_system 2", SubResource("AnimationNodeStateMachineTransition_yoib3"), "main_to_system 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_caaj1"), "pawn_idle", "pawn_to_pawnitems", SubResource("AnimationNodeStateMachineTransition_2lski"), "pawn_to_pawnitems", "pawnitems_idle", SubResource("AnimationNodeStateMachineTransition_r153g"), "pawnitems_hide", "End", SubResource("AnimationNodeStateMachineTransition_x56tf"), "pawnitems_idle", "pawnitems_hide", SubResource("AnimationNodeStateMachineTransition_j1ktu"), "pawn_to_pawnitems 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_ixo0p"), "pawnitems_idle", "pawn_to_pawnitems 2", SubResource("AnimationNodeStateMachineTransition_fi6an")]
+graph_offset = Vector2(-9, 47)
+
 [sub_resource type="Animation" id="Animation_xaoyg"]
 resource_name = "RESET"
 length = 0.1
@@ -8397,280 +8671,6 @@ _data = {
 "system_idle": SubResource("Animation_hgu64")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn6en"]
-animation = &"magic_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m6lns"]
-animation = &"magic_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sawhr"]
-animation = &"magic_to_magicsub"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_juojp"]
-animation = &"magic_to_magicsub"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_66424"]
-animation = &"magicsub_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbjke"]
-animation = &"magicsub_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_05cjs"]
-animation = &"main_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lq3cp"]
-animation = &"main_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ijg2w"]
-animation = &"main_to_magic"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ijw2"]
-animation = &"main_to_magic"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wp2fd"]
-animation = &"main_to_pawn"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_75rf2"]
-animation = &"main_to_pawn"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyacs"]
-animation = &"main_to_system"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnabq"]
-animation = &"main_to_system"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ueqc"]
-animation = &"none_to_main"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cr2q8"]
-animation = &"pawn_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npdeh"]
-animation = &"pawn_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_so1pm"]
-animation = &"pawn_to_pawnitems"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2ovx"]
-animation = &"pawn_to_pawnitems"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8c5p0"]
-animation = &"pawn_to_pawnsub"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e26su"]
-animation = &"pawn_to_pawnsub"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_833bn"]
-animation = &"pawnitems_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xu25d"]
-animation = &"pawnitems_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6of4o"]
-animation = &"pawnsub_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rxjen"]
-animation = &"pawnsub_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4yg0n"]
-animation = &"system_hide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s3tc5"]
-animation = &"system_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_odghe"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i42ip"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yxknl"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_70k5o"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijp4u"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6aig"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4gx4t"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ygkd"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xf6y1"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nd8v6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bxoh5"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3utlt"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fuwym"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v750n"]
-xfade_time = 0.4
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n5hxa"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b6317"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yq0wf"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_387tx"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yy8vx"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3cirj"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v1lkm"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v874w"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lp526"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g0gs3"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l2gq7"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fifld"]
-xfade_time = 0.5
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_amscf"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gohe6"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w0i2q"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ux34"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8w0h"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6d6cu"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yoib3"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_caaj1"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2lski"]
-xfade_time = 0.4
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r153g"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x56tf"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j1ktu"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixo0p"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fi6an"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4qb1g"]
-states/End/position = Vector2(1167, 96)
-states/Start/position = Vector2(-348, 87)
-states/magic_hide/node = SubResource("AnimationNodeAnimation_vn6en")
-states/magic_hide/position = Vector2(494, -104)
-states/magic_idle/node = SubResource("AnimationNodeAnimation_m6lns")
-states/magic_idle/position = Vector2(321, -119)
-states/magic_to_magicsub/node = SubResource("AnimationNodeAnimation_juojp")
-states/magic_to_magicsub/position = Vector2(546, -188)
-"states/magic_to_magicsub 2/node" = SubResource("AnimationNodeAnimation_sawhr")
-"states/magic_to_magicsub 2/position" = Vector2(496, -326)
-states/magicsub_hide/node = SubResource("AnimationNodeAnimation_66424")
-states/magicsub_hide/position = Vector2(930, -136)
-states/magicsub_idle/node = SubResource("AnimationNodeAnimation_cbjke")
-states/magicsub_idle/position = Vector2(746, -188)
-states/main_hide/node = SubResource("AnimationNodeAnimation_05cjs")
-states/main_hide/position = Vector2(182, 87)
-states/main_idle/node = SubResource("AnimationNodeAnimation_lq3cp")
-states/main_idle/position = Vector2(-35, 87)
-states/main_to_magic/node = SubResource("AnimationNodeAnimation_4ijw2")
-states/main_to_magic/position = Vector2(168, -119)
-"states/main_to_magic 2/node" = SubResource("AnimationNodeAnimation_ijg2w")
-"states/main_to_magic 2/position" = Vector2(75, -227)
-states/main_to_pawn/node = SubResource("AnimationNodeAnimation_75rf2")
-states/main_to_pawn/position = Vector2(182, 180)
-"states/main_to_pawn 2/node" = SubResource("AnimationNodeAnimation_wp2fd")
-"states/main_to_pawn 2/position" = Vector2(195, 262)
-states/main_to_system/node = SubResource("AnimationNodeAnimation_mnabq")
-states/main_to_system/position = Vector2(89, 737)
-"states/main_to_system 2/node" = SubResource("AnimationNodeAnimation_yyacs")
-"states/main_to_system 2/position" = Vector2(159, 616)
-states/none_to_main/node = SubResource("AnimationNodeAnimation_8ueqc")
-states/none_to_main/position = Vector2(-210, 87)
-states/pawn_hide/node = SubResource("AnimationNodeAnimation_cr2q8")
-states/pawn_hide/position = Vector2(538, 151)
-states/pawn_idle/node = SubResource("AnimationNodeAnimation_npdeh")
-states/pawn_idle/position = Vector2(331, 180)
-states/pawn_to_pawnitems/node = SubResource("AnimationNodeAnimation_s2ovx")
-states/pawn_to_pawnitems/position = Vector2(523, 339)
-"states/pawn_to_pawnitems 2/node" = SubResource("AnimationNodeAnimation_so1pm")
-"states/pawn_to_pawnitems 2/position" = Vector2(523, 405)
-states/pawn_to_pawnsub/node = SubResource("AnimationNodeAnimation_e26su")
-states/pawn_to_pawnsub/position = Vector2(523, 228)
-"states/pawn_to_pawnsub 2/node" = SubResource("AnimationNodeAnimation_8c5p0")
-"states/pawn_to_pawnsub 2/position" = Vector2(529, 277)
-states/pawnitems_hide/node = SubResource("AnimationNodeAnimation_833bn")
-states/pawnitems_hide/position = Vector2(899, 328)
-states/pawnitems_idle/node = SubResource("AnimationNodeAnimation_xu25d")
-states/pawnitems_idle/position = Vector2(708, 339)
-states/pawnsub_hide/node = SubResource("AnimationNodeAnimation_6of4o")
-states/pawnsub_hide/position = Vector2(880, 228)
-states/pawnsub_idle/node = SubResource("AnimationNodeAnimation_rxjen")
-states/pawnsub_idle/position = Vector2(708, 228)
-states/system_hide/node = SubResource("AnimationNodeAnimation_4yg0n")
-states/system_hide/position = Vector2(782, 676)
-states/system_idle/node = SubResource("AnimationNodeAnimation_s3tc5")
-states/system_idle/position = Vector2(328, 732)
-transitions = ["Start", "none_to_main", SubResource("AnimationNodeStateMachineTransition_odghe"), "main_idle", "main_to_magic", SubResource("AnimationNodeStateMachineTransition_i42ip"), "main_idle", "main_to_pawn", SubResource("AnimationNodeStateMachineTransition_yxknl"), "main_idle", "main_hide", SubResource("AnimationNodeStateMachineTransition_70k5o"), "main_hide", "End", SubResource("AnimationNodeStateMachineTransition_ijp4u"), "pawn_hide", "End", SubResource("AnimationNodeStateMachineTransition_h6aig"), "pawnsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_4gx4t"), "magic_hide", "End", SubResource("AnimationNodeStateMachineTransition_3ygkd"), "magicsub_hide", "End", SubResource("AnimationNodeStateMachineTransition_xf6y1"), "magic_idle", "magic_hide", SubResource("AnimationNodeStateMachineTransition_nd8v6"), "magic_idle", "magic_to_magicsub", SubResource("AnimationNodeStateMachineTransition_bxoh5"), "magicsub_idle", "magicsub_hide", SubResource("AnimationNodeStateMachineTransition_3utlt"), "pawn_idle", "pawn_hide", SubResource("AnimationNodeStateMachineTransition_fuwym"), "pawn_idle", "pawn_to_pawnsub", SubResource("AnimationNodeStateMachineTransition_v750n"), "magic_to_magicsub", "magicsub_idle", SubResource("AnimationNodeStateMachineTransition_n5hxa"), "main_to_magic", "magic_idle", SubResource("AnimationNodeStateMachineTransition_b6317"), "none_to_main", "main_idle", SubResource("AnimationNodeStateMachineTransition_yq0wf"), "main_to_pawn", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_387tx"), "main_to_system", "system_idle", SubResource("AnimationNodeStateMachineTransition_yy8vx"), "pawn_to_pawnsub", "pawnsub_idle", SubResource("AnimationNodeStateMachineTransition_3cirj"), "system_hide", "End", SubResource("AnimationNodeStateMachineTransition_v1lkm"), "system_idle", "system_hide", SubResource("AnimationNodeStateMachineTransition_v874w"), "pawnsub_idle", "pawnsub_hide", SubResource("AnimationNodeStateMachineTransition_lp526"), "main_idle", "main_to_system", SubResource("AnimationNodeStateMachineTransition_g0gs3"), "magic_idle", "main_to_magic 2", SubResource("AnimationNodeStateMachineTransition_l2gq7"), "main_to_magic 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_fifld"), "magicsub_idle", "magic_to_magicsub 2", SubResource("AnimationNodeStateMachineTransition_amscf"), "magic_to_magicsub 2", "magic_idle", SubResource("AnimationNodeStateMachineTransition_gohe6"), "pawn_idle", "main_to_pawn 2", SubResource("AnimationNodeStateMachineTransition_w0i2q"), "main_to_pawn 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_2ux34"), "pawnsub_idle", "pawn_to_pawnsub 2", SubResource("AnimationNodeStateMachineTransition_r8w0h"), "pawn_to_pawnsub 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_6d6cu"), "system_idle", "main_to_system 2", SubResource("AnimationNodeStateMachineTransition_yoib3"), "main_to_system 2", "main_idle", SubResource("AnimationNodeStateMachineTransition_caaj1"), "pawn_idle", "pawn_to_pawnitems", SubResource("AnimationNodeStateMachineTransition_2lski"), "pawn_to_pawnitems", "pawnitems_idle", SubResource("AnimationNodeStateMachineTransition_r153g"), "pawnitems_hide", "End", SubResource("AnimationNodeStateMachineTransition_x56tf"), "pawnitems_idle", "pawnitems_hide", SubResource("AnimationNodeStateMachineTransition_j1ktu"), "pawn_to_pawnitems 2", "pawn_idle", SubResource("AnimationNodeStateMachineTransition_ixo0p"), "pawnitems_idle", "pawn_to_pawnitems 2", SubResource("AnimationNodeStateMachineTransition_fi6an")]
-graph_offset = Vector2(-9, 47)
-
 [sub_resource type="LabelSettings" id="LabelSettings_gc1r2"]
 
 [node name="Menu" type="Node2D"]
@@ -8689,9 +8689,6 @@ texture = ExtResource("4_j81sm")
 region_filter_clip_enabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2o3id")
-}
 tree_root = SubResource("AnimationNodeStateMachine_4qb1g")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("3_qu7sa")

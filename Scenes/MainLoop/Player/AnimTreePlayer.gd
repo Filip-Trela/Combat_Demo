@@ -33,6 +33,5 @@ func state_machine():
 
 
 func _on_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "Die":
 		PlayerInfo.transition.play("combat_to_explore_playerdies")

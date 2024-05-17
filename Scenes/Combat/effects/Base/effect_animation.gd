@@ -40,7 +40,6 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	damage_base = action.damage[index_at]
 	
 	var enemy = area.get_parent().get_parent()
-	print(enemy)
 	hitted = true
 	
 	var distance = self.position.distance_to(enemy.position)

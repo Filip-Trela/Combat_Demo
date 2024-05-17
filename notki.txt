@@ -1,4 +1,9 @@
+Legenda:
+	DONE skonczone
+	~~ jest baza albo czegos brakuje
+
 TODOS:
+	DONE~~
 	przy modyfikacji explore to combat:
 		player
 		enemy ogarnac, pozmieniac jak playera
@@ -10,12 +15,18 @@ TODOS:
 	DONE
 	kilka wagonow, z niczym, z itemami, z npc, z wrogami
 	
+	wywalic enemy indicator i kiedys wstawic atak ktory wrzuca w combat jesli
+	uderzy enemy.
+	odpali animacje przejscia i wagonu, enemy bedzie passive i invincible,
+	player bedzie mogl sie poruszac i to chwila aby uciekl czy cos
+	
 	DONE
 	itemy i system zbierania: zmienic figure na armor
 	
 	system eventow w explore (bycie w tunelu na przyklad, gdzie wrogowie sa
 	bardziej agresywni; bycie w pustce, niczym mapka infinite azure z tekken 7)
 	
+	DONE
 	boss i systemy z nim (doslownie enemy tyle ze wyswietla jego zycie na hud)
 	dodaje do hud combat pasek zycia i zapisuje go sobie, przy take damage 
 	go update'uje
@@ -34,6 +45,7 @@ TODOS:
 	kolizje, nie world lecz obstacles gdzie po prostu zmieniaja sie mask playera
 	i np po wyjsciu dopiero z tego obiektu powraca dawny tryb kolizji)
 	
+	~~
 	efekty podczas combat jak zatrucie, oslepienie etc,
 	moga byc chyba jako node dodawane do entity. bedzie dodawany node ktory
 	modyfikuje parent
@@ -41,19 +53,16 @@ TODOS:
 	interaktywne rzeczy w combat, stol ktory mozna kopnac i leci w zaleznosci
 	od pozycji stolu i playera
 	
-	liczniki wagonow, ktore sprawiaja ze wagony np 1, 24 sa zawsze te same
+	DONE ~~
+	liczniki wagonow, ~~ktore sprawiaja ze wagony np 1, 24 sa zawsze te same
 	
 	teleporty miedzy wagonami
 	
 	minimalne menu w combat, aby bylo szybciej i przelaczalo tylko typy, scroll
 	przestawia action
 	
-	
-	
 	wagony ktore nie sa wagonami, tylko np polmostem nad przepascia a na dole oko
 	albo np na budynku w trakcie budowy
-	
-	lepszy system zapisu i wczytywania explore
 	
 	lepszy transition
 	
@@ -65,8 +74,10 @@ TODOS:
 	
 	baza dla cutscenek dodana
 	
+	DONE
 	pasek magii i magiczne ataki zabieraja ja
 	
+	DONE
 	mozliwe ze timera wywalic w combat
 	
 	DONE
@@ -83,11 +94,14 @@ TODOS:
 	Connected non linear world (portale), ktore beda laczyc wagony z innymi
 	srodowiskami
 	
+	DONE
 	animacje wagonow z przejscia explore -> combat
 	combat -> explore
 	
 	W combat przy animacji wytwarza randomowo iles tam propow do interakcji
 	badz obstacles
+	
+	zmienic w koncu hitboxy z efektow na te z gracza
 
 
 PLANS:

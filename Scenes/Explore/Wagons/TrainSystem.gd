@@ -1,11 +1,9 @@
 extends Node3D
 
-var wagons = ["res://Scenes/Explore/Wagons/Placeholder/wagon_empty.tscn",
-"res://Scenes/Explore/Wagons/Placeholder/wagon_enemy.tscn",
-"res://Scenes/Explore/Wagons/Placeholder/wagon_items.tscn",
-"res://Scenes/Explore/Wagons/Placeholder/wagon_npc.tscn"]
+var wagons = [
+"res://Scenes/Explore/Wagons/Placeholder/wagon_enemy.tscn"
+]
 
-@onready var wagonpl = "res://Scenes/Explore/Wagons/Placeholder/wagon_empty.tscn"
 @onready var world = get_parent()
 var player
 
@@ -18,6 +16,8 @@ var all_events = [
 	"normal",
 	"dark"
 ]
+
+var index_wag = 0
 
 var current_event = "normal"
 
@@ -52,6 +52,9 @@ func custom_ready():
 
 
 func create_start():
+	index_wag +=1
+
+	
 	remove_child(end_wagon)
 	end_wagon = center_wagon
 	center_wagon = start_wagon
@@ -68,6 +71,9 @@ func create_start():
 	PlayerInfo.transition.load_com_world = center_wagon.combat_world
 
 func create_end():
+	index_wag -=1
+
+	
 	remove_child(start_wagon)
 	start_wagon = center_wagon
 	center_wagon = end_wagon

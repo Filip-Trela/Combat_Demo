@@ -14,7 +14,7 @@ var model_rotation
 var acceleration = 0.7
 var deceleration = 1
 var run_speed = 4
-var sprint_speed = 12
+var sprint_speed = 8
 var max_speed = run_speed
 
 

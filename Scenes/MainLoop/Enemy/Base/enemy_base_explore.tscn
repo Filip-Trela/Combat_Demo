@@ -1,6 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d014f1li4lomc"]
-
-[ext_resource type="Script" path="res://Scenes/MainLoop/Enemy/Base/enemy_base_explore.gd" id="1_00185"]
+[gd_scene load_steps=10 format=3 uid="uid://d014f1li4lomc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6xb7"]
 
@@ -298,7 +296,6 @@ _data = {
 [node name="EnemyBase" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_00185")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

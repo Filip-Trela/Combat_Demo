@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Enemy_Class_Explore
+
 
 #first one is self but combat one
 @export var combat_self:String ="res://Scenes/Combat/Enemies/1ExplosiveEnemies/robo_boom.tscn"
@@ -145,7 +147,8 @@ func state_machine():
 			move_and_slide()
 			
 		"search":
-			anim.play("search")
+			state = "back to path"
+			#anim.play("search")
 
 func _on_scanner_body_entered(body):
 	if state != "chase":
@@ -165,5 +168,5 @@ func search_anim_stop():
 
 
 func change_combat():
-	self.set_script(load('res://Scenes/Combat/Enemies/BaseClasses/enemy_class.gd'))
+	self.set_script(load("res://Scenes/MainLoop/Enemy/Base/enemy_class.gd"))
 	self._ready()

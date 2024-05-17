@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Explore/Wagons/wagon_base.gd" id="1_8jxsb"]
 [ext_resource type="PackedScene" uid="uid://0txlk66js7fn" path="res://Scenes/Explore/Wagons/Placeholder/test.tscn" id="2_ffogq"]
-[ext_resource type="PackedScene" uid="uid://fyc63t5s0u57" path="res://Scenes/Combat/Enemies/BaseClasses/enemy_class.tscn" id="3_f22pw"]
+[ext_resource type="PackedScene" uid="uid://buop6cp4hadnr" path="res://Scenes/MainLoop/Enemy/Base/enemy_class.tscn" id="3_n3msq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uegcj"]
 size = Vector3(9, 0.2, 29.5)
@@ -206,8 +206,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55722, 0, 0)
 [node name="Node3D3" type="Node3D" parent="Enemies/Spawner/Group"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.99313)
 
-[node name="EnemyClass" parent="Enemies/Spawner" instance=ExtResource("3_f22pw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.87132)
+[node name="EnemyClass" parent="Enemies/Spawner" instance=ExtResource("3_n3msq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
