@@ -32,6 +32,7 @@ func change_to_combat():
 	shift.get_node("2d_explore").set_process_mode(Node.PROCESS_MODE_DISABLED)
 	shift.get_node("2d_explore").visible = false
 	shift.get_node("CombatMenu").set_process_mode(Node.PROCESS_MODE_INHERIT)
+	shift.get_node("CombatMenu/ButtonHandler")._ready()
 	shift.get_node("CombatMenu").visible = true
 	
 

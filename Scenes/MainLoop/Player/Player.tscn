@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvvsxy1jir8j6"]
+[gd_scene load_steps=24 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/MainLoop/Player/Player_explore.gd" id="1_j5srm"]
 [ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="2_iuvoc"]
@@ -15,6 +15,9 @@ animation = &"Slash"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdyr8"]
 animation = &"Vertical"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ryc3"]
+animation = &"attack_explore"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n5l4"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibebb"]
@@ -27,12 +30,20 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_han7p"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_687tp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4gfo"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2dh82"]
 states/Slash/node = SubResource("AnimationNodeAnimation_a7f04")
 states/Slash/position = Vector2(444, 60)
 states/Vertical/node = SubResource("AnimationNodeAnimation_gdyr8")
 states/Vertical/position = Vector2(444, 144)
-transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_4n5l4"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_ibebb"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_8ee42"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_han7p")]
+states/attack_explore/node = SubResource("AnimationNodeAnimation_2ryc3")
+states/attack_explore/position = Vector2(444, 216)
+transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_4n5l4"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_ibebb"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_8ee42"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_han7p"), "Start", "attack_explore", SubResource("AnimationNodeStateMachineTransition_687tp"), "attack_explore", "End", SubResource("AnimationNodeStateMachineTransition_q4gfo")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
 animation = &"Idle"
@@ -62,7 +73,7 @@ input_2/auto_advance = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
-graph_offset = Vector2(-609.221, 28.7218)
+graph_offset = Vector2(-664.697, 91.7262)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
 nodes/Animation/position = Vector2(-260, 260)
 nodes/Attacks/node = SubResource("AnimationNodeStateMachine_2dh82")
@@ -137,6 +148,7 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_ul6dl")
 
+[connection signal="body_entered" from="Model/animNode/Base/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimTreePlayerCombat" to="AnimTreePlayerCombat" method="_on_animation_finished"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]

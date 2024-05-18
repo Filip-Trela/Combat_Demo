@@ -4,3 +4,7 @@ aby byl silny na zwykle ataki co, co resetuje praktycznie zmienna od stagger,
 po czym atakowalem go tylko zwyklymi atakami
 
 2. 14.04.2023 nadszedl plan na calkowity rework
+
+3. aby skrocic nazwy button podczas tworzenia systemow do menu, zamiast
+nazywac je np PhysicalButton, dawalem PhysButt. To samo w state, np
+master butt, slave butt, item butt

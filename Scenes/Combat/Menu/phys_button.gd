@@ -6,6 +6,9 @@ var opt_nr = len(options) - 1
 
 
 var slav_butts
+var skill_type = "physical"
+
+var player
 
 
 func _ready():
@@ -21,7 +24,11 @@ func activate(button_handler):
 	button_handler.state = "slave_butt"
 
 	
-func selection(nr):
-	slav_butts.get_child(0).get_node("Label").text = options[nr -1 ].name
-	slav_butts.get_child(1).get_node("Label").text = options[nr].name
-	slav_butts.get_child(2).get_node("Label").text = options[nr - opt_nr].name
+func selection():
+	options = PlayerInfo.phys_skills
+	opt_nr = len(options) - 1
+	var index = get_parent().get_parent().phys_index
+	
+	$Buttons/Label1.text = options[index -1 ].name
+	$Buttons/Label2.text = options[index].name
+	$Buttons/Label3.text = options[index - opt_nr].name

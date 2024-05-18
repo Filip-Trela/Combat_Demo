@@ -31,11 +31,10 @@ var choose_s = 0
 
 
 var act_type:String
-var action_name:String
 var action = null
 var effect_anim
 
-var skill_type
+
 
 
 var marker
@@ -47,6 +46,20 @@ var item_choosen
 var item_var
 
 
+
+#for scroll control
+var scroll_y = 0
+var scroll_str = 0.3 #dwa przejscia bez scroll back
+var scroll_back =0.015
+
+#physical, magic, item
+#of button
+var skill_type
+var phys_index:int
+var magic_index:int
+var item_index:int
+
+
 func _ready():
 	world = get_parent().get_parent()
 	
@@ -55,71 +68,66 @@ func _ready():
 	
 	mas_nr = get_node("MasterButtons").get_child_count() -1
 	mas_node = get_node("MasterButtons").get_child(choose_m)
-	get_node("SlaveButtons").visible = false
+	#get_node("SlaveButtons").visible = false
 	
-	slav_nr = get_node("SlaveButtons").get_child_count() -1
+	#slav_nr = get_node("SlaveButtons").get_child_count() -1
 	
 	anim_p = player.get_node("AnimTreePlayerCombat")
+	
+	master_butt_change()
+	
+	$MasterButtons/PhysButton.selection()
+	$MasterButtons/MagicButton._ready()
+	$MasterButtons/MagicButton.selection()
+	
+	
 
 func _input(_event):
 	#state machine
-	if PlayerInfo.combat_state == "in menu":
-		state_machine()
+	#if PlayerInfo.combat_state == "in menu":
+	state_machine()
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			scroll_y += scroll_str
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			scroll_y -= scroll_str
+		
+		
+func _process(delta):
+	scroll_y = move_toward(scroll_y, 0, scroll_back)
+	
 		
 		
 func state_machine():
 	match state:
-		"master_butt": 
-			if Input.is_action_just_pressed("w"): 
-				choose_m -=1
-				if choose_m < 0:
-					choose_m = mas_nr
-				master_butt_change()
-				choose_s = 0 #resets slave choose when changed type
-				
-			elif Input.is_action_just_pressed("s"):
+		"master_butt": 				
+			if Input.is_action_just_pressed("q"):
+				scroll_y = 0
 				choose_m +=1
 				if choose_m > mas_nr:
 					choose_m = 0
 				master_butt_change()
-				choose_s = 0
 			
-			elif Input.is_action_just_pressed("space"):
-				mas_node.activate(self)
-				get_node("MasterButtons").visible = false
-				get_node("SlaveButtons").visible = true
-				mas_node.selection(choose_s)
+			if scroll_y > 1:
+				change_index(1)
+				mas_node.selection()
+				scroll_y = 0
+				
+			elif scroll_y < -1:
+				change_index(-1)
+				mas_node.selection()
+				scroll_y = 0
 			
 			
-			
-		"slave_butt": 
-			if Input.is_action_just_pressed("w"): 
-				choose_s -=1
-				if choose_s < 0:
-					choose_s = slav_options
-				mas_node.selection(choose_s)
-				
-			elif Input.is_action_just_pressed("s"):
-				choose_s +=1
-				if choose_s > slav_options:
-					choose_s = 0
-				mas_node.selection(choose_s)
-
-				
-			elif Input.is_action_just_pressed("q"):
-				get_node("MasterButtons").visible = true
-				get_node("SlaveButtons").visible = false
-				state = "master_butt"
-				
-				
-				
-				
-			elif Input.is_action_just_pressed("space"):
+			if Input.is_action_just_pressed("left_click"):
 				set_ability()
 				
-				get_node("Aiming").visible = true
-				state = "aiming"
+			
+			
+			
+		
 			
 		"item_butt": 
 			if Input.is_action_just_pressed("w"): 
@@ -195,15 +203,15 @@ func state_machine():
 				
 				
 		"aiming":
-			get_node("SlaveButtons").visible = false
-			get_node("MasterButtons").visible = false
+			#get_node("SlaveButtons").visible = false
+			#get_node("MasterButtons").visible = false
 			
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
 					markers_group.get_child(0).queue_free()
 					
-				get_node("SlaveButtons").visible = true
-				get_node("Aiming").visible = false
+				#get_node("SlaveButtons").visible = true
+				#get_node("Aiming").visible = false
 				state ="slave_butt"
 				
 				
@@ -211,9 +219,9 @@ func state_machine():
 				
 				
 				
-			elif Input.is_action_just_pressed("space"): 
-				get_node("SlaveButtons").visible = true
-				get_node("Aiming").visible = false
+			elif Input.is_action_just_pressed("left_click"): 
+				#get_node("SlaveButtons").visible = true
+				#get_node("Aiming").visible = false
 
 				match action["marker_type"]:
 					#functions in them
@@ -223,28 +231,57 @@ func state_machine():
 				
 
 
+
+func change_index(amount):
+	match skill_type:
+		"physical": 
+			phys_index += amount
+			if phys_index > len(PlayerInfo.phys_skills) -1:
+				phys_index = 0
+			elif phys_index <0:
+				phys_index = len(PlayerInfo.phys_skills) -1
+			
+			
+			
+		"magical": 
+			magic_index += amount
+			if magic_index > $MasterButtons/MagicButton.list_len:
+				magic_index = 0
+			elif magic_index <0:
+				magic_index = $MasterButtons/MagicButton.list_len
+				
+				
+		"item": 
+			item_index += amount
+			if item_index > len(PlayerInfo.inv_items) -1:
+				item_index = 0
+			elif item_index <0:
+				item_index = len(PlayerInfo.inv_items) -1
+
+
+
 #in slave buttons when pressed space
 func set_ability(): 
-	act_type = get_node("MasterButtons").get_child(choose_m).name
-	action_name = get_node("SlaveButtons/Button2/Label").text
 	
-	if act_type == "PhysButton": 
-		action = PlayerInfo.phys_skills[choose_s]
-		skill_type = "physical"
+	if skill_type == "physical": 
+		action = PlayerInfo.phys_skills[phys_index]
+
 				
-	elif act_type == "MagicButton":
-		action = PlayerInfo.mag_skills[choose_s]
-		skill_type = "magical"
+	elif skill_type == "magical":
+		action = PlayerInfo.mag_skills[magic_index]
+
 		
 		
-		#setting marker
+
 	
 	effect_anim = action.effect_animation
 	get_node("Aiming/Label").text = action.description
-
 	
+	#setting marker	
 	match action["marker_type"]:
 		"rotate": 
+			state = "aiming"
+			PlayerInfo.combat_state = "in menu"
 			marker = rot_marker.instantiate()
 			
 			#setting all parameters
@@ -258,6 +295,8 @@ func set_ability():
 			markers_group.add_child(marker)
 			
 		"move":
+			state = "aiming"
+			PlayerInfo.combat_state = "in menu"
 			marker = mov_marker.instantiate()
 			
 			#setting all parameters
@@ -274,7 +313,9 @@ func set_ability():
 			#adding to tree
 			markers_group.add_child(marker)
 			
-		null:pass
+		"null":
+
+			use_ability_null()
 
 
 
@@ -283,6 +324,8 @@ func set_ability():
 
 
 func use_ability_rot():
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
 	
@@ -306,11 +349,13 @@ func use_ability_rot():
 	anim_p["parameters/Transition/transition_request"] = "Attack"
 	anim_p["parameters/Attacks/playback"].start(action["player_animation"])
 	
-	state = "slave_butt"
+	state = "master_butt"
 
 
 
 func use_ability_mov():
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
 	
@@ -323,25 +368,38 @@ func use_ability_mov():
 	world.add_child(effect_anim)
 	
 	marker.delete_self()
-	state = "slave_butt"
+	state = "master_butt"
 
 
 
 func use_ability_null():
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
 	
 	effect_anim = effect_anim.instantiate()
-	effect_anim.position = player.position
+	var rotated = action.effect_position.rotated(Vector3(0,1,0),\
+	player.get_node("CameraY").rotation.y)
+	effect_anim.position = player.position + rotated
+	effect_anim.rotation.y = player.get_node("CameraY").rotation.y + PI
 	effect_anim.action = action
+	
+	player.direction = player.rotation.y	
+	
+	anim_p["parameters/Transition/transition_request"] = "Attack"
+	anim_p["parameters/Attacks/playback"].start(action["player_animation"])
 
 	
 	world.add_child(effect_anim)
 	
-	state = "slave_butt"
+	state = "master_butt"
 
 
 
 
 func master_butt_change():
 	mas_node = get_node("MasterButtons").get_child(choose_m)
+	skill_type = mas_node.skill_type
+	
+

@@ -7,6 +7,8 @@ var opt_nr = len(options) - 1
 
 var slav_butts
 
+var skill_type = "item"
+
 
 func _ready():
 	slav_butts = get_parent().get_parent().get_node("SlaveButtons")

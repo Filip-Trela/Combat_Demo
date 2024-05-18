@@ -29,7 +29,7 @@ var base = {
 #physical
 var slash = {
 	"name": "Slash",
-	"marker_type": "rotate",
+	"marker_type": "null",
 	"marker_size": Vector3(1,1,1),
 	"marker_position": Vector3(0,0,0),
 	"effect_size": Vector3(1,1,1),
@@ -43,7 +43,7 @@ var slash = {
 	"by_weapon": true,
 	"self_cost": [0,0],
 	"stagger": 2,
-	"damage": [100],
+	"damage": [1],
 	"player_animation": "Slash",
 	"description": "A placeholder action with rotateable marker and x damage",
 }
@@ -144,11 +144,11 @@ var placeH = {
 var push = {
 	"name": "Push",
 	"id":001,
-	"marker_type": null,
-	"marker_size": null,
-	"marker_position": null,
+	"marker_type": "null",
+	"marker_size": Vector3(0,0,0),
+	"marker_position": Vector3(0,0,0),
 	"effect_size": Vector3(4,4,4),
-	"effect_position": null,
+	"effect_position": Vector3(0,0,0),
 	"effect_animation": preload("res://Scenes/Combat/effects/PlaceHolder/BoomP.tscn"),
 	"follow_allowed": false,
 	"xz_toss": Vector2(0,20), #odrzut

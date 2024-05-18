@@ -54,6 +54,7 @@ func _ready():
 	
 
 func _process(_delta):
+
 	$AnimTreePlayerCombat["parameters/Stop/scale"] = Settings.current_time
 	$AnimTreePlayerCombat["parameters/Stop2/scale"] = Settings.current_time
 	#kurwa mac
@@ -73,7 +74,11 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	#xz moving
-	if input_vec != Vector2(0,0) and !dodge_is:
+	if PlayerInfo.combat_state == "during action" or PlayerInfo.combat_state == "in menu":
+		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
+		transformed_input = Vector2(0,0)
+		
+	elif input_vec != Vector2(0,0) and !dodge_is:
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
 		direction = transformed_input.angle_to(Vector2(0,1))
 		
@@ -87,12 +92,12 @@ func _physics_process(_delta):
 		
 		
 	
-	if PlayerInfo.is_moving:
-		if is_on_floor():
-			y_vec = clamp(y_vec, 0, 1000)
-		else:
-			y_vec -= gravity
-			y_vec = clamp(y_vec, max_fall, 1000)
+	#if PlayerInfo.is_moving:
+	if is_on_floor():
+		y_vec = clamp(y_vec, 0, 1000)
+	else:
+		y_vec -= gravity
+		y_vec = clamp(y_vec, max_fall, 1000)
 		
 	
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
@@ -107,8 +112,8 @@ func _physics_process(_delta):
 		else:
 			PlayerInfo.is_moving = false
 		
-	if PlayerInfo.is_moving:
-		move_and_slide()
+	#if PlayerInfo.is_moving:
+	move_and_slide()
 	
 
 

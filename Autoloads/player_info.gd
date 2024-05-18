@@ -53,7 +53,7 @@ var phys_skills = [
 
 var mag_skills= {
 	0: action_list.placeH,
-	1: null,
+	1: action_list.push,
 	2: null,
 	3: null
 }

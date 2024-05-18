@@ -9,6 +9,8 @@ var slav_butts
 var list
 var list_len
 
+var skill_type = "magical"
+
 func _ready():
 	slav_butts = get_parent().get_parent().get_node("SlaveButtons")
 	list = []
@@ -20,14 +22,17 @@ func _ready():
 
 
 
+
 func activate(button_handler): 
 	get_parent().get_parent().slav_options = list_len
 	button_handler.state = "slave_butt"
 
 	
 
-func selection(nr):
-	slav_butts.get_child(0).get_node("Label").text = list[nr -1 ].name
-	slav_butts.get_child(1).get_node("Label").text = list[nr].name
-	slav_butts.get_child(2).get_node("Label").text = list[nr - list_len].name
+func selection():
+	var index = get_parent().get_parent().magic_index
+
+	$Buttons/Label1.text = list[index -1 ].name
+	$Buttons/Label2.text = list[index].name
+	$Buttons/Label3.text = list[index - list_len].name
 	

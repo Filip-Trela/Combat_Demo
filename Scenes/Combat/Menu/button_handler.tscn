@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://oa87hgbsh3yx"]
+[gd_scene load_steps=5 format=3 uid="uid://oa87hgbsh3yx"]
 
 [ext_resource type="PackedScene" uid="uid://evg6bq71w2o6" path="res://Scenes/Combat/Menu/phys_button.tscn" id="1_aaipb"]
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/button_handler.gd" id="1_hcfbd"]
 [ext_resource type="PackedScene" uid="uid://bifbr4i10wrbs" path="res://Scenes/Combat/Menu/magic_button.tscn" id="2_0jsju"]
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="4_o4gpw"]
 [ext_resource type="PackedScene" uid="uid://bh0isaph6kcct" path="res://Scenes/Combat/Menu/item_button.tscn" id="4_pf62g"]
 
 [node name="ButtonHandler" type="Node2D"]
@@ -12,26 +11,16 @@ script = ExtResource("1_hcfbd")
 [node name="MasterButtons" type="Node2D" parent="."]
 
 [node name="PhysButton" parent="MasterButtons" instance=ExtResource("1_aaipb")]
-position = Vector2(0, -64)
+position = Vector2(777, 657)
 
 [node name="MagicButton" parent="MasterButtons" instance=ExtResource("2_0jsju")]
-position = Vector2(0, 13)
+position = Vector2(996, 656)
 
 [node name="ItemButton" parent="MasterButtons" instance=ExtResource("4_pf62g")]
-position = Vector2(0, 88)
-
-[node name="SlaveButtons" type="Node2D" parent="."]
-visible = false
-
-[node name="Button1" parent="SlaveButtons" instance=ExtResource("4_o4gpw")]
-position = Vector2(0, -70)
-
-[node name="Button2" parent="SlaveButtons" instance=ExtResource("4_o4gpw")]
-
-[node name="Button3" parent="SlaveButtons" instance=ExtResource("4_o4gpw")]
-position = Vector2(0, 70)
+position = Vector2(1209, 657)
 
 [node name="Aiming" type="Node2D" parent="."]
+visible = false
 
 [node name="Label" type="Label" parent="Aiming"]
 offset_left = -103.0

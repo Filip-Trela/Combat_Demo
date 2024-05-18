@@ -21,12 +21,9 @@ func _process(delta):
 
 func state_machine():
 	#for stoping animation
-	if PlayerInfo.is_moving:
-		anim.set("parameters/Stop/scale", 1)
-		anim.set("parameters/Stop2/scale", 1)
-	else: 
-		anim.set("parameters/Stop/scale", 0)
-		anim.set("parameters/Stop2/scale", 0)
+	anim.set("parameters/Stop/scale", Settings.current_time)
+	anim.set("parameters/Stop2/scale", Settings.current_time)
+
 		
 	#movement
 	#anim["parameters/Movement/blend_position"] = Vector2(player.xz_vec).length() / player.max_speed
@@ -35,3 +32,7 @@ func state_machine():
 func _on_animation_finished(anim_name):
 	if anim_name == "Die":
 		PlayerInfo.transition.play("combat_to_explore_playerdies")
+	
+	elif anim_name == "attack_explore":
+		player.state = "normal"
+		self["parameters/Transition/transition_request"] = "Movement"

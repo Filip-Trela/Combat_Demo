@@ -46,8 +46,10 @@ var closest_enemy
 var interact_in_range: Array = []
 var closest_interact
 
+var states = ["normal", "attacking"]
+var state = "normal"
 
-
+var xz_toss = 10
 
 
 func _ready():
@@ -57,10 +59,6 @@ func _ready():
 	mouse_joint_x = mouse_joint_y.get_node("CameraX")
 	
 
-
-
-	
-	
 
 func _process(_delta):
 
@@ -88,10 +86,11 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	#xz moving
-	if input_vec != Vector2(0,0):
+	if input_vec != Vector2(0,0) and state == "normal":
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
 		direction = transformed_input.angle_to(Vector2(0,1))
 	else:
+
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
 	
 	if is_on_floor():
@@ -131,15 +130,18 @@ func _input(_event):
 		#placeholder
 		if Input.is_action_just_pressed("q") and closest_enemy:
 			#PlayerInfo.transition.start_enemy = closest_enemy
-			#wagon
-			closest_enemy.get_parent().get_parent().get_parent().change_to_combat()
-			 
-			#main loop
-			get_parent().get_parent().change_to_combat()
+			pass
 			
+		if Input.is_action_just_pressed("left_click") and state == "normal":
+			xz_vec += transformed_input * xz_toss
+			$AnimTreePlayerCombat["parameters/Transition/transition_request"] = "Attack"
+			$AnimTreePlayerCombat["parameters/Attacks/playback"].start("attack_explore")
+			
+			state = "attacking"
 			
 			
 			#PlayerInfo.transition.play("explore_to_combat")
+		
 			
 		elif Input.is_action_just_pressed("e") and closest_interact: 
 			closest_interact.interact()
@@ -212,3 +214,12 @@ func _on_interact_detector_body_exited(body):
 		interact_in_range.remove_at(interact_nr)
 		if closest_interact == body:
 			closest_interact = null
+
+
+func _on_hitbox_body_entered(body):
+	print(body)
+		#wagon
+	closest_enemy.get_parent().get_parent().get_parent().change_to_combat()
+			 
+		#main loop
+	get_parent().get_parent().change_to_combat()

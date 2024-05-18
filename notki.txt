@@ -58,12 +58,14 @@ TODOS:
 	
 	teleporty miedzy wagonami
 	
+	~~
 	minimalne menu w combat, aby bylo szybciej i przelaczalo tylko typy, scroll
 	przestawia action
 	
 	wagony ktore nie sa wagonami, tylko np polmostem nad przepascia a na dole oko
 	albo np na budynku w trakcie budowy
 	
+	DONE
 	lepszy transition
 	
 	dawany efekt playerowi na poczatku jesli to wrog go zaatakuje
@@ -102,6 +104,23 @@ TODOS:
 	badz obstacles
 	
 	zmienic w koncu hitboxy z efektow na te z gracza
+	
+	podczas combat jest cos takiego, ze gdy zrobisz jeden atak, musisz czekac
+	na pelne recovery przed uzyciem tego samego, chyba ze uzyjesz innego
+	jakis pasek staminy od razu czy cos
+
+
+
+przy zmianie systemu combat:
+	null marker type ma problem bo toss do dupy done
+	
+	state wiekszosc nalezy wywalic w button handler half done
+	
+	aktualny jest cos w stylu bunny hop przy nakladaniu na siebie atakow done
+	
+	majac dwa magic skille czasami nie ogarnia tego i nic nie robi
+
+
 
 
 PLANS:

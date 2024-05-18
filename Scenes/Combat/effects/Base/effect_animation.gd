@@ -21,11 +21,17 @@ var index_at = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player= get_parent().get_node("Player")
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
 	
 	follow_allowed = action.follow_allowed
 	self.scale = action.effect_size
 	
-	player.xz_vec += action.player_xz_toss.rotated(-self.rotation.y)
+	if action.marker_type != "null":
+		player.xz_vec += action.player_xz_toss.rotated(-self.rotation.y)
+	else:
+		player.xz_vec += \
+		action.player_xz_toss.rotated(-player.get_node("CameraY").rotation.y + PI)
 	
 	anim_plays()
 	anims.play("start")
@@ -83,7 +89,7 @@ func follow_up_set():
 	if hitted and follow_allowed == true:
 		if PlayerInfo.follows < PlayerInfo.follows_max:
 			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "in menu"
+			PlayerInfo.combat_state = "moving"
 			PlayerInfo.follows += 1
 			if PlayerInfo.follows == PlayerInfo.follows_max:
 				no_follows = true
@@ -107,17 +113,17 @@ func _on_animation_player_animation_finished(anim_name):
 
 		elif hitted == false:
 			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "in menu"
+			PlayerInfo.combat_state = "moving"
 			PlayerInfo.follows = 0
 		elif last_follow:
 			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "in menu"
+			PlayerInfo.combat_state = "moving"
 			PlayerInfo.follows = 0
 	
 	#when follows not allowed
 	else:
 		PlayerInfo.is_moving = false
-		PlayerInfo.combat_state = "in menu"
+		PlayerInfo.combat_state = "moving"
 		PlayerInfo.follows = 0
 	self.queue_free()
 
