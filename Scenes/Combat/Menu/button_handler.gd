@@ -122,9 +122,10 @@ func state_machine():
 				scroll_y = 0
 			
 			
-			if Input.is_action_just_pressed("left_click") and \
-			PlayerInfo.combat_state != "during action":
-				mas_node.activate(self)
+			if Input.is_action_just_pressed("left_click"):
+				if PlayerInfo.combat_state != "during action" or Settings.stopped_time:
+					Settings.stopped_time = false
+					mas_node.activate(self)
 				
 				#set_ability()
 			if Input.is_action_just_pressed("right_click") and \

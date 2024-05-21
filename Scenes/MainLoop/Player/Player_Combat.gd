@@ -132,7 +132,22 @@ func _input(_event):
 				xz_vec += transformed_input * 20
 				PlayerInfo.current_sp -= Actions.dodge_cost
 				dodge_is = true
+				
+				#pozniej to cale zmienic
+	elif Input.is_action_just_pressed("shift") and !dodge_is and Settings.stopped_time:
+		Settings.stopped_time = false
+		Settings.current_time = Settings.move_time
 		
+		
+		input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
+		input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
+		input_vec = input_vec.normalized()
+	
+		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
+		if PlayerInfo.current_sp > Actions.dodge_cost:
+				xz_vec += transformed_input * 20
+				PlayerInfo.current_sp -= Actions.dodge_cost
+				dodge_is = true
 	press_wait = Input.get_action_raw_strength("e")
 	
 		

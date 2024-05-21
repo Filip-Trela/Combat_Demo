@@ -84,4 +84,9 @@ show_percentage = false
 [node name="StaminaSystem" type="Timer" parent="."]
 one_shot = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(643, 359)
+scale = Vector2(21.0938, 12.2188)
+texture = ExtResource("3_evpx7")
+
 [editable path="SubViewport/CombatBackground"]
