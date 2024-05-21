@@ -9,41 +9,42 @@
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yflsm"]
 animation = &"Die"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7f04"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q42jd"]
 animation = &"Slash"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gdyr8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_epf1g"]
 animation = &"Vertical"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ryc3"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_45g8j"]
 animation = &"attack_explore"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n5l4"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y2chy"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibebb"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lwips"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ooqy"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ee42"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hdh3p"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_han7p"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_687tp"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4gfo"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lehgl"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04pr0"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2dh82"]
-states/Slash/node = SubResource("AnimationNodeAnimation_a7f04")
-states/Slash/position = Vector2(444, 60)
-states/Vertical/node = SubResource("AnimationNodeAnimation_gdyr8")
-states/Vertical/position = Vector2(444, 144)
-states/attack_explore/node = SubResource("AnimationNodeAnimation_2ryc3")
-states/attack_explore/position = Vector2(444, 216)
-transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_4n5l4"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_ibebb"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_8ee42"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_han7p"), "Start", "attack_explore", SubResource("AnimationNodeStateMachineTransition_687tp"), "attack_explore", "End", SubResource("AnimationNodeStateMachineTransition_q4gfo")]
+states/Slash/node = SubResource("AnimationNodeAnimation_q42jd")
+states/Slash/position = Vector2(515, 72)
+states/Vertical/node = SubResource("AnimationNodeAnimation_epf1g")
+states/Vertical/position = Vector2(515, 160)
+states/attack_explore/node = SubResource("AnimationNodeAnimation_45g8j")
+states/attack_explore/position = Vector2(515, 0)
+transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_y2chy"), "Start", "attack_explore", SubResource("AnimationNodeStateMachineTransition_lwips"), "attack_explore", "End", SubResource("AnimationNodeStateMachineTransition_8ooqy"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_hdh3p"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_lehgl"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_04pr0")]
+graph_offset = Vector2(1, -39)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
 animation = &"Idle"
@@ -73,7 +74,7 @@ input_2/auto_advance = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
-graph_offset = Vector2(-664.697, 91.7262)
+graph_offset = Vector2(-551.792, -27.6866)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
 nodes/Animation/position = Vector2(-260, 260)
 nodes/Attacks/node = SubResource("AnimationNodeStateMachine_2dh82")
@@ -127,18 +128,10 @@ anim_player = NodePath("../Model/animNode/Base/AnimationPlayer")
 parameters/Movement/blend_position = 0.0
 parameters/Stop/scale = 1.0
 parameters/Stop2/scale = 1.0
-parameters/Transition/current_state = "Movement"
+parameters/Transition/current_state = "Attack"
 parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 0
+parameters/Transition/current_index = 2
 script = ExtResource("3_j3xxv")
-
-[node name="EnemyDetector" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_ul6dl")
 
 [node name="InteractDetector" type="Area3D" parent="."]
 collision_layer = 0
@@ -148,10 +141,8 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_ul6dl")
 
-[connection signal="body_entered" from="Model/animNode/Base/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Model/animNode/Base/Hitbox_Explore" to="." method="_on_hitbox_explore_body_entered"]
 [connection signal="animation_finished" from="AnimTreePlayerCombat" to="AnimTreePlayerCombat" method="_on_animation_finished"]
-[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
-[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]
 [connection signal="body_entered" from="InteractDetector" to="." method="_on_interact_detector_body_entered"]
 [connection signal="body_exited" from="InteractDetector" to="." method="_on_interact_detector_body_exited"]
 

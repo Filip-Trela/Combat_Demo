@@ -83,7 +83,6 @@ func anim_plays():
 	PlayerInfo.is_moving = true
 	PlayerInfo.combat_state ="during action"
 	
-	
 
 func follow_up_set():
 	if hitted and follow_allowed == true:

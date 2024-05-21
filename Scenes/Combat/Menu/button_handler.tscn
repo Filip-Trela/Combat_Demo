@@ -9,6 +9,8 @@
 script = ExtResource("1_hcfbd")
 
 [node name="MasterButtons" type="Node2D" parent="."]
+position = Vector2(87, 59)
+scale = Vector2(0.9, 0.9)
 
 [node name="PhysButton" parent="MasterButtons" instance=ExtResource("1_aaipb")]
 position = Vector2(777, 657)
@@ -18,13 +20,3 @@ position = Vector2(996, 656)
 
 [node name="ItemButton" parent="MasterButtons" instance=ExtResource("4_pf62g")]
 position = Vector2(1209, 657)
-
-[node name="Aiming" type="Node2D" parent="."]
-visible = false
-
-[node name="Label" type="Label" parent="Aiming"]
-offset_left = -103.0
-offset_top = -91.0
-offset_right = 104.0
-offset_bottom = 109.0
-autowrap_mode = 1

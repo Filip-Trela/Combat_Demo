@@ -38,7 +38,7 @@ var follows_max = 3
 
 var during_follows = false
 
-#moving, menu, talking
+#moving, menu, talking, attacking
 var explore_state = "moving"
 
 
@@ -88,6 +88,14 @@ var current_hp:int = max_hp
 
 var max_mp:int = 100
 var current_mp:int = max_mp
+
+var max_sp:float = 100
+var current_sp:float = max_sp
+var sp_recovery_min = 0.05
+var sp_recovery_max = 0.5
+var sp_recovery_change = 0.01
+var sp_recovery = 0
+var sp_time_rec = 1.0
 
 var current_armor = inv_armor[0]
 var current_weapon = inv_weapons[0]

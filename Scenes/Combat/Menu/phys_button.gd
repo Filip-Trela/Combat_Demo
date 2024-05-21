@@ -12,7 +12,7 @@ var player
 
 
 func _ready():
-	slav_butts = get_parent().get_parent().get_node("SlaveButtons")
+	pass#player = get_parent().get_parent().get_parent().get_parent().get_node("Player")
 
 
 func _process(_delta):
@@ -20,11 +20,13 @@ func _process(_delta):
 
 
 func activate(button_handler): 
-	get_parent().get_parent().slav_options = opt_nr
-	button_handler.state = "slave_butt"
+	button_handler.set_ability()
 
+func second_activate(): pass
 	
 func selection():
+
+	
 	options = PlayerInfo.phys_skills
 	opt_nr = len(options) - 1
 	var index = get_parent().get_parent().phys_index
@@ -32,3 +34,4 @@ func selection():
 	$Buttons/Label1.text = options[index -1 ].name
 	$Buttons/Label2.text = options[index].name
 	$Buttons/Label3.text = options[index - opt_nr].name
+

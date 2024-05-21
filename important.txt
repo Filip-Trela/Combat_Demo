@@ -1,4 +1,6 @@
-PLACEHOLDER:
-	get tree quit jest w transition
+
+get tree quit jest w transition
 	
-	wszystko dla playera bouba, dla enemy kiki
+wszystko dla playera bouba, dla enemy kiki
+	
+animacje dla playera musza byc bez bezier curve bo cos w kodzie nie dzialaja

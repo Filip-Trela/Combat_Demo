@@ -79,6 +79,7 @@ func _ready():
 	$MasterButtons/PhysButton.selection()
 	$MasterButtons/MagicButton._ready()
 	$MasterButtons/MagicButton.selection()
+	$MasterButtons/ItemButton.selection()
 	
 	
 
@@ -121,70 +122,43 @@ func state_machine():
 				scroll_y = 0
 			
 			
-			if Input.is_action_just_pressed("left_click"):
-				set_ability()
+			if Input.is_action_just_pressed("left_click") and \
+			PlayerInfo.combat_state != "during action":
+				mas_node.activate(self)
 				
+				#set_ability()
+			if Input.is_action_just_pressed("right_click") and \
+			PlayerInfo.combat_state != "during action":
+				mas_node.second_activate()
 			
 			
 			
 		
 			
-		"item_butt": 
-			if Input.is_action_just_pressed("w"): 
-				choose_s -=1
-				if choose_s < 0:
-					choose_s = slav_options
-				mas_node.selection(choose_s)
-				
-			elif Input.is_action_just_pressed("s"):
-				choose_s +=1
-				if choose_s > slav_options:
-					choose_s = 0
-				mas_node.selection(choose_s)
-
-				
-			elif Input.is_action_just_pressed("q"):
-				get_node("MasterButtons").visible = true
-				get_node("SlaveButtons").visible = false
-				state = "master_butt"
-				
-#uzycie na sobie
-			elif Input.is_action_just_pressed("f"):
-				player.item_on_self(item_choosen.use_on_self)
-				PlayerInfo.inv_items[item_var][1] -= 1
-				mas_node.selection(choose_s)
-
-				
-#rzut, z celowaniem
-			elif Input.is_action_just_pressed("r"):
-				marker = rot_marker.instantiate()
+		"item_set": 
+			Settings.stopped_time = true
+			#rzut, z celowaniem
+			marker = rot_marker.instantiate()
 		
-				marker.position = player.position
-				marker.rotation.y = player.direction
-				marker.get_child(0).scale = Vector3(1,1,1)
+			marker.position = player.position
+			marker.rotation.y = player.direction
+			marker.get_child(0).scale = Vector3(1,1,1)
 
-				markers_group.add_child(marker)
-				
-				state = "throw aiming"
+			markers_group.add_child(marker)
+			PlayerInfo.combat_state = "in menu"
+			state = "throw aiming"
 
 		
 		"throw aiming":
-			get_node("SlaveButtons").visible = false
-			get_node("MasterButtons").visible = false
-			
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
 					markers_group.get_child(0).queue_free()
-					
-				get_node("SlaveButtons").visible = true
-				get_node("Aiming").visible = false
-				state ="item_butt"
+				Settings.stopped_time = false
+				state ="master_butt"
 				
 				
 				
-			elif Input.is_action_just_pressed("space"): 
-				get_node("SlaveButtons").visible = true
-				get_node("Aiming").visible = false
+			elif Input.is_action_just_pressed("left_click"): 
 				
 				var item = load(item_choosen.throw_pl).instantiate()
 				item.item = item_choosen
@@ -196,23 +170,26 @@ func state_machine():
 				
 				if markers_group.get_child_count() != 0:
 					markers_group.get_child(0).queue_free()
-					
-				state = "item_butt"
+				
+				PlayerInfo.inv_items[item_index][1] -= 1
+				mas_node.selection()
+				
+				Settings.stopped_time = false
+				PlayerInfo.combat_state = "moving"
+				state = "master_butt"
 
 				
 				
 				
-		"aiming":
-			#get_node("SlaveButtons").visible = false
-			#get_node("MasterButtons").visible = false
-			
+		"aiming":			
+			Settings.stopped_time = true
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
 					markers_group.get_child(0).queue_free()
-					
-				#get_node("SlaveButtons").visible = true
-				#get_node("Aiming").visible = false
-				state ="slave_butt"
+				state ="master_butt"
+				PlayerInfo.is_moving = false
+				Settings.stopped_time = false
+				PlayerInfo.combat_state = "moving"
 				
 				
 				
@@ -220,16 +197,29 @@ func state_machine():
 				
 				
 			elif Input.is_action_just_pressed("left_click"): 
-				#get_node("SlaveButtons").visible = true
-				#get_node("Aiming").visible = false
-
-				match action["marker_type"]:
-					#functions in them
-					"rotate": use_ability_rot()
-					"move": use_ability_mov()
-					null:use_ability_null()
+				Settings.stopped_time = false
+				if action.by_player:
+					match action["marker_type"]:
+						#functions in them
+						"rotate": use_ability_rot_player()
+						"move": use_ability_mov_player()
+				else:
+					match action["marker_type"]:
+						#functions in them
+						"rotate": use_ability_rot_effect()
+						"move": use_ability_mov_effect()
 				
 
+
+func master_butt_change():
+	mas_node = get_node("MasterButtons").get_child(choose_m)
+	for button in $MasterButtons.get_children():
+		button['modulate'] =  Color(1.0, 1.0, 1.0, 0.7) 
+	mas_node['modulate']=  Color(1.0, 1.0, 1.0, 1.0)
+	
+	
+	skill_type = mas_node.skill_type
+	
 
 
 func change_index(amount):
@@ -269,67 +259,81 @@ func set_ability():
 				
 	elif skill_type == "magical":
 		action = PlayerInfo.mag_skills[magic_index]
-
-		
-		
-
 	
-	effect_anim = action.effect_animation
-	get_node("Aiming/Label").text = action.description
+	var cantbe_used= false
+	var index_action = 0
+	var play_stats = [PlayerInfo.current_hp, PlayerInfo.current_mp,
+	PlayerInfo.current_sp]
 	
-	#setting marker	
-	match action["marker_type"]:
-		"rotate": 
-			state = "aiming"
-			PlayerInfo.combat_state = "in menu"
-			marker = rot_marker.instantiate()
+	for stat in play_stats:
+		if stat < action.self_cost[index_action]:
+			cantbe_used = true
+		index_action +=1
+	
+	
+	if !cantbe_used:
+		if action.by_player:
+			effect_anim = null
+		else:
+			effect_anim = action.effect_animation
+		
+		#setting marker	
+		match action["marker_type"]:
+			"rotate": 
+				state = "aiming"
+				PlayerInfo.combat_state = "in menu"
+				marker = rot_marker.instantiate()
 			
-			#setting all parameters
-			marker.position = player.position
-			marker.rotation.y = player.direction
-			marker.get_child(0).scale = action.marker_size
-			marker.get_child(0).position = action.marker_position
+				#setting all parameters
+				marker.position = player.position
+				marker.rotation.y = player.direction
+				marker.get_child(0).scale = action.marker_size
+				marker.get_child(0).position = action.marker_position
 
 
-			#adding to tree
-			markers_group.add_child(marker)
+				#adding to tree
+				markers_group.add_child(marker)
 			
-		"move":
-			state = "aiming"
-			PlayerInfo.combat_state = "in menu"
-			marker = mov_marker.instantiate()
-			
-			#setting all parameters
-			marker.position = player.position
-			marker.get_child(0).scale.x = action.marker_size.x
-			marker.get_child(0).scale.z = action.marker_size.z
-			marker.get_child(1).scale.x = action.marker_size.x
-			marker.get_child(1).scale.y = action.marker_size.y
-			marker.get_child(1).scale.z = action.marker_size.z
+			"move":
+				state = "aiming"
+				PlayerInfo.combat_state = "in menu"
+				marker = mov_marker.instantiate()
+				
+				#setting all parameters
+				marker.position = player.position
+				marker.get_child(0).scale.x = action.marker_size.x
+				marker.get_child(0).scale.z = action.marker_size.z
+				marker.get_child(1).scale.x = action.marker_size.x
+				marker.get_child(1).scale.y = action.marker_size.y
+				marker.get_child(1).scale.z = action.marker_size.z
+		
+				marker.max_dis = action.max_distance
 
-			marker.max_dis = action.max_distance
-
-			
-			#adding to tree
-			markers_group.add_child(marker)
-			
-		"null":
-
-			use_ability_null()
-
-
-
-
+					
+				#adding to tree
+				markers_group.add_child(marker)
+				
+			"null":
+				if action.by_player:
+					use_ability_null_player()
+				else:
+					use_ability_null_effect()
 
 
 
-func use_ability_rot():
+
+
+
+
+func use_ability_rot_effect():
+	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
 	
-	effect_anim = effect_anim.instantiate()
+	effect_anim = load(effect_anim).instantiate()
 	var rotated = action.effect_position.rotated(Vector3(0,1,0), marker.rotation.y)
 	effect_anim.position = player.position + rotated
 	effect_anim.rotation.y = marker.rotation.y
@@ -346,21 +350,24 @@ func use_ability_rot():
 	
 	marker.delete_self()
 	
-	anim_p["parameters/Transition/transition_request"] = "Attack"
-	anim_p["parameters/Attacks/playback"].start(action["player_animation"])
+	#anim_p["parameters/Transition/transition_request"] = "Attack"
+	#anim_p["parameters/Attacks/playback"].start(action["player_animation"])
+	anim_p.play_combat(action["player_animation"])
 	
 	state = "master_butt"
 
 
 
-func use_ability_mov():
+func use_ability_mov_effect():
+	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
 	
 	
-	effect_anim = effect_anim.instantiate()
+	effect_anim = load(effect_anim).instantiate()
 	effect_anim.position = marker.position
 	effect_anim.action = action
 
@@ -372,13 +379,15 @@ func use_ability_mov():
 
 
 
-func use_ability_null():
+func use_ability_null_effect():
+	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
 	PlayerInfo.current_hp -= action.self_cost[0]
 	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
 	
-	effect_anim = effect_anim.instantiate()
+	effect_anim = load(effect_anim).instantiate()
 	var rotated = action.effect_position.rotated(Vector3(0,1,0),\
 	player.get_node("CameraY").rotation.y)
 	effect_anim.position = player.position + rotated
@@ -387,8 +396,7 @@ func use_ability_null():
 	
 	player.direction = player.rotation.y	
 	
-	anim_p["parameters/Transition/transition_request"] = "Attack"
-	anim_p["parameters/Attacks/playback"].start(action["player_animation"])
+	anim_p.play_combat(action["player_animation"])
 
 	
 	world.add_child(effect_anim)
@@ -398,8 +406,60 @@ func use_ability_null():
 
 
 
-func master_butt_change():
-	mas_node = get_node("MasterButtons").get_child(choose_m)
-	skill_type = mas_node.skill_type
+func use_ability_rot_player():
+	player.action = action
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
 	
+	player.xz_vec += action.player_xz_toss.rotated(-marker.rotation.y)
+	
+	player.direction = marker.rotation.y	
+	
+	marker.delete_self()
+	
+	anim_p.play_combat(action["player_animation"])
+	
+	state = "master_butt"
+
+
+
+func use_ability_mov_player():
+	player.action = action
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
+	
+	player.xz_vec += action.player_xz_toss.rotated(-marker.rotation.y)
+	
+	player.direction = marker.rotation.y	
+	
+	marker.delete_self()
+	
+	anim_p.play_combat(action["player_animation"])
+	
+	state = "master_butt"
+	
+	
+	
+func use_ability_null_player():
+	player.action = action
+	player.xz_vec = Vector2(0,0)
+	player.velocity = Vector3(0,0,0)
+	PlayerInfo.current_hp -= action.self_cost[0]
+	PlayerInfo.current_mp -= action.self_cost[1]
+	PlayerInfo.current_sp -= action.self_cost[2]
+	
+	player.xz_vec += \
+		action.player_xz_toss.rotated(-player.get_node("CameraY").rotation.y + PI)
+	
+	player.direction = player.rotation.y
+	
+	anim_p.play_combat(action["player_animation"])
+	
+	state = "master_butt"
 

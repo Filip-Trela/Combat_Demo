@@ -12,7 +12,7 @@ var list_len
 var skill_type = "magical"
 
 func _ready():
-	slav_butts = get_parent().get_parent().get_node("SlaveButtons")
+	#slav_butts = get_parent().get_parent().get_node("SlaveButtons")
 	list = []
 	for invMag in PlayerInfo.mag_skills.values():
 		if invMag != null:
@@ -24,12 +24,12 @@ func _ready():
 
 
 func activate(button_handler): 
-	get_parent().get_parent().slav_options = list_len
-	button_handler.state = "slave_butt"
+	get_parent().get_parent().set_ability()
 
-	
+func second_activate(): pass
 
 func selection():
+	
 	var index = get_parent().get_parent().magic_index
 
 	$Buttons/Label1.text = list[index -1 ].name

@@ -20,19 +20,6 @@ func _ready():
 
 
 func _process(delta):
-	#DLA ENEMY
-	#gdy jest juz indykator
-	if player.closest_enemy and enemy_ind.get_child_count() != 0:
-		e_indicator.position = get_viewport().get_camera_3d().unproject_position(player.closest_enemy.global_position)
-	#gdy powstaje indykator
-	elif player.closest_enemy and enemy_ind.get_child_count()== 0: 
-		e_indicator = enemy_indicator.instantiate()
-		e_indicator.position = get_viewport().get_camera_3d().unproject_position(player.closest_enemy.global_position)
-		enemy_ind.add_child(e_indicator)
-	#usuniecie indykatora
-	elif not player.closest_enemy and enemy_ind.get_child_count() != 0:
-		enemy_ind.get_child(0).end()
-	
 
 	#DLA OBIEKTOW DO INTERAKCJI
 	if player.closest_interact and interact_ind.get_child_count() != 0:

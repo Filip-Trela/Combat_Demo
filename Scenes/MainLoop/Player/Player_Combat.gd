@@ -44,6 +44,7 @@ var on_obstacle = false
 
 @onready var anim_tree = $AnimTreePlayerCombat
 
+var  action
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -54,9 +55,8 @@ func _ready():
 	
 
 func _process(_delta):
-
-	$AnimTreePlayerCombat["parameters/Stop/scale"] = Settings.current_time
-	$AnimTreePlayerCombat["parameters/Stop2/scale"] = Settings.current_time
+	#$AnimTreePlayerCombat["parameters/Stop/scale"] = Settings.current_time
+	#$AnimTreePlayerCombat["parameters/Stop2/scale"] = Settings.current_time
 	#kurwa mac
 	
 	if dodge_is:
@@ -128,11 +128,14 @@ func _input(_event):
 
 		
 		if Input.is_action_just_pressed("shift") and !dodge_is:
-			xz_vec += transformed_input * 20
-			dodge_is = true
-
+			if PlayerInfo.current_sp > Actions.dodge_cost:
+				xz_vec += transformed_input * 20
+				PlayerInfo.current_sp -= Actions.dodge_cost
+				dodge_is = true
+		
 	press_wait = Input.get_action_raw_strength("e")
 	
+		
 	
 	
 	
@@ -183,13 +186,6 @@ func item_on_self(effects):
 
 
 
-func _on_enemy_detector_body_entered(body):
-	pass # Replace with function body.
-
-
-func _on_enemy_detector_body_exited(body):
-	pass # Replace with function body.
-
 
 func _on_interact_detector_body_entered(body):
 	pass # Replace with function body.
@@ -197,3 +193,6 @@ func _on_interact_detector_body_entered(body):
 
 func _on_interact_detector_body_exited(body):
 	pass # Replace with function body.
+
+func _on_hitbox_body_entered(body):
+	pass

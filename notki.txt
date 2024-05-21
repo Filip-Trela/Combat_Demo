@@ -109,7 +109,10 @@ TODOS:
 	na pelne recovery przed uzyciem tego samego, chyba ze uzyjesz innego
 	jakis pasek staminy od razu czy cos
 
+	animacje fasol, lepiej wygladajace, modele wagonow z godota, wszystko proste
 
+	zabawa z tym stop time, jest stopowany tylko podczas celowania oraz bycia
+	blisko konca animacji
 
 przy zmianie systemu combat:
 	null marker type ma problem bo toss do dupy done
@@ -119,6 +122,8 @@ przy zmianie systemu combat:
 	aktualny jest cos w stylu bunny hop przy nakladaniu na siebie atakow done
 	
 	majac dwa magic skille czasami nie ogarnia tego i nic nie robi
+	
+	czasami po markerze cos znow nie dziala
 
 
 
@@ -128,6 +133,8 @@ PLANS:
 	 czyli bez kluczy etc)
 	system w wagonach, ktory czasami sprawia ze jestescie w tunelu, wiecej enemy,
 	bardziej agresywni etc etc
+	
+	moze stop time tylko podczas celowania
 	
 	system z bossem
 	

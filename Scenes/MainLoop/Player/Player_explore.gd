@@ -46,8 +46,6 @@ var closest_enemy
 var interact_in_range: Array = []
 var closest_interact
 
-var states = ["normal", "attacking"]
-var state = "normal"
 
 var xz_toss = 10
 
@@ -67,13 +65,7 @@ func _process(_delta):
 		model_rotation = model_rotation.angle_to(Vector2(0,-1))
 		model.rotation.y = model_rotation
 	
-	for enemy in enemies_in_range:
-		if closest_enemy:
-			if closest_enemy.position.distance_to(self.position)\
-			 > enemy.position.distance_to(self.position):
-				closest_enemy = enemy
-		else:
-			closest_enemy = enemy
+
 	
 	for interact in interact_in_range:
 		if closest_interact:
@@ -86,7 +78,7 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	#xz moving
-	if input_vec != Vector2(0,0) and state == "normal":
+	if input_vec != Vector2(0,0) and PlayerInfo.explore_state =="moving":
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
 		direction = transformed_input.angle_to(Vector2(0,1))
 	else:
@@ -132,12 +124,13 @@ func _input(_event):
 			#PlayerInfo.transition.start_enemy = closest_enemy
 			pass
 			
-		if Input.is_action_just_pressed("left_click") and state == "normal":
+		if Input.is_action_just_pressed("left_click") and PlayerInfo.explore_state == "moving":
 			xz_vec += transformed_input * xz_toss
 			$AnimTreePlayerCombat["parameters/Transition/transition_request"] = "Attack"
 			$AnimTreePlayerCombat["parameters/Attacks/playback"].start("attack_explore")
 			
-			state = "attacking"
+			PlayerInfo.explore_state = "attacking"
+
 			
 			
 			#PlayerInfo.transition.play("explore_to_combat")
@@ -189,20 +182,6 @@ func _unhandled_input(event):
 		
 
 
-func _on_enemy_detector_body_entered(body):
-	if body not in enemies_in_range:
-		enemies_in_range.append(body)
-
-
-func _on_enemy_detector_body_exited(body):
-	var enemy_nr  = enemies_in_range.find(body)
-	if enemy_nr != -1:
-		enemies_in_range.remove_at(enemy_nr)
-		if closest_enemy == body:
-			closest_enemy = null
-
-
-
 func _on_interact_detector_body_entered(body):
 	if body not in interact_in_range:
 		interact_in_range.append(body)
@@ -216,10 +195,9 @@ func _on_interact_detector_body_exited(body):
 			closest_interact = null
 
 
-func _on_hitbox_body_entered(body):
-	print(body)
-		#wagon
-	closest_enemy.get_parent().get_parent().get_parent().change_to_combat()
+func _on_hitbox_explore_body_entered(body):
+	#wagon
+	body.get_parent().get_parent().get_parent().change_to_combat()
 			 
-		#main loop
+	#main loop
 	get_parent().get_parent().change_to_combat()
