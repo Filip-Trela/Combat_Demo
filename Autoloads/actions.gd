@@ -13,8 +13,8 @@ var base = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
 	"follow_allowed": false,
-	"xz_toss": Vector2(0,0), #odrzut
-	"y_toss": 0,
+	"xz_toss": [Vector2(0,0)], #odrzut
+	"y_toss": [0],
 	"player_xz_toss": Vector2(0,0), #odrzut
 	"hold_in_player":false,
 	"by_weapon": false,
@@ -39,14 +39,14 @@ var slash = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
 	"follow_allowed": true,
-	"xz_toss": Vector2(0,0),
-	"y_toss": 0,
-	"player_xz_toss": Vector2(0,20), #odrzut
+	"xz_toss": [10],
+	"y_toss": [0],
+	"player_xz_toss": Vector2(0, 25), #odrzut
 	"hold_in_player":true,
 	"by_weapon": true,
 	"self_cost": [0,0, 10],
 	"stagger": 2,
-	"damage": [1],
+	"damage": [50],
 	"player_animation": "Slash",
 	"description": "A placeholder action with rotateable marker and x damage",
 }
@@ -60,14 +60,14 @@ var vertical_slash = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/vertical_slash.tscn",
 	"follow_allowed": true,
-	"xz_toss": Vector2(0,0), #odrzut
-	"y_toss": 5,
+	"xz_toss": [8], #odrzut
+	"y_toss": [15],
 	"player_xz_toss": Vector2(0,5),
 	"hold_in_player":true,
 	"by_weapon": true,
-	"self_cost": [0,0, 15],
+	"self_cost": [0,0, 1],
 	"stagger": 5,
-	"damage": [0],
+	"damage": [40],
 	"player_animation": "Vertical",
 	"description": "vertical slash placeholder",
 }
@@ -83,16 +83,38 @@ var multislash = {
 	"effect_position": Vector3(0,0,4),
 	"effect_animation": "res://Scenes/Combat/effects/Multislash/multislash.tscn",
 	"follow_allowed": true,
-	"xz_toss": Vector2(0,0), #odrzut
-	"y_toss": 0,
+	"xz_toss": [1,1,7], #odrzut
+	"y_toss": [0, 0 , 0],
 	"player_xz_toss": Vector2(0,10), #odrzut
 	"hold_in_player":false,
 	"by_weapon": true,
-	"self_cost": [0,0, 40],
+	"self_cost": [0,0, 1],
 	"stagger": 5,
 	"damage": [2,2,10],
 	"player_animation": "Slash",
 	"description": "Multislash action",
+}
+
+var double_slash = {
+	"name": "DoubleSlash",
+	"by_player": true,
+	"marker_type": "null",
+	"marker_size": Vector3(1,1,1),
+	"marker_position": Vector3(0,0,0),
+	"effect_size": Vector3(1,1,1),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": null,
+	"follow_allowed": true,
+	"xz_toss": [3, 3],
+	"y_toss": [0, 5],
+	"player_xz_toss": Vector2(0,20), #odrzut
+	"hold_in_player":true,
+	"by_weapon": true,
+	"self_cost": [0,0, 20],
+	"stagger": 2,
+	"damage": [10,15],
+	"player_animation": "DoubleSlash",
+	"description": "A placeholder action with rotateable marker and x damage",
 }
 
 

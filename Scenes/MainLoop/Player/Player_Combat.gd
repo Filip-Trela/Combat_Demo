@@ -7,6 +7,7 @@ var mov_vec = Vector3(0,0,0) #finall move vector
 
 
 var direction = PI
+var xz_dir = Vector2(0,1)
 var rot_speed = 0.1
 var model_rotation 
 
@@ -73,6 +74,7 @@ func _process(_delta):
 		
 
 func _physics_process(_delta):
+
 	#xz moving
 	if PlayerInfo.combat_state == "during action" or PlayerInfo.combat_state == "in menu":
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
@@ -81,7 +83,7 @@ func _physics_process(_delta):
 	elif input_vec != Vector2(0,0) and !dodge_is:
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
 		direction = transformed_input.angle_to(Vector2(0,1))
-		
+	
 	elif on_obstacle:
 		pass
 		
@@ -89,8 +91,8 @@ func _physics_process(_delta):
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
 		if xz_vec == Vector2(0,0):
 			dodge_is = false
-		
-		
+	if xz_vec != Vector2(0,0):
+		xz_dir = xz_vec.normalized()
 	
 	#if PlayerInfo.is_moving:
 	if is_on_floor():
@@ -125,6 +127,8 @@ func _input(_event):
 		input_vec = input_vec.normalized()
 	
 		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
+		if transformed_input != Vector2(0,0):
+			xz_dir = transformed_input
 
 		
 		if Input.is_action_just_pressed("shift") and !dodge_is:

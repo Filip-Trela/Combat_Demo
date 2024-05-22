@@ -47,7 +47,7 @@ var explore_state = "moving"
 var phys_skills = [
 	action_list.slash,
 	action_list.vertical_slash,
-	action_list.multislash
+	action_list.double_slash
 ]
 
 

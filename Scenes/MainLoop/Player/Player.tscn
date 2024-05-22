@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvvsxy1jir8j6"]
+[gd_scene load_steps=27 format=3 uid="uid://cvvsxy1jir8j6"]
 
 [ext_resource type="Script" path="res://Scenes/MainLoop/Player/Player_explore.gd" id="1_j5srm"]
 [ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="2_iuvoc"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yflsm"]
 animation = &"Die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ej6su"]
+animation = &"DoubleSlash"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q42jd"]
 animation = &"Slash"
@@ -36,15 +39,23 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04pr0"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uso4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut2qt"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2dh82"]
+states/DoubleSlash/node = SubResource("AnimationNodeAnimation_ej6su")
+states/DoubleSlash/position = Vector2(509, 224)
 states/Slash/node = SubResource("AnimationNodeAnimation_q42jd")
 states/Slash/position = Vector2(515, 72)
 states/Vertical/node = SubResource("AnimationNodeAnimation_epf1g")
 states/Vertical/position = Vector2(515, 160)
 states/attack_explore/node = SubResource("AnimationNodeAnimation_45g8j")
 states/attack_explore/position = Vector2(515, 0)
-transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_y2chy"), "Start", "attack_explore", SubResource("AnimationNodeStateMachineTransition_lwips"), "attack_explore", "End", SubResource("AnimationNodeStateMachineTransition_8ooqy"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_hdh3p"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_lehgl"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_04pr0")]
-graph_offset = Vector2(1, -39)
+transitions = ["Start", "Slash", SubResource("AnimationNodeStateMachineTransition_y2chy"), "Start", "attack_explore", SubResource("AnimationNodeStateMachineTransition_lwips"), "attack_explore", "End", SubResource("AnimationNodeStateMachineTransition_8ooqy"), "Slash", "End", SubResource("AnimationNodeStateMachineTransition_hdh3p"), "Vertical", "End", SubResource("AnimationNodeStateMachineTransition_lehgl"), "Start", "Vertical", SubResource("AnimationNodeStateMachineTransition_04pr0"), "Start", "DoubleSlash", SubResource("AnimationNodeStateMachineTransition_uso4d"), "DoubleSlash", "End", SubResource("AnimationNodeStateMachineTransition_ut2qt")]
+graph_offset = Vector2(-8, 15)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqigf"]
 animation = &"Idle"
@@ -74,7 +85,7 @@ input_2/auto_advance = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7bf4t"]
-graph_offset = Vector2(-551.792, -27.6866)
+graph_offset = Vector2(-549, 327)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_yflsm")
 nodes/Animation/position = Vector2(-260, 260)
 nodes/Attacks/node = SubResource("AnimationNodeStateMachine_2dh82")
@@ -125,7 +136,7 @@ root_node = NodePath("../Model/animNode/Base")
 tree_root = SubResource("AnimationNodeBlendTree_7bf4t")
 advance_expression_base_node = NodePath("")
 anim_player = NodePath("../Model/animNode/Base/AnimationPlayer")
-parameters/Movement/blend_position = 0.0
+parameters/Movement/blend_position = 0.000761628
 parameters/Stop/scale = 1.0
 parameters/Stop2/scale = 1.0
 parameters/Transition/current_state = "Attack"

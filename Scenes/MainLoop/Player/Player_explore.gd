@@ -8,6 +8,7 @@ var mov_vec = Vector3(0,0,0) #finall move vector
 
 
 var direction = PI
+var xz_dir = Vector2(0,1)
 var rot_speed = 0.1
 var model_rotation 
 
@@ -84,14 +85,14 @@ func _physics_process(_delta):
 	else:
 
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
-	
 	if is_on_floor():
 		y_vec = clamp(y_vec, 0, 1000)
 	else:
 		y_vec -= gravity
 		y_vec = clamp(y_vec, max_fall, 1000)
 	
-
+	if xz_vec != Vector2(0,0):
+		xz_dir = xz_vec.normalized()
 	
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
@@ -117,6 +118,7 @@ func _input(_event):
 		input_vec = input_vec.normalized()
 		
 		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
+
 			
 		#for switching to combat
 		#placeholder

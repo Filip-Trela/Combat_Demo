@@ -53,9 +53,10 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 
 	#toss
 	if action.marker_type == "rotate":
-		enemy.xz_vec += action.xz_toss.rotated(-self.rotation.y) * 5 / enemy.weight
+		enemy.xz_vec = Vector2(0,0)
+		enemy.xz_vec += action.xz_toss[index_at].rotated(-self.rotation.y)
 		if enemy.y_tossable:
-			enemy.y_vec += action.y_toss
+			enemy.y_vec += action.y_toss[index_at]
 		
 			
 		
@@ -67,9 +68,10 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		var rotat = xz_vec.direction_to(Vector2(enemy.position.x, enemy.position.z))
 		rotat = rotat.angle_to(Vector2(0,1))
 		
-		enemy.xz_vec += action.xz_toss.rotated(-rotat) * distance * 5 / enemy.weight 
+		enemy.xz_vec = Vector2(0,0)
+		enemy.xz_vec += action.xz_toss[index_at].rotated(-rotat) * distance * 5
 		if enemy.y_tossable:
-			enemy.y_vec += action.y_toss
+			enemy.y_vec += action.y_toss[index_at]
 			
 	
 	

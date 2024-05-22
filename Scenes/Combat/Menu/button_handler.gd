@@ -59,6 +59,8 @@ var phys_index:int
 var magic_index:int
 var item_index:int
 
+var last_index_change = 1
+
 
 func _ready():
 	world = get_parent().get_parent()
@@ -224,6 +226,7 @@ func master_butt_change():
 
 
 func change_index(amount):
+	last_index_change = amount
 	match skill_type:
 		"physical": 
 			phys_index += amount
@@ -408,6 +411,8 @@ func use_ability_null_effect():
 
 
 func use_ability_rot_player():
+	change_index(last_index_change)
+	mas_node.selection()
 	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
@@ -428,6 +433,8 @@ func use_ability_rot_player():
 
 
 func use_ability_mov_player():
+	change_index(last_index_change)
+	mas_node.selection()
 	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
@@ -448,6 +455,8 @@ func use_ability_mov_player():
 	
 	
 func use_ability_null_player():
+	change_index(last_index_change)
+	mas_node.selection()
 	player.action = action
 	player.xz_vec = Vector2(0,0)
 	player.velocity = Vector3(0,0,0)
@@ -455,10 +464,10 @@ func use_ability_null_player():
 	PlayerInfo.current_mp -= action.self_cost[1]
 	PlayerInfo.current_sp -= action.self_cost[2]
 	
-	player.xz_vec += \
+	player.xz_vec +=\
 		action.player_xz_toss.rotated(-player.get_node("CameraY").rotation.y + PI)
 	
-	player.direction = player.rotation.y
+	player.direction = player.get_node("Model").rotation.y
 	
 	anim_p.play_combat(action["player_animation"])
 	

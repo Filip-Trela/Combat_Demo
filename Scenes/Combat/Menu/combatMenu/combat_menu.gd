@@ -57,6 +57,8 @@ func stamina_system():
 		PlayerInfo.sp_recovery_max, PlayerInfo.sp_recovery_change)
 	else:
 		PlayerInfo.sp_recovery = PlayerInfo.sp_recovery_min
+		
+	PlayerInfo.current_sp = 100
 
 func _c_menu_is():
 	PlayerInfo.combat_state = "in menu"

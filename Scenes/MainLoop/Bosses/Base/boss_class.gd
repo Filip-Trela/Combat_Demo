@@ -61,7 +61,7 @@ var stagger_pts = 0
 
 
 
-var max_hp = 100
+var max_hp = 300
 var current_hp = max_hp
 
 

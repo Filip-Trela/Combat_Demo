@@ -30,19 +30,18 @@ func _on_hitbox_combat_area_shape_entered(area_rid, area, area_shape_index, loca
 	var distance = self.position.distance_to(enemy.position)
 	distance = clamp(distance, 0.5, 1.2)
 	
-	var xz_vec = Vector2(self.position.x, self.position.z)
-	var rotat = xz_vec.direction_to(Vector2(enemy.position.x, enemy.position.z))
-	rotat = rotat.angle_to(Vector2(0,1))
-		
-	enemy.xz_vec += action.xz_toss.rotated(-rotat) * distance * 5 / enemy.weight 
+	#mozliwe ze pozniej wywalic
+	enemy.xz_vec = Vector2(0,0)
+	enemy.xz_vec += action.xz_toss[index_at] * player.xz_dir
 	if enemy.y_tossable:
-		enemy.y_vec += action.y_toss
+		enemy.y_vec += action.y_toss[index_at]
 	
 	
 	
 	enemy.take_damage(damage_base, action)
 	
 func anim_starts():
+	index_at = 0
 	action = player.action
 	follow_allowed = action.follow_allowed
 	PlayerInfo.is_moving = true
@@ -72,7 +71,6 @@ func follow_up_set():
 #to moze zostac wywalone
 func _on_animation_player_animation_finished(anim_name):
 	#when follows
-	print("bruh")
 	if follow_allowed:
 		#this pi,follows can be taken and put in one place
 		if PlayerInfo.combat_state == "moving":

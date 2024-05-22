@@ -1,7 +1,6 @@
 extends Node3D
 
 var wagons = [
-"res://Scenes/Explore/Wagons/Placeholder/wagon_enemy.tscn",
 "res://Scenes/Explore/Wagons/Placeholder/wagon_boss.tscn",
 
 
