@@ -64,6 +64,7 @@ var inv_magic = [
 
 var inv_armor = [
 	inv_list.basearmor,
+	inv_list.tattered_armor
 
 ]
 
@@ -76,7 +77,6 @@ var inv_weapons = [
 var inv_items = [
 	[inv_list.heal_potion, 3],
 	[inv_list.magic_potion, 15],
-	[inv_list.base_item, 1],
 	[inv_list.knife, 10],
 
 ]

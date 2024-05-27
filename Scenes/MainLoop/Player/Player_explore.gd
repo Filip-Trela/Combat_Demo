@@ -199,7 +199,16 @@ func _on_interact_detector_body_exited(body):
 
 func _on_hitbox_explore_body_entered(body):
 	#wagon
-	body.get_parent().get_parent().get_parent().change_to_combat()
+	var enemy = body
+	enemy.attacked()
+	#toss for enemy system
+	var toss = Vector2(self.global_position.x, self.global_position.z) -\
+		Vector2(enemy.global_position.x, enemy.global_position.z)
+	toss = toss.normalized() * 10
+	
+	enemy.mov_vec = Vector3(0,0,0)
+	enemy.mov_vec.x = -toss.x
+	enemy.mov_vec.z = -toss.y
 			 
 	#main loop
-	get_parent().get_parent().change_to_combat()
+	#get_parent().get_parent().change_to_combat()

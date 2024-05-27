@@ -35,9 +35,10 @@ var sub_type
 #magic slot means position in playerinfo.magskills
 var magic_slot = 0
 
+var player
 
 func _ready():
-	
+	player = get_parent().get_parent().get_node("Player")
 	set_colors()
 	mas_nr = $MainButtons.get_child_count() -1
 	main_butt_change()
@@ -111,10 +112,16 @@ func state_machine():
 				sub_inventory_set(choose_sub)
 			
 			elif Input.is_action_just_pressed("space"): 
-				if sub_type == "figures": 
-					PlayerInfo.current_figure = PlayerInfo.inv_figures[choose_sub]
+				if sub_type == "armor": 
+					PlayerInfo.current_armor = PlayerInfo.inv_armor[choose_sub]
+					player.get_node("Model/animNode/Base/Mesh").get_child(0).queue_free()
+					player.get_node("Model/animNode/Base/Mesh").add_child(\
+					load(PlayerInfo.current_armor.mesh).instantiate())
+					#player
 				elif sub_type == "weapons":
 					PlayerInfo.current_weapon = PlayerInfo.inv_weapons[choose_sub]
+					
+					#copy a setting of armor
 			
 			elif Input.is_action_just_pressed("q"):
 				anim.pawnsub_to_pawn()

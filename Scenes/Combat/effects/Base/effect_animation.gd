@@ -41,7 +41,6 @@ func _process(delta):
 	if action.hold_in_player:
 		self.position = player.position
 
-
 func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	damage_base = action.damage[index_at]
 	
@@ -53,8 +52,12 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 
 	#toss
 	if action.marker_type == "rotate":
+		#enemy.xz_vec = Vector2(0,0)
+		var xz_vec = Vector2(self.global_position.x, self.global_position.z)
 		enemy.xz_vec = Vector2(0,0)
-		enemy.xz_vec += action.xz_toss[index_at].rotated(-self.rotation.y)
+		enemy.xz_vec += xz_vec.direction_to(Vector2(enemy.global_position.x ,\
+		enemy.global_position.z)) * action.z_toss[index_at]
+		#enemy.xz_vec += action.xz_toss[index_at].rotated(-self.rotation.y)
 		if enemy.y_tossable:
 			enemy.y_vec += action.y_toss[index_at]
 		
@@ -64,12 +67,15 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		#number, then the system breaks
 		
 	else: 
-		var xz_vec = Vector2(self.position.x, self.position.z)
-		var rotat = xz_vec.direction_to(Vector2(enemy.position.x, enemy.position.z))
-		rotat = rotat.angle_to(Vector2(0,1))
+		print(action)
+		#var xz_vec = Vector2(self.position.x, self.position.z)
+		#var rotat = xz_vec.direction_to(Vector2(enemy.position.x, enemy.position.z))
+		#rotat = rotat.angle_to(Vector2(0,1))
 		
+		var xz_vec = Vector2(self.global_position.x, self.global_position.z)
 		enemy.xz_vec = Vector2(0,0)
-		enemy.xz_vec += action.xz_toss[index_at].rotated(-rotat) * distance * 5
+		enemy.xz_vec += xz_vec.direction_to(Vector2(enemy.global_position.x ,\
+		enemy.global_position.z)) * action.z_toss[index_at]
 		if enemy.y_tossable:
 			enemy.y_vec += action.y_toss[index_at]
 			

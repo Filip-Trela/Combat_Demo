@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://r8u1ygf0n8lf"]
+[gd_scene load_steps=4 format=3 uid="uid://r8u1ygf0n8lf"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/combatMenu/combat_menu.gd" id="1_5vbti"]
 [ext_resource type="PackedScene" uid="uid://oa87hgbsh3yx" path="res://Scenes/Combat/Menu/button_handler.tscn" id="2_6gfeu"]
 [ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="3_evpx7"]
-[ext_resource type="PackedScene" uid="uid://od7u8hgwrgyk" path="res://Scenes/Combat/Menu/combatMenu/combat_background.tscn" id="6_jm2eq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_iwa10"]
-font_size = 20
 
 [node name="CombatMenu" type="CanvasLayer"]
 script = ExtResource("1_5vbti")
@@ -14,6 +10,7 @@ script = ExtResource("1_5vbti")
 [node name="ButtonHandler" parent="." instance=ExtResource("2_6gfeu")]
 
 [node name="Hp_back" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1209.59, 262.157)
 rotation = -1.80804
 scale = Vector2(-4.4823, 0.89632)
@@ -21,35 +18,16 @@ texture = ExtResource("3_evpx7")
 
 [node name="PlayerHealth" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
-offset_left = 1222.95
-offset_top = 396.202
-offset_right = 1347.95
-offset_bottom = 423.202
-rotation = -1.81372
-scale = Vector2(2.1463, 1.44154)
+offset_left = 1253.0
+offset_top = 513.0
+offset_right = 1378.0
+offset_bottom = 540.0
+rotation = -3.13867
+scale = Vector2(2.1463, 0.400727)
 show_percentage = false
 
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(1280, 720)
-
-[node name="CombatBackground" parent="SubViewport" instance=ExtResource("6_jm2eq")]
-visible = false
-
-[node name="MeshInstance3D" parent="SubViewport/CombatBackground/Ring1" index="0"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.04, -0.98, 1.305)
-
-[node name="Instruction" type="Label" parent="."]
-offset_left = 6.0
-offset_top = 610.0
-offset_right = 254.0
-offset_bottom = 712.0
-text = "Press \"e\" to wait
-Press \"tab\" to open menu
-Move to let time flow"
-label_settings = SubResource("LabelSettings_iwa10")
-
 [node name="Mana_back" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1122.36, 348.586)
 rotation = 1.11958
 scale = Vector2(4.4823, -0.89632)
@@ -57,15 +35,16 @@ texture = ExtResource("3_evpx7")
 
 [node name="PlayerMana" type="ProgressBar" parent="."]
 modulate = Color(0.308848, 0.492366, 1, 1)
-offset_left = 1164.36
-offset_top = 479.586
-offset_right = 1289.36
-offset_bottom = 506.586
-rotation = -2.01281
-scale = Vector2(2.1463, 1.44154)
+offset_left = 1253.0
+offset_top = 564.0
+offset_right = 1378.0
+offset_bottom = 591.0
+rotation = -3.14013
+scale = Vector2(2.1463, 0.441718)
 show_percentage = false
 
 [node name="Sp_back" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1029.31, 421.427)
 rotation = -2.33461
 scale = Vector2(-4.4823, 0.89632)
@@ -73,20 +52,19 @@ texture = ExtResource("3_evpx7")
 
 [node name="PlayerSp" type="ProgressBar" parent="."]
 modulate = Color(1.92523e-06, 0.757802, 0.131229, 1)
-offset_left = 1109.0
-offset_top = 530.0
-offset_right = 1234.0
-offset_bottom = 557.0
-rotation = -2.34029
-scale = Vector2(2.1463, 1.44154)
+offset_left = 1253.0
+offset_top = 538.0
+offset_right = 1378.0
+offset_bottom = 565.0
+rotation = -3.14048
+scale = Vector2(2.1463, 0.361635)
 show_percentage = false
 
 [node name="StaminaSystem" type="Timer" parent="."]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(643, 359)
 scale = Vector2(21.0938, 12.2188)
 texture = ExtResource("3_evpx7")
-
-[editable path="SubViewport/CombatBackground"]

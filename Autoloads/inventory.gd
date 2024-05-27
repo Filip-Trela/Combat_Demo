@@ -43,12 +43,14 @@ func find_weapon(id):
 var basearmor ={
 	"name": "basefigure",
 	"description": "A base figure",
+	"mesh": "res://Scenes/MainLoop/Armors/BaseArmor/base_armor.tscn",
 	"id": 000
 }
 
-var lightarmor ={
-	"name": "light",
-	"description": "Figure with light armor",
+var tattered_armor ={
+	"name": "Tattered Armor",
+	"description": "Armor tattered by many battles",
+	"mesh": "res://Scenes/MainLoop/Armors/Tattered_armor/tattered_armor.tscn",
 	"id": 001
 }
 
@@ -59,7 +61,7 @@ var heavyarmor ={
 }
 
 
-var all_armor = [basearmor, lightarmor, heavyarmor]
+var all_armor = [basearmor, tattered_armor, heavyarmor]
 
 func find_armor(id):
 	for armor in all_armor:

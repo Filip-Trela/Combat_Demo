@@ -13,6 +13,7 @@ var base = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
 	"follow_allowed": false,
+	"z_toss": [5],
 	"xz_toss": [Vector2(0,0)], #odrzut
 	"y_toss": [0],
 	"player_xz_toss": Vector2(0,0), #odrzut
@@ -39,7 +40,8 @@ var slash = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
 	"follow_allowed": true,
-	"xz_toss": [10],
+	"z_toss": [5],
+	"xz_toss": [Vector2(0,0)],
 	"y_toss": [0],
 	"player_xz_toss": Vector2(0, 25), #odrzut
 	"hold_in_player":true,
@@ -60,7 +62,8 @@ var vertical_slash = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/SlashP/vertical_slash.tscn",
 	"follow_allowed": true,
-	"xz_toss": [8], #odrzut
+	"z_toss": [8], #odrzut
+	"xz_toss": [Vector2(0,0)],
 	"y_toss": [15],
 	"player_xz_toss": Vector2(0,5),
 	"hold_in_player":true,
@@ -83,7 +86,8 @@ var multislash = {
 	"effect_position": Vector3(0,0,4),
 	"effect_animation": "res://Scenes/Combat/effects/Multislash/multislash.tscn",
 	"follow_allowed": true,
-	"xz_toss": [1,1,7], #odrzut
+	"z_toss": [1,1,7], #odrzut
+	"xz_toss": [Vector2(0,0)],
 	"y_toss": [0, 0 , 0],
 	"player_xz_toss": Vector2(0,10), #odrzut
 	"hold_in_player":false,
@@ -105,7 +109,8 @@ var double_slash = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": null,
 	"follow_allowed": true,
-	"xz_toss": [3, 3],
+	"z_toss": [3, 3],
+	"xz_toss": [Vector2(0,0)],
 	"y_toss": [0, 5],
 	"player_xz_toss": Vector2(0,20), #odrzut
 	"hold_in_player":true,
@@ -133,8 +138,7 @@ var placeH = {
 	"marker_size": Vector3(5,5,5), 
 	"max_distance":20,
 	"effect_size": Vector3(2,2,2),
-	"xz_toss": Vector2(0,15),
-	"y_toss": 15,
+	"z_toss": [4],
 	"player_xz_toss": Vector2(0,0),
 	"hold_in_player":false,
 	"by_weapon": false,
@@ -160,8 +164,8 @@ var push = {
 	"effect_position": Vector3(0,0,0),
 	"effect_animation": "res://Scenes/Combat/effects/PlaceHolder/BoomP.tscn",
 	"follow_allowed": false,
-	"xz_toss": Vector2(0,20), #odrzut
-	"y_toss": 20,
+	"xz_toss": [20], #odrzut
+	"z_toss": [2],
 	"player_xz_toss": Vector2(0,0),
 	"hold_in_player":false,
 	"by_weapon": false,

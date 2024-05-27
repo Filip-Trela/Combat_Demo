@@ -32,7 +32,7 @@ func _on_hitbox_combat_area_shape_entered(area_rid, area, area_shape_index, loca
 	
 	#mozliwe ze pozniej wywalic
 	enemy.xz_vec = Vector2(0,0)
-	enemy.xz_vec += action.xz_toss[index_at] * player.xz_dir
+	enemy.xz_vec += action.z_toss[index_at] * player.xz_dir
 	if enemy.y_tossable:
 		enemy.y_vec += action.y_toss[index_at]
 	

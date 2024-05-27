@@ -10,14 +10,14 @@ var mov_vec = Vector3(0,y_toss, speed)
 var max_grav = -20
 
 func _physics_process(delta):
-	if PlayerInfo.is_moving:
-		
-		mov_vec.y -= weight
-		mov_vec.y = clamp(mov_vec.y, max_grav, 100)
-		
-		
-		velocity = mov_vec
-		move_and_slide()
+	
+	mov_vec.y -= weight * Settings.current_time
+	mov_vec.y = clamp(mov_vec.y, max_grav, 100)
+	
+	velocity.x = mov_vec.x* Settings.current_time
+	velocity.y = mov_vec.y
+	velocity.z = mov_vec.z* Settings.current_time
+	move_and_slide()
 
 
 

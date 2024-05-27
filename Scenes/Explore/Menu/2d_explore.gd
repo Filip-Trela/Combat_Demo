@@ -20,14 +20,15 @@ func _ready():
 
 
 func _process(delta):
-
 	#DLA OBIEKTOW DO INTERAKCJI
 	if player.closest_interact and interact_ind.get_child_count() != 0:
-		i_indicator.position = get_viewport().get_camera_3d().unproject_position(player.closest_interact.global_position)
+		i_indicator.position = get_viewport().get_camera_3d().\
+		unproject_position(player.closest_interact.global_position)
 	#gdy powstaje indykator
 	elif player.closest_interact and interact_ind.get_child_count()== 0: 
 		i_indicator = interact_indicator.instantiate()
-		i_indicator.position = get_viewport().get_camera_3d().unproject_position(player.closest_interact.global_position)
+		i_indicator.position = get_viewport().get_camera_3d().\
+		unproject_position(player.closest_interact.global_position)
 		interact_ind.add_child(i_indicator)
 	#usuniecie indykatora
 	elif not player.closest_interact and interact_ind.get_child_count() != 0:

@@ -1,44 +1,120 @@
 Legenda:
-	DONE skonczone
+	DONE / %% skonczone
 	~~ jest baza albo czegos brakuje
 
+
+! to co moze byc w pierwszej kolejnosci
+DEMO VERSION:
+- (start w main menu przenosi do "start new game") oraz "load game"
+	samo load game pewnie bedzie pozniej stworzone po bonfire
+- (system/opcje w menu)
+	jest fullscreen, mozna jeszcze ogarnac resolution ale to aktualnie jest zbedne
+- na poczatku jest brak itemow, brak broni, tylko przebranie
+	z przebraniem easy, itemy trzeba bedzie ogarnac, bron mozna ogarnac jako piesci
+!- (stworzenie hub'u)
+	danie im bonfire oraz npc'tow
+!- stworzenie boss wagon
+	model
+!- boss w explore ma zero mov speed
+!- wejscie w area w boss wagon odpala cutscenke po czym combat
+	w skrypcie to sie ogarnie
+- dwie fazy boss'a oddzielone cutscenka
+- nowy hub po pokonaniu boss'a
+!- zabicie przeciwnika odpala jego animacje i po jego pelnej smierci przerzuca
+w explore
+!- wejscie w combat zamyka drzwi, ogarnac animacje nalezy tego
+- danie kuli dloni stworom i ogarniecie animacji
+- ogarniecie ui w combat
+- ogarniecie ui w explore
+- ogarnicie ai wrogow
+- dwie bronie, typu gun maul and fists, ktore sa wybierane gdy rzecz nie jest
+wybierana, taki reset, 2/3 stroje
+- ogarniecie czegos w stylu bonfire
+	aktualnie tylko teleportacja
+!- obroty modelow ogarnac poprawne
+mozliwe ze przy enemy beda rozne
+!- enemy zostaje w swoim pomieszczeniu
+	to przy nawigacji i blokadach za pomoca kolizji
+- animacje
+- rzucanie itemow, (ogarniecie tego z czasem), basic modele godotowe
+	dodatkowo efekty, dawanie ich jak, efekt gdy sie popsuja etc
+- w combat wyrzuca losowo obstacles jesli moze
+	mozliwe ze bedzie, mozliwe ze nie bedzie ich w ogole
+- camera attributes w enviroment pomoze w np dizzy efekt czy cos
+- naprawic camere (spring, kolizje etc, zarazem w mesh zanikanie jesli blisko kamery)
+	czyli od teraz obiekty maja tez specjalna kolizje dla kamery samej,
+	a meshe jak drzwi maja dissolve, ktore pozniej jest zmieniane w combat
+- enemy moze zaatakowac pierwszy i wtedy tez przenosi do combat,
+przez chwile enemy nie atakuje, mozliwe ze specjalna animacja w combat i state
+podczas ktorego nic nie robi, i np zawsze sekunda badz dwie
+- zapis gry, zapisuje raz na jakis czas stan i odblokowane bonfire, rowniaz wczytywanie
+- armor podmienia tylko meshe w playerze, weapon zmienia mesh na basic, animacje
+wlasne daje i hitbox sizes etc, po czym resetuje skorke w mesh
+- mozliwe ze dac pasek zycia dla enemy, wraz z ukazanym wizualnie ze enemy
+jest weak na cos
+
+
+Important wagony:
+	- hub
+	- start
+	- enemy wagon
+	- item wagon (kinda empty)
+	- mix wagonow (item oraz enemy)
+		mozliwe ze trzeba bedzie dac global var w player info mowiace o
+		aktualnym state (combat or explore), aby itemy nie byly zbierane ani nie
+		pokazywaly indykatorow podczas walki
+
+ANIMACJE PLAYERA:
+	idle
+	chodzenie
+	bieg
+	unik
+	ataki
+	bycie zaatakowanym na tyle ze odrzuca
+	ogarniecie w animation tree aby mixowal aktualna animacje z atakiem ktory
+nie odrzuca
+	ataki magiczne
+	rzut itemu
+	uzycie na sobie itemu
+	
+ANIMACJE ENEMY:
+	idle
+	chodzenie
+	biegniecie
+	
+
+
+
+
+
+
+DEMO DONE:
+- (mini intro przed otwarciem gry, moze byc mala animacja godota,
+bedzie to niwelowalo problem z inputem space na start)
+jest, mozna dodac troche wizualiow do tego co najwyzej
+!- (cutscence'ki, stworzenie ich, danie jednej na start new game oraz dla boss'a)
+!- (atak w explore odsuwa przeciwika i odpala combat)
+	
+	
+
+
+
+
+
+
+
+
 TODOS:
-	DONE~~
-	przy modyfikacji explore to combat:
-		player
-		enemy ogarnac, pozmieniac jak playera
-		world reaguje na stop time etc
-	
-	DONE
-	powrot do fasoli
-	
-	DONE
-	kilka wagonow, z niczym, z itemami, z npc, z wrogami
-	
-	wywalic enemy indicator i kiedys wstawic atak ktory wrzuca w combat jesli
-	uderzy enemy.
-	odpali animacje przejscia i wagonu, enemy bedzie passive i invincible,
-	player bedzie mogl sie poruszac i to chwila aby uciekl czy cos
-	
-	DONE
-	itemy i system zbierania: zmienic figure na armor
+	bardzo mozliwe ze y toss wywalic
 	
 	system eventow w explore (bycie w tunelu na przyklad, gdzie wrogowie sa
 	bardziej agresywni; bycie w pustce, niczym mapka infinite azure z tekken 7)
-	
-	DONE
-	boss i systemy z nim (doslownie enemy tyle ze wyswietla jego zycie na hud)
-	dodaje do hud combat pasek zycia i zapisuje go sobie, przy take damage 
-	go update'uje
 	
 	polepszyc koniec combat world, czyli cos sie wyswietla, daje itemy etc
 	
 	dodanie do explore:
 		drzwi DONE
 		szafki czyli itemy tylko nie znikaja
-	
-	DONE
-	w combacie nie ma pelnego stop, tylko np jest predkosc x0.1
 	
 	DONE
 	obstacles w combat jak szafki przez ktore mozna przeskoczyc (specjalne
@@ -53,41 +129,9 @@ TODOS:
 	interaktywne rzeczy w combat, stol ktory mozna kopnac i leci w zaleznosci
 	od pozycji stolu i playera
 	
-	DONE ~~
-	liczniki wagonow, ~~ktore sprawiaja ze wagony np 1, 24 sa zawsze te same
-	
 	teleporty miedzy wagonami
 	
-	~~
-	minimalne menu w combat, aby bylo szybciej i przelaczalo tylko typy, scroll
-	przestawia action
-	
-	wagony ktore nie sa wagonami, tylko np polmostem nad przepascia a na dole oko
-	albo np na budynku w trakcie budowy
-	
-	DONE
-	lepszy transition
-	
-	dawany efekt playerowi na poczatku jesli to wrog go zaatakuje
-	
-	combat poprawic, szybszy bez szukania wszystkiego w menu
-	idea: male scrolle dla phys i mag, dla itemow uzywalnych albo scroll 
-	albo mini menu
-	
-	baza dla cutscenek dodana
-	
-	DONE
-	pasek magii i magiczne ataki zabieraja ja
-	
-	DONE
-	mozliwe ze timera wywalic w combat
-	
-	DONE
-	stop time plyniejszy
-	
 	ogarnac zuzycie itemow podczas combat
-	
-	system self cost z akcji ogarnac aby byla blokada 
 	
 	TOTAL POLISH
 	przejscie przez wszystkie sceny, json'y i skrypty, optymalizacja tego,
@@ -96,48 +140,8 @@ TODOS:
 	Connected non linear world (portale), ktore beda laczyc wagony z innymi
 	srodowiskami
 	
-	DONE
-	animacje wagonow z przejscia explore -> combat
-	combat -> explore
-	
 	W combat przy animacji wytwarza randomowo iles tam propow do interakcji
 	badz obstacles
-	
-	zmienic w koncu hitboxy z efektow na te z gracza
-	
-	podczas combat jest cos takiego, ze gdy zrobisz jeden atak, musisz czekac
-	na pelne recovery przed uzyciem tego samego, chyba ze uzyjesz innego
-	jakis pasek staminy od razu czy cos
-
-	animacje fasol, lepiej wygladajace, modele wagonow z godota, wszystko proste
-
-	zabawa z tym stop time, jest stopowany tylko podczas celowania oraz bycia
-	blisko konca animacji
-
-przy zmianie systemu combat:
-	null marker type ma problem bo toss do dupy done
-	
-	state wiekszosc nalezy wywalic w button handler half done
-	
-	aktualny jest cos w stylu bunny hop przy nakladaniu na siebie atakow done
-	
-	majac dwa magic skille czasami nie ogarnia tego i nic nie robi
-	
-	czasami po markerze cos znow nie dziala
-
-
-
-
-PLANS:
-	po smierci traci sie itemy (nie stroje i weapons, tylko itemy nieznacze,
-	 czyli bez kluczy etc)
-	system w wagonach, ktory czasami sprawia ze jestescie w tunelu, wiecej enemy,
-	bardziej agresywni etc etc
-	
-	moze stop time tylko podczas celowania
-	
-	system z bossem
-	
 		
 	wiecej rzeczy do interakcji:
 		explore
@@ -161,18 +165,7 @@ LATER:
 		
 	main menu mozna zrobic
 	
-	animacje dla enemy i postaci z jedna bronia, dwa meshe postaci,
-	 male female, ogarniecie
-	animacji meshow playera w menu
-	bedzie trzeba ogarnac kamere, bo jesli y nie takie same i
-	z move wychodzi kamera to cos zle wychodzi na koniec
-	
-	xz i v tossy czy tez offsety mozna pozniej wrzucic do export vars
-	 podczas animacji
-	kolizje atakow jako jeden obiekt a nie kilka
-	
-tab zamyka tez okno niewazne w ktorym stanie
-	TO PRZY ANIMACJACH SIE ZROBI
+	animacje dla enemy i postaci z jedna bronia
 	
 	po ataku, damage i stagger jest modyfikowany przez stagger points, action
 	 type(if the enemy
@@ -186,20 +179,6 @@ tab zamyka tez okno niewazne w ktorym stanie
 	na dole dac area ktory gdy wykryje gracza wyrzuca go na node3d.pos.z
 	 aby wrocil na mapke
 		
-	
-
-
-	
-
-
-IDEAS:
-	- follow attack tylko przy combat skills(Physskills now), przy mag skills
-	 nie ma
-	dodatkowo czesto blokuja ruch na maly interwal czasu, ale to bedzie
-	 w animacji
-	
-	- typy magii aby byly zwiazane z animacjami:
-
 
 
 
@@ -233,6 +212,8 @@ NA CZYM SIE WZOROWAC:
 	PERSONA
 	SEKIRO
 	BLOODBORNE
+	PSX style like
+	Bloodborne demake
 
 
 @

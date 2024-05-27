@@ -1,0 +1,272 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddgsyj6dnydqf"]
+
+[ext_resource type="Script" path="res://CutsceneBase.gd" id="1_vsinh"]
+[ext_resource type="PackedScene" uid="uid://cmehdfsp8cj8y" path="res://Scenes/Explore/Wagons/DEMO/start_wagon.tscn" id="2_bwxvg"]
+[ext_resource type="PackedScene" uid="uid://c51nsm85lt4iv" path="res://Assets/3D/Player/Base/base_placeholder.tscn" id="3_w33y0"]
+[ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="4_rs0ky"]
+
+[sub_resource type="Animation" id="Animation_pjumh"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_38lt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForAnimation/Base/RightArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.01416, 0.117077, -0.410781)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ForAnimation/Base/RightArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0561283, -1.13602, -0.0260473)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ForAnimation/Base/LeftArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.04043, 0.0801932, -0.688589)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ForAnimation/Base/Mesh:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.489726, -0.599704)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ForAnimation/Base/Mesh:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ForAnimation/Camera3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.725, 2.276, 11.4)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ForAnimation/Camera3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.314159, 0.584685, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hplct"]
+resource_name = "cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForAnimation/Base/RightArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.01416, 0.117077, -0.410781), Vector3(1.01416, 0.117077, -0.410781), Vector3(1.01416, 0.117077, -0.410781), Vector3(1.01416, 0.437701, -0.410781), Vector3(1.01416, 0.437701, -0.061945)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ForAnimation/Base/RightArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0561283, -1.13602, -0.0260473), Vector3(-0.0561283, -1.13602, -0.0260473), Vector3(-0.0561283, -1.13602, -0.0260473), Vector3(-0.334736, -1.10933, -0.161933), Vector3(0.0346467, -0.480326, -0.362071)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ForAnimation/Base/LeftArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2, 3, 3.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.04043, 0.0801932, -0.688589), Vector3(-1.04043, 0.0801932, -0.688589), Vector3(-0.863026, 0.424549, -1.11364), Vector3(-0.685622, 0.0801932, -1.5387), Vector3(-0.685622, 0.0801932, -1.5387), Vector3(-0.475611, 0.340625, -0.962936), Vector3(-0.786507, 0.479822, -0.238636)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ForAnimation/Base/Mesh:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.489726, -0.599704), Vector3(0, 0.489726, -0.599704), Vector3(0, 0.747264, -0.599704), Vector3(0, 0.800864, -0.182253), Vector3(0, 0.794653, 0.0928373)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ForAnimation/Base/Mesh:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.28271, 0, 0), Vector3(-0.421898, 0, 0), Vector3(-0.0574388, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ForAnimation/Camera3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.725, 2.276, 11.4), Vector3(1.725, 0.391, 11.955), Vector3(1.725, 0.391, 12.7)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ForAnimation/Camera3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.314159, 1.00356, 0), Vector3(0.314159, 0.724312, 0), Vector3(0.314159, 0.322886, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shay8"]
+_data = {
+"RESET": SubResource("Animation_38lt8"),
+"cutscene": SubResource("Animation_hplct"),
+"end": SubResource("Animation_pjumh")
+}
+
+[node name="Start_Cutscene" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_vsinh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_shay8")
+}
+autoplay = "cutscene"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(641.5, 359)
+scale = Vector2(21.0469, 12.2188)
+texture = ExtResource("4_rs0ky")
+
+[node name="ForAnimation" type="Node3D" parent="."]
+
+[node name="StartWagon" parent="ForAnimation" instance=ExtResource("2_bwxvg")]
+
+[node name="Base" parent="ForAnimation" instance=ExtResource("3_w33y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.9314)
+
+[node name="Mesh" parent="ForAnimation/Base" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LeftArm" parent="ForAnimation/Base" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04043, 0.0801932, -0.688589)
+
+[node name="RightArm" parent="ForAnimation/Base" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875319, 0.801034, 0)
+
+[node name="CollisionShape3D" parent="ForAnimation/Base/Hitbox_Combat" index="0"]
+transform = Transform3D(-0.0284299, 0.999596, 0, -0.999596, -0.0284299, 0, 0, 0, 1, 0, 0.861041, -1.45406)
+
+[node name="Camera3D" type="Camera3D" parent="ForAnimation"]
+transform = Transform3D(0.833886, 0.170558, 0.524923, 0, 0.951057, -0.309017, -0.551937, 0.257685, 0.793073, 1.725, 2.276, 11.4)
+current = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="ForAnimation/Base"]

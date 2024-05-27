@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1w54c2qesf83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k24px"]
+albedo_color = Color(0.370364, 0.370364, 0.370364, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xegen"]
+material = SubResource("StandardMaterial3D_k24px")
+radius = 0.51
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lppp"]
+albedo_color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_we3wt"]
+material = SubResource("StandardMaterial3D_5lppp")
+radius = 0.52
+height = 1.44
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1sin"]
+albedo_color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_npyya"]
+material = SubResource("StandardMaterial3D_v1sin")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjlrp"]
+albedo_color = Color(0.641934, 0.641934, 0.641934, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4me5v"]
+material = SubResource("StandardMaterial3D_yjlrp")
+top_radius = 0.12
+bottom_radius = 0.335
+height = 0.245
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th568"]
+cull_mode = 2
+albedo_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g2ggq"]
+material = SubResource("StandardMaterial3D_th568")
+size = Vector2(0.16, 0.56)
+subdivide_depth = 3
+
+[node name="Tattered_armor" type="Node3D"]
+
+[node name="Cloth" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("CapsuleMesh_xegen")
+skeleton = NodePath("../../..")
+
+[node name="Cloth2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.147545, 0)
+mesh = SubResource("CapsuleMesh_we3wt")
+skeleton = NodePath("../../..")
+
+[node name="Eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155092, 0.485883, -0.455986)
+mesh = SubResource("SphereMesh_npyya")
+
+[node name="Eye2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 0.486, -0.456)
+mesh = SubResource("SphereMesh_npyya")
+
+[node name="Naramienik" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.958477, 0.28517, 0, -0.28517, 0.958477, 0, 0, 0, 1, 0.440557, 0.21349, 0)
+mesh = SubResource("CylinderMesh_4me5v")
+
+[node name="SoftBody3D" type="SoftBody3D" parent="."]
+transform = Transform3D(0.227654, 0.973742, -4.25636e-08, 0, -4.37114e-08, -1, -0.973742, 0.227654, -9.95108e-09, 0.684454, -0.265067, 0)
+mesh = SubResource("PlaneMesh_g2ggq")
+skeleton = NodePath("../Naramienik")
+pinned_points = [9, 8]
+attachments/0/point_index = 9
+attachments/0/spatial_attachment_path = NodePath("../Naramienik")
+attachments/0/offset = Vector3(0.370239, -0.389134, 0)
+attachments/1/point_index = 8
+attachments/1/spatial_attachment_path = NodePath("../Naramienik")
+attachments/1/offset = Vector3(0.370239, -0.389134, 0)
+
+[node name="SoftBody3D2" type="SoftBody3D" parent="."]
+transform = Transform3D(0.723773, 0.678006, -0.128294, -0.0936293, -0.0877088, -0.991736, -0.683656, 0.729804, -3.19008e-08, 0.591892, -0.250175, 0.208761)
+mesh = SubResource("PlaneMesh_g2ggq")
+skeleton = NodePath("../Naramienik")
+pinned_points = [9, 8]
+attachments/0/point_index = 9
+attachments/0/spatial_attachment_path = NodePath("../Naramienik")
+attachments/0/offset = Vector3(0.174883, -0.134188, 0.263453)
+attachments/1/point_index = 8
+attachments/1/spatial_attachment_path = NodePath("../Naramienik")
+attachments/1/offset = Vector3(0.290151, -0.115523, 0.154068)
+
+[node name="SoftBody3D3" type="SoftBody3D" parent="."]
+transform = Transform3D(-0.718873, 0.669643, -0.186544, 0.395552, 0.173379, -0.90193, -0.571629, -0.722161, -0.389517, 0.546719, -0.196307, -0.348308)
+mesh = SubResource("PlaneMesh_g2ggq")
+skeleton = NodePath("../Naramienik")
+pinned_points = [8, 9]
+attachments/0/point_index = 8
+attachments/0/spatial_attachment_path = NodePath("../Naramienik")
+attachments/0/offset = Vector3(0.132517, -0.0916272, -0.284973)
+attachments/1/point_index = 9
+attachments/1/spatial_attachment_path = NodePath("../Naramienik")
+attachments/1/offset = Vector3(0.260808, -0.119488, -0.193513)

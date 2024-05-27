@@ -87,10 +87,49 @@ func state_machine():
 				$MainButtons.visible = true
 				$StartButtons.visible = false
 				state = "main_butt"
+				
+				
+		"set_butt": 
+			if Input.is_action_just_pressed("d"):
+				choose_s += 1
+				if choose_s > slave_nr:
+					choose_s = 0
+				set_butt_change(choose_s)
+					
+			elif Input.is_action_just_pressed("a"):
+				choose_s -=1
+				if choose_s < 0:
+					choose_s = slave_nr
+				set_butt_change(choose_s)
+				
+			elif Input.is_action_just_pressed("space"):
+				slave_node.activate()
+			
+			elif Input.is_action_just_pressed("q"):
+				slave_nr = 0
+				slave_node = 0
+				choose_s = 0
+				$MainButtons.visible = true
+				$SettingButtons.visible = false
+				state = "main_butt"
+
+
 
 func main_butt_change():
 	mas_node = $MainButtons.get_child(choose_m)	
+	for button in $MainButtons.get_children():
+		button.scale = Vector2(1,1)
+	mas_node.scale = Vector2(1.2, 1.2)
 
 func start_butt_change(nr):
 	slave_node = $StartButtons.get_child(nr)
+	for button in $StartButtons.get_children():
+		button.scale = Vector2(1,1)
+	slave_node.scale = Vector2(1.2, 1.2)
 
+func set_butt_change(nr):
+	slave_node = $SettingButtons.get_child(nr)
+	for button in $SettingButtons.get_children():
+		button.scale = Vector2(1,1)
+	slave_node.scale = Vector2(1.2, 1.2)
+	

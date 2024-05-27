@@ -1,8 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://c51nsm85lt4iv"]
+[gd_scene load_steps=21 format=3 uid="uid://c51nsm85lt4iv"]
 
 [ext_resource type="Script" path="res://Assets/3D/Player/Base/playerAnimations.gd" id="1_trgsa"]
+[ext_resource type="PackedScene" uid="uid://dax3xqrohregh" path="res://Scenes/MainLoop/Armors/BaseArmor/base_armor.tscn" id="2_hksh4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i876c"]
+albedo_color = Color(0.804336, 0.649086, 0.5223, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_d6pg3"]
+material = SubResource("StandardMaterial3D_i876c")
 
 [sub_resource type="Animation" id="Animation_jibg1"]
 resource_name = "Die"
@@ -11,26 +16,26 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:position")
+tracks/0/path = NodePath("Mesh:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.7, 0.9, 1.25, 1.4, 1.45, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1, 0), Vector3(-0.0581324, 1, -0.186927), Vector3(0.13388, 1, -0.211047), Vector3(0, 1, -0.223107), Vector3(0, 1, -0.313556), Vector3(0, 0.933671, -0.205017), Vector3(0, 0.511576, 0.482394), Vector3(0, 0.535696, 0.482394), Vector3(0, 0.511576, 0.482394)]
+"values": [Vector3(0, 0, 0), Vector3(-0.233453, -0.0229194, 0.098768), Vector3(-0.175972, 0.0213003, -0.131514), Vector3(-0.148894, 0, 0), Vector3(0.150203, 0, 0), Vector3(0.558121, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.52659, 0, 0), Vector3(1.5708, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mesh:rotation")
+tracks/1/path = NodePath("Mesh:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.7, 0.9, 1.25, 1.4, 1.45, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.233453, -0.0229194, 0.098768), Vector3(-0.175972, 0.0213003, -0.131514), Vector3(-0.148894, 0, 0), Vector3(0.150203, 0, 0), Vector3(0.558121, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.52659, 0, 0), Vector3(1.5708, 0, 0)]
+"values": [Vector3(0, 1, 0), Vector3(-0.0581324, 1, -0.186927), Vector3(0.13388, 1, -0.211047), Vector3(0, 1, -0.223107), Vector3(0, 1, -0.313556), Vector3(0, 0.933671, -0.205017), Vector3(0, 0.511576, 0.482394), Vector3(0, 0.535696, 0.482394), Vector3(0, 0.511576, 0.482394)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -55,6 +60,117 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.733475, 0.499792, 0), Vector3(-0.733475, 1.19595, 0), Vector3(0.683748, 0.569832, -0.489944), Vector3(0.916881, 0.267902, 0.541031), Vector3(1.38315, 2.25141, 2.60298), Vector3(0.0181486, 3.06522, 2.2276)]
+}
+
+[sub_resource type="Animation" id="Animation_c0jca"]
+resource_name = "DoubleSlash"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.875319, 0.801034, 0), Vector3(0.973, 1.57947, 0.324057), Vector3(0.973, 1.57947, 0.365494), Vector3(-0.31368, 0.692609, -1.26794), Vector3(-0.31368, 0.73083, -1.16404), Vector3(1.13594, 1.5493, -0.5855), Vector3(1.21067, 1.36224, -0.439125), Vector3(0.875319, 0.801034, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.36745, -1.06636, 0.195785), Vector3(0.538444, -1.20335, 0.265546), Vector3(-0.374347, 1.01044, 0.642218), Vector3(-0.307456, 1.62344, 0.646002), Vector3(0.565906, -0.897073, 0.598066), Vector3(0.525203, -1.06163, 0.264872), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mesh:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0754331), Vector3(0, 0, -0.146346), Vector3(-0.19289, -0.0443002, 0.0809065), Vector3(-0.331434, -0.0459822, 0.0873809), Vector3(0.226605, -0.111051, -0.21846), Vector3(0.266814, -0.135541, -0.32975), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mesh:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(-0.0847898, 1, 0), Vector3(-0.12113, 1, 0), Vector3(-0.357405, 1, -0.141158), Vector3(-0.357405, 1, -0.178348), Vector3(-0.0267237, 1, 0.199001), Vector3(0.172303, 1, 0.269932), Vector3(0, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"anim_starts"
+}, {
+"args": [],
+"method": &"next_index"
+}, {
+"args": [],
+"method": &"stop_time"
+}, {
+"args": [],
+"method": &"start_time"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitbox_Combat:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.225, 0.25, 0.325, 0.35, 0.475, 0.5, 0.55, 0.575, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true, true, false, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hitbox_Combat/CollisionShape3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.861041, -1.69404)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitbox_Combat/CollisionShape3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.59923)]
 }
 
 [sub_resource type="Animation" id="Animation_dj0jg"]
@@ -89,26 +205,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Mesh:position")
+tracks/2/path = NodePath("Mesh:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 1.04774, 0), Vector3(0, 1, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.0359014, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh:rotation")
+tracks/3/path = NodePath("Mesh:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0359014, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 1, 0), Vector3(0, 1.04774, 0), Vector3(0, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ksikq"]
@@ -221,26 +337,26 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Mesh:position")
+tracks/9/path = NodePath("Mesh:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Mesh:rotation")
+tracks/10/path = NodePath("Mesh:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 1, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -381,26 +497,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Mesh:position")
+tracks/4/path = NodePath("Mesh:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.4, 0.6, 0.85),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1, 0), Vector3(-0.0900383, 1.18008, 0.188263), Vector3(-0.163706, 0.967259, 0.278301), Vector3(-0.196344, 0.967259, 0.278301), Vector3(0.237375, 0.967259, 0.278301), Vector3(-0.0941215, 1, 0), Vector3(0, 1, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.11753, -1.695e-09, -0.102102), Vector3(-0.195468, 0.0213081, -0.211389), Vector3(-0.194338, 0.030003, -0.256277), Vector3(0.0100798, -0.0747097, 0.282358), Vector3(0, 0, -0.111649), Vector3(0, 0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Mesh:rotation")
+tracks/5/path = NodePath("Mesh:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.4, 0.6, 0.85),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.11753, -1.695e-09, -0.102102), Vector3(-0.195468, 0.0213081, -0.211389), Vector3(-0.194338, 0.030003, -0.256277), Vector3(0.0100798, -0.0747097, 0.282358), Vector3(0, 0, -0.111649), Vector3(0, 0, 0)]
+"values": [Vector3(0, 1, 0), Vector3(-0.0900383, 1.18008, 0.188263), Vector3(-0.163706, 0.967259, 0.278301), Vector3(-0.196344, 0.967259, 0.278301), Vector3(0.237375, 0.967259, 0.278301), Vector3(-0.0941215, 1, 0), Vector3(0, 1, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -565,26 +681,26 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Mesh:position")
+tracks/6/path = NodePath("Mesh:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0.00217629, 0.1, 0.25, 0.35, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0.0522895, 1, 0), Vector3(0.115037, 1, 0), Vector3(-0.0418315, 1, 0), Vector3(-0.0418315, 1, 0.158044), Vector3(0, 1, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.0895703, -2.33648e-10, 0.0320442), Vector3(-0.207265, -0.0176269, 0.228959), Vector3(0.213704, -0.0894272, -0.101385), Vector3(0.364168, -0.0935381, -0.115772), Vector3(0, 0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Mesh:rotation")
+tracks/7/path = NodePath("Mesh:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0.00217629, 0.1, 0.25, 0.35, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0895703, -2.33648e-10, 0.0320442), Vector3(-0.207265, -0.0176269, 0.228959), Vector3(0.213704, -0.0894272, -0.101385), Vector3(0.364168, -0.0935381, -0.115772), Vector3(0, 0, 0)]
+"values": [Vector3(0, 1, 0), Vector3(0.0522895, 1, 0), Vector3(0.115037, 1, 0), Vector3(-0.0418315, 1, 0), Vector3(-0.0418315, 1, 0.158044), Vector3(0, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -663,117 +779,6 @@ tracks/2/keys = {
 "values": [false, true, true, false, false]
 }
 
-[sub_resource type="Animation" id="Animation_c0jca"]
-resource_name = "DoubleSlash"
-step = 0.025
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RightArm:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.875319, 0.801034, 0), Vector3(0.973, 1.57947, 0.324057), Vector3(0.973, 1.57947, 0.365494), Vector3(-0.31368, 0.692609, -1.26794), Vector3(-0.31368, 0.73083, -1.16404), Vector3(1.13594, 1.5493, -0.5855), Vector3(1.21067, 1.36224, -0.439125), Vector3(0.875319, 0.801034, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.36745, -1.06636, 0.195785), Vector3(0.538444, -1.20335, 0.265546), Vector3(-0.374347, 1.01044, 0.642218), Vector3(-0.307456, 1.62344, 0.646002), Vector3(0.565906, -0.897073, 0.598066), Vector3(0.525203, -1.06163, 0.264872), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mesh:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(-0.0847898, 1, 0), Vector3(-0.12113, 1, 0), Vector3(-0.357405, 1, -0.141158), Vector3(-0.357405, 1, -0.178348), Vector3(-0.0267237, 1, 0.199001), Vector3(0.172303, 1, 0.269932), Vector3(0, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2, 0.35, 0.5, 0.6, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0754331), Vector3(0, 0, -0.146346), Vector3(-0.19289, -0.0443002, 0.0809065), Vector3(-0.331434, -0.0459822, 0.0873809), Vector3(0.226605, -0.111051, -0.21846), Vector3(0.266814, -0.135541, -0.32975), Vector3(0, 0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"anim_starts"
-}, {
-"args": [],
-"method": &"next_index"
-}, {
-"args": [],
-"method": &"stop_time"
-}, {
-"args": [],
-"method": &"start_time"
-}]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Hitbox_Combat:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.225, 0.25, 0.325, 0.35, 0.475, 0.5, 0.55, 0.575, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, false, true, true, false, false, true, true, false, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Hitbox_Combat/CollisionShape3D:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.861041, -1.69404)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Hitbox_Combat/CollisionShape3D:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -1.59923)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yjvx6"]
 _data = {
 "Die": SubResource("Animation_jibg1"),
@@ -787,7 +792,18 @@ _data = {
 "attack_explore": SubResource("Animation_e6auj")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4646q"]
+albedo_color = Color(1, 0.764706, 0.666667, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cjqfa"]
+material = SubResource("StandardMaterial3D_4646q")
+radius = 0.15
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14hi5"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_fgtlr"]
+material = SubResource("StandardMaterial3D_14hi5")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 1.5
@@ -804,6 +820,8 @@ script = ExtResource("1_trgsa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_d6pg3")
 
+[node name="BaseArmor" parent="Mesh" instance=ExtResource("2_hksh4")]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yjvx6")
@@ -812,12 +830,18 @@ libraries = {
 [node name="LeftArm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.796968, 0.795135, 0)
 
+[node name="Hand" type="MeshInstance3D" parent="LeftArm"]
+mesh = SubResource("SphereMesh_cjqfa")
+
 [node name="RightArm" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875319, 0.801034, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightArm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.555365)
 mesh = SubResource("CylinderMesh_fgtlr")
+
+[node name="Hand" type="MeshInstance3D" parent="RightArm"]
+mesh = SubResource("SphereMesh_cjqfa")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 visible = false

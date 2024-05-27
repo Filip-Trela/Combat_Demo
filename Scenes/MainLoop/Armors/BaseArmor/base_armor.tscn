@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dax3xqrohregh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_curdg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gcdyl"]
+material = SubResource("StandardMaterial3D_curdg")
+radius = 0.51
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmq5w"]
+albedo_color = Color(0.324565, 0.212725, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kma7c"]
+material = SubResource("StandardMaterial3D_rmq5w")
+radius = 0.52
+height = 1.24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2gs1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ki0eg"]
+material = SubResource("StandardMaterial3D_u2gs1")
+size = Vector3(0.35, 0.47, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1sin"]
+albedo_color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_npyya"]
+material = SubResource("StandardMaterial3D_v1sin")
+radius = 0.1
+height = 0.2
+
+[node name="BaseArmor" type="Node3D"]
+
+[node name="Cloth" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("CapsuleMesh_gcdyl")
+skeleton = NodePath("../../..")
+
+[node name="Cloth2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0342569, 0)
+mesh = SubResource("CapsuleMesh_kma7c")
+skeleton = NodePath("../../..")
+
+[node name="Cloth3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.034, -0.42)
+mesh = SubResource("BoxMesh_ki0eg")
+skeleton = NodePath("../../..")
+
+[node name="Eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155092, 0.485883, -0.455986)
+mesh = SubResource("SphereMesh_npyya")
+
+[node name="Eye2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 0.486, -0.456)
+mesh = SubResource("SphereMesh_npyya")

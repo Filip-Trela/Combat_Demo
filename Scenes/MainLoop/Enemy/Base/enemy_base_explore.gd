@@ -50,7 +50,7 @@ var acceleration = 0.1
 var deceleration = 0.4
 var max_speed = 7
 
-
+@onready var main_loop = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
 
 
 
@@ -148,11 +148,26 @@ func state_machine():
 			
 		"search":
 			state = "back to path"
-			#anim.play("search")
+			#anim.play("search")z
+			
+		"attacked":
+			mov_vec = mov_vec.move_toward(Vector3(0,0,0), deceleration)
+			velocity = mov_vec
+			move_and_slide()
+			#toss i po tossie odpala
+			if mov_vec == Vector3(0,0,0):
+				var wagon = get_parent().get_parent().get_parent()
+				wagon.change_to_combat()
+				main_loop.change_to_combat()
+				self.set_script(load("res://Scenes/MainLoop/Enemy/Base/enemy_class.gd"))
+				self._ready()
 
 func _on_scanner_body_entered(body):
 	if state != "chase":
-		state = "chase"
+		if state == "attacked":
+			pass
+		else:
+			state = "chase"
 
 
 func _on_scanner_body_exited(body):
@@ -160,13 +175,13 @@ func _on_scanner_body_exited(body):
 
 
 func alert_anim_stop(): 
-	state = "chase"
+	if state != "attacked":
+		state = "chase"
 
 func search_anim_stop():
 	mov_vec = Vector3(0,0,0)
 	state = "back to path"
 
 
-func change_combat():
-	self.set_script(load("res://Scenes/MainLoop/Enemy/Base/enemy_class.gd"))
-	self._ready()
+func attacked():
+	state = "attacked"

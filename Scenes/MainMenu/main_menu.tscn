@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqrxtdkdvlup6"]
+[gd_scene load_steps=3 format=3 uid="uid://bqrxtdkdvlup6"]
 
-[ext_resource type="PackedScene" uid="uid://cybagxnhmobcc" path="res://Assets/3D/Player/Female/Placeholder/female_placeholder.tscn" id="1_0ew7q"]
 [ext_resource type="PackedScene" uid="uid://bj3qpeskoc4b0" path="res://Scenes/MainMenu/2Dpart/2d_menu.tscn" id="1_3ot6u"]
-[ext_resource type="PackedScene" uid="uid://cxnbmjh2jqc5n" path="res://Assets/3D/Player/Male/Placeholder/male_placeholder.tscn" id="3_54uqk"]
+[ext_resource type="PackedScene" uid="uid://cmehdfsp8cj8y" path="res://Scenes/Explore/Wagons/DEMO/start_wagon.tscn" id="1_obv4s"]
 
 [node name="MainMenu" type="Node3D"]
+
+[node name="StartWagon" parent="." instance=ExtResource("1_obv4s")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
@@ -13,13 +14,7 @@ shadow_enabled = true
 [node name="2D" parent="." instance=ExtResource("1_3ot6u")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48343, 0)
+transform = Transform3D(-0.913545, 0, 0.406737, 0, 1, 0, -0.406737, 0, -0.913545, -1.035, 1.483, -9.265)
 current = true
-
-[node name="Male_placeholder" parent="." instance=ExtResource("3_54uqk")]
-transform = Transform3D(-0.967687, 0, 0.252154, 0, 1, 0, -0.252154, 0, -0.967687, -1.61288, 1, -3.01819)
-
-[node name="Female_PLaceholder" parent="." instance=ExtResource("1_0ew7q")]
-transform = Transform3D(-0.998728, 0, -0.0504186, 0, 1, 0, 0.0504186, 0, -0.998728, 1.1129, 1, -3.01819)
 
 [editable path="2D"]

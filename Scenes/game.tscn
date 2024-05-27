@@ -1,12 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=6 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://bqrxtdkdvlup6" path="res://Scenes/MainMenu/main_menu.tscn" id="1_cjxkj"]
 [ext_resource type="PackedScene" uid="uid://bdymqel7djxs6" path="res://Scenes/transition.tscn" id="1_d8h0u"]
 
-[sub_resource type="Environment" id="Environment_bxqu0"]
-background_mode = 1
-background_color = Color(0.231053, 0.226816, 0.284101, 1)
-ambient_light_source = 1
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g27q2"]
+
+[sub_resource type="Sky" id="Sky_xwycl"]
+sky_material = SubResource("ProceduralSkyMaterial_g27q2")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_14eia"]
+background_mode = 2
+sky = SubResource("Sky_xwycl")
+ambient_light_source = 3
+ambient_light_color = Color(0.0729067, 0.0736397, 0.00764114, 1)
+ambient_light_sky_contribution = 0.33
+tonemap_white = 2.6
+ssao_enabled = true
+ssao_radius = 0.89
+ssao_intensity = 5.57
+ssao_power = 0.989632
+ssil_radius = 0.5
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.65
+sdfgi_cascades = 1
+sdfgi_max_distance = 25.6
+fog_light_color = Color(0.690765, 0.615278, 0.720997, 1)
+fog_light_energy = 0.9
+fog_density = 0.005
+fog_sky_affect = 0.273
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.771053, 0.677341, 3.85046e-07, 1)
+volumetric_fog_emission = Color(0.806796, 0.862425, 0.80204, 1)
+volumetric_fog_emission_energy = 0.4
+volumetric_fog_anisotropy = -0.55
+volumetric_fog_ambient_inject = 0.01
+volumetric_fog_sky_affect = 0.223
+adjustment_enabled = true
+adjustment_contrast = 1.05
 
 [node name="Game" type="Node"]
 
@@ -16,4 +47,4 @@ ambient_light_source = 1
 process_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bxqu0")
+environment = SubResource("Environment_14eia")

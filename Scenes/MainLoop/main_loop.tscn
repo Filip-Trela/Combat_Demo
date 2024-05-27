@@ -11,6 +11,7 @@ script = ExtResource("1_vepg7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58302, -0.142525, 0.799859, -0.482957, 0.730874, 0.482261, -0.653331, -0.667465, 0.357281, 51.2688, 16.3018, -55.651)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="ShiftPivot" type="Node3D" parent="."]
@@ -24,5 +25,6 @@ process_mode = 4
 visible = false
 
 [node name="Player" parent="ShiftPivot" instance=ExtResource("5_wb7ko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
 [node name="Markers" type="Node3D" parent="ShiftPivot"]

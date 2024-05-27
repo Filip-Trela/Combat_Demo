@@ -40,7 +40,7 @@ func change_to_combat():
 	combat_in = true
 	
 	for spawner in $Enemies.get_children():
-		spawner.get_child(1).change_combat()
+		spawner.get_child(1).attacked()
 		enemy_list.append(spawner.get_child(1))
 	Settings.enemy_list = enemy_list
 	
@@ -97,3 +97,11 @@ func change_to_explore():
 		
 		train.get_child(1).set_process_mode(Node.PROCESS_MODE_INHERIT)
 		train.get_child(2).set_process_mode(Node.PROCESS_MODE_INHERIT)
+
+
+func _on_hide_terrain_body_entered(body):
+	get_parent().get_node("Enviroment").visible = false
+
+
+func _on_hide_terrain_body_exited(body):
+	get_parent().get_node("Enviroment").visible = true
