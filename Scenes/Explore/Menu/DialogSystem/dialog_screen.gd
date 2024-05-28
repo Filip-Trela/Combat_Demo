@@ -92,7 +92,6 @@ func keep():
 			$Opt1.text = dialog[keys[0]][index][2]
 			$Opt2.text = dialog[keys[0]][index][3]
 
-			
 		"end":
 			end()
 			

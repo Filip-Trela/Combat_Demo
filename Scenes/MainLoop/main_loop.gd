@@ -10,6 +10,7 @@ var player_base
 var player_mesh
 
 func _ready():
+
 	trainS.custom_ready()
 	
 	

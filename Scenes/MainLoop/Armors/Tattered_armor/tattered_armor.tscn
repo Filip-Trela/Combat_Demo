@@ -73,10 +73,10 @@ skeleton = NodePath("../Naramienik")
 pinned_points = [9, 8]
 attachments/0/point_index = 9
 attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(0.370239, -0.389134, 0)
+attachments/0/offset = Vector3(-0.08, 0, -0.28)
 attachments/1/point_index = 8
 attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(0.370239, -0.389134, 0)
+attachments/1/offset = Vector3(0.08, 0, -0.28)
 
 [node name="SoftBody3D2" type="SoftBody3D" parent="."]
 transform = Transform3D(0.723773, 0.678006, -0.128294, -0.0936293, -0.0877088, -0.991736, -0.683656, 0.729804, -3.19008e-08, 0.591892, -0.250175, 0.208761)
@@ -85,10 +85,10 @@ skeleton = NodePath("../Naramienik")
 pinned_points = [9, 8]
 attachments/0/point_index = 9
 attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(0.174883, -0.134188, 0.263453)
+attachments/0/offset = Vector3(-0.08, 0, -0.28)
 attachments/1/point_index = 8
 attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(0.290151, -0.115523, 0.154068)
+attachments/1/offset = Vector3(0.08, 0, -0.28)
 
 [node name="SoftBody3D3" type="SoftBody3D" parent="."]
 transform = Transform3D(-0.718873, 0.669643, -0.186544, 0.395552, 0.173379, -0.90193, -0.571629, -0.722161, -0.389517, 0.546719, -0.196307, -0.348308)
@@ -97,7 +97,7 @@ skeleton = NodePath("../Naramienik")
 pinned_points = [8, 9]
 attachments/0/point_index = 8
 attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(0.132517, -0.0916272, -0.284973)
+attachments/0/offset = Vector3(0.08, 0, -0.28)
 attachments/1/point_index = 9
 attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(0.260808, -0.119488, -0.193513)
+attachments/1/offset = Vector3(-0.08, 0, -0.28)

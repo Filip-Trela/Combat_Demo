@@ -29,11 +29,10 @@ w explore
 - ogarnicie ai wrogow
 - dwie bronie, typu gun maul and fists, ktore sa wybierane gdy rzecz nie jest
 wybierana, taki reset, 2/3 stroje
-- ogarniecie czegos w stylu bonfire
+- (ogarniecie czegos w stylu bonfire)
 	aktualnie tylko teleportacja
 !- obroty modelow ogarnac poprawne
-mozliwe ze przy enemy beda rozne
-!- enemy zostaje w swoim pomieszczeniu
+mozliwe ze przy enemy beda rozne!- enemy zostaje w swoim pomieszczeniu
 	to przy nawigacji i blokadach za pomoca kolizji
 - animacje
 - rzucanie itemow, (ogarniecie tego z czasem), basic modele godotowe

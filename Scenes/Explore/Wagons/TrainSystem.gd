@@ -53,11 +53,12 @@ func custom_ready():
 	+ center_wagon.get_node("End").position - end_wagon.get_node("Start").position
 		
 	end_wagon.not_monitor()
-		
+
 	player = get_parent().get_node("Player")
+	player.global_position = center_wagon.get_node("PlayerPosition").global_position
 	$Enviroment.player = player
 	
-	index_wag +=1
+
 
 
 func create_start():
@@ -68,7 +69,7 @@ func create_start():
 	end_wagon = center_wagon
 	center_wagon = start_wagon
 	
-	start_wagon = load(choose_wagon(index_wag)).instantiate()
+	start_wagon = load(choose_wagon(index_wag +1)).instantiate()
 	add_child(start_wagon)
 	start_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("Start").position - start_wagon.get_node("End").position
@@ -86,7 +87,7 @@ func create_end():
 	start_wagon = center_wagon
 	center_wagon = end_wagon
 	
-	end_wagon = load(choose_wagon(index_wag)).instantiate()
+	end_wagon = load(choose_wagon(index_wag -1)).instantiate()
 	add_child(end_wagon)
 	end_wagon.global_position = center_wagon.global_position\
 	+ center_wagon.get_node("End").position - end_wagon.get_node("Start").position
@@ -109,3 +110,8 @@ func choose_wagon(index):
 			return "res://Scenes/Explore/Wagons/DEMO/hub.tscn"
 		_:
 			return wagons[randf_range(0, len(wagons))]
+
+func delete_wagons():
+	get_child(1).queue_free()
+	get_child(2).queue_free()
+	get_child(3).queue_free()

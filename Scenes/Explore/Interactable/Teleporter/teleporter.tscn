@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjkhqj53pdy4s"]
+
+[ext_resource type="PackedScene" uid="uid://dufx1sts3en6l" path="res://Scenes/Explore/Interactable/InteractableBase/interactable.tscn" id="1_fbmw7"]
+[ext_resource type="Script" path="res://Scenes/Explore/Interactable/Teleporter/teleporter.gd" id="2_ceosu"]
+[ext_resource type="PackedScene" uid="uid://dv4hgaaoavvx5" path="res://Scenes/Explore/Interactable/Teleporter/2D_part_of_teleporter/teleport_button.tscn" id="3_eaids"]
+[ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="4_53tmh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoidl"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lojec"]
+material = SubResource("StandardMaterial3D_xoidl")
+size = Vector3(0.5, 0.3, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jfhgj"]
+material = SubResource("StandardMaterial3D_xoidl")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f8tg"]
+transparency = 1
+albedo_color = Color(0.360491, 0.433608, 1, 0.384314)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dlebj"]
+material = SubResource("StandardMaterial3D_5f8tg")
+radius = 0.3
+height = 0.6
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ebnm"]
+font_size = 30
+
+[node name="Teleporter" instance=ExtResource("1_fbmw7")]
+script = ExtResource("2_ceosu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_lojec")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("CylinderMesh_jfhgj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0)
+mesh = SubResource("SphereMesh_dlebj")
+
+[node name="2D_part" type="CanvasLayer" parent="." index="4"]
+visible = false
+
+[node name="MainButtons" type="Node2D" parent="2D_part" index="0"]
+
+[node name="Teleport" parent="2D_part/MainButtons" index="0" instance=ExtResource("3_eaids")]
+position = Vector2(128, 114)
+
+[node name="TeleportButtons" type="Node2D" parent="2D_part" index="1"]
+visible = false
+
+[node name="0" type="Node2D" parent="2D_part/TeleportButtons" index="0"]
+position = Vector2(122, 466)
+
+[node name="Sprite2D" type="Sprite2D" parent="2D_part/TeleportButtons/0" index="0"]
+modulate = Color(0.356863, 0.635294, 0.654902, 1)
+scale = Vector2(3, 1)
+texture = ExtResource("4_53tmh")
+
+[node name="Label" type="Label" parent="2D_part/TeleportButtons/0" index="1"]
+offset_left = -97.0
+offset_top = -31.0
+offset_right = 96.0
+offset_bottom = 32.0
+text = "0"
+label_settings = SubResource("LabelSettings_8ebnm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="Node2D" parent="2D_part/TeleportButtons" index="1"]
+position = Vector2(122, 550.755)
+
+[node name="Sprite2D" type="Sprite2D" parent="2D_part/TeleportButtons/3" index="0"]
+modulate = Color(0.356863, 0.635294, 0.654902, 1)
+scale = Vector2(3, 1)
+texture = ExtResource("4_53tmh")
+
+[node name="Label" type="Label" parent="2D_part/TeleportButtons/3" index="1"]
+offset_left = -97.0
+offset_top = -31.0
+offset_right = 96.0
+offset_bottom = 32.0
+text = "3"
+label_settings = SubResource("LabelSettings_8ebnm")
+horizontal_alignment = 1
+vertical_alignment = 1

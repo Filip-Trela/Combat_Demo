@@ -153,47 +153,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_l24ol"]
-resource_name = "explore_to_combat_2"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-498.96, 360), Vector2(300, 360), Vector2(300, 360), Vector2(-498.96, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1782.32, 360), Vector2(1000, 360), Vector2(1000, 360), Vector2(1782.32, 360)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"explore_to_combat"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_nutq7"]
 resource_name = "explore_to_menu"
 tracks/0/type = "value"
@@ -332,17 +291,58 @@ tracks/1/keys = {
 "values": [Vector2(1000, 360), Vector2(1782.32, 360)]
 }
 
+[sub_resource type="Animation" id="Animation_rl2oo"]
+resource_name = "teleport"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-498.96, 360), Vector2(300, 360), Vector2(300, 360), Vector2(-498.96, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1782.32, 360), Vector2(1000, 360), Vector2(1000, 360), Vector2(1782.32, 360)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"teleporting"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hdhd6"]
 _data = {
 "RESET": SubResource("Animation_15fxo"),
 "combat_to_explore_playerdies": SubResource("Animation_62sxm"),
 "combat_to_explore_playerwins": SubResource("Animation_n2s8b"),
 "explore_to_combat": SubResource("Animation_q3tg2"),
-"explore_to_combat_2": SubResource("Animation_l24ol"),
 "explore_to_menu": SubResource("Animation_nutq7"),
 "hide": SubResource("Animation_h0j8j"),
 "menu_to_explore": SubResource("Animation_oc6tr"),
-"show": SubResource("Animation_ns6hp")
+"show": SubResource("Animation_ns6hp"),
+"teleport": SubResource("Animation_rl2oo")
 }
 
 [node name="Transition" type="Node2D"]

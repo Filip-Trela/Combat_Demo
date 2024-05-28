@@ -11,8 +11,9 @@ var start_enemy
 #for now this preload, later determined by explore world
 var load_com_world
 
-
-
+var player
+var train_s
+var wagon_index = 0
 
 func _input(event):
 	if Input.is_action_just_pressed("end"):
@@ -41,7 +42,17 @@ func explore_to_menu():
 	game.add_child(menu)
 	exp_world.queue_free()
 
+func teleport(nr):
+	train_s = get_parent().get_node("MainLoop/ShiftPivot/TrainSystem")
+	player = get_parent().get_node("MainLoop/ShiftPivot/Player")
+	wagon_index = nr
+	play("teleport")
 
+func teleporting():
+	train_s.delete_wagons()
+	train_s.index_wag = wagon_index
+	train_s.custom_ready()
+	
 
 func _on_animation_player_animation_finished(anim_name):
 	get_tree().paused = false

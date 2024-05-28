@@ -1,6 +1,7 @@
-[gd_scene load_steps=74 format=3 uid="uid://c5n3ac0s5ldyd"]
+[gd_scene load_steps=75 format=3 uid="uid://c5n3ac0s5ldyd"]
 
 [ext_resource type="Script" path="res://Scenes/Explore/Wagons/wagon_base.gd" id="1_m7a2f"]
+[ext_resource type="PackedScene" uid="uid://bjkhqj53pdy4s" path="res://Scenes/Explore/Interactable/Teleporter/teleporter.tscn" id="2_jt0md"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdnq3"]
 size = Vector3(36.755, 0.2, 70)
@@ -1991,6 +1992,12 @@ shape = SubResource("BoxShape3D_h51je")
 [node name="CollisionShape3D27" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 2.48381, 1.20281, 27.5142)
 shape = SubResource("BoxShape3D_jncbu")
+
+[node name="PlayerPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.515, 0, -10.6362)
+
+[node name="Teleporter" parent="." instance=ExtResource("2_jt0md")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3002, 0, -10.6039)
 
 [connection signal="body_entered" from="Activs/StartArea" to="." method="_on_start_area_body_entered"]
 [connection signal="body_entered" from="Activs/EndArea" to="." method="_on_end_area_body_entered"]

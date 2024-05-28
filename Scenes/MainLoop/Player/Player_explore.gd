@@ -156,14 +156,15 @@ func _input(_event):
 	
 	
 func camera_handler():
-	mouse_joint_y.rotation.y -= mouse_x * mouse_sens
-	mouse_joint_x.rotation.x -= mouse_y * mouse_sens
-	mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.8 , 0.2)
+	if PlayerInfo.explore_state != "menu" and PlayerInfo.explore_state != "teleporter":
+		mouse_joint_y.rotation.y -= mouse_x * mouse_sens
+		mouse_joint_x.rotation.x -= mouse_y * mouse_sens
+		mouse_joint_x.rotation.x = clamp(mouse_joint_x.rotation.x, -0.8 , 0.2)
 
-	mouse_x = 0
-	mouse_y = 0
-	
-	mouse_rotat = get_node("CameraY").rotation.y
+		mouse_x = 0
+		mouse_y = 0
+		
+		mouse_rotat = get_node("CameraY").rotation.y
 
 
 
