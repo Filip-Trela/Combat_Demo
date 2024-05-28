@@ -10,8 +10,8 @@ var stop_speed =0.1
 
 
 func _ready():
-	player = get_parent()
-	anim = get_parent().get_node("AnimTreePlayerCombat")
+	player = get_parent().get_parent()
+	anim = self
 	tween_stop = get_tree().create_tween()
 	self["parameters/Transition/transition_request"] = "Movement"
 
@@ -26,7 +26,6 @@ func _process(delta):
 func state_machine():
 	#for stoping animation
 	anim.set("parameters/Stop/scale", Settings.current_time)
-	anim.set("parameters/Stop2/scale", Settings.current_time)
 
 		
 	#movement
@@ -41,8 +40,8 @@ func play_combat(name):
 func _on_animation_finished(anim_name):
 	if anim_name == "Die":
 		PlayerInfo.transition.play("combat_to_explore_playerdies")
-	
-	elif anim_name == "attack_explore":
+		
+	elif anim_name == "attack_explore" or anim_name == "Dodge":
 		PlayerInfo.explore_state = "moving"
 		self["parameters/Transition/transition_request"] = "Movement"
 		

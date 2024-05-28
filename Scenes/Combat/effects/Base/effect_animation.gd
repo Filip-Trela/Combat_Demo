@@ -58,8 +58,8 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		enemy.xz_vec += xz_vec.direction_to(Vector2(enemy.global_position.x ,\
 		enemy.global_position.z)) * action.z_toss[index_at]
 		#enemy.xz_vec += action.xz_toss[index_at].rotated(-self.rotation.y)
-		if enemy.y_tossable:
-			enemy.y_vec += action.y_toss[index_at]
+		#if enemy.y_tossable:
+		#	enemy.y_vec += action.y_toss[index_at]
 		
 			
 		
@@ -76,8 +76,8 @@ func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		enemy.xz_vec = Vector2(0,0)
 		enemy.xz_vec += xz_vec.direction_to(Vector2(enemy.global_position.x ,\
 		enemy.global_position.z)) * action.z_toss[index_at]
-		if enemy.y_tossable:
-			enemy.y_vec += action.y_toss[index_at]
+		#if enemy.y_tossable:
+		#	enemy.y_vec += action.y_toss[index_at]
 			
 	
 	

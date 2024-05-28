@@ -9,22 +9,15 @@ var player
 var player_base
 var player_mesh
 
+var world_enviroment
+
 func _ready():
+	world_enviroment = get_parent().get_node("WorldEnvironment")
 
 	trainS.custom_ready()
 	
 	
 	player = get_node("ShiftPivot/Player")
-	#player_base = player.get_node("Model")
-	#player_mesh = player_base.get_child(0)
-	
-	#player_mesh.queue_free()
-	#if PlayerInfo.sex == "male":
-	#	player_base.call_deferred("add_child",male_mesh.instantiate())
-		#player_base.add_child(male_mesh.instantiate())
-	#else:
-	#	player_base.call_deferred("add_child",female_mesh.instantiate())
-		#player_base.add_child(female_mesh.instantiate())
 
 func change_to_combat():
 	var shift = get_node("ShiftPivot")

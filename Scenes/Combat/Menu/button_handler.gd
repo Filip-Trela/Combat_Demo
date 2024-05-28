@@ -74,7 +74,7 @@ func _ready():
 	
 	#slav_nr = get_node("SlaveButtons").get_child_count() -1
 	
-	anim_p = player.get_node("AnimTreePlayerCombat")
+	anim_p = player.get_node("Model").get_child(0).get_node("AnimationTree")
 	
 	master_butt_change()
 	
@@ -156,7 +156,9 @@ func state_machine():
 			if Input.is_action_just_pressed("q"):
 				if markers_group.get_child_count() != 0:
 					markers_group.get_child(0).queue_free()
+				PlayerInfo.is_moving = false
 				Settings.stopped_time = false
+				PlayerInfo.combat_state = "moving"
 				state ="master_butt"
 				
 				
@@ -166,7 +168,7 @@ func state_machine():
 				var item = load(item_choosen.throw_pl).instantiate()
 				item.item = item_choosen
 				world.add_child(item)
-				var throw_piv = player.get_node("Model/animNode/ThrowPivot")
+				var throw_piv = player.get_node("Model").get_child(0).get_node("ThrowPivot")
 				item.global_position = throw_piv.global_position
 				item.mov_vec = item.mov_vec.rotated(Vector3(0,1,0), marker.rotation.y)
 				#item.rotation.y = markers_group.get_child(0).rotation.y

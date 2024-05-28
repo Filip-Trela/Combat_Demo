@@ -43,7 +43,7 @@ var on_obstacle = false
 
 @onready var camera = $CameraY/CameraX/Camera_pos/PlayerCamera
 
-@onready var anim_tree = $AnimTreePlayerCombat
+@onready var anim_tree = $Model.get_child(0).get_node("AnimationTree")
 
 var  action
 
@@ -101,7 +101,7 @@ func _physics_process(_delta):
 		y_vec -= gravity
 		y_vec = clamp(y_vec, max_fall, 1000)
 		
-	$AnimTreePlayerCombat["parameters/Movement/blend_position"] = xz_vec.length() / max_speed
+	anim_tree["parameters/Movement/blend_position"] = xz_vec.length() / max_speed
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
 	velocity = mov_vec * Settings.current_time
@@ -133,10 +133,16 @@ func _input(_event):
 		
 		if Input.is_action_just_pressed("shift") and !dodge_is:
 			if PlayerInfo.current_sp > Actions.dodge_cost:
+				anim_tree["parameters/Transition/transition_request"] = "Attack"
+				anim_tree["parameters/Attacks/playback"].start("Dodge")
 				xz_vec += transformed_input * 20
 				PlayerInfo.current_sp -= Actions.dodge_cost
 				dodge_is = true
 				
+				
+				
+				
+#czej, co to kurwa jest
 				#pozniej to cale zmienic
 	elif Input.is_action_just_pressed("shift") and !dodge_is and Settings.stopped_time:
 		Settings.stopped_time = false

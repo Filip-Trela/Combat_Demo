@@ -2,8 +2,6 @@ Legenda:
 	DONE / %% skonczone
 	~~ jest baza albo czegos brakuje
 
-zajac sie teraz animacjami playera oraz broniami
-
 ! to co moze byc w pierwszej kolejnosci
 DEMO VERSION:
 - (start w main menu przenosi do "start new game") oraz "load game"
@@ -52,7 +50,9 @@ podczas ktorego nic nie robi, i np zawsze sekunda badz dwie
 wlasne daje i hitbox sizes etc, po czym resetuje skorke w mesh
 - mozliwe ze dac pasek zycia dla enemy, wraz z ukazanym wizualnie ze enemy
 jest weak na cos
-
+- gdy przytrzymasz uzywanie czy rzucanie itemu to pobiera dwa inputy zamiast jednego
+- animacje throw oraz use item, use magic etc
+- uzywanie itemow w explore
 
 Important wagony:
 	- hub
@@ -105,6 +105,9 @@ jest, mozna dodac troche wizualiow do tego co najwyzej
 
 
 TODOS:
+	zamiast "mana" jest "clear mind", im nizszy tym bardziej sprawia ze jest dizzy i mniej
+	widac
+	
 	bardzo mozliwe ze y toss wywalic
 	
 	system eventow w explore (bycie w tunelu na przyklad, gdzie wrogowie sa

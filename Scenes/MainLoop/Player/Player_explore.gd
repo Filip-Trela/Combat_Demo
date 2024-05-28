@@ -50,6 +50,8 @@ var closest_interact
 
 var xz_toss = 10
 
+@onready var anim = $Model.get_child(0).get_node("AnimationTree")
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -94,7 +96,7 @@ func _physics_process(_delta):
 	if xz_vec != Vector2(0,0):
 		xz_dir = xz_vec.normalized()
 	
-	$AnimTreePlayerCombat["parameters/Movement/blend_position"] = xz_vec.length() / sprint_speed
+	anim["parameters/Movement/blend_position"] = xz_vec.length() / sprint_speed
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
 	velocity = mov_vec
@@ -129,8 +131,8 @@ func _input(_event):
 			
 		if Input.is_action_just_pressed("left_click") and PlayerInfo.explore_state == "moving":
 			xz_vec += transformed_input * xz_toss
-			$AnimTreePlayerCombat["parameters/Transition/transition_request"] = "Attack"
-			$AnimTreePlayerCombat["parameters/Attacks/playback"].start("attack_explore")
+			anim["parameters/Transition/transition_request"] = "Attack"
+			anim["parameters/Attacks/playback"].start("attack_explore")
 			
 			PlayerInfo.explore_state = "attacking"
 
