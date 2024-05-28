@@ -101,7 +101,7 @@ func _physics_process(_delta):
 		y_vec -= gravity
 		y_vec = clamp(y_vec, max_fall, 1000)
 		
-	
+	$AnimTreePlayerCombat["parameters/Movement/blend_position"] = xz_vec.length() / max_speed
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
 	velocity = mov_vec * Settings.current_time

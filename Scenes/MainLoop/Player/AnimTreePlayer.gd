@@ -13,7 +13,7 @@ func _ready():
 	player = get_parent()
 	anim = get_parent().get_node("AnimTreePlayerCombat")
 	tween_stop = get_tree().create_tween()
-	anim["parameters/Transition/transition_request"] = "state_2"
+	self["parameters/Transition/transition_request"] = "Movement"
 
 
 

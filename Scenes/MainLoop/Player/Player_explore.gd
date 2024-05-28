@@ -94,6 +94,7 @@ func _physics_process(_delta):
 	if xz_vec != Vector2(0,0):
 		xz_dir = xz_vec.normalized()
 	
+	$AnimTreePlayerCombat["parameters/Movement/blend_position"] = xz_vec.length() / sprint_speed
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
 	velocity = mov_vec

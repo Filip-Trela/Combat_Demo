@@ -394,44 +394,83 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("LeftArm:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.796968, 0.795135, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_np13i"]
 resource_name = "Run"
-length = 1.2
+length = 0.6
 loop_mode = 1
 step = 0.05
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
+tracks/0/path = NodePath("Mesh:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0.05, 1.245, 0.207), Vector3(0, 1, 0), Vector3(-0.05, 1.245, 0.207), Vector3(0, 1, 0)]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
+tracks/1/path = NodePath("Mesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.225147, -0.020944, -0.0872665), Vector3(0, 0, 0), Vector3(0.225147, 0, 0.0872665), Vector3(0, 0, 0)]
 }
-tracks/2/type = "bezier"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
+tracks/2/path = NodePath("LeftArm:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.156567, 0.35497, -0.2, -0.172803, 0.15, 0.108802, -0.349066, -0.25, 0.499233, 0.187791, -0.345581, 0, -0.112209, -0.336241, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2)
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.796968, 0.795135, 0), Vector3(-0.796968, 1.2034, -0.657157), Vector3(-0.796968, 0.795135, 0), Vector3(-0.796968, 0.719891, 0.691469), Vector3(-0.796968, 0.795135, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.875319, 0.801034, 0), Vector3(0.875319, 0.856586, 0.424958), Vector3(0.875319, 0.801034, 0), Vector3(0.753479, 0.875233, -0.501346), Vector3(0.875319, 0.801034, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.471239, 0), Vector3(0, -0.767945, 0), Vector3(0, -0.471239, 0), Vector3(0, -0.258064, 0), Vector3(0, -0.471239, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2x2fa"]
@@ -844,7 +883,6 @@ mesh = SubResource("CylinderMesh_fgtlr")
 mesh = SubResource("SphereMesh_cjqfa")
 
 [node name="Hurtbox" type="Area3D" parent="."]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
@@ -852,7 +890,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5dcq2")
 
 [node name="Hitbox_Explore" type="Area3D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 monitoring = false

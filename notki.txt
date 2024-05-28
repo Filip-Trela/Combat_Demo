@@ -2,6 +2,7 @@ Legenda:
 	DONE / %% skonczone
 	~~ jest baza albo czegos brakuje
 
+zajac sie teraz animacjami playera oraz broniami
 
 ! to co moze byc w pierwszej kolejnosci
 DEMO VERSION:

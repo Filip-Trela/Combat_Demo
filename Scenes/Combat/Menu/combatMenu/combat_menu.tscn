@@ -64,7 +64,6 @@ show_percentage = false
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(643, 359)
 scale = Vector2(21.0938, 12.2188)
 texture = ExtResource("3_evpx7")

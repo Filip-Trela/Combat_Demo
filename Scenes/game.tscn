@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnyefbgvc4xgt"]
+[gd_scene load_steps=7 format=3 uid="uid://dnyefbgvc4xgt"]
 
 [ext_resource type="PackedScene" uid="uid://bqrxtdkdvlup6" path="res://Scenes/MainMenu/main_menu.tscn" id="1_cjxkj"]
 [ext_resource type="PackedScene" uid="uid://bdymqel7djxs6" path="res://Scenes/transition.tscn" id="1_d8h0u"]
+[ext_resource type="PackedScene" uid="uid://bm6p7jca2hd70" path="res://Scenes/MainMenu/intro.tscn" id="3_qteba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g27q2"]
 
@@ -48,3 +49,5 @@ process_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_14eia")
+
+[node name="Intro" parent="." instance=ExtResource("3_qteba")]
