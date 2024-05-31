@@ -52,6 +52,7 @@ var slash = {
 	"player_animation": "Slash",
 	"description": "A placeholder action with rotateable marker and x damage",
 }
+
 var vertical_slash = {
 	"name": "VerticalSlash",
 	"by_player": true,
@@ -123,8 +124,76 @@ var double_slash = {
 }
 
 
+### HAND COMBAT
+var strong_punch_hand = {
+	"name": "Strong Punch",
+	"by_player": true,
+	"marker_type": "null",
+	"marker_size": Vector3(1,1,1),
+	"marker_position": Vector3(0,0,0),
+	"effect_size": Vector3(1,1,1),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
+	"follow_allowed": true,
+	"z_toss": [7],
+	"xz_toss": [Vector2(0,0)],
+	"y_toss": [0],
+	"player_xz_toss": Vector2(0, 15), #odrzut
+	"hold_in_player":true,
+	"by_weapon": true,
+	"self_cost": [0,0, 10],
+	"stagger": 2,
+	"damage": [30],
+	"player_animation": "Strong_Punch",
+	"description": "sadfsa",
+}
 
+### GUN MAUL COMBAT
+var double_strike_maul = {
+	"name": "Double Strike",
+	"by_player": true,
+	"marker_type": "null",
+	"marker_size": Vector3(1,1,1),
+	"marker_position": Vector3(0,0,0),
+	"effect_size": Vector3(1,1,1),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
+	"follow_allowed": true,
+	"z_toss": [4,3],
+	"xz_toss": [Vector2(0,0)],
+	"y_toss": [0,0],
+	"player_xz_toss": Vector2(0, 5), #odrzut
+	"hold_in_player":true,
+	"by_weapon": true,
+	"self_cost": [0,0, 10],
+	"stagger": 2,
+	"damage": [10, 50],
+	"player_animation": "Double_Strike",
+	"description": "Double strike from maul",
+}
 
+var pierce_maul = {
+	"name": "Pierce",
+	"by_player": true,
+	"marker_type": "null",
+	"marker_size": Vector3(1,1,1),
+	"marker_position": Vector3(0,0,0),
+	"effect_size": Vector3(1,1,1),
+	"effect_position": Vector3(0,0,0),
+	"effect_animation": "res://Scenes/Combat/effects/SlashP/slash.tscn",
+	"follow_allowed": true,
+	"z_toss": [8],
+	"xz_toss": [Vector2(0,0)],
+	"y_toss": [0],
+	"player_xz_toss": Vector2(0, 10), #odrzut
+	"hold_in_player":true,
+	"by_weapon": true,
+	"self_cost": [0,0, 10],
+	"stagger": 2,
+	"damage": [25],
+	"player_animation": "Pierce",
+	"description": "Double strike from maul",
+}
 
 ################################################################################
 

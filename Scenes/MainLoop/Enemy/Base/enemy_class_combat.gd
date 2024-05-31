@@ -111,11 +111,10 @@ func _ready():
 
 func _process(_delta):
 	time = Settings.current_time
-	$AnimationTree["parameters/TimeScale/scale"] = time
+	$AnimationTree["parameters/Stop/scale"] = time
 
 	
 	state_machine()
-	
 	#later it doesnt do that during anim staggered
 
 
@@ -124,9 +123,9 @@ func _process(_delta):
 		if xz_vec != Vector2(0,0):
 			var model_rot = xz_vec.angle_to(Vector2(0,-1)) 
 			$Model.rotation.y = model_rot
-		anim["parameters/TimeScale/scale"] = Settings.current_time
+		anim["parameters/Stop/scale"] = Settings.current_time
 	else:
-		anim["parameters/TimeScale/scale"] = Settings.current_time
+		anim["parameters/Stop/scale"] = Settings.current_time
 		
 
 

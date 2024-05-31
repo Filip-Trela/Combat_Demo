@@ -4,15 +4,8 @@ class_name Enemy_Class_Explore
 
 
 #first one is self but combat one
-@export var combat_self:String ="res://Scenes/Combat/Enemies/1ExplosiveEnemies/robo_boom.tscn"
-@export var friend1:String ="res://Scenes/Combat/Enemies/1ExplosiveEnemies/robo_boom.tscn"
-@export var friend2:String 
-@export var friend3:String 
-@export var friend4:String 
-@export var friend5:String 
-var friends = [friend1, friend2, friend3, friend4, friend5]
+@export var combat_self:String
 
-var friend_list:Array = []
 
 
 @onready var pathg = get_parent().get_node("Group").get_children()
@@ -23,7 +16,7 @@ var target
 var activs
 var navi
 var player
-@onready var anim = $AnimationPlayer
+var anim
 
 var path_pos:Vector3
 
@@ -48,13 +41,17 @@ var xz_vec = Vector2(0,0)
 var direction = Vector3(0,0,0)
 var acceleration = 0.1
 var deceleration = 0.4
-var max_speed = 7
+var walk_speed = 3
+var sprint_speed = 7
+
+
 
 @onready var main_loop = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
 
 
 
 func _ready():
+	anim = $AnimationTree
 	activs = get_parent().get_parent().get_parent()
 	navi = $NavigationAgent3D
 	player = activs.get_parent().get_parent().get_node("Player")
@@ -68,31 +65,22 @@ func _ready():
 	target = pathg[path_point].global_position
 	navi.set_target_position(target)
 
-	
-	for friend in friends:
-		if friend:
-			friend_list.append(friend)
-			
-	
+
+
 
 func _process(delta):
-	
-	xz_vec = Vector2(mov_vec.x, mov_vec.z)
-	var model_rot = xz_vec.normalized()
-	
-	if xz_vec != Vector2(0,0):
-		model_rot = model_rot.angle_to(Vector2(0,-1)) 
-		$Model.rotation.y = model_rot
-
+	state_machine()
 
 
 func _physics_process(delta):
-	state_machine()
+	velocity = mov_vec
+	move_and_slide()
 
 
 func state_machine():
 	match state:
 		"in path":
+			anim.set("parameters/Movement/blend_position", xz_vec.length() / sprint_speed)
 			if navi.is_navigation_finished():
 				path_point +=1
 				if path_point > points_len:
@@ -103,17 +91,26 @@ func state_machine():
 			var next_path_position: Vector3 = navi.get_next_path_position()
 			
 			direction = global_position.direction_to(next_path_position)
-			mov_vec = mov_vec.move_toward(direction * max_speed, acceleration)
+			mov_vec = mov_vec.move_toward(direction * walk_speed, acceleration)
 			
-			velocity = mov_vec
-			move_and_slide()
+			
+			#rotating
+			xz_vec = Vector2(mov_vec.x, mov_vec.z)
+			var model_rot = xz_vec.normalized()
+	
+			if xz_vec != Vector2(0,0):
+				model_rot = model_rot.angle_to(Vector2(0,-1)) 
+				$Model.rotation.y = model_rot
+			
 			
 		
 		"alerted":
-			anim.play("alert")
+			mov_vec = mov_vec.move_toward(Vector3(0,0,0), deceleration *3)
+			
 			
 		
 		"chase":
+			anim.set("parameters/Movement/blend_position", xz_vec.length() / sprint_speed)
 		 	#updated once per 3 frames or something
 			navi.set_target_position(player.global_position)
 			
@@ -125,63 +122,89 @@ func state_machine():
 			
 			#velocity =current_agent_position.direction_to(next_path_position) * 7
 			direction = global_position.direction_to(next_path_position)
-			mov_vec = mov_vec.move_toward(direction * max_speed, acceleration)
+			mov_vec = mov_vec.move_toward(direction * sprint_speed, acceleration)
 			
-			velocity = mov_vec
-			move_and_slide()
 			
 			if global_position.distance_to(player.global_position) > reach:
 				navi.set_target_position(target)
 				state = "search"
 		
+			#rotating
+			xz_vec = Vector2(mov_vec.x, mov_vec.z)
+			var model_rot = xz_vec.normalized()
+	
+			if xz_vec != Vector2(0,0):
+				model_rot = model_rot.angle_to(Vector2(0,-1)) 
+				$Model.rotation.y = model_rot
+		
+		
+		
+		
+		
+		
 		"back to path":
+			anim.set("parameters/Movement/blend_position", xz_vec.length() / sprint_speed)
 			if navi.is_navigation_finished():
 				state = "in path"
 
 			var next_path_position: Vector3 = navi.get_next_path_position()
 
 			direction = global_position.direction_to(next_path_position)
-			mov_vec = mov_vec.move_toward(direction * max_speed, acceleration)
+			mov_vec = mov_vec.move_toward(direction * walk_speed, acceleration)
 			
-			velocity = mov_vec
-			move_and_slide()
+			#rotating
+			xz_vec = Vector2(mov_vec.x, mov_vec.z)
+			var model_rot = xz_vec.normalized()
+	
+			if xz_vec != Vector2(0,0):
+				model_rot = model_rot.angle_to(Vector2(0,-1)) 
+				$Model.rotation.y = model_rot
 			
 		"search":
-			state = "back to path"
-			#anim.play("search")z
+			mov_vec = mov_vec.move_toward(Vector3(0,0,0), deceleration *3)
+			anim["parameters/Transition/transition_request"] = "Search"
 			
 		"attacked":
 			mov_vec = mov_vec.move_toward(Vector3(0,0,0), deceleration)
-			velocity = mov_vec
-			move_and_slide()
-			#toss i po tossie odpala
-			if mov_vec == Vector3(0,0,0):
-				var wagon = get_parent().get_parent().get_parent()
-				wagon.change_to_combat()
-				main_loop.change_to_combat()
-				self.set_script(load("res://Scenes/MainLoop/Enemy/Base/enemy_class.gd"))
-				self._ready()
+			
+			#rotating
+			xz_vec = Vector2(mov_vec.x, mov_vec.z)
+			var model_rot = xz_vec.normalized()
+	
+			if xz_vec != Vector2(0,0):
+				model_rot = model_rot.angle_to(Vector2(0,1)) 
+				$Model.rotation.y = model_rot
+				
+
+
+
+
 
 func _on_scanner_body_entered(body):
 	if state != "chase":
-		if state == "attacked":
-			pass
-		else:
-			state = "chase"
-
-
-func _on_scanner_body_exited(body):
-	pass#print("body exited")
-
-
-func alert_anim_stop(): 
-	if state != "attacked":
-		state = "chase"
-
-func search_anim_stop():
-	mov_vec = Vector3(0,0,0)
-	state = "back to path"
+		anim["parameters/Transition/transition_request"] = "Alert"
+		state = "alerted"
 
 
 func attacked():
+	anim["parameters/Transition/transition_request"] = "Attacked"
 	state = "attacked"
+
+
+func _on_animation_tree_animation_finished(anim_name):
+	print(anim_name)
+	match anim_name:
+		"Attacked_Explore":
+			var wagon = get_parent().get_parent().get_parent()
+			wagon.change_to_combat()
+			main_loop.change_to_combat()
+			self.set_script(load("res://Scenes/MainLoop/Enemy/Base/enemy_class_combat.gd"))
+			self._ready()
+			
+		"Search":
+			anim["parameters/Transition/transition_request"] = "Move"
+			state = "back to path"
+		
+		"Alert":
+			anim["parameters/Transition/transition_request"] = "Move"
+			state = "chase"

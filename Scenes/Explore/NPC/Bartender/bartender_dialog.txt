@@ -1,0 +1,13 @@
+{
+	"start":[
+			["npc_text"  ,"Oh..."],
+			["npc_text"  ,"You are the one who sees."],
+			["npc_text"  ,"Sir, you must not be the smartest one, but the lucky one."],
+			["npc_text"  ,"Please, do not take this as offense."],
+			["npc_text"  ,"Here. It is a privelage."],
+			["end"],
+			
+			],
+
+
+}

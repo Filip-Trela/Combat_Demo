@@ -14,6 +14,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sprite2D['modulate'] = Color(1, 1, 1, 0.3 - (Settings.current_time + 0.1))
 	player_hp.max_value = PlayerInfo.max_hp
 	player_mp.max_value = PlayerInfo.max_mp
 	player_sp.max_value = PlayerInfo.max_sp
@@ -32,6 +33,7 @@ func _process(_delta):
 
 		Settings.current_time = move_toward(Settings.current_time,\
 		Settings.move_time, Settings.change_time)
+		
 	$Sprite2D['modulate'] = Color(1, 1, 1, 0.3 - (Settings.current_time + 0.1))
 	PlayerInfo.current_hp = clamp(PlayerInfo.current_hp, -1, PlayerInfo.max_hp)
 	player_hp.value = PlayerInfo.current_hp

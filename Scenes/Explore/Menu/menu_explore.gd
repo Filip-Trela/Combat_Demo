@@ -43,7 +43,9 @@ func _ready():
 	mas_nr = $MainButtons.get_child_count() -1
 	main_butt_change()
 	#setting colors
-	#$Background["modulate"] = PlayerInfo.color_sex
+	var player_mesh = player.get_node("Model").get_child(0).get_node("Mesh")
+	player_mesh.add_child(\
+	load(PlayerInfo.current_armor.mesh).instantiate())
 	
 
 
@@ -114,12 +116,39 @@ func state_machine():
 			elif Input.is_action_just_pressed("space"): 
 				if sub_type == "armor": 
 					PlayerInfo.current_armor = PlayerInfo.inv_armor[choose_sub]
-					player.get_node("Model/animNode/Base/Mesh").get_child(0).queue_free()
-					player.get_node("Model/animNode/Base/Mesh").add_child(\
+					var player_mesh = player.get_node("Model").get_child(0).get_node("Mesh")
+					player_mesh.get_child(0).queue_free()
+					player_mesh.add_child(\
 					load(PlayerInfo.current_armor.mesh).instantiate())
 					#player
+					
 				elif sub_type == "weapons":
-					PlayerInfo.current_weapon = PlayerInfo.inv_weapons[choose_sub]
+					if PlayerInfo.current_weapon == PlayerInfo.inv_weapons[choose_sub]:
+						PlayerInfo.current_weapon = InventoryInfo.hands
+						var player_model =  player.get_node("Model")
+						player_model.get_child(0).queue_free()
+						
+						var weapon_model = load("res://Scenes/MainLoop/Weapons/Hand/hand_weapon.tscn").instantiate()
+						weapon_model.get_node("Mesh").add_child(load(PlayerInfo.current_armor.mesh).instantiate())
+						player_model.add_child(weapon_model)
+					
+						
+					
+					else:
+						PlayerInfo.current_weapon = PlayerInfo.inv_weapons[choose_sub]
+						var player_model =  player.get_node("Model")
+						player_model.get_child(0).queue_free()
+						var weapon_model = load(PlayerInfo.current_weapon.weapon_scene).instantiate()
+						weapon_model.get_node("Mesh").add_child(load(PlayerInfo.current_armor.mesh).instantiate())
+						player_model.add_child(weapon_model)
+					PlayerInfo.phys_skills = PlayerInfo.current_weapon.attacks
+						
+					var player_mesh = player.get_node("Model").get_child(0).get_node("Mesh")
+					player_mesh.get_child(0).queue_free()
+					player_mesh.add_child(\
+					load(PlayerInfo.current_armor.mesh).instantiate())
+					#print( player.get_node("Model").get_child(0).get_node("AnimationTree"))
+					#player.reset_anim_variable()
 					
 					#copy a setting of armor
 			

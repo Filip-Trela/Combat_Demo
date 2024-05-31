@@ -34,9 +34,9 @@ func second_activate():
 func selection():
 	index = get_parent().get_parent().item_index
 	
-	$Buttons/Label1.text = options[index -1 ][0].name
-	$Buttons/Label2.text = options[index][0].name
-	$Buttons/Label3.text = options[index - opt_nr][0].name
+	$Buttons/Name1/Label1.text = options[index -1 ][0].name
+	$Buttons/Name2/Label2.text = options[index][0].name
+	$Buttons/Name3/Label3.text = options[index - opt_nr][0].name
 	
 	#slav_butts.get_child(0).get_node("Amount").text = str(options[nr -1 ][1])
 	$Amount.text = str(options[index][1])

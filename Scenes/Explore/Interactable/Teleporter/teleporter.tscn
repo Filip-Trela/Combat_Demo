@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjkhqj53pdy4s"]
+[gd_scene load_steps=10 format=3 uid="uid://bjkhqj53pdy4s"]
 
 [ext_resource type="PackedScene" uid="uid://dufx1sts3en6l" path="res://Scenes/Explore/Interactable/InteractableBase/interactable.tscn" id="1_fbmw7"]
 [ext_resource type="Script" path="res://Scenes/Explore/Interactable/Teleporter/teleporter.gd" id="2_ceosu"]
 [ext_resource type="PackedScene" uid="uid://dv4hgaaoavvx5" path="res://Scenes/Explore/Interactable/Teleporter/2D_part_of_teleporter/teleport_button.tscn" id="3_eaids"]
-[ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="4_53tmh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoidl"]
 albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
@@ -51,20 +50,15 @@ visible = false
 [node name="MainButtons" type="Node2D" parent="2D_part" index="0"]
 
 [node name="Teleport" parent="2D_part/MainButtons" index="0" instance=ExtResource("3_eaids")]
-position = Vector2(128, 114)
+position = Vector2(84, 330)
 
 [node name="TeleportButtons" type="Node2D" parent="2D_part" index="1"]
 visible = false
 
 [node name="0" type="Node2D" parent="2D_part/TeleportButtons" index="0"]
-position = Vector2(122, 466)
+position = Vector2(86, 400)
 
-[node name="Sprite2D" type="Sprite2D" parent="2D_part/TeleportButtons/0" index="0"]
-modulate = Color(0.356863, 0.635294, 0.654902, 1)
-scale = Vector2(3, 1)
-texture = ExtResource("4_53tmh")
-
-[node name="Label" type="Label" parent="2D_part/TeleportButtons/0" index="1"]
+[node name="Label" type="Label" parent="2D_part/TeleportButtons/0" index="0"]
 offset_left = -97.0
 offset_top = -31.0
 offset_right = 96.0
@@ -75,14 +69,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="3" type="Node2D" parent="2D_part/TeleportButtons" index="1"]
-position = Vector2(122, 550.755)
+position = Vector2(84, 491)
 
-[node name="Sprite2D" type="Sprite2D" parent="2D_part/TeleportButtons/3" index="0"]
-modulate = Color(0.356863, 0.635294, 0.654902, 1)
-scale = Vector2(3, 1)
-texture = ExtResource("4_53tmh")
-
-[node name="Label" type="Label" parent="2D_part/TeleportButtons/3" index="1"]
+[node name="Label" type="Label" parent="2D_part/TeleportButtons/3" index="0"]
 offset_left = -97.0
 offset_top = -31.0
 offset_right = 96.0

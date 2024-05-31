@@ -25,6 +25,29 @@ var canon = {
 	"id": 002
 }
 
+var hands = {
+	"name": "Hands",
+	"description": "unarmed",
+	"strengths": [1,0,0],
+	"weapon_scene": "res://Scenes/MainLoop/Weapons/Hand/hand_weapon.tscn",
+	"attacks": [Actions.strong_punch_hand],
+	"stagger": 5,
+	"id": 003
+}
+
+var gun_maul = {
+	"name": "Gun Maul",
+	"description": "It's a gun, looking like maul",
+	"strengths": [1,0,0],
+	"weapon_scene": "res://Scenes/MainLoop/Weapons/Gun_Maul/gun_maul.tscn",
+	"attacks": [
+	Actions.double_strike_maul,
+	Actions.pierce_maul
+	],
+	"stagger": 5,
+	"id": 003
+}
+
 
 var all_weapons = [baseweapon, katana, canon]
 
@@ -54,14 +77,9 @@ var tattered_armor ={
 	"id": 001
 }
 
-var heavyarmor ={
-	"name": "heavy",
-	"description": "Figure with heavy armor",
-	"id": 002
-}
 
 
-var all_armor = [basearmor, tattered_armor, heavyarmor]
+var all_armor = [basearmor, tattered_armor]
 
 func find_armor(id):
 	for armor in all_armor:

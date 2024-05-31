@@ -32,7 +32,6 @@ var mouse_rotat = 0
 var mouse_sens = 0.005
 
 
-var press_wait = false
 
 
 var dodge_is = false
@@ -56,8 +55,7 @@ func _ready():
 	
 
 func _process(_delta):
-	#$AnimTreePlayerCombat["parameters/Stop/scale"] = Settings.current_time
-	#$AnimTreePlayerCombat["parameters/Stop2/scale"] = Settings.current_time
+
 	#kurwa mac
 	
 	if dodge_is:
@@ -74,7 +72,7 @@ func _process(_delta):
 		
 
 func _physics_process(_delta):
-
+	anim_tree["parameters/Stop/scale"] = Settings.current_time
 	#xz moving
 	if PlayerInfo.combat_state == "during action" or PlayerInfo.combat_state == "in menu":
 		xz_vec = xz_vec.move_toward(Vector2(0,0) ,deceleration)
@@ -107,12 +105,7 @@ func _physics_process(_delta):
 	velocity = mov_vec * Settings.current_time
 	
 	
-	#for timer information
-	if PlayerInfo.combat_state != "during action":
-		if xz_vec != Vector2(0,0) or press_wait:
-			PlayerInfo.is_moving = true
-		else:
-			PlayerInfo.is_moving = false
+
 		
 	#if PlayerInfo.is_moving:
 	move_and_slide()
@@ -120,18 +113,18 @@ func _physics_process(_delta):
 
 
 func _input(_event):
-
-	if PlayerInfo.combat_state == "moving":
-		input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
-		input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
-		input_vec = input_vec.normalized()
+	input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
+	input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
+	input_vec = input_vec.normalized()
 	
+	
+	if PlayerInfo.combat_state == "moving":
 		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
 		if transformed_input != Vector2(0,0):
 			xz_dir = transformed_input
 
 		
-		if Input.is_action_just_pressed("shift") and !dodge_is:
+		if Input.is_action_just_pressed("shift") and !dodge_is and xz_vec != Vector2(0,0):
 			if PlayerInfo.current_sp > Actions.dodge_cost:
 				anim_tree["parameters/Transition/transition_request"] = "Attack"
 				anim_tree["parameters/Attacks/playback"].start("Dodge")
@@ -145,20 +138,16 @@ func _input(_event):
 #czej, co to kurwa jest
 				#pozniej to cale zmienic
 	elif Input.is_action_just_pressed("shift") and !dodge_is and Settings.stopped_time:
-		Settings.stopped_time = false
-		Settings.current_time = Settings.move_time
+		if input_vec != Vector2(0,0):
+			Settings.stopped_time = false
+			Settings.current_time = Settings.move_time
 		
-		
-		input_vec.x = Input.get_action_raw_strength("d") - Input.get_action_raw_strength("a")
-		input_vec.y = Input.get_action_raw_strength("s") - Input.get_action_raw_strength("w")
-		input_vec = input_vec.normalized()
-	
-		transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
-		if PlayerInfo.current_sp > Actions.dodge_cost:
-				xz_vec += transformed_input * 20
-				PlayerInfo.current_sp -= Actions.dodge_cost
-				dodge_is = true
-	press_wait = Input.get_action_raw_strength("e")
+			transformed_input = input_vec.rotated(-mouse_joint_y.rotation.y)
+			if PlayerInfo.current_sp > Actions.dodge_cost:
+					xz_vec += transformed_input * 20
+					PlayerInfo.current_sp -= Actions.dodge_cost
+					dodge_is = true
+
 	
 		
 	

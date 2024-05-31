@@ -9,3 +9,5 @@ animacje dla playera musza byc bez bezier curve bo cos w kodzie nie dzialaja
 w mesh distance fade istnieje, dzialalo by to na brak problemow z kamera
 
 back lighting dla fajnych efektow cienia
+
+Attacked explore zawsze ten sam czas, aktualnie 1.8 sek

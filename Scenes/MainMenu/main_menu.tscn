@@ -13,8 +13,17 @@ shadow_enabled = true
 
 [node name="2D" parent="." instance=ExtResource("1_3ot6u")]
 
+[node name="MainButtons" parent="2D" index="0"]
+position = Vector2(131, 595)
+
+[node name="StartGame" parent="2D/StartButtons" index="0"]
+position = Vector2(146, 486)
+
+[node name="Fullscreen" parent="2D/SettingButtons" index="0"]
+position = Vector2(145, 529)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.913545, 0, 0.406737, 0, 1, 0, -0.406737, 0, -0.913545, -1.035, 1.483, -9.265)
+transform = Transform3D(-0.913545, 0, 0.406737, 0, 1, 0, -0.406737, 0, -0.913545, -1.035, 1.483, -5.125)
 current = true
 
 [editable path="2D"]

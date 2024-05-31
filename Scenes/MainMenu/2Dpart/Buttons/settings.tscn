@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkku0hllq4xi8"]
+[gd_scene load_steps=3 format=3 uid="uid://bkku0hllq4xi8"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_j7pvc"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/2Dpart/Buttons/settings.gd" id="2_0jp7q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bdp0u"]
 font_size = 30
 
-[node name="Settings" instance=ExtResource("1_j7pvc")]
+[node name="Settings" type="Node2D"]
 script = ExtResource("2_0jp7q")
 
-[node name="Label" type="Label" parent="." index="1"]
+[node name="Label2" type="Label" parent="."]
 offset_left = -96.0
 offset_top = -32.0
 offset_right = 96.0

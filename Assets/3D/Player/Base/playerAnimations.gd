@@ -14,6 +14,7 @@ func _ready():
 	player = get_parent().get_parent()
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -21,6 +22,7 @@ func _process(delta):
 
 
 func _on_hitbox_combat_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	var action = player.action
 	
 	var damage_base = action.damage[index_at]
 	
@@ -48,48 +50,7 @@ func anim_starts():
 	PlayerInfo.combat_state ="during action"
 
 
-#to mozliwe ze tez wywalic
-func follow_up_set():
-	if hitted and follow_allowed == true:
-		if PlayerInfo.follows < PlayerInfo.follows_max:
-			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "moving"
-			PlayerInfo.follows += 1
-			if PlayerInfo.follows == PlayerInfo.follows_max:
-				no_follows = true
-				last_follow = true
-				PlayerInfo.is_moving = true
-				PlayerInfo.combat_state ="during action"
-		
-	
-	else:
-		hitted = false
-		PlayerInfo.is_moving = true
-		PlayerInfo.combat_state ="during action"
 
-
-#to moze zostac wywalone
-func _on_animation_player_animation_finished(anim_name):
-	#when follows
-	if follow_allowed:
-		#this pi,follows can be taken and put in one place
-		if PlayerInfo.combat_state == "moving":
-			PlayerInfo.follows = 0
-
-		elif hitted == false:
-			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "moving"
-			PlayerInfo.follows = 0
-		elif last_follow:
-			PlayerInfo.is_moving = false
-			PlayerInfo.combat_state = "moving"
-			PlayerInfo.follows = 0
-	
-	#when follows not allowed
-	else:
-		PlayerInfo.is_moving = false
-		PlayerInfo.combat_state = "moving"
-		PlayerInfo.follows = 0
 	
 func next_index():
 	index_at += 1
@@ -100,3 +61,10 @@ func stop_time():
 
 func start_time():
 	Settings.stopped_time = false
+
+
+
+
+
+func _on_hitbox_explore_body_entered(body):
+	player.hitbox_explore_body_entered(body)

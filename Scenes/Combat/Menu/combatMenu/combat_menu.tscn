@@ -9,13 +9,6 @@ script = ExtResource("1_5vbti")
 
 [node name="ButtonHandler" parent="." instance=ExtResource("2_6gfeu")]
 
-[node name="Hp_back" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1209.59, 262.157)
-rotation = -1.80804
-scale = Vector2(-4.4823, 0.89632)
-texture = ExtResource("3_evpx7")
-
 [node name="PlayerHealth" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
 offset_left = 1253.0
@@ -26,13 +19,6 @@ rotation = -3.13867
 scale = Vector2(2.1463, 0.400727)
 show_percentage = false
 
-[node name="Mana_back" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1122.36, 348.586)
-rotation = 1.11958
-scale = Vector2(4.4823, -0.89632)
-texture = ExtResource("3_evpx7")
-
 [node name="PlayerMana" type="ProgressBar" parent="."]
 modulate = Color(0.308848, 0.492366, 1, 1)
 offset_left = 1253.0
@@ -42,13 +28,6 @@ offset_bottom = 591.0
 rotation = -3.14013
 scale = Vector2(2.1463, 0.441718)
 show_percentage = false
-
-[node name="Sp_back" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1029.31, 421.427)
-rotation = -2.33461
-scale = Vector2(-4.4823, 0.89632)
-texture = ExtResource("3_evpx7")
 
 [node name="PlayerSp" type="ProgressBar" parent="."]
 modulate = Color(1.92523e-06, 0.757802, 0.131229, 1)

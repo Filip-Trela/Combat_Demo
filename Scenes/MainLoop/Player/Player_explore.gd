@@ -50,10 +50,11 @@ var closest_interact
 
 var xz_toss = 10
 
-@onready var anim = $Model.get_child(0).get_node("AnimationTree")
+var anim
 
 
 func _ready():
+	anim = $Model.get_child(0).get_node("AnimationTree")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#self.set_collision_mask()
 	mouse_joint_y = get_node("CameraY")
@@ -62,6 +63,7 @@ func _ready():
 
 
 func _process(_delta):
+	
 
 	model_rotation = Vector2(mov_vec.x, mov_vec.z).normalized()
 	if model_rotation != Vector2(0,0):
@@ -76,10 +78,9 @@ func _process(_delta):
 				closest_interact = interact
 		else:
 			closest_interact = interact
-	
-		
 
 func _physics_process(_delta):
+	reset_anim_variable()
 	#xz moving
 	if input_vec != Vector2(0,0) and PlayerInfo.explore_state =="moving":
 		xz_vec = xz_vec.move_toward(transformed_input * max_speed, acceleration)
@@ -95,7 +96,6 @@ func _physics_process(_delta):
 	
 	if xz_vec != Vector2(0,0):
 		xz_dir = xz_vec.normalized()
-	
 	anim["parameters/Movement/blend_position"] = xz_vec.length() / sprint_speed
 	mov_vec = Vector3(xz_vec.x,y_vec,xz_vec.y)
 	
@@ -201,7 +201,7 @@ func _on_interact_detector_body_exited(body):
 			closest_interact = null
 
 
-func _on_hitbox_explore_body_entered(body):
+func hitbox_explore_body_entered(body):
 	#wagon
 	var enemy = body
 	enemy.attacked()
@@ -216,3 +216,7 @@ func _on_hitbox_explore_body_entered(body):
 			 
 	#main loop
 	#get_parent().get_parent().change_to_combat()
+
+func reset_anim_variable():
+	anim = null
+	anim = $Model.get_child(0).get_node("AnimationTree")

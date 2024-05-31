@@ -32,7 +32,7 @@ func selection():
 	
 	var index = get_parent().get_parent().magic_index
 
-	$Buttons/Label1.text = list[index -1 ].name
-	$Buttons/Label2.text = list[index].name
-	$Buttons/Label3.text = list[index - list_len].name
+	$Buttons/Name1/Label1.text = list[index -1 ].name
+	$Buttons/Name2/Label2.text = list[index].name
+	$Buttons/Name3/Label3.text = list[index - list_len].name
 	

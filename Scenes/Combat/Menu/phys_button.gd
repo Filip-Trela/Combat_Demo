@@ -31,7 +31,7 @@ func selection():
 	opt_nr = len(options) - 1
 	var index = get_parent().get_parent().phys_index
 	
-	$Buttons/Label1.text = options[index -1 ].name
-	$Buttons/Label2.text = options[index].name
-	$Buttons/Label3.text = options[index - opt_nr].name
+	$Buttons/Name1/Label1.text = options[index -1 ].name
+	$Buttons/Name2/Label2.text = options[index].name
+	$Buttons/Name3/Label3.text = options[index - opt_nr].name
 

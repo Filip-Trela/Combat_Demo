@@ -229,6 +229,11 @@ func master_butt_change():
 
 func change_index(amount):
 	last_index_change = amount
+	
+	if amount == -1:
+		mas_node.get_node("Buttons/AnimationPlayer").play("scroll_up")
+	else:
+		mas_node.get_node("Buttons/AnimationPlayer").play("scroll_down")
 	match skill_type:
 		"physical": 
 			phys_index += amount

@@ -45,9 +45,7 @@ var explore_state = "moving"
 
 
 var phys_skills = [
-	action_list.slash,
-	action_list.vertical_slash,
-	action_list.double_slash
+	Actions.strong_punch_hand
 ]
 
 
@@ -70,8 +68,7 @@ var inv_armor = [
 
 
 var inv_weapons = [
-	inv_list.katana,
-	inv_list.canon
+	inv_list.gun_maul
 ]
 
 var inv_items = [
@@ -98,7 +95,7 @@ var sp_recovery = 0
 var sp_time_rec = 1.0
 
 var current_armor = inv_armor[0]
-var current_weapon = inv_weapons[0]
+var current_weapon = InventoryInfo.hands
 
 
 func add_item(item_added):

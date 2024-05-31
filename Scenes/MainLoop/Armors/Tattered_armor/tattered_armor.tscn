@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1w54c2qesf83"]
+[gd_scene load_steps=9 format=3 uid="uid://b1w54c2qesf83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k24px"]
 albedo_color = Color(0.370364, 0.370364, 0.370364, 1)
@@ -24,22 +24,13 @@ material = SubResource("StandardMaterial3D_v1sin")
 radius = 0.1
 height = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjlrp"]
-albedo_color = Color(0.641934, 0.641934, 0.641934, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_4me5v"]
-material = SubResource("StandardMaterial3D_yjlrp")
-top_radius = 0.12
-bottom_radius = 0.335
-height = 0.245
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th568"]
 cull_mode = 2
 albedo_color = Color(0.205117, 0.205117, 0.205117, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g2ggq"]
 material = SubResource("StandardMaterial3D_th568")
-size = Vector2(0.16, 0.56)
+size = Vector2(0.16, 0.7)
 subdivide_depth = 3
 
 [node name="Tattered_armor" type="Node3D"]
@@ -62,42 +53,62 @@ mesh = SubResource("SphereMesh_npyya")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 0.486, -0.456)
 mesh = SubResource("SphereMesh_npyya")
 
-[node name="Naramienik" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.958477, 0.28517, 0, -0.28517, 0.958477, 0, 0, 0, 1, 0.440557, 0.21349, 0)
-mesh = SubResource("CylinderMesh_4me5v")
-
 [node name="SoftBody3D" type="SoftBody3D" parent="."]
-transform = Transform3D(0.227654, 0.973742, -4.25636e-08, 0, -4.37114e-08, -1, -0.973742, 0.227654, -9.95108e-09, 0.684454, -0.265067, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00311702, -0.265067, 0.80992)
 mesh = SubResource("PlaneMesh_g2ggq")
-skeleton = NodePath("../Naramienik")
+skeleton = NodePath("")
 pinned_points = [9, 8]
 attachments/0/point_index = 9
-attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(-0.08, 0, -0.28)
+attachments/0/spatial_attachment_path = NodePath("../Cloth2")
+attachments/0/offset = Vector3(-0.083117, -0.117522, 0.45992)
 attachments/1/point_index = 8
-attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(0.08, 0, -0.28)
+attachments/1/spatial_attachment_path = NodePath("../Cloth2")
+attachments/1/offset = Vector3(0.076883, -0.117522, 0.45992)
 
 [node name="SoftBody3D2" type="SoftBody3D" parent="."]
-transform = Transform3D(0.723773, 0.678006, -0.128294, -0.0936293, -0.0877088, -0.991736, -0.683656, 0.729804, -3.19008e-08, 0.591892, -0.250175, 0.208761)
+transform = Transform3D(0.97379, 0, -0.22745, 0, 1, 0, 0.22745, 0, 0.97379, -0.385675, -0.0891168, 0.696187)
 mesh = SubResource("PlaneMesh_g2ggq")
-skeleton = NodePath("../Naramienik")
+skeleton = NodePath("")
 pinned_points = [9, 8]
 attachments/0/point_index = 9
-attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(-0.08, 0, -0.28)
+attachments/0/spatial_attachment_path = NodePath("../Cloth2")
+attachments/0/offset = Vector3(-0.383971, 0.0584282, 0.337165)
 attachments/1/point_index = 8
-attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(0.08, 0, -0.28)
+attachments/1/spatial_attachment_path = NodePath("../Cloth2")
+attachments/1/offset = Vector3(-0.228164, 0.0584282, 0.373557)
 
 [node name="SoftBody3D3" type="SoftBody3D" parent="."]
-transform = Transform3D(-0.718873, 0.669643, -0.186544, 0.395552, 0.173379, -0.90193, -0.571629, -0.722161, -0.389517, 0.546719, -0.196307, -0.348308)
+transform = Transform3D(0.963322, 0, 0.268348, 0, 1, 0, -0.268348, 0, 0.963322, 0.327744, -0.14397, 0.763393)
 mesh = SubResource("PlaneMesh_g2ggq")
-skeleton = NodePath("../Naramienik")
-pinned_points = [8, 9]
-attachments/0/point_index = 8
-attachments/0/spatial_attachment_path = NodePath("../Naramienik")
-attachments/0/offset = Vector3(0.08, 0, -0.28)
-attachments/1/point_index = 9
-attachments/1/spatial_attachment_path = NodePath("../Naramienik")
-attachments/1/offset = Vector3(-0.08, 0, -0.28)
+skeleton = NodePath("")
+pinned_points = [9, 8]
+attachments/0/point_index = 9
+attachments/0/spatial_attachment_path = NodePath("../Cloth2")
+attachments/0/offset = Vector3(0.156756, 0.003575, 0.447698)
+attachments/1/point_index = 8
+attachments/1/spatial_attachment_path = NodePath("../Cloth2")
+attachments/1/offset = Vector3(0.310888, 0.003575, 0.404762)
+
+[node name="SoftBody3D4" type="SoftBody3D" parent="."]
+transform = Transform3D(0.996936, 0, 0.0782155, 0, 1, 0, -0.0782155, 0, 0.996937, 0.172653, 0.0821977, 0.763393)
+mesh = SubResource("PlaneMesh_g2ggq")
+skeleton = NodePath("")
+pinned_points = [9, 8]
+attachments/0/point_index = 9
+attachments/0/spatial_attachment_path = NodePath("../Cloth2")
+attachments/0/offset = Vector3(0.0655227, 0.229743, 0.420722)
+attachments/1/point_index = 8
+attachments/1/spatial_attachment_path = NodePath("../Cloth2")
+attachments/1/offset = Vector3(0.225032, 0.229743, 0.408208)
+
+[node name="SoftBody3D5" type="SoftBody3D" parent="."]
+transform = Transform3D(0.979035, 0, -0.203693, 0, 1, 0, 0.203693, 0, 0.979035, -0.158208, 0.215566, 0.763393)
+mesh = SubResource("PlaneMesh_g2ggq")
+skeleton = NodePath("")
+pinned_points = [9, 8]
+attachments/0/point_index = 9
+attachments/0/spatial_attachment_path = NodePath("../Cloth2")
+attachments/0/offset = Vector3(-0.165238, 0.363111, 0.404435)
+attachments/1/point_index = 8
+attachments/1/spatial_attachment_path = NodePath("../Cloth2")
+attachments/1/offset = Vector3(-0.00859265, 0.363111, 0.437026)

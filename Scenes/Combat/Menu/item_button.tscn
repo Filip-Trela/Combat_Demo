@@ -1,56 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh0isaph6kcct"]
 
-[ext_resource type="PackedScene" uid="uid://baw7l33adb1gk" path="res://Utility/button_template.tscn" id="1_imnb0"]
 [ext_resource type="Script" path="res://Scenes/Combat/Menu/item_button.gd" id="2_lssn7"]
+[ext_resource type="PackedScene" uid="uid://mm5dkly6hafc" path="res://Scenes/Combat/Menu/buttons_animated.tscn" id="3_d7ruf"]
 [ext_resource type="Texture2D" uid="uid://burgp8hwsw3v7" path="res://Assets/2D/whiteTile.png" id="3_lf5od"]
 
-[node name="ItemButton" instance=ExtResource("1_imnb0")]
+[node name="ItemButton" type="Node2D"]
 script = ExtResource("2_lssn7")
 
-[node name="Sprite2D" parent="." index="0"]
-modulate = Color(1, 1, 1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 1)
+texture = ExtResource("3_lf5od")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.525101, 0.525101, 0.525101, 1)
 scale = Vector2(2.8, 0.8)
 texture = ExtResource("3_lf5od")
 
-[node name="Buttons" type="Node2D" parent="." index="2"]
+[node name="Buttons" parent="." instance=ExtResource("3_d7ruf")]
 
-[node name="Label1" type="Label" parent="Buttons" index="0"]
-offset_left = -90.0
-offset_top = -82.0
-offset_right = 89.0
-offset_bottom = -32.0
-text = "Previous item"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="Buttons" index="1"]
-offset_left = -90.0
-offset_top = -25.0
-offset_right = 89.0
-offset_bottom = 25.0
-text = "Current item"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="Buttons" index="2"]
-offset_left = -90.0
-offset_top = 32.0
-offset_right = 89.0
-offset_bottom = 82.0
-text = "Next Item"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Amount" type="Label" parent="." index="3"]
+[node name="Amount" type="Label" parent="."]
 offset_left = 54.0
 offset_top = 2.0
 offset_right = 94.0

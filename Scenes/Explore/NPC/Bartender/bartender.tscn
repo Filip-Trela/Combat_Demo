@@ -1,0 +1,87 @@
+[gd_scene load_steps=15 format=3 uid="uid://dv62den4cheik"]
+
+[ext_resource type="PackedScene" uid="uid://d0efh0di3jsim" path="res://Scenes/Explore/NPC/Base/npc_base.tscn" id="1_7r37r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_30stx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1qsq"]
+albedo_color = Color(0.699397, 0.609803, 0.441617, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gdclq"]
+material = SubResource("StandardMaterial3D_m1qsq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec3vl"]
+albedo_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w1wsb"]
+material = SubResource("StandardMaterial3D_ec3vl")
+size = Vector3(0.235, 0.13, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0kw44"]
+material = SubResource("StandardMaterial3D_ec3vl")
+size = Vector3(0.235, 0.03, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fq46"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w6n07"]
+material = SubResource("StandardMaterial3D_6fq46")
+radius = 0.51
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcyla"]
+albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dbvt3"]
+material = SubResource("StandardMaterial3D_mcyla")
+radius = 0.53
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2wc7"]
+albedo_color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6q1k8"]
+material = SubResource("StandardMaterial3D_h2wc7")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="PrismMesh" id="PrismMesh_r6bew"]
+material = SubResource("StandardMaterial3D_h2wc7")
+size = Vector3(0.255, 0.435, 0.125)
+
+[node name="Bartender" instance=ExtResource("1_7r37r")]
+dialog = "res://Scenes/Explore/NPC/Bartender/bartender_dialog.txt"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_30stx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_gdclq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185171, 0.455024, -0.51415)
+mesh = SubResource("BoxMesh_w1wsb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138075, 0.455024, -0.51415)
+mesh = SubResource("BoxMesh_w1wsb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0174821, 0.477084, -0.51415)
+mesh = SubResource("BoxMesh_0kw44")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256125, 0)
+mesh = SubResource("CapsuleMesh_w6n07")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26, 0.025)
+mesh = SubResource("CapsuleMesh_dbvt3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.482975)
+mesh = SubResource("SphereMesh_6q1k8")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225585, -0.475346)
+mesh = SubResource("PrismMesh_r6bew")
